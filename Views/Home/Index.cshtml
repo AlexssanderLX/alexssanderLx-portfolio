@@ -1,125 +1,103 @@
-﻿<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portfólio – Engenharia de Materiais</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/components/header.css" />
-    <link rel="stylesheet" href="css/layout/landing.css" />
-    <link rel="stylesheet" href="css/utils/cards.css" />
-</head>
-<body>
-    <header class="hero-header">
-        <div class="brand">
-            <span class="tag">Engenharia de Materiais</span>
-            <h1>Materializando confiança</h1>
-            <p>Estudante de engenharia especializado em materiais de construção sustentável e testes laboratoriais.</p>
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="home-wrapper">
+    <div class="hero-card">
+
+        <div class="hero-image">
+            <img src="/img/AnselmoHome.png" alt="Anselmo Alves">
         </div>
-        <div class="hero-cta">
-            <a class="primary-btn" href="#contato">Contato</a>
-            <a class="secondary-btn" href="#portfolio">Ver Projetos</a>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Anselmo Alves</h1>
+            <p class="hero-subtitle">
+                Engenharia aplicada com foco em planejamento, execução e soluções técnicas eficientes.
+            </p>
         </div>
-    </header>
 
-    <main>
-        <section class="immersive-image">
-            <div class="image-grid">
-                <div class="image-block">
-                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80" alt="Análise de materiais" />
-                    <p>Análises de laboratório</p>
-                </div>
-                <div class="image-block tall">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=700&q=80" alt="Obra moderna" />
-                    <p>Obras com materiais certificados</p>
-                </div>
-                <div class="image-block">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=700&q=80" alt="Detalhes estruturais" />
-                    <p>Detalhamento técnico</p>
-                </div>
-            </div>
-        </section>
+    </div>
+</div>
 
-        <section id="portfolio" class="cards-section">
-            <div class="section-heading">
-                <h2>Projetos em destaques</h2>
-                <p>Testes, estudos e propostas voltadas à inovação em materiais de construção civil.</p>
-            </div>
-            <div class="card-grid">
-                <article class="material-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80" alt="Concreto especial" />
-                    </div>
-                    <div class="card-body">
-                        <h3>Concreto de alto desempenho</h3>
-                        <p>Ensaios de resistência e durabilidade com aditivos sustentáveis para edifícios residenciais.</p>
-                        <span class="badge">Resultados laboratoriais</span>
-                    </div>
-                </article>
-                <article class="material-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="Materiais reciclados" />
-                    </div>
-                    <div class="card-body">
-                        <h3>Materiais reciclados</h3>
-                        <p>Desenvolvimento de misturas com resíduos industriais visando redução de impacto ambiental.</p>
-                        <span class="badge">Pesquisa acadêmica</span>
-                    </div>
-                </article>
-                <article class="material-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80" alt="Sustentabilidade" />
-                    </div>
-                    <div class="card-body">
-                        <h3>Prototipação sustentável</h3>
-                        <p>Estudos de ciclo de vida de materiais e apoio técnico em projetos sustentáveis.</p>
-                        <span class="badge">Consultoria</span>
-                    </div>
-                </article>
-            </div>
-        </section>
+<style>
+    /* Wrapper central */
+    .home-wrapper {
+        display: flex;
+        justify-content: center;
+        padding: 80px 20px;
+    }
 
-        <section class="skills-section">
-            <div class="section-heading">
-                <h2>Habilidades e ferramentas</h2>
-                <p>Integração entre laboratório, campo e projeto.</p>
-            </div>
-            <ul class="skills-list">
-                <li>Ensaios mecânicos e físicos</li>
-                <li>Análise de durabilidade e corrosão</li>
-                <li>Materiais sustentáveis e reciclados</li>
-                <li>AutoCAD / Revit para detalhamento</li>
-                <li>Gestão de projetos com MS Project</li>
-                <li>Documentação técnica e relatórios</li>
-            </ul>
-        </section>
+    /* Card principal */
+    .hero-card {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        max-width: 1100px;
+        width: 100%;
+        border-radius: 22px;
+        overflow: hidden;
+        background: rgba(15, 20, 30, 0.85);
+        backdrop-filter: blur(6px);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
 
-        <section id="contato" class="contact-panel">
-            <div class="contact-content">
-                <h2>Vamos conversar?</h2>
-                <p>Envie uma mensagem descrevendo seu projeto, dúvida ou oportunidade de parceria.</p>
-                <div class="contact-info">
-                    <p><strong>Email:</strong> contato@engenhariamateriais.com</p>
-                    <p><strong>LinkedIn:</strong> linkedin.com/in/engenheiro-materiais</p>
-                </div>
-            </div>
-            <form class="contact-form">
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" placeholder="Seu nome" required />
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="seu@email.com" required />
-                <label for="mensagem">Mensagem</label>
-                <textarea id="mensagem" rows="4" placeholder="Quero discutir..." required></textarea>
-                <button type="submit" class="primary-btn full-width">Enviar mensagem</button>
-            </form>
-        </section>
-    </main>
+    /* Foto */
+    .hero-image {
+        position: relative;
+    }
 
-    <footer class="site-footer">
-        <p>© 2024 – Estudante de Engenharia de Materiais de Construção. Imagens via Unsplash.</p>
-    </footer>
-</body>
-</html>
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%) contrast(1.05);
+        }
+
+        .hero-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient( to right, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.65) );
+        }
+
+    /* Conteúdo */
+    .hero-content {
+        padding: 60px 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 25px;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #e9f6ff;
+        margin: 0;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+        line-height: 1.6;
+        color: #b8d8ff;
+        max-width: 420px;
+    }
+
+    /* Responsivo */
+    @@media (max-width: 900px) {
+        .hero-card {
+            grid-template-columns: 1fr;
+        }
+
+        .hero-content {
+            padding: 40px 30px;
+            text-align: center;
+            align-items: center;
+        }
+
+        .hero-subtitle {
+            max-width: none;
+        }
+    }
+</style>

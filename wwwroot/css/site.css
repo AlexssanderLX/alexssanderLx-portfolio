@@ -1,0 +1,192 @@
+/* ========== BASE ========= */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0a0f1f;
+    background-image: url('/img/background-pattern.png');
+    background-size: 350px;
+    background-repeat: repeat;
+    color: #f0f0f0;
+    overflow-x: hidden;
+    overflow-y: auto; /* scroll apenas no body */
+}
+
+/* ===== Scrollbar Profissional Neon Dark ===== */
+::-webkit-scrollbar {
+    width: 10px;
+    background: #2b2b2b;
+}
+
+::-webkit-scrollbar-track {
+    background: #2b2b2b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #0099cc, #006680);
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 200, 255, 0.4);
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #00cfff, #0088aa);
+        box-shadow: 0 0 10px rgba(0,255,255,0.7);
+    }
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #0099cc #2b2b2b;
+}
+
+/* ========== HEADER ========= */
+
+.header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.header {
+    height: 80px; /* ou ajuste para o valor desejado */
+    display: flex;
+    align-items: center;
+}
+
+
+.header-wood {
+    background: linear-gradient(135deg, #5a3e2b, #7a523a, #4c2f21);
+    border-bottom: 3px solid black;
+    box-shadow: 0 0 10px black;
+}
+
+/* compensação para o header */
+.header-offset {
+    height: 90px;
+}
+
+.logo-img {
+    height: 80px; /* altura fixa */
+    width: auto; /* mantém proporção */
+    object-fit: contain;
+    display: block;
+}
+
+
+/* ========= LINKS ELÉTRICOS ========= */
+
+.electric-link {
+    font-weight: bold;
+    position: relative;
+    transition: 0.2s;
+}
+
+    .electric-link:hover {
+        color: cyan !important;
+        text-shadow: 0 0 6px cyan;
+    }
+
+    .electric-link::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        left: 0;
+        bottom: -2px;
+        background: cyan;
+        transition: width 0.25s;
+    }
+
+    .electric-link:hover::after {
+        width: 100%;
+    }
+
+/* ========== BARRAS BRANCAS LATERAIS ========= */
+
+.outer-frame {
+    padding-left: 30px;
+    padding-right: 30px;
+    min-height: calc(100vh - 150px);
+}
+
+.inner-frame {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    background: transparent; /* deixa o fundo aparecer */
+}
+
+/* ========== CARDS DE CONTATO ========== */
+
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.contact-card {
+    background: rgba(0,20,40,0.55);
+    border: 2px solid #0099cc;
+    border-radius: 14px;
+    padding: 25px;
+    min-height: 230px;
+    color: #d9f6ff;
+    box-shadow: 0 0 12px rgba(0,180,255,0.25);
+    transition: 0.25s;
+}
+
+    .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 18px cyan;
+    }
+
+    .contact-card h3 {
+        color: #00eaff;
+        margin-bottom: 10px;
+    }
+
+/* ========== TÍTULO DE CONTATO (NEON) ========== */
+
+.neon-title-contact {
+    background-color: #001a33;
+    color: #00eaff;
+    padding: 12px 24px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 12px #0099cc;
+    text-shadow: 0 0 6px cyan, 0 0 12px cyan;
+}
+
+/* ========== FOOTER ========= */
+
+.footer-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #2b2b2b;
+    color: #eaeaea;
+    padding: 30px 0;
+    font-size: 0.85rem;
+    text-align: center;
+    border-top: 2px solid #555;
+}
+
+    .footer-fixed a {
+        color: #00eaff;
+    }
+
+        .footer-fixed a:hover {
+            color: cyan;
+            text-shadow: 0 0 4px cyan;
+        }
