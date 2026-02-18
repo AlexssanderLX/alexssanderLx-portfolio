@@ -1,120 +1,284 @@
 ﻿@{
-    ViewData["Title"] = "Contact Page";
+    ViewData["Title"] = "Contact";
 }
 
-<div class="page-card">
+<section class="contact">
+    <header class="contact-hero">
+        <p class="kicker">CONTACT</p>
+        <h1 class="title">Let’s connect</h1>
+        <p class="subtitle">
+            For opportunities, projects, or collaboration — these are the fastest ways to reach me.
+        </p>
 
-    <div class="neon-title-contact">
-        Contact Me
+        <div class="chips">
+            <span class="chip">SP</span>
+            <span class="chip">Junior / Trainee (C# / .NET)</span>
+            <span class="chip">Pentest / Web Security</span>
+        </div>
+    </header>
+
+    <div class="grid">
+
+        <!-- Email -->
+        <article class="card card-hover">
+            <div class="card-top">
+                <h3>Email</h3>
+                <span class="hint">Primary</span>
+            </div>
+
+            <p class="value">
+                <a class="link" href="mailto:alexssander.f.almeida2006@gmail.com">
+                    alexssander.f.almeida2006@gmail.com
+                </a>
+            </p>
+
+            <p class="desc">Best for formal contact, proposals, and interviews.</p>
+
+            <div class="actions">
+                <a class="btn btn-primary" href="mailto:alexssander.f.almeida2006@gmail.com">Send email</a>
+                <button class="btn" type="button" onclick="copyText('alexssander.f.almeida2006@gmail.com')">Copy</button>
+            </div>
+        </article>
+
+        <!-- LinkedIn -->
+        <article class="card card-hover">
+            <div class="card-top">
+                <h3>LinkedIn</h3>
+                <span class="hint">Professional</span>
+            </div>
+
+            <p class="value">
+                <a class="link" href="https://linkedin.com/in/alexssander-ferreira-de-almeida-4a3841284" target="_blank" rel="noreferrer">
+                    linkedin.com/in/alexssander-ferreira-de-almeida-4a3841284
+                </a>
+            </p>
+
+            <p class="desc">Profile, background, and updates on projects.</p>
+
+            <div class="actions">
+                <a class="btn btn-primary" href="https://linkedin.com/in/alexssander-ferreira-de-almeida-4a3841284" target="_blank" rel="noreferrer">
+                    Open LinkedIn
+                </a>
+                <button class="btn" type="button" onclick="copyText('https://linkedin.com/in/alexssander-ferreira-de-almeida-4a3841284')">Copy</button>
+            </div>
+        </article>
+
+        <!-- GitHub -->
+        <article class="card card-hover">
+            <div class="card-top">
+                <h3>GitHub</h3>
+                <span class="hint">Code</span>
+            </div>
+
+            <p class="value">
+                <a class="link" href="https://github.com/AlexssanderLX" target="_blank" rel="noreferrer">
+                    github.com/AlexssanderLX
+                </a>
+            </p>
+
+            <p class="desc">Repositories, commits, and portfolio projects.</p>
+
+            <div class="actions">
+                <a class="btn btn-primary" href="https://github.com/AlexssanderLX" target="_blank" rel="noreferrer">
+                    Open GitHub
+                </a>
+                <button class="btn" type="button" onclick="copyText('https://github.com/AlexssanderLX')">Copy</button>
+            </div>
+        </article>
+
+        
+
     </div>
+</section>
 
-    <div class="contact-grid">
-
-        <div class="contact-card whatsapp">
-            <h3>📞 WhatsApp</h3>
-            <p>Aqui vai o QR Code + número + descrição.</p>
-        </div>
-
-        <div class="contact-card instagram">
-            <h3>📸 Instagram</h3>
-            <p>Prévia do feed, destaque do cliente, bio etc.</p>
-        </div>
-
-        <div class="contact-card linkedin">
-            <h3>💼 LinkedIn</h3>
-            <p>Breve resumo sobre o perfil profissional dele.</p>
-        </div>
-
-        <div class="contact-card email">
-            <h3>✉️ Email</h3>
-            <p>Formulário de contato ou call to action.</p>
-        </div>
-
-    </div>
-</div>
-
+<script>
+    function copyText(text) {
+        navigator.clipboard.writeText(text)
+            .then(() => alert("Copied to clipboard."))
+            .catch(() => alert("Could not copy. Your browser blocked it."));
+    }
+</script>
 
 <style>
-
-    /* ======== TÍTULO ======== */
-    .neon-title-contact {
-        font-size: 3rem;
-        text-align: center;
-        margin-bottom: 35px;
-        font-weight: bold;
-        color: #00eaff;
-        text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
-        animation: neonPulse 2.5s infinite ease-in-out;
+    /* ===== Contact (Alex vibe / dark glass) ===== */
+    .contact {
+        width: min(1100px, 92%);
+        margin: 0 auto;
+        padding: 18px 0 90px;
     }
 
-    @@keyframes neonPulse {
-        0%, 100%
-
-    {
-        text-shadow: 0 0 12px #00eaff;
-    }
-
-    50% {
-        text-shadow: 0 0 30px #00eaff;
-    }
-
-    }
-
-
-    /* ======== GRID DOS CARDS ======== */
-    .contact-grid {
-        display: grid;
-        gap: 30px;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        padding: 10px;
-        padding-bottom: 40px;
-    }
-
-
-    /* ======== CARDS ======== */
-    .contact-card {
-        background: rgba(255, 255, 255, 0.12);
-        border: 2px solid rgba(255,255,255,0.18);
+    .contact-hero {
         border-radius: 18px;
-        padding: 28px;
-        min-height: 240px;
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        box-shadow: 0 4px 18px rgba(0,0,0,0.3);
-        transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        padding: 26px 22px;
+        background: rgba(15, 23, 42, 0.40);
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+        margin-bottom: 14px;
     }
 
-        .contact-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.45);
+    .kicker {
+        margin: 0 0 10px 0;
+        color: rgba(226,232,240,0.70);
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        font-size: .9rem;
+    }
+
+    .title {
+        margin: 0;
+        font-size: 2.4rem;
+        font-weight: 900;
+        line-height: 1.06;
+    }
+
+    .subtitle {
+        margin: 10px 0 0 0;
+        color: rgba(226,232,240,0.78);
+        line-height: 1.75;
+        font-size: 1.06rem;
+        max-width: 80ch;
+    }
+
+    .chips {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+    }
+
+    .chip {
+        display: inline-flex;
+        padding: 8px 10px;
+        border-radius: 999px;
+        font-weight: 650;
+        font-size: .9rem;
+        color: rgba(226,232,240,0.92);
+        background: rgba(148, 163, 184, 0.10);
+        border: 1px solid rgba(148, 163, 184, 0.16);
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-top: 12px;
+    }
+
+    .card {
+        background: rgba(15, 23, 42, 0.65);
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        border-radius: 16px;
+        padding: 18px;
+        box-shadow: 0 16px 35px rgba(0,0,0,0.35);
+    }
+
+    .card-hover {
+        transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+        .card-hover:hover {
+            transform: translateY(-3px);
+            border-color: rgba(59, 130, 246, 0.28);
+            box-shadow: 0 22px 45px rgba(0,0,0,0.45);
         }
 
+    .card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
 
-        /* ======== TÍTULO DOS CARDS ======== */
-        .contact-card h3 {
-            color: #00eaff;
-            font-size: 1.6rem;
-            margin-bottom: 12px;
-            font-weight: 600;
-            text-shadow: 0 0 6px #00eaff;
+    .card h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 900;
+    }
+
+    .hint {
+        font-size: .85rem;
+        color: rgba(226,232,240,0.70);
+        border: 1px solid rgba(148,163,184,0.16);
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(148,163,184,0.08);
+    }
+
+    .value {
+        margin: 12px 0 6px;
+        font-weight: 750;
+        color: rgba(226,232,240,0.92);
+        word-break: break-word;
+    }
+
+    .link {
+        color: rgba(226,232,240,0.92);
+        text-decoration: none;
+        border-bottom: 1px dashed rgba(59,130,246,0.45);
+    }
+
+        .link:hover {
+            border-bottom-color: rgba(59,130,246,0.90);
         }
 
+    .desc {
+        margin: 0;
+        color: rgba(226,232,240,0.72);
+        line-height: 1.6;
+    }
 
-        /* ======== CORES ESPECÍFICAS ======== */
-        .contact-card.whatsapp {
-            border-color: #25D366;
+    .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 14px;
+        border-radius: 14px;
+        font-weight: 800;
+        text-decoration: none;
+        color: rgba(226,232,240,0.92);
+        background: rgba(148,163,184,0.10);
+        border: 1px solid rgba(148,163,184,0.16);
+        transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            background: rgba(148,163,184,0.14);
         }
 
-        .contact-card.instagram {
-            border-color: #b82a6e;
+    .btn-primary {
+        background: rgba(59,130,246,0.18);
+        border-color: rgba(59,130,246,0.30);
+    }
+
+        .btn-primary:hover {
+            background: rgba(59,130,246,0.26);
         }
 
-        .contact-card.linkedin {
-            border-color: #0077b5;
+    .muted-card {
+        opacity: 0.9;
+    }
+
+        .muted-card .btn[disabled] {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
 
-        .contact-card.email {
-            border-color: #2e8b57;
+    /* responsive */
+    @@media (max-width: 900px) {
+        .grid {
+            grid-template-columns: 1fr;
         }
 
+        .title {
+            font-size: 2.05rem;
+        }
+    }
 </style>

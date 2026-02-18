@@ -1,0 +1,94 @@
+﻿<div class="project-grid">
+
+    <details class="project-card">
+        <summary>
+            <h3>LedgerFlow Saas</h3>
+            <span class="tags">C# • ASP.NET • EF • SQL</span>
+        </summary>
+
+        <div class="project-body">
+            <h5> "In Produciton"</h5>
+            <p>
+                Financial SaaS being manufactured with ASP.NET, featuring authentication,
+                structured domain modeling, and clean architectural boundaries. Designed with maintainability,
+                security mindset, and clear separation of responsibilities.
+            </p>
+
+            <div class="project-links">
+                <a href="https://github.com/AlexssanderLX/LedgerFlow" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </details>
+
+    <details class="project-card">
+    <summary>
+        <h3>ControlExpenses Fullstack</h3>
+        <span class="tags">C# • ASP.NET • EF • SQL • REST</span>
+    </summary>
+
+    <div class="project-body">
+
+        <p>
+            Fullstack financial management application built with ASP.NET and Entity Framework,
+            implementing authentication, expense tracking, and structured API communication.
+            Designed with layered architecture and clean separation between frontend and backend.
+            Originally developed as a technical challenge, later refined with architectural improvements 
+            and structured API communication.
+        </p>
+
+        <!-- Imagens do projeto ControlExpenses-->
+            <div class="project-images">
+                <img src="/img/ProjectsIMGs/ControlEx_1.png"
+                     alt="ControlExpenses dashboard"
+                     class="project-img">
+
+                <img src="/img/ProjectsIMGs/ControlEx_2.png"
+                     alt="ControlExpenses people management"
+                     class="project-img">
+            </div>
+
+
+        <div class="project-links">
+            <a href="https://github.com/AlexssanderLX/ControlExpensesFullstack"
+               target="_blank"
+               rel="noopener noreferrer">
+                GitHub
+            </a>
+        </div>
+
+    </div>
+</details>
+
+</div>
+<style>
+    .project-images {
+        display: flex;
+        gap: 14px; /* pequeno espaço entre elas */
+        margin: 18px 0;
+        flex-wrap: wrap; /* permite quebrar no mobile */
+    }
+
+    .project-img {
+        flex: 1 1 48%; /* cada imagem ocupa ~ metade */
+        max-width: 48%;
+        border-radius: 10px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+        transition: transform 0.25s ease;
+    }
+
+        /* Efeito leve ao passar o mouse */
+        .project-img:hover {
+            transform: scale(1.02);
+        }
+
+    /* Mobile */
+    @@media (max-width: 768px) {
+        .project-img {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+    }
+
+</style>

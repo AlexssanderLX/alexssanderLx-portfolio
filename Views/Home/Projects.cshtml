@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Projects";
+}
+
+<section class="projects">
+
+    <header class="projects-hero">
+        <h1>Projects</h1>
+        <p>Development, Security and Music — organized by discipline.</p>
+    </header>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab active" data-tab="dev">Dev</button>
+        <button class="tab" data-tab="pentest">Pentest</button>
+        <button class="tab" data-tab="music">Music</button>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="tab-content active" id="dev">
+        @Html.Partial("_DevProjects")
+    </div>
+
+    <div class="tab-content" id="pentest">
+        @Html.Partial("_PentestProjects")
+    </div>
+
+    <div class="tab-content" id="music">
+        @Html.Partial("_MusicProjects")
+    </div>
+
+</section>

@@ -23,7 +23,11 @@ namespace ClientBlog.Controllers
             return View();
         }
 
-        public IActionResult Contact() 
+        public IActionResult Projects()
+        {
+            return View();
+        }
+        public IActionResult Contact()
         {
             return View();
         }

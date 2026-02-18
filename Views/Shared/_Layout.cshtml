@@ -12,27 +12,35 @@
 
 <body>
 
-    <!-- HEADER FIXO -->
-    <header class="header-fixed header-wood">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light container-fluid">
-            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-                <img src="~/img/logo.png" class="logo-img" />
-            </a>
+    <!-- HEADER FIXO (TECH) -->
+    <header class="header-fixed header-tech">
+        <nav class="navbar navbar-expand-sm navbar-dark">
+            <div class="container header-inner">
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <a class="navbar-brand brand" asp-controller="Home" asp-action="Index" aria-label="Home">
+                    <img src="~/img/My Logo.png" class="logo-img" alt="Logo" />
+                </a>
 
-            <div class="navbar-collapse collapse justify-content-end" id="mainNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link electric-link" asp-controller="Home" asp-action="About">About</a>
-                    </li>
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#mainNav"
+                        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    <li class="nav-item">
-                        <a class="nav-link electric-link" asp-controller="Home" asp-action="Contact">Contact</a>
-                    </li>
-                </ul>
+                <div class="navbar-collapse collapse justify-content-end" id="mainNav">
+                    <ul class="navbar-nav header-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="About">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Projects">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link cta" asp-controller="Home" asp-action="Contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
         </nav>
     </header>
@@ -40,7 +48,7 @@
     <!-- evita que o conteúdo entre atrás do header -->
     <div class="header-offset"></div>
 
-    <!-- CONTEÚDO CENTRAL COM BARRAS BRANCAS LATERAIS -->
+    <!-- CONTEÚDO CENTRAL -->
     <div class="outer-frame">
         <div class="inner-frame">
             @RenderBody()
@@ -52,7 +60,6 @@
         © 2025 - ClientBlog -
         <a asp-controller="Home" asp-action="Privacy">Privacy</a>
     </footer>
-
 
     <!-- Scripts -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
