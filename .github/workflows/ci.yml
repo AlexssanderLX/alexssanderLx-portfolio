@@ -1,0 +1,97 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build and validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    env:
+      CONFIGURATION: Release
+      DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+      DOTNET_NOLOGO: "true"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: nuget-${{ runner.os }}-${{ hashFiles('**/*.csproj', '**/*.sln', '**/NuGet.config') }}
+          restore-keys: |
+            nuget-${{ runner.os }}-
+
+      - name: Restore
+        run: dotnet restore ClientBlog.sln
+
+      - name: Build
+        run: dotnet build ClientBlog.sln --configuration "$CONFIGURATION" --no-restore
+
+      - name: Detect test projects
+        id: tests
+        shell: bash
+        run: |
+          mapfile -t projects < <(find . -type f \( -iname '*test*.csproj' -o -iname '*tests*.csproj' \) \
+            -not -path '*/bin/*' \
+            -not -path '*/obj/*' \
+            | sort)
+
+          if [ "${#projects[@]}" -eq 0 ]; then
+            echo "has_tests=false" >> "$GITHUB_OUTPUT"
+            echo "No test projects found."
+          else
+            printf '%s\n' "${projects[@]}" > test-projects.txt
+            echo "has_tests=true" >> "$GITHUB_OUTPUT"
+            echo "Detected test projects:"
+            cat test-projects.txt
+          fi
+
+      - name: Test
+        if: steps.tests.outputs.has_tests == 'true'
+        shell: bash
+        run: |
+          while IFS= read -r project; do
+            dotnet test "$project" --configuration "$CONFIGURATION" --no-restore --logger "trx"
+          done < test-projects.txt
+
+      - name: Lint and typecheck
+        shell: bash
+        run: |
+          if [ -f package.json ]; then
+            if npm run | grep -qE '^  lint$'; then
+              npm run lint
+            else
+              echo "No npm lint script found."
+            fi
+
+            if npm run | grep -qE '^  typecheck$'; then
+              npm run typecheck
+            else
+              echo "No npm typecheck script found."
+            fi
+          else
+            echo "No package.json found; skipping npm lint/typecheck."
+          fi

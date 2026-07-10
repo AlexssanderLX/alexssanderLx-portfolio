@@ -1,0 +1,200 @@
+name: Deploy production
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: 'Type "deploy production" to confirm the manual production deploy.'
+        required: true
+        type: string
+      ref_to_deploy:
+        description: "Git ref to deploy. Use main unless you intentionally need another ref."
+        required: true
+        default: main
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build, package, and deploy manually
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: production
+
+    env:
+      CONFIGURATION: Release
+      DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+      DOTNET_NOLOGO: "true"
+      VPS_HOST: ${{ secrets.VPS_HOST }}
+      VPS_USER: ${{ secrets.VPS_USER }}
+      VPS_PORT: ${{ secrets.VPS_PORT }}
+      VPS_SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
+      APP_REMOTE_DIR: ${{ secrets.APP_REMOTE_DIR }}
+      APP_SERVICE_NAME: ${{ secrets.APP_SERVICE_NAME }}
+      APP_HEALTHCHECK_URL: ${{ secrets.APP_HEALTHCHECK_URL }}
+
+    steps:
+      - name: Validate manual confirmation
+        shell: bash
+        run: |
+          if [ "${{ inputs.confirmation }}" != "deploy production" ]; then
+            echo 'Confirmation did not match. Type exactly: deploy production'
+            exit 1
+          fi
+
+      - name: Validate required secrets
+        shell: bash
+        run: |
+          missing=0
+          for name in VPS_HOST VPS_USER VPS_SSH_PRIVATE_KEY; do
+            if [ -z "${!name}" ]; then
+              echo "::error::$name is required."
+              missing=1
+            fi
+          done
+          exit "$missing"
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref_to_deploy }}
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: nuget-${{ runner.os }}-${{ hashFiles('**/*.csproj', '**/*.sln', '**/NuGet.config') }}
+          restore-keys: |
+            nuget-${{ runner.os }}-
+
+      - name: Restore
+        run: dotnet restore ClientBlog.sln
+
+      - name: Build
+        run: dotnet build ClientBlog.sln --configuration "$CONFIGURATION" --no-restore
+
+      - name: Detect test projects
+        id: tests
+        shell: bash
+        run: |
+          mapfile -t projects < <(find . -type f \( -iname '*test*.csproj' -o -iname '*tests*.csproj' \) \
+            -not -path '*/bin/*' \
+            -not -path '*/obj/*' \
+            | sort)
+
+          if [ "${#projects[@]}" -eq 0 ]; then
+            echo "has_tests=false" >> "$GITHUB_OUTPUT"
+            echo "No test projects found."
+          else
+            printf '%s\n' "${projects[@]}" > test-projects.txt
+            echo "has_tests=true" >> "$GITHUB_OUTPUT"
+            cat test-projects.txt
+          fi
+
+      - name: Test
+        if: steps.tests.outputs.has_tests == 'true'
+        shell: bash
+        run: |
+          while IFS= read -r project; do
+            dotnet test "$project" --configuration "$CONFIGURATION" --no-restore --logger "trx"
+          done < test-projects.txt
+
+      - name: Publish self-contained Linux artifact
+        run: |
+          dotnet publish ClientBlog.csproj \
+            --configuration "$CONFIGURATION" \
+            --runtime linux-x64 \
+            --self-contained true \
+            --output ./publish
+
+      - name: Package artifact
+        shell: bash
+        run: tar -czf app.tar.gz -C ./publish .
+
+      - name: Configure SSH
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$VPS_SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          : "${VPS_PORT:=22}"
+          ssh-keyscan -p "$VPS_PORT" -H "$VPS_HOST" >> ~/.ssh/known_hosts
+
+      - name: Upload artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          : "${VPS_PORT:=22}"
+          remote_tmp="/tmp/alexssanderlx-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}.tar.gz"
+          scp -i ~/.ssh/deploy_key -P "$VPS_PORT" app.tar.gz "$VPS_USER@$VPS_HOST:$remote_tmp"
+          echo "REMOTE_TMP=$remote_tmp" >> "$GITHUB_ENV"
+
+      - name: Deploy on VPS
+        shell: bash
+        run: |
+          set -euo pipefail
+          : "${VPS_PORT:=22}"
+          : "${APP_REMOTE_DIR:=/var/www/portfolio/publish}"
+          : "${APP_SERVICE_NAME:=portfolio}"
+
+          ssh -i ~/.ssh/deploy_key -p "$VPS_PORT" "$VPS_USER@$VPS_HOST" \
+            "REMOTE_TMP='$REMOTE_TMP' APP_REMOTE_DIR='$APP_REMOTE_DIR' APP_SERVICE_NAME='$APP_SERVICE_NAME' bash -s" <<'REMOTE'
+          set -euo pipefail
+
+          sudo_cmd=""
+          if [ "$(id -u)" -ne 0 ]; then
+            sudo_cmd="sudo"
+          fi
+
+          backup="${APP_REMOTE_DIR}.backup-$(date +%Y%m%d%H%M%S)"
+          parent_dir="$(dirname "$APP_REMOTE_DIR")"
+
+          $sudo_cmd systemctl stop "$APP_SERVICE_NAME"
+          $sudo_cmd mkdir -p "$parent_dir"
+
+          if [ -d "$APP_REMOTE_DIR" ]; then
+            $sudo_cmd cp -a "$APP_REMOTE_DIR" "$backup"
+          fi
+
+          $sudo_cmd rm -rf "$APP_REMOTE_DIR"
+          $sudo_cmd mkdir -p "$APP_REMOTE_DIR"
+          $sudo_cmd tar -xzf "$REMOTE_TMP" -C "$APP_REMOTE_DIR"
+          $sudo_cmd chmod +x "$APP_REMOTE_DIR/ClientBlog"
+          rm -f "$REMOTE_TMP"
+
+          $sudo_cmd systemctl daemon-reload
+          $sudo_cmd systemctl start "$APP_SERVICE_NAME"
+          $sudo_cmd systemctl is-active "$APP_SERVICE_NAME"
+
+          echo "Backup created at: $backup"
+          REMOTE
+
+      - name: Smoke check
+        if: env.APP_HEALTHCHECK_URL != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in {1..10}; do
+            if curl -fsS "$APP_HEALTHCHECK_URL" > /dev/null; then
+              echo "Smoke check passed."
+              exit 0
+            fi
+            echo "Smoke check failed, retrying ($attempt/10)..."
+            sleep 5
+          done
+
+          echo "::error::Smoke check failed after retries."
+          exit 1
