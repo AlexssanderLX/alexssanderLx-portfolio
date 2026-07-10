@@ -1,9 +1,6 @@
 name: Deploy production
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
     inputs:
       confirmation:
@@ -36,11 +33,11 @@ jobs:
       DOTNET_NOLOGO: "true"
       VPS_HOST: ${{ secrets.VPS_HOST }}
       VPS_USER: ${{ secrets.VPS_USER }}
-      VPS_PORT: ${{ secrets.VPS_PORT }}
+      VPS_PORT: ${{ secrets.VPS_PORT || '22' }}
       VPS_SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
       APP_REMOTE_DIR: ${{ secrets.APP_REMOTE_DIR }}
       APP_SERVICE_NAME: ${{ secrets.APP_SERVICE_NAME }}
-      APP_HEALTHCHECK_URL: ${{ secrets.APP_HEALTHCHECK_URL }}
+      APP_HEALTHCHECK_URL: ${{ secrets.APP_HEALTHCHECK_URL || 'https://alexssanderlx.com.br/' }}
 
     steps:
       - name: Validate manual confirmation
@@ -56,24 +53,12 @@ jobs:
         id: deploy_secrets
         shell: bash
         run: |
-          missing=0
-          for name in VPS_HOST VPS_USER VPS_SSH_PRIVATE_KEY; do
+          for name in VPS_HOST VPS_USER VPS_SSH_PRIVATE_KEY APP_REMOTE_DIR APP_SERVICE_NAME; do
             if [ -z "${!name}" ]; then
-              echo "::warning::$name is not configured."
-              missing=1
-            fi
-          done
-
-          if [ "$missing" -ne 0 ]; then
-            if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-              echo "::error::Manual deploy requires VPS_HOST, VPS_USER, and VPS_SSH_PRIVATE_KEY."
+              echo "::error::$name is not configured."
               exit 1
             fi
-
-            echo "enabled=false" >> "$GITHUB_OUTPUT"
-            echo "Deploy skipped because production secrets are not configured yet."
-            exit 0
-          fi
+          done
 
           echo "enabled=true" >> "$GITHUB_OUTPUT"
 
@@ -168,9 +153,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          : "${VPS_PORT:=22}"
-          : "${APP_REMOTE_DIR:=/var/www/portfolio/publish}"
-          : "${APP_SERVICE_NAME:=portfolio}"
 
           ssh -i ~/.ssh/deploy_key -p "$VPS_PORT" "$VPS_USER@$VPS_HOST" \
             "REMOTE_TMP='$REMOTE_TMP' APP_REMOTE_DIR='$APP_REMOTE_DIR' APP_SERVICE_NAME='$APP_SERVICE_NAME' bash -s" <<'REMOTE'
@@ -209,13 +191,16 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for attempt in {1..10}; do
-            if curl -fsS "$APP_HEALTHCHECK_URL" > /dev/null; then
-              echo "Smoke check passed."
+          for attempt in {1..30}; do
+            status="$(curl -sS -o /dev/null -w '%{http_code}' "$APP_HEALTHCHECK_URL" || true)"
+            echo "Smoke check attempt $attempt: $status"
+
+            if [ "$status" = "200" ]; then
+              echo "Smoke check passed with HTTP 200."
               exit 0
             fi
-            echo "Smoke check failed, retrying ($attempt/10)..."
-            sleep 5
+
+            sleep 2
           done
 
           echo "::error::Smoke check failed after retries."
