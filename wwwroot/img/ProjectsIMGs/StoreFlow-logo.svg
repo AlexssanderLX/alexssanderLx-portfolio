@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">StoreFlow logo</title>
+  <desc id="desc">Neon inventory and checklist icon for StoreFlow.</desc>
+  <defs>
+    <linearGradient id="edge" x1="28" y1="24" x2="230" y2="232" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#a3ff37"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="70" y1="82" x2="188" y2="202" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#a3ff37"/>
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.13 0 0 0 0 0.83 0 0 0 0 0.93 0 0 0 0.65 0"/>
+      <feBlend in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect width="256" height="256" rx="42" fill="#02070a"/>
+  <rect x="14" y="14" width="228" height="228" rx="36" fill="#06131c" stroke="url(#edge)" stroke-width="4"/>
+  <path d="M42 44h172M42 212h172M44 44v168M212 44v168" stroke="#12313a" stroke-width="2" opacity=".7"/>
+  <g filter="url(#softGlow)">
+    <path d="M72 78h78c12 0 22 10 22 22v78H72V78Z" fill="#071a24" stroke="#22d3ee" stroke-width="5"/>
+    <path d="M91 106h62M91 130h62M91 154h62" stroke="#22d3ee" stroke-width="5" stroke-linecap="round"/>
+    <path d="m178 94 15 15 27-34" fill="none" stroke="#a3ff37" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="m178 136 15 15 27-34" fill="none" stroke="#a3ff37" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M73 178h82l-16 26H89l-16-26Z" fill="url(#glow)" opacity=".88"/>
+  </g>
+  <rect x="47" y="52" width="48" height="22" rx="8" fill="#071a24" stroke="#22d3ee" stroke-width="3"/>
+  <text x="56" y="69" fill="#a3ff37" font-family="Consolas, monospace" font-size="16" font-weight="900">SF</text>
+</svg>

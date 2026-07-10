@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tech Hacker Premium Preview</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: #f7fff9;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background:
+                linear-gradient(90deg, rgba(48, 255, 161, .08) 1px, transparent 1px),
+                linear-gradient(rgba(48, 255, 161, .05) 1px, transparent 1px),
+                radial-gradient(circle at 76% 22%, rgba(48, 255, 161, .28), transparent 28%),
+                radial-gradient(circle at 18% 75%, rgba(0, 213, 255, .18), transparent 30%),
+                #020403;
+            background-size: 72px 72px, 72px 72px, auto, auto, auto;
+        }
+        .page { width: min(1160px, calc(100% - 48px)); margin: 0 auto; padding: 28px 0 42px; }
+        nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 58px; }
+        .brand { font-weight: 900; letter-spacing: .08em; }
+        .brand span { color: #34f5a3; }
+        .navlinks { display: flex; gap: 26px; color: rgba(247,255,249,.74); font-size: 14px; }
+        .pill { padding: 10px 16px; border-radius: 999px; background: #34f5a3; color: #04100b; font-weight: 900; }
+        .hero { display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 48px; align-items: center; }
+        .eyebrow { color: #34f5a3; font-size: 13px; font-weight: 900; letter-spacing: .32em; text-transform: uppercase; }
+        h1 { margin: 16px 0; font-size: 92px; line-height: .92; letter-spacing: -1px; }
+        h1 span { display: block; color: transparent; -webkit-text-stroke: 1px rgba(247,255,249,.85); }
+        .lead { max-width: 620px; color: rgba(247,255,249,.76); font-size: 18px; line-height: 1.65; }
+        .actions { display: flex; gap: 12px; margin-top: 28px; }
+        .btn { padding: 14px 18px; border-radius: 999px; border: 1px solid rgba(247,255,249,.18); color: #f7fff9; font-weight: 850; }
+        .btn.primary { background: #34f5a3; color: #04100b; border-color: #34f5a3; }
+        .portrait { position: relative; min-height: 560px; border-radius: 34px; overflow: hidden; border: 1px solid rgba(52,245,163,.28); background: #07110d; box-shadow: 0 34px 90px rgba(0,0,0,.55); }
+        .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 16%; filter: grayscale(.55) contrast(1.08); }
+        .portrait::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(2,4,3,.82), transparent 48%); }
+        .badge { position: absolute; left: 20px; right: 20px; bottom: 20px; z-index: 1; padding: 18px; border-radius: 22px; background: rgba(2,4,3,.72); border: 1px solid rgba(52,245,163,.22); backdrop-filter: blur(12px); }
+        .badge strong { display: block; color: #34f5a3; font-size: 28px; }
+        .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-top: 54px; border-top: 1px solid rgba(247,255,249,.18); padding-top: 24px; }
+        .stat { display: flex; gap: 12px; align-items: center; }
+        .dot { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: #f7fff9; color: #04100b; font-weight: 900; }
+        .stat strong { display: block; font-size: 22px; }
+        .stat span { color: rgba(247,255,249,.66); font-size: 13px; }
+        .hint { margin-top: 28px; border-radius: 28px; padding: 24px; background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.09); }
+        @media (max-width: 760px) {
+            .page { width: min(100% - 28px, 560px); padding-top: 18px; }
+            .navlinks { display: none; }
+            nav { margin-bottom: 30px; }
+            .hero { grid-template-columns: 1fr; gap: 24px; }
+            h1 { font-size: 50px; }
+            .portrait { min-height: 360px; order: -1; }
+            .stats { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <nav>
+            <div class="brand">ALEXSSANDER <span>LX</span></div>
+            <div class="navlinks"><span>About</span><span>Projects</span><span>Security</span><span>Music</span></div>
+            <div class="pill">Contact</div>
+        </nav>
+        <section class="hero">
+            <div>
+                <div class="eyebrow">2 years solving real problems</div>
+                <h1>DEV <span>HACKER</span> PIANIST</h1>
+                <p class="lead">Backend developer with Python automation, AI workflows, ASP.NET Core, security labs, and the discipline of music. I build systems, automate work, and break assumptions before they break products.</p>
+                <div class="actions"><div class="btn primary">View Projects</div><div class="btn">Security Labs</div></div>
+            </div>
+            <figure class="portrait">
+                <img src="profile.jpeg" alt="Alexssander portrait">
+                <figcaption class="badge"><strong>Python + AI Automation</strong><span>Backend, scripts, CTFs, and real products.</span></figcaption>
+            </figure>
+        </section>
+        <section class="stats">
+            <div class="stat"><div class="dot">01</div><div><strong>2y</strong><span>Experience</span></div></div>
+            <div class="stat"><div class="dot">Py</div><div><strong>Scripts</strong><span>Automation</span></div></div>
+            <div class="stat"><div class="dot">AI</div><div><strong>Workflows</strong><span>Smart tooling</span></div></div>
+            <div class="stat"><div class="dot">CTF</div><div><strong>Labs</strong><span>Security mindset</span></div></div>
+        </section>
+        <div class="hint">Direction 1: intense, technical, hacker premium. Strongest for impact and identity.</div>
+    </main>
+</body>
+</html>

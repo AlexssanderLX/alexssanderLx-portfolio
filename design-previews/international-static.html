@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>International Static Portfolio Preview</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: #101820;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f5f7f8;
+        }
+        .topbar { height: 8px; background: linear-gradient(90deg, #0f766e, #2563eb, #111827); }
+        .page { width: min(1140px, calc(100% - 48px)); margin: 0 auto; padding: 28px 0 44px; }
+        nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 36px; }
+        .brand { font-weight: 900; font-size: 18px; }
+        .navlinks { display: flex; gap: 22px; color: #53616f; font-size: 14px; }
+        .contact { padding: 10px 14px; border-radius: 8px; background: #101820; color: white; font-weight: 800; }
+        .hero { display: grid; grid-template-columns: minmax(0,1fr) 360px; gap: 34px; align-items: stretch; }
+        .copy { padding: 36px; border: 1px solid #d9e0e6; border-radius: 18px; background: white; }
+        .kicker { color: #0f766e; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; font-weight: 900; }
+        h1 { margin: 14px 0; font-size: 58px; line-height: 1; letter-spacing: -1px; }
+        .lead { max-width: 640px; margin: 0; color: #4b5865; font-size: 18px; line-height: 1.65; }
+        .actions { display: flex; gap: 10px; margin-top: 26px; }
+        .btn { padding: 12px 14px; border-radius: 8px; border: 1px solid #cfd8df; font-weight: 850; }
+        .btn.primary { background: #0f766e; color: white; border-color: #0f766e; }
+        .portrait { position: relative; min-height: 520px; border-radius: 18px; overflow: hidden; border: 1px solid #d9e0e6; background: white; }
+        .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 16%; display: block; }
+        .caption { position: absolute; left: 16px; right: 16px; bottom: 16px; padding: 14px; border-radius: 10px; background: rgba(255,255,255,.9); border: 1px solid rgba(16,24,32,.08); }
+        .caption strong { display: block; }
+        .grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-top: 18px; }
+        .metric { padding: 18px; border-radius: 14px; background: white; border: 1px solid #d9e0e6; }
+        .metric strong { display: block; font-size: 22px; color: #0f766e; }
+        .metric span { color: #53616f; }
+        .work { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 22px; }
+        .card { min-height: 164px; padding: 18px; border-radius: 14px; background: #101820; color: white; }
+        .card span { color: #67e8f9; font-size: 12px; text-transform: uppercase; font-weight: 900; letter-spacing: .12em; }
+        .card h3 { margin: 10px 0 8px; }
+        .card p { color: rgba(255,255,255,.72); line-height: 1.5; margin: 0; }
+        @media (max-width: 760px) {
+            .page { width: min(100% - 28px, 560px); padding-top: 18px; }
+            .navlinks { display: none; }
+            .hero { grid-template-columns: 1fr; }
+            .copy { padding: 22px; }
+            h1 { font-size: 40px; }
+            .portrait { min-height: 340px; order: -1; }
+            .grid, .work { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar"></div>
+    <main class="page">
+        <nav>
+            <div class="brand">Alexssander Ferreira de Almeida</div>
+            <div class="navlinks"><span>About</span><span>Projects</span><span>Labs</span><span>Music</span></div>
+            <div class="contact">Contact</div>
+        </nav>
+        <section class="hero">
+            <div class="copy">
+                <div class="kicker">Backend / Automation / Security</div>
+                <h1>Building real systems and automating complex work.</h1>
+                <p class="lead">Developer with 2 years of experience, Python automation skills, AI workflow practice, ASP.NET Core projects, security labs, and a creative background as a pianist.</p>
+                <div class="actions"><div class="btn primary">Selected work</div><div class="btn">Read about me</div></div>
+            </div>
+            <figure class="portrait">
+                <img src="profile.jpeg" alt="Alexssander portrait">
+                <figcaption class="caption"><strong>Alexssander LX</strong><span>Developer, hacker, pianist.</span></figcaption>
+            </figure>
+        </section>
+        <section class="grid">
+            <article class="metric"><strong>2 years</strong><span>Experience solving problems</span></article>
+            <article class="metric"><strong>Python</strong><span>Automation and scripts</span></article>
+            <article class="metric"><strong>AI</strong><span>Workflow automation</span></article>
+            <article class="metric"><strong>CTF</strong><span>Security practice</span></article>
+        </section>
+        <section class="work">
+            <article class="card"><span>Product</span><h3>ZeroPaper</h3><p>Restaurant SaaS with QR ordering, kitchen flow, and printing routines.</p></article>
+            <article class="card"><span>Automation</span><h3>Python tooling</h3><p>Scripts and AI-assisted workflows to reduce repetitive work.</p></article>
+            <article class="card"><span>Security</span><h3>TryHackMe Labs</h3><p>CTFs, injection, enumeration, authentication and exploitation practice.</p></article>
+        </section>
+    </main>
+</body>
+</html>

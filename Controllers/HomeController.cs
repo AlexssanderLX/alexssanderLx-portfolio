@@ -1,42 +1,44 @@
 using System.Diagnostics;
 using ClientBlog.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OutputCaching;
 
 namespace ClientBlog.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
+        [OutputCache(Duration = 600)]
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
+        [OutputCache(Duration = 600)]
         public IActionResult Projects()
         {
             return View();
         }
+
+        [OutputCache(Duration = 600)]
         public IActionResult Contact()
         {
             return View();
         }
+
+        [OutputCache(Duration = 600)]
         public IActionResult About()
         {
             return View();
         }
 
+        [OutputCache(Duration = 600)]
+        public IActionResult Rights()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        [OutputCache(NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

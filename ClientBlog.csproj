@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <DefaultItemExcludes>$(DefaultItemExcludes);publish*/**;publish*.zip;release*/**;release*.zip;release*.tar.gz;design-previews/**;ChatGPT Image*.png</DefaultItemExcludes>
   </PropertyGroup>
 
 </Project>

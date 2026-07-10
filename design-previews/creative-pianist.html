@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Creative Dev Hacker Pianist Preview</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: #f8fafc;
+            font-family: Georgia, "Times New Roman", serif;
+            background:
+                linear-gradient(120deg, rgba(6,182,212,.16), transparent 35%),
+                linear-gradient(300deg, rgba(132,204,22,.18), transparent 32%),
+                #05070a;
+        }
+        .page { width: min(1140px, calc(100% - 48px)); margin: 0 auto; padding: 30px 0 48px; }
+        nav { display: flex; align-items: center; justify-content: space-between; font-family: "Segoe UI", Arial, sans-serif; margin-bottom: 46px; }
+        .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; }
+        .mark { width: 36px; height: 36px; border-radius: 50%; background: #f8fafc; color: #05070a; display: grid; place-items: center; }
+        .navlinks { display: flex; gap: 22px; color: rgba(248,250,252,.68); font-size: 14px; }
+        .hero { display: grid; grid-template-columns: 420px minmax(0,1fr); gap: 44px; align-items: center; }
+        .portrait-shell { position: relative; padding: 18px; border: 1px solid rgba(248,250,252,.14); border-radius: 999px 999px 36px 36px; background: rgba(255,255,255,.04); }
+        .portrait { aspect-ratio: 3 / 4; border-radius: 999px 999px 28px 28px; overflow: hidden; border: 3px solid #f8fafc; }
+        .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 16%; filter: contrast(1.03) saturate(.92); }
+        .orbit { position: absolute; right: -28px; top: 72px; width: 116px; height: 116px; border-radius: 50%; background: #22d3ee; color: #05070a; display: grid; place-items: center; text-align: center; font-family: "Segoe UI", Arial, sans-serif; font-weight: 900; }
+        .kicker { color: #bef264; font-family: "Segoe UI", Arial, sans-serif; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; font-weight: 900; }
+        h1 { margin: 12px 0 18px; font-size: 76px; line-height: .98; letter-spacing: -1px; }
+        .lead { margin: 0; max-width: 620px; color: rgba(248,250,252,.78); font-size: 19px; line-height: 1.72; font-family: "Segoe UI", Arial, sans-serif; }
+        .slashes { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0; font-family: "Segoe UI", Arial, sans-serif; }
+        .slashes span { padding: 10px 12px; border-radius: 999px; background: rgba(248,250,252,.08); border: 1px solid rgba(248,250,252,.12); }
+        .panel { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; font-family: "Segoe UI", Arial, sans-serif; }
+        .card { min-height: 136px; padding: 18px; border-radius: 24px; background: rgba(2,6,23,.58); border: 1px solid rgba(248,250,252,.12); }
+        .card strong { display: block; margin-bottom: 8px; color: #67e8f9; }
+        .card p { margin: 0; color: rgba(248,250,252,.7); line-height: 1.55; }
+        .band { margin-top: 42px; padding: 22px; border-radius: 30px; background: #f8fafc; color: #05070a; font-family: "Segoe UI", Arial, sans-serif; display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+        .band strong { display: block; font-size: 20px; }
+        @media (max-width: 760px) {
+            .page { width: min(100% - 28px, 560px); padding-top: 18px; }
+            .navlinks { display: none; }
+            .hero { grid-template-columns: 1fr; }
+            .portrait-shell { max-width: 360px; }
+            h1 { font-size: 46px; }
+            .panel, .band { grid-template-columns: 1fr; }
+            .orbit { right: 8px; width: 92px; height: 92px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <nav>
+            <div class="brand"><div class="mark">LX</div>Alexssander LX</div>
+            <div class="navlinks"><span>Story</span><span>Work</span><span>Labs</span><span>Rights</span></div>
+        </nav>
+        <section class="hero">
+            <div class="portrait-shell">
+                <div class="portrait"><img src="profile.jpeg" alt="Alexssander portrait"></div>
+                <div class="orbit">2 years<br>real work</div>
+            </div>
+            <div>
+                <div class="kicker">Creative technologist</div>
+                <h1>Developer, hacker and pianist.</h1>
+                <p class="lead">I solve different kinds of problems with code, automation, security thinking, AI workflows, and the discipline that comes from music.</p>
+                <div class="slashes"><span>Python automation</span><span>ASP.NET Core</span><span>CTF labs</span><span>Piano / composition</span></div>
+                <div class="panel">
+                    <article class="card"><strong>Automation with AI</strong><p>Scripts, workflows, prompts, data routines, and tools that reduce manual effort.</p></article>
+                    <article class="card"><strong>Security as craft</strong><p>CTFs, web analysis, attacker thinking, and safer engineering decisions.</p></article>
+                </div>
+            </div>
+        </section>
+        <section class="band">
+            <div><strong>Build</strong><span>Real systems</span></div>
+            <div><strong>Automate</strong><span>Python + AI</span></div>
+            <div><strong>Analyze</strong><span>Security labs</span></div>
+            <div><strong>Create</strong><span>Music discipline</span></div>
+        </section>
+    </main>
+</body>
+</html>

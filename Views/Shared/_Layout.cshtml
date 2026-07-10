@@ -1,24 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ClientBlog</title>
+    <meta name="description" content="Alexssander LX portfolio: backend development, Python automation, AI workflows, security labs, and music." />
+    <title>@ViewData["Title"] - Alexssanderlx</title>
+    <link rel="icon" type="image/svg+xml" href="~/img/alx-mark.svg" asp-append-version="true" />
+    <link rel="shortcut icon" type="image/svg+xml" href="~/img/alx-mark.svg" asp-append-version="true" />
+    <link rel="apple-touch-icon" sizes="180x180" href="~/img/apple-touch-icon.png" asp-append-version="true" />
 
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ClientBlog.styles.css" asp-append-version="true" />
 </head>
-
 <body>
-
-    <!-- HEADER FIXO (TECH) -->
     <header class="header-fixed header-tech">
         <nav class="navbar navbar-expand-sm navbar-dark">
             <div class="container header-inner">
-
                 <a class="navbar-brand brand" asp-controller="Home" asp-action="Index" aria-label="Home">
-                    <img src="~/img/My Logo.png" class="logo-img" alt="Logo" />
+                    <img src="~/img/alx-mark.svg" asp-append-version="true" class="logo-img" alt="Alexssander LX logo" width="128" height="128" />
+                    <span class="brand-wordmark">Alexssander <strong>LX</strong></span>
                 </a>
 
                 <button class="navbar-toggler" type="button"
@@ -30,40 +31,43 @@
                 <div class="navbar-collapse collapse justify-content-end" id="mainNav">
                     <ul class="navbar-nav header-nav">
                         <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" asp-controller="Home" asp-action="About">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Home" asp-action="Projects">Projects</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Projects" asp-fragment="pentest">CTF / Security</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Projects" asp-fragment="music">Music</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link cta" asp-controller="Home" asp-action="Contact">Contact</a>
                         </li>
                     </ul>
                 </div>
-
             </div>
         </nav>
     </header>
 
-    <!-- evita que o conteúdo entre atrás do header -->
     <div class="header-offset"></div>
 
-    <!-- CONTEÚDO CENTRAL -->
-    <div class="outer-frame">
+    <main class="outer-frame">
         <div class="inner-frame">
             @RenderBody()
         </div>
-    </div>
+    </main>
 
-    <!-- FOOTER FIXO -->
     <footer class="footer-fixed">
-        © 2025 - ClientBlog -
-        <a asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <span>&#169; 2026 Alexssander LX Portfolio</span>
+        <a asp-controller="Home" asp-action="Rights">Rights</a>
     </footer>
 
-    <!-- Scripts -->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

@@ -1,32 +1,80 @@
-﻿@{
+@{
     ViewData["Title"] = "Projects";
 }
 
-<section class="projects">
+<section class="projects projects-command-center">
+    <header class="projects-hero projects-game-hero">
+        <div class="projects-hero-copy">
+            <p class="project-command">
+                <span aria-hidden="true">&gt;</span>
+                root@portfolio:~$ projects
+            </p>
+            <div class="projects-title-row">
+                <span class="projects-target" aria-hidden="true"></span>
+                <h1>Projects</h1>
+            </div>
+            <p>
+                Development, automation, security, and music organized by area.
+                These are the projects that best represent my current technical and creative direction.
+            </p>
+        </div>
 
-    <header class="projects-hero">
-        <h1>Projects</h1>
-        <p>Development, Security and Music — organized by discipline.</p>
+        <aside class="project-scoreboard" aria-label="Portfolio progress">
+            <div class="status-pill">
+                <span>Status:</span>
+                <strong>Online</strong>
+                <i aria-hidden="true"></i>
+            </div>
+
+            <div class="score-grid">
+                <article>
+                    <span class="score-icon" aria-hidden="true">XP</span>
+                    <strong>3,450</strong>
+                    <small>portfolio points</small>
+                </article>
+                <article>
+                    <span class="score-icon" aria-hidden="true">CTF</span>
+                    <strong>7</strong>
+                    <small>completed labs</small>
+                </article>
+                <article>
+                    <span class="score-icon" aria-hidden="true">DEV</span>
+                    <strong>3</strong>
+                    <small>main products</small>
+                </article>
+                <article>
+                    <span class="score-icon" aria-hidden="true">LVL</span>
+                    <strong>24%</strong>
+                    <small>growth track</small>
+                </article>
+            </div>
+        </aside>
     </header>
 
-    <!-- Tabs -->
-    <div class="tabs">
-        <button class="tab active" data-tab="dev">Dev</button>
-        <button class="tab" data-tab="pentest">Pentest</button>
-        <button class="tab" data-tab="music">Music</button>
+    <div class="tabs project-tabs" role="tablist" aria-label="Project categories">
+        <button class="tab active" id="tab-button-dev" data-tab="dev" role="tab" aria-controls="dev" aria-selected="true">
+            <span class="tab-glyph" aria-hidden="true">&lt;/&gt;</span>
+            <span>Developer</span>
+        </button>
+        <button class="tab" id="tab-button-pentest" data-tab="pentest" role="tab" aria-controls="pentest" aria-selected="false">
+            <span class="tab-glyph" aria-hidden="true">+</span>
+            <span>Pentest</span>
+        </button>
+        <button class="tab" id="tab-button-music" data-tab="music" role="tab" aria-controls="music" aria-selected="false">
+            <span class="tab-glyph" aria-hidden="true">M</span>
+            <span>Music</span>
+        </button>
     </div>
 
-    <!-- Tab Content -->
-    <div class="tab-content active" id="dev">
-        @Html.Partial("_DevProjects")
+    <div class="tab-content active" id="dev" role="tabpanel" aria-labelledby="tab-button-dev">
+        <partial name="_DevProjects" />
     </div>
 
-    <div class="tab-content" id="pentest">
-        @Html.Partial("_PentestProjects")
+    <div class="tab-content" id="pentest" role="tabpanel" aria-labelledby="tab-button-pentest" hidden>
+        <partial name="_PentestProjects" />
     </div>
 
-    <div class="tab-content" id="music">
-        @Html.Partial("_MusicProjects")
+    <div class="tab-content" id="music" role="tabpanel" aria-labelledby="tab-button-music" hidden>
+        <partial name="_MusicProjects" />
     </div>
-
 </section>

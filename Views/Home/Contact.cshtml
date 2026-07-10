@@ -1,25 +1,25 @@
-﻿@{
+@{
     ViewData["Title"] = "Contact";
 }
 
 <section class="contact">
     <header class="contact-hero">
         <p class="kicker">CONTACT</p>
-        <h1 class="title">Let’s connect</h1>
+        <h1 class="title">Let&apos;s talk about opportunities, projects, or collaboration.</h1>
         <p class="subtitle">
-            For opportunities, projects, or collaboration — these are the fastest ways to reach me.
+            If you want to talk about backend work, Python automation, security, real products, or a junior role,
+            these are the fastest ways to reach me.
         </p>
 
         <div class="chips">
-            <span class="chip">SP</span>
-            <span class="chip">Junior / Trainee (C# / .NET)</span>
-            <span class="chip">Pentest / Web Security</span>
+            <span class="chip">Sao Paulo</span>
+            <span class="chip">C# / .NET and Python</span>
+            <span class="chip">Automation and ML fundamentals</span>
+            <span class="chip">Projects and collaboration</span>
         </div>
     </header>
 
     <div class="grid">
-
-        <!-- Email -->
         <article class="card card-hover">
             <div class="card-top">
                 <h3>Email</h3>
@@ -32,15 +32,14 @@
                 </a>
             </p>
 
-            <p class="desc">Best for formal contact, proposals, and interviews.</p>
+            <p class="desc">Best for proposals, recruiting, interviews, or more formal conversations.</p>
 
             <div class="actions">
                 <a class="btn btn-primary" href="mailto:alexssander.f.almeida2006@gmail.com">Send email</a>
-                <button class="btn" type="button" onclick="copyText('alexssander.f.almeida2006@gmail.com')">Copy</button>
+                <button class="btn copy-btn" type="button" data-copy-text="alexssander.f.almeida2006@gmail.com">Copy</button>
             </div>
         </article>
 
-        <!-- LinkedIn -->
         <article class="card card-hover">
             <div class="card-top">
                 <h3>LinkedIn</h3>
@@ -48,22 +47,21 @@
             </div>
 
             <p class="value">
-                <a class="link" href="https://linkedin.com/in/alexssander-ferreira-de-almeida-4a3841284" target="_blank" rel="noreferrer">
+                <a class="link" href="https://linkedin.com/in/alexssander-ferreira-de-almeida-4a3841284" target="_blank" rel="noopener noreferrer">
                     linkedin.com/in/alexssander-ferreira-de-almeida-4a3841284
                 </a>
             </p>
 
-            <p class="desc">Profile, background, and updates on projects.</p>
+            <p class="desc">Professional profile, career context, and updates on my technical path.</p>
 
             <div class="actions">
-                <a class="btn btn-primary" href="https://linkedin.com/in/alexssander-ferreira-de-almeida-4a3841284" target="_blank" rel="noreferrer">
+                <a class="btn btn-primary" href="https://linkedin.com/in/alexssander-ferreira-de-almeida-4a3841284" target="_blank" rel="noopener noreferrer">
                     Open LinkedIn
                 </a>
-                <button class="btn" type="button" onclick="copyText('https://linkedin.com/in/alexssander-ferreira-de-almeida-4a3841284')">Copy</button>
+                <button class="btn copy-btn" type="button" data-copy-text="https://linkedin.com/in/alexssander-ferreira-de-almeida-4a3841284">Copy</button>
             </div>
         </article>
 
-        <!-- GitHub -->
         <article class="card card-hover">
             <div class="card-top">
                 <h3>GitHub</h3>
@@ -71,214 +69,41 @@
             </div>
 
             <p class="value">
-                <a class="link" href="https://github.com/AlexssanderLX" target="_blank" rel="noreferrer">
+                <a class="link" href="https://github.com/AlexssanderLX" target="_blank" rel="noopener noreferrer">
                     github.com/AlexssanderLX
                 </a>
             </p>
 
-            <p class="desc">Repositories, commits, and portfolio projects.</p>
+            <p class="desc">Repositories, commits, portfolio projects, and the practical evolution of my work.</p>
 
             <div class="actions">
-                <a class="btn btn-primary" href="https://github.com/AlexssanderLX" target="_blank" rel="noreferrer">
+                <a class="btn btn-primary" href="https://github.com/AlexssanderLX" target="_blank" rel="noopener noreferrer">
                     Open GitHub
                 </a>
-                <button class="btn" type="button" onclick="copyText('https://github.com/AlexssanderLX')">Copy</button>
+                <button class="btn copy-btn" type="button" data-copy-text="https://github.com/AlexssanderLX">Copy</button>
             </div>
         </article>
 
-        
+        <article class="card card-hover">
+            <div class="card-top">
+                <h3>Phone / WhatsApp</h3>
+                <span class="hint">Developer</span>
+            </div>
 
+            <p class="value">
+                <a class="link" href="tel:+5511977936534">
+                    +55 11 97793-6534
+                </a>
+            </p>
+
+            <p class="desc">Direct contact for quick alignment, development opportunities, and project conversations.</p>
+
+            <div class="actions">
+                <a class="btn btn-primary" href="https://wa.me/5511977936534" target="_blank" rel="noopener noreferrer">
+                    Open WhatsApp
+                </a>
+                <button class="btn copy-btn" type="button" data-copy-text="+55 11 97793-6534">Copy</button>
+            </div>
+        </article>
     </div>
 </section>
-
-<script>
-    function copyText(text) {
-        navigator.clipboard.writeText(text)
-            .then(() => alert("Copied to clipboard."))
-            .catch(() => alert("Could not copy. Your browser blocked it."));
-    }
-</script>
-
-<style>
-    /* ===== Contact (Alex vibe / dark glass) ===== */
-    .contact {
-        width: min(1100px, 92%);
-        margin: 0 auto;
-        padding: 18px 0 90px;
-    }
-
-    .contact-hero {
-        border-radius: 18px;
-        padding: 26px 22px;
-        background: rgba(15, 23, 42, 0.40);
-        border: 1px solid rgba(148, 163, 184, 0.16);
-        box-shadow: 0 18px 45px rgba(0,0,0,0.45);
-        margin-bottom: 14px;
-    }
-
-    .kicker {
-        margin: 0 0 10px 0;
-        color: rgba(226,232,240,0.70);
-        letter-spacing: .16em;
-        text-transform: uppercase;
-        font-size: .9rem;
-    }
-
-    .title {
-        margin: 0;
-        font-size: 2.4rem;
-        font-weight: 900;
-        line-height: 1.06;
-    }
-
-    .subtitle {
-        margin: 10px 0 0 0;
-        color: rgba(226,232,240,0.78);
-        line-height: 1.75;
-        font-size: 1.06rem;
-        max-width: 80ch;
-    }
-
-    .chips {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-top: 14px;
-    }
-
-    .chip {
-        display: inline-flex;
-        padding: 8px 10px;
-        border-radius: 999px;
-        font-weight: 650;
-        font-size: .9rem;
-        color: rgba(226,232,240,0.92);
-        background: rgba(148, 163, 184, 0.10);
-        border: 1px solid rgba(148, 163, 184, 0.16);
-    }
-
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        margin-top: 12px;
-    }
-
-    .card {
-        background: rgba(15, 23, 42, 0.65);
-        border: 1px solid rgba(148, 163, 184, 0.16);
-        border-radius: 16px;
-        padding: 18px;
-        box-shadow: 0 16px 35px rgba(0,0,0,0.35);
-    }
-
-    .card-hover {
-        transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    }
-
-        .card-hover:hover {
-            transform: translateY(-3px);
-            border-color: rgba(59, 130, 246, 0.28);
-            box-shadow: 0 22px 45px rgba(0,0,0,0.45);
-        }
-
-    .card-top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-    }
-
-    .card h3 {
-        margin: 0;
-        font-size: 1.2rem;
-        font-weight: 900;
-    }
-
-    .hint {
-        font-size: .85rem;
-        color: rgba(226,232,240,0.70);
-        border: 1px solid rgba(148,163,184,0.16);
-        padding: 6px 10px;
-        border-radius: 999px;
-        background: rgba(148,163,184,0.08);
-    }
-
-    .value {
-        margin: 12px 0 6px;
-        font-weight: 750;
-        color: rgba(226,232,240,0.92);
-        word-break: break-word;
-    }
-
-    .link {
-        color: rgba(226,232,240,0.92);
-        text-decoration: none;
-        border-bottom: 1px dashed rgba(59,130,246,0.45);
-    }
-
-        .link:hover {
-            border-bottom-color: rgba(59,130,246,0.90);
-        }
-
-    .desc {
-        margin: 0;
-        color: rgba(226,232,240,0.72);
-        line-height: 1.6;
-    }
-
-    .actions {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-top: 14px;
-    }
-
-    .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 14px;
-        border-radius: 14px;
-        font-weight: 800;
-        text-decoration: none;
-        color: rgba(226,232,240,0.92);
-        background: rgba(148,163,184,0.10);
-        border: 1px solid rgba(148,163,184,0.16);
-        transition: transform .15s ease, background .15s ease, border-color .15s ease;
-    }
-
-        .btn:hover {
-            transform: translateY(-1px);
-            background: rgba(148,163,184,0.14);
-        }
-
-    .btn-primary {
-        background: rgba(59,130,246,0.18);
-        border-color: rgba(59,130,246,0.30);
-    }
-
-        .btn-primary:hover {
-            background: rgba(59,130,246,0.26);
-        }
-
-    .muted-card {
-        opacity: 0.9;
-    }
-
-        .muted-card .btn[disabled] {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-    /* responsive */
-    @@media (max-width: 900px) {
-        .grid {
-            grid-template-columns: 1fr;
-        }
-
-        .title {
-            font-size: 2.05rem;
-        }
-    }
-</style>

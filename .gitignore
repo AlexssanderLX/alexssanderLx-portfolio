@@ -56,9 +56,15 @@ secrets.json
 
 # Publish outputs
 publish/
+publish-codex/
+publish-*/
+release-*/
 dist/
 build/
 *.Publish.xml
+*.tar.gz
+*.zip
+.codex-*.png
 
 # Rider / JetBrains
 .idea/

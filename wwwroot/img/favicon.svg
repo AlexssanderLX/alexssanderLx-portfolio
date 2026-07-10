@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Alexssander LX logo</title>
+  <desc id="desc">A neon ALX monogram with cyan and green accents.</desc>
+  <defs>
+    <linearGradient id="edge" x1="22" y1="36" x2="232" y2="224" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#a3ff37"/>
+    </linearGradient>
+    <linearGradient id="l" x1="82" y1="136" x2="139" y2="218" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="x" x1="148" y1="143" x2="222" y2="219" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a3ff37"/>
+      <stop offset="1" stop-color="#65a30d"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.13 0 0 0 0 0.83 0 0 0 0 0.93 0 0 0 0.65 0"/>
+      <feBlend in="SourceGraphic"/>
+    </filter>
+    <filter id="greenGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.64 0 0 0 0 1 0 0 0 0 0.22 0 0 0 0.7 0"/>
+      <feBlend in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect x="13" y="13" width="230" height="230" rx="46" fill="#02070a"/>
+  <rect x="16" y="16" width="224" height="224" rx="43" fill="none" stroke="url(#edge)" stroke-width="5"/>
+  <rect x="36" y="35" width="184" height="184" rx="30" fill="none" stroke="#12313a" stroke-width="2" opacity=".72"/>
+  <path d="M49 183 123 38l76 149h-35l-41-80-42 82-32-6Z" fill="#f8fafc" filter="url(#glow)"/>
+  <path d="M113 129h28l-26 52h59l-16 32H71l42-84Z" fill="url(#l)" filter="url(#glow)"/>
+  <path d="m165 133 25 30 25-30h33l-40 47 40 48h-34l-25-30-25 30h-34l41-48-40-47h34Z" fill="url(#x)" filter="url(#greenGlow)"/>
+  <path d="M101 117h55l13 25h-81l13-25Z" fill="#f8fafc" opacity=".95"/>
+</svg>

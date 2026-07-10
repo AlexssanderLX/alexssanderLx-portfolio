@@ -1,537 +1,179 @@
-﻿@{
+@{
     ViewData["Title"] = "About";
 }
 
-<div class="about-wrap">
-    <div class="about">
-
-        <!-- HERO -->
-        <header class="about-hero">
-            <p class="kicker">ABOUT</p>
-
-            <h1 class="title">I build. I observe. I refine.</h1>
-
+<section class="about-page">
+    <header class="about-hero">
+        <div class="about-copy">
+            <p class="kicker"><span aria-hidden="true"></span> About</p>
+            <h1>
+                I build with structure, think with clarity,
+                <strong>and improve through practice.</strong>
+            </h1>
             <p class="subtitle">
-                I’m a developer with an offensive security mindset and a musician’s discipline.
-                I care about clean structure, real delivery, and constant improvement through practice.
+                I am a backend developer with 2 years of experience solving real problems through
+                C#, ASP.NET Core, Python automation, AI workflows, security practice and creative discipline from piano.
             </p>
 
-            <div class="tags">
-                <span class="tag">C# / ASP.NET</span>
-                <span class="tag">Web Security</span>
-                <span class="tag">Architecture</span>
-                <span class="tag">Piano & Composition</span>
+            <div class="about-tags" aria-label="Main skills">
+                <span>C# / ASP.NET Core</span>
+                <span>Python automation</span>
+                <span>Security Web</span>
+                <span>AI workflows</span>
+                <span>Linux VPS</span>
+                <span>Piano and composition</span>
             </div>
+        </div>
 
-            <div class="hero-actions">
-                <a class="btn btn-primary" href="/Home/Contact">Contact</a>
-                <a class="btn btn-ghost" href="/Home/Index">Back to Home</a>
+        <aside class="about-terminal" aria-label="About terminal summary">
+            <div class="terminal-dots" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-        </header>
-
-        <!-- AT A GLANCE -->
-        <section class="block">
-            <h2 class="h2">At a glance</h2>
-
-            <div class="grid-3">
-                <article class="panel card-hover">
-                    <h3 class="h3">What I do</h3>
-                    <p>
-                        I build web systems with a focus on clarity, maintainability, and practical delivery —
-                        from features to structure, not just “making it work”.
-                    </p>
-                </article>
-
-                <article class="panel card-hover">
-                    <h3 class="h3">How I think</h3>
-                    <p>
-                        I like to analyze like an attacker, because it improves how I design and implement.
-                        Security becomes part of the product, not an afterthought.
-                    </p>
-                </article>
-
-                <article class="panel card-hover">
-                    <h3 class="h3">What to expect</h3>
-                    <p>
-                        A disciplined approach: visible progress, documented decisions, and reliable execution.
-                        I prefer building things that can be understood and trusted.
-                    </p>
-                </article>
-            </div>
-        </section>
-
-        <!-- STORY -->
-        <section class="block">
-            <h2 class="h2">My story</h2>
-
-            <div class="panel">
-                <p class="lead">
-                    I’m driven by patterns: logic in code, structure in systems, and expression in music.
-                    I learn by building, breaking, documenting, and rebuilding better.
-                </p>
-
-                <div class="timeline">
-                    <div class="t-item">
-                        <div class="dot"></div>
-                        <div class="t-content">
-                            <h4 class="h4">Foundation</h4>
-                            <p>
-                                Strong preference for clean architecture, readable solutions, and structured problem solving.
-                                I optimize for understanding — not shortcuts.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="t-item">
-                        <div class="dot"></div>
-                        <div class="t-content">
-                            <h4 class="h4">Offensive mindset</h4>
-                            <p>
-                                Studying web security and CTFs taught me how systems fail. That perspective improves my development:
-                                inputs, boundaries, validation, and safer design decisions.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="t-item">
-                        <div class="dot"></div>
-                        <div class="t-content">
-                            <h4 class="h4">Discipline through music</h4>
-                            <p>
-                                Piano and composition trained consistency, precision, and patience — the same traits that scale technical growth.
-                                Practice is non-negotiable.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CORE AREAS -->
-        <section class="block">
-            <h2 class="h2">Core areas</h2>
-
-            <div class="grid-2">
-                <article class="panel card-hover">
-                    <h3 class="h3">Development</h3>
-                    <ul class="list">
-                        <li>C# / ASP.NET projects with real structure</li>
-                        <li>Database basics (SQL, EF) and clean data flow</li>
-                        <li>Git workflow and delivery-oriented commits</li>
-                        <li>Maintainability: readability, naming, organization</li>
-                    </ul>
-                </article>
-
-                <article class="panel card-hover">
-                    <h3 class="h3">Security mindset</h3>
-                    <ul class="list">
-                        <li>Web fundamentals: authentication, sessions, input handling</li>
-                        <li>Burp Suite for analysis and traffic inspection</li>
-                        <li>Enumeration and CTF practice (ethical learning)</li>
-                        <li>Threat-thinking: boundaries, assumptions, failure modes</li>
-                    </ul>
-                </article>
-            </div>
-
-            <div class="grid-3 mt">
-                <article class="mini panel card-hover">
-                    <h4 class="h4">Method</h4>
-                    <p>I work with structure: small steps, checkpoints, and clarity.</p>
-                </article>
-                <article class="mini panel card-hover">
-                    <h4 class="h4">Precision</h4>
-                    <p>I prefer solutions that are simple to read and hard to break.</p>
-                </article>
-                <article class="mini panel card-hover">
-                    <h4 class="h4">Growth</h4>
-                    <p>I improve through practice, feedback, and rebuilding better.</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- PROCESS -->
-        <section class="block">
-            <h2 class="h2">How I work</h2>
-
-            <div class="steps">
-                <div class="step panel">
-                    <div class="num">1</div>
-                    <div>
-                        <h3 class="h3">Understand</h3>
-                        <p>Define the goal, the constraints, and the real problem before coding.</p>
-                    </div>
-                </div>
-
-                <div class="step panel">
-                    <div class="num">2</div>
-                    <div>
-                        <h3 class="h3">Design</h3>
-                        <p>Choose a structure that stays readable and scalable. Make tradeoffs explicit.</p>
-                    </div>
-                </div>
-
-                <div class="step panel">
-                    <div class="num">3</div>
-                    <div>
-                        <h3 class="h3">Build</h3>
-                        <p>Implement in small pieces, commit progress, and keep the codebase clean.</p>
-                    </div>
-                </div>
-
-                <div class="step panel">
-                    <div class="num">4</div>
-                    <div>
-                        <h3 class="h3">Harden</h3>
-                        <p>Validate inputs, reduce assumptions, and improve reliability and security.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ -->
-        <section class="block">
-            <h2 class="h2">FAQ</h2>
-
-            <div class="faq">
-                <details class="faq-item panel" open>
-                    <summary>What roles are you targeting?</summary>
-                    <p>
-                        Junior developer roles where I can deliver real features, learn production standards,
-                        and keep growing with consistent practice.
-                    </p>
-                </details>
-
-                <details class="faq-item panel">
-                    <summary>Why include security in a developer portfolio?</summary>
-                    <p>
-                        Because it improves decision-making: input handling, boundaries, validation, and safer defaults.
-                        It’s a mindset that makes development stronger.
-                    </p>
-                </details>
-
-                <details class="faq-item panel">
-                    <summary>How do you show your work?</summary>
-                    <p>
-                        Through projects, clear documentation, and progress that can be verified
-                        (commits, demos, and writeups focused on learning).
-                    </p>
-                </details>
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="final-cta">
-            <div class="panel cta">
-                <h2 class="h2">Want to talk?</h2>
-                <p class="subtitle">
-                    If you want someone who builds with structure and thinks about failure modes early,
-                    reach out — I’m open to opportunities and collaboration.
-                </p>
-
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="/Home/Contact">Contact</a>
-                    <a class="btn btn-ghost" href="/Home/Index">Back to Home</a>
-                </div>
-            </div>
-        </section>
-
-    </div>
-</div>
-
-<style>
-    /* ===== About (Alex vibe) ===== */
-    .about-wrap {
-        display: flex;
-        justify-content: center;
-        padding: 18px 12px 80px;
-    }
-
-    .about {
-        width: min(1100px, 92%);
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-    }
-
-    /* Hero */
-    .about-hero {
-        border-radius: 18px;
-        padding: 28px 22px;
-        background: rgba(15, 23, 42, 0.40);
-        border: 1px solid rgba(148, 163, 184, 0.16);
-        box-shadow: 0 18px 45px rgba(0,0,0,0.45);
-    }
-
-    .kicker {
-        margin: 0 0 10px 0;
-        color: rgba(226,232,240,0.70);
-        letter-spacing: .16em;
-        text-transform: uppercase;
-        font-size: .9rem;
-    }
-
-    .title {
-        margin: 0;
-        font-size: 2.6rem;
-        font-weight: 900;
-        line-height: 1.06;
-        color: rgba(226,232,240,0.98);
-    }
-
-    .subtitle {
-        margin: 10px 0 0 0;
-        color: rgba(226,232,240,0.78);
-        line-height: 1.75;
-        font-size: 1.06rem;
-        max-width: 80ch;
-    }
-
-    /* tags */
-    .tags {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-top: 14px;
-    }
-
-    .tag {
-        display: inline-flex;
-        padding: 8px 10px;
-        border-radius: 999px;
-        font-weight: 650;
-        font-size: .9rem;
-        color: rgba(226,232,240,0.92);
-        background: rgba(148, 163, 184, 0.10);
-        border: 1px solid rgba(148, 163, 184, 0.16);
-    }
-
-    /* blocks */
-    .block {
-        padding: 6px 2px;
-    }
-
-    .h2 {
-        margin: 0 0 12px 0;
-        font-size: 1.7rem;
-        font-weight: 900;
-        letter-spacing: .2px;
-    }
-
-    .h3 {
-        margin: 0 0 8px 0;
-        font-size: 1.12rem;
-        font-weight: 850;
-    }
-
-    .h4 {
-        margin: 0 0 6px 0;
-        font-size: 1.05rem;
-        font-weight: 850;
-    }
-
-    .panel {
-        background: rgba(15, 23, 42, 0.65);
-        border: 1px solid rgba(148, 163, 184, 0.16);
-        border-radius: 16px;
-        padding: 18px;
-        box-shadow: 0 16px 35px rgba(0,0,0,0.35);
-    }
-
-    .card-hover {
-        transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    }
-
-        .card-hover:hover {
-            transform: translateY(-3px);
-            border-color: rgba(59, 130, 246, 0.28);
-            box-shadow: 0 22px 45px rgba(0,0,0,0.45);
-        }
-
-    .lead {
-        margin: 0 0 14px 0;
-        color: rgba(226,232,240,0.82);
-        line-height: 1.75;
-    }
-
-    /* grids */
-    .grid-2, .grid-3 {
-        display: grid;
-        gap: 12px;
-    }
-
-    .grid-2 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .grid-3 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .mt {
-        margin-top: 12px;
-    }
-
-    .list {
-        margin: 10px 0 0 0;
-        padding-left: 18px;
-        color: rgba(226,232,240,0.78);
-        line-height: 1.75;
-    }
-
-        .list li {
-            margin-bottom: 6px;
-        }
-
-    .mini p {
-        margin: 0;
-        color: rgba(226,232,240,0.78);
-        line-height: 1.6;
-    }
-
-    /* timeline */
-    .timeline {
-        margin-top: 12px;
-        display: grid;
-        gap: 12px;
-    }
-
-    .t-item {
-        display: grid;
-        grid-template-columns: 16px 1fr;
-        gap: 12px;
-        align-items: start;
-    }
-
-    .dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 999px;
-        margin-top: 6px;
-        background: rgba(59,130,246,0.95);
-        box-shadow: 0 0 14px rgba(59,130,246,0.35);
-    }
-
-    .t-content p {
-        margin: 0;
-        color: rgba(226,232,240,0.78);
-        line-height: 1.75;
-    }
-
-    /* steps */
-    .steps {
-        display: grid;
-        gap: 10px;
-    }
-
-    .step {
-        display: grid;
-        grid-template-columns: 44px 1fr;
-        gap: 12px;
-        align-items: start;
-    }
-
-    .num {
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
-        display: grid;
-        place-items: center;
-        font-weight: 900;
-        background: rgba(59,130,246,0.16);
-        border: 1px solid rgba(59,130,246,0.26);
-    }
-
-    /* faq */
-    .faq {
-        display: grid;
-        gap: 10px;
-    }
-
-    .faq-item summary {
-        cursor: pointer;
-        font-weight: 850;
-        color: rgba(226,232,240,0.92);
-        outline: none;
-    }
-
-    .faq-item p {
-        margin: 10px 0 0 0;
-        color: rgba(226,232,240,0.78);
-        line-height: 1.75;
-    }
-
-    /* buttons */
-    .hero-actions {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-top: 14px;
-    }
-
-    .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 14px;
-        border-radius: 14px;
-        font-weight: 800;
-        text-decoration: none;
-        color: rgba(226,232,240,0.92);
-        background: rgba(148,163,184,0.10);
-        border: 1px solid rgba(148,163,184,0.16);
-        transition: transform .15s ease, background .15s ease, border-color .15s ease;
-    }
-
-        .btn:hover {
-            transform: translateY(-1px);
-            background: rgba(148,163,184,0.14);
-        }
-
-    .btn-primary {
-        background: rgba(59,130,246,0.18);
-        border-color: rgba(59,130,246,0.30);
-    }
-
-        .btn-primary:hover {
-            background: rgba(59,130,246,0.26);
-        }
-
-    .btn-ghost {
-        background: rgba(2,6,23,0.35);
-    }
-
-    /* final cta */
-    .final-cta {
-        margin-top: 10px;
-    }
-
-    .cta {
-        text-align: center;
-    }
-
-    /* responsive */
-    @@media (max-width: 950px) {
-        .grid-3 {
-            grid-template-columns: 1fr;
-        }
-
-        .grid-2 {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    @@media (max-width: 640px) {
-        .title {
-            font-size: 2.1rem;
-        }
-
-        .step {
-            grid-template-columns: 1fr;
-        }
-
-        .num {
-            width: 44px;
-            height: 44px;
-        }
-    }
-</style>
+            <pre><code>root@@alex-lx:~# whoami
+developer | hacker | pianist
+
+&gt; mission
+build clear systems
+automate repetitive work
+protect applications
+
+&gt; focus
+deliver real value
+with discipline and clarity</code></pre>
+            <img src="~/img/alx-mark.svg"
+                 asp-append-version="true"
+                 alt=""
+                 aria-hidden="true"
+                 width="128"
+                 height="128">
+        </aside>
+    </header>
+
+    <section class="about-section" aria-labelledby="about-expect-title">
+        <div class="about-card-grid">
+            <article class="about-card">
+                <span class="about-icon">&lt;/&gt;</span>
+                <h2 id="about-expect-title">What I build</h2>
+                <p>Robust web applications, APIs, workflows, automation scripts and projects that solve real problems with clarity and performance.</p>
+                <small>Focus on backend and automation</small>
+            </article>
+
+            <article class="about-card glow-card">
+                <span class="about-icon">SEC</span>
+                <h2>How I think</h2>
+                <p>I like to understand limits, failure points and attack surface. This mindset improves how I design, implement and protect each solution.</p>
+                <small>Security and quality from the start</small>
+            </article>
+
+            <article class="about-card">
+                <span class="about-icon">AI</span>
+                <h2>What to expect</h2>
+                <p>Continuous growth, strong ownership, practical delivery and the ability to use AI and automation to move faster with control.</p>
+                <small>Discipline, focus and evolution</small>
+            </article>
+        </div>
+    </section>
+
+    <section class="about-section" aria-labelledby="core-areas-title">
+        <p class="kicker"><span aria-hidden="true"></span> Core areas</p>
+        <h2 class="section-title" id="core-areas-title">Where I create value</h2>
+
+        <div class="core-grid">
+            <article class="core-card">
+                <span>DEV</span>
+                <h3>Development</h3>
+                <ul>
+                    <li>Projects in C# and ASP.NET Core</li>
+                    <li>REST APIs and defined architecture</li>
+                    <li>Databases and module design</li>
+                    <li>Readable, testable and sustainable code</li>
+                </ul>
+                <strong>01</strong>
+            </article>
+
+            <article class="core-card green">
+                <span>PY</span>
+                <h3>Python and automation</h3>
+                <ul>
+                    <li>Scripts for repetitive tasks</li>
+                    <li>Data and ETL-style processing</li>
+                    <li>Workflow and integration automation</li>
+                    <li>Machine learning experimentation</li>
+                </ul>
+                <strong>02</strong>
+            </article>
+
+            <article class="core-card">
+                <span>SEC</span>
+                <h3>Security</h3>
+                <ul>
+                    <li>Authentication, sessions and validation</li>
+                    <li>Burp Suite and vulnerability analysis</li>
+                    <li>Enumeration and lab practice</li>
+                    <li>Security as a project standard</li>
+                </ul>
+                <strong>03</strong>
+            </article>
+        </div>
+    </section>
+
+    <section class="about-section" aria-labelledby="process-title">
+        <p class="kicker"><span aria-hidden="true"></span> How I work</p>
+        <h2 class="section-title" id="process-title">Simple process, consistent execution</h2>
+
+        <div class="process-line">
+            <article>
+                <span>1</span>
+                <h3>Understand</h3>
+                <p>I analyze the real problem, restrictions and objective before building.</p>
+            </article>
+            <article>
+                <span>2</span>
+                <h3>Structure</h3>
+                <p>I design the workflow, responsibilities and future maintenance path.</p>
+            </article>
+            <article>
+                <span>3</span>
+                <h3>Build</h3>
+                <p>I implement with clarity, tests, review and continuous improvement.</p>
+            </article>
+            <article>
+                <span>4</span>
+                <h3>Harden</h3>
+                <p>I validate, refactor and reduce risk to deliver reliable solutions.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="about-section faq-section" aria-labelledby="faq-title">
+        <p class="kicker"><span aria-hidden="true"></span> FAQ</p>
+        <h2 class="section-title" id="faq-title">Common questions</h2>
+
+        <div class="faq-list">
+            <details>
+                <summary>What kind of opportunity am I looking for?</summary>
+                <p>Junior, trainee, internship or collaboration opportunities where backend, automation, security thinking and practical learning matter.</p>
+            </details>
+            <details>
+                <summary>Why include security in a developer portfolio?</summary>
+                <p>Because it improves how I build. Thinking like an attacker helps me make better decisions about validation, boundaries, authentication and safer defaults.</p>
+            </details>
+            <details>
+                <summary>How do I show my work?</summary>
+                <p>Through real projects, public code, visible progress, technical practice and the ability to explain decisions clearly.</p>
+            </details>
+        </div>
+    </section>
+
+    <section class="about-cta">
+        <span class="about-icon">&gt;_</span>
+        <div>
+            <h2>Let's build something useful together.</h2>
+            <p>I am open to challenges, collaborations and opportunities that generate real impact.</p>
+        </div>
+        <a class="btn btn-primary" asp-controller="Home" asp-action="Projects">View projects</a>
+        <a class="btn" asp-controller="Home" asp-action="Contact">Contact</a>
+    </section>
+</section>

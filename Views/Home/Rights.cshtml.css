@@ -1,0 +1,50 @@
+.rights-page {
+    display: grid;
+    gap: 18px;
+}
+
+.rights-hero {
+    padding: 28px 22px;
+    border-radius: 18px;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    background: rgba(15, 23, 42, 0.5);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.38);
+}
+
+.rights-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.rights-card {
+    padding: 20px;
+}
+
+.rights-card h2 {
+    margin: 0 0 10px;
+    color: #f8fafc;
+    font-size: 1.18rem;
+    font-weight: 900;
+}
+
+.rights-card p {
+    margin: 0;
+    color: rgba(226, 232, 240, 0.76);
+    line-height: 1.7;
+}
+
+.rights-card .btn {
+    margin-top: 14px;
+}
+
+@media (max-width: 760px) {
+    .rights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rights-hero,
+    .rights-card {
+        padding: 18px;
+    }
+}
