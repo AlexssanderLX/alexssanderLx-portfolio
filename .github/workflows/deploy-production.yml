@@ -35,8 +35,8 @@ jobs:
       VPS_USER: ${{ secrets.VPS_USER }}
       VPS_PORT: ${{ secrets.VPS_PORT || '22' }}
       VPS_SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
-      APP_REMOTE_DIR: ${{ secrets.APP_REMOTE_DIR }}
-      APP_SERVICE_NAME: ${{ secrets.APP_SERVICE_NAME }}
+      APP_REMOTE_DIR: ${{ secrets.APP_REMOTE_DIR || '/var/www/portfolio/publish' }}
+      APP_SERVICE_NAME: ${{ secrets.APP_SERVICE_NAME || 'portfolio' }}
       APP_HEALTHCHECK_URL: ${{ secrets.APP_HEALTHCHECK_URL || 'https://alexssanderlx.com.br/' }}
 
     steps:
