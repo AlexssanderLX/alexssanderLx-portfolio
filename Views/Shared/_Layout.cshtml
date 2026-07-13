@@ -15,39 +15,40 @@
 </head>
 <body>
     <header class="header-fixed header-tech">
-        <nav class="navbar navbar-expand-sm navbar-dark">
+        <nav class="site-nav" aria-label="Primary navigation">
             <div class="container header-inner">
                 <a class="navbar-brand brand" asp-controller="Home" asp-action="Index" aria-label="Home">
                     <img src="~/img/alx-mark.svg" asp-append-version="true" class="logo-img" alt="Alexssander LX logo" width="128" height="128" />
                     <span class="brand-wordmark">Alexssander <strong>LX</strong></span>
                 </a>
 
-                <button class="navbar-toggler" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#mainNav"
-                        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <ul class="nav-list header-nav desktop-nav">
+                    <li><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a class="nav-link" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a class="nav-link" asp-controller="Home" asp-action="Projects">Projects</a></li>
+                    <li><a class="nav-link" asp-controller="Home" asp-action="Projects" asp-fragment="pentest">CTF / Security</a></li>
+                    <li><a class="nav-link" asp-controller="Home" asp-action="Projects" asp-fragment="music">Music</a></li>
+                    <li><a class="nav-link cta" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                </ul>
+
+                <button class="nav-toggle" type="button"
+                        data-nav-toggle
+                        aria-controls="mobileNav"
+                        aria-expanded="false"
+                        aria-label="Open navigation menu">
+                    <span class="nav-toggle-line" aria-hidden="true"></span>
+                    <span class="nav-toggle-line" aria-hidden="true"></span>
+                    <span class="nav-toggle-line" aria-hidden="true"></span>
                 </button>
 
-                <div class="navbar-collapse collapse justify-content-end" id="mainNav">
-                    <ul class="navbar-nav header-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="About">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Projects">Projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Projects" asp-fragment="pentest">CTF / Security</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Projects" asp-fragment="music">Music</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link cta" asp-controller="Home" asp-action="Contact">Contact</a>
-                        </li>
+                <div class="mobile-menu" id="mobileNav" data-mobile-menu>
+                    <ul class="nav-list header-nav">
+                        <li><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a class="nav-link" asp-controller="Home" asp-action="About">About</a></li>
+                        <li><a class="nav-link" asp-controller="Home" asp-action="Projects">Projects</a></li>
+                        <li><a class="nav-link" asp-controller="Home" asp-action="Projects" asp-fragment="pentest">CTF / Security</a></li>
+                        <li><a class="nav-link" asp-controller="Home" asp-action="Projects" asp-fragment="music">Music</a></li>
+                        <li><a class="nav-link cta" asp-controller="Home" asp-action="Contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -67,7 +68,6 @@
         <a asp-controller="Home" asp-action="Rights">Rights</a>
     </footer>
 
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
