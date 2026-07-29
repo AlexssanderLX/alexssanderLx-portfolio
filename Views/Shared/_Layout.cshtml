@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Alexssander LX portfolio: backend development, Python automation, AI workflows, security labs, and music." />
+    <meta name="description" content="@(ViewData["Description"] ?? "Alexssander LX portfolio: desenvolvimento web, SaaS, automações, infraestrutura, segurança aplicada e música.")" />
+    <meta property="og:title" content="@ViewData["Title"] - Alexssander LX" />
+    <meta property="og:description" content="@(ViewData["Description"] ?? "Produtos digitais, backend, automações, infraestrutura segura, segurança aplicada e música.")" />
+    <meta property="og:type" content="website" />
     <title>@ViewData["Title"] - Alexssanderlx</title>
     <link rel="icon" type="image/svg+xml" href="~/img/alx-mark.svg" asp-append-version="true" />
     <link rel="shortcut icon" type="image/svg+xml" href="~/img/alx-mark.svg" asp-append-version="true" />
@@ -11,7 +14,13 @@
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/tokens.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/base.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/components.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/motion.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ClientBlog.styles.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
     <header class="header-fixed header-tech">
@@ -23,12 +32,10 @@
                 </a>
 
                 <ul class="nav-list header-nav desktop-nav">
-                    <li><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a class="nav-link" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a class="nav-link" asp-controller="Home" asp-action="Projects">Projects</a></li>
-                    <li><a class="nav-link" asp-controller="Home" asp-action="Projects" asp-fragment="pentest">CTF / Security</a></li>
-                    <li><a class="nav-link" asp-controller="Home" asp-action="Projects" asp-fragment="music">Music</a></li>
-                    <li><a class="nav-link cta" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a class="nav-link" asp-controller="Home" asp-action="Index">Início</a></li>
+                    <li><a class="nav-link" asp-controller="Home" asp-action="About">Perfil</a></li>
+                    <li><a class="nav-link" asp-controller="Home" asp-action="Contact">Contato</a></li>
+                    <li><a class="nav-link cta" asp-controller="Home" asp-action="Contact">Iniciar projeto</a></li>
                 </ul>
 
                 <button class="nav-toggle" type="button"
@@ -43,12 +50,11 @@
 
                 <div class="mobile-menu" id="mobileNav" data-mobile-menu>
                     <ul class="nav-list header-nav">
-                        <li><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a class="nav-link" asp-controller="Home" asp-action="About">About</a></li>
-                        <li><a class="nav-link" asp-controller="Home" asp-action="Projects">Projects</a></li>
-                        <li><a class="nav-link" asp-controller="Home" asp-action="Projects" asp-fragment="pentest">CTF / Security</a></li>
-                        <li><a class="nav-link" asp-controller="Home" asp-action="Projects" asp-fragment="music">Music</a></li>
-                        <li><a class="nav-link cta" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                        <li><a class="nav-link" asp-controller="Home" asp-action="Index">Início</a></li>
+                        <li><a class="nav-link" asp-controller="Home" asp-action="About">Perfil</a></li>
+                        <li><a class="nav-link" asp-controller="Home" asp-action="Projects">Projetos atuais</a></li>
+                        <li><a class="nav-link" asp-controller="Home" asp-action="Contact">Contato</a></li>
+                        <li><a class="nav-link cta" asp-controller="Home" asp-action="Contact">Iniciar projeto</a></li>
                     </ul>
                 </div>
             </div>
@@ -64,10 +70,19 @@
     </main>
 
     <footer class="footer-fixed">
-        <span>&#169; 2026 Alexssander LX Portfolio</span>
-        <a asp-controller="Home" asp-action="Rights">Rights</a>
+        <div class="footer-map" aria-label="Footer navigation">
+            <span>&#169; 2026 Alexssander LX</span>
+            <a asp-controller="Home" asp-action="Projects">Projetos</a>
+            <a asp-controller="Home" asp-action="Projects" asp-fragment="pentest">Segurança</a>
+            <a asp-controller="Home" asp-action="Projects" asp-fragment="music">Música</a>
+            <a asp-controller="Home" asp-action="Rights">Direitos</a>
+        </div>
     </footer>
 
+    <script src="~/js/capabilities.js" asp-append-version="true"></script>
+    <script src="~/js/navigation.js" asp-append-version="true"></script>
+    <script src="~/js/reveal.js" asp-append-version="true"></script>
+    <script src="~/js/ambient.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

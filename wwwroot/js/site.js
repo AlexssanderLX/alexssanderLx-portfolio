@@ -1,41 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const navToggle = document.querySelector("[data-nav-toggle]");
-    const mobileMenu = document.querySelector("[data-mobile-menu]");
-    const desktopQuery = window.matchMedia("(min-width: 1041px)");
-
-    if (navToggle && mobileMenu) {
-        const closeMenu = () => {
-            mobileMenu.classList.remove("is-open");
-            navToggle.setAttribute("aria-expanded", "false");
-            navToggle.setAttribute("aria-label", "Open navigation menu");
-        };
-
-        const toggleMenu = () => {
-            const isOpen = mobileMenu.classList.toggle("is-open");
-            navToggle.setAttribute("aria-expanded", String(isOpen));
-            navToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
-        };
-
-        navToggle.addEventListener("click", toggleMenu);
-
-        mobileMenu.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", closeMenu);
-        });
-
-        document.addEventListener("keydown", event => {
-            if (event.key === "Escape") {
-                closeMenu();
-                navToggle.focus();
-            }
-        });
-
-        desktopQuery.addEventListener("change", event => {
-            if (event.matches) {
-                closeMenu();
-            }
-        });
-    }
-
     const tabs = Array.from(document.querySelectorAll(".tab"));
     const panels = Array.from(document.querySelectorAll(".tab-content"));
 
@@ -130,70 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
     terminalTabs.forEach(button => {
         button.addEventListener("click", () => activateTerminalTab(button));
     });
-
-    const isCompactViewport = window.matchMedia("(max-width: 700px)").matches;
-
-    const mountBinaryRain = () => {
-        if (document.querySelector(".binary-rain")) {
-            return;
-        }
-
-        const binaryReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        if (binaryReduceMotion) {
-            return;
-        }
-
-        const layer = document.createElement("div");
-        layer.className = "binary-rain";
-        layer.setAttribute("aria-hidden", "true");
-
-        const bitCount = isCompactViewport ? 18 : 86;
-
-        for (let index = 0; index < bitCount; index += 1) {
-            const bit = document.createElement("span");
-            bit.className = `binary-bit${index % 7 === 0 ? " cyan" : ""}`;
-            bit.textContent = Math.random() > 0.5 ? "1" : "0";
-            bit.style.left = `${Math.random() * 100}%`;
-            bit.style.setProperty("--bit-size", `${0.72 + Math.random() * 0.78}rem`);
-            bit.style.setProperty("--bit-duration", `${7 + Math.random() * 9}s`);
-            bit.style.setProperty("--bit-delay", `${Math.random() * -14}s`);
-            bit.style.setProperty("--bit-opacity", `${0.22 + Math.random() * 0.46}`);
-            bit.style.setProperty("--bit-drift", `${-24 + Math.random() * 48}px`);
-            layer.appendChild(bit);
-        }
-
-        document.body.prepend(layer);
-    };
-
-    mountBinaryRain();
-
-    const revealItems = Array.from(document.querySelectorAll("[data-reveal]"));
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (revealItems.length > 0) {
-        if (reduceMotion || isCompactViewport || !("IntersectionObserver" in window)) {
-            revealItems.forEach(item => item.classList.add("is-visible"));
-        } else {
-            const revealObserver = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
-
-                    entry.target.classList.add("is-visible");
-                    revealObserver.unobserve(entry.target);
-                });
-            }, {
-                threshold: 0.18,
-                rootMargin: "0px 0px -8% 0px"
-            });
-
-            revealItems.forEach((item, index) => {
-                item.style.transitionDelay = `${Math.min(index * 70, 280)}ms`;
-                revealObserver.observe(item);
-            });
-        }
-    }
 
     document.querySelectorAll("[data-copy-text]").forEach(button => {
         button.addEventListener("click", async () => {

@@ -1,0 +1,64 @@
+.site-shell {
+    position: relative;
+    width: min(var(--container-main), calc(100% - clamp(1.25rem, 5vw, 3rem)));
+    margin-inline: auto;
+}
+
+.site-section {
+    position: relative;
+    padding-block: clamp(4rem, 9vw, 8rem);
+}
+
+.site-section--compact {
+    padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.site-grid {
+    display: grid;
+    gap: clamp(1rem, 2.4vw, 1.75rem);
+}
+
+.site-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.site-grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.header-tech {
+    background: rgba(2, 5, 6, 0.78);
+}
+
+.header-inner {
+    width: min(var(--container-main), calc(100% - clamp(1rem, 5vw, 3rem)));
+    margin-inline: auto;
+}
+
+.footer-fixed {
+    padding: 22px clamp(1rem, 5vw, 3rem);
+}
+
+.footer-map {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.footer-map a {
+    color: rgba(226, 236, 240, 0.78);
+    text-decoration: none;
+}
+
+.footer-map a:hover {
+    color: var(--color-text-strong);
+}
+
+@media (max-width: 860px) {
+    .site-grid--2,
+    .site-grid--3 {
+        grid-template-columns: 1fr;
+    }
+}
