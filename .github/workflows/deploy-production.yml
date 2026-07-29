@@ -7,11 +7,6 @@ on:
         description: 'Type "deploy production" to confirm the manual production deploy.'
         required: true
         type: string
-      ref_to_deploy:
-        description: "Git ref to deploy. Use main unless you intentionally need another ref."
-        required: true
-        default: main
-        type: string
 
 permissions:
   contents: read
@@ -49,6 +44,11 @@ jobs:
             exit 1
           fi
 
+          if [ "${{ github.ref_name }}" != "main" ]; then
+            echo 'Production deploy must be started from the main branch in GitHub Actions.'
+            exit 1
+          fi
+
       - name: Check deploy secrets
         id: deploy_secrets
         shell: bash
@@ -65,7 +65,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.ref_to_deploy || github.sha }}
+          ref: main
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4

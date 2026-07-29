@@ -71,6 +71,7 @@ build/
 *.sln.iml
 
 # Misc
+.claude/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
