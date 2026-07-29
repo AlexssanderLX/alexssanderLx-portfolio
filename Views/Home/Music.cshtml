@@ -1,0 +1,249 @@
+@model IReadOnlyList<ClientBlog.Models.Composition>
+@{
+    ViewData["Title"] = ViewData["Title"] ?? "Música";
+    ViewData["Description"] = ViewData["Description"] ?? "Piano, composição, jazz e aulas. Técnica, percepção e criatividade — do repertório clássico à composição original.";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/music.css" asp-append-version="true" />
+}
+
+<div class="music-page">
+
+    <!-- ── Hero ── -->
+    <section class="music-hero" aria-labelledby="music-h1">
+        <div class="site-shell">
+            <div class="music-hero-inner">
+                <div class="music-hero-meta" data-reveal>
+                    <span class="ui-kicker music-kicker">Piano · Composição · Ensino</span>
+                </div>
+
+                <h1 class="ui-title" id="music-h1" data-reveal>
+                    Música como linguagem, <br>
+                    <span class="ui-gradient-text">técnica como ferramenta.</span>
+                </h1>
+
+                <p class="ui-description" data-reveal>
+                    Pianista, compositor e professor. Desenvolvo repertório, técnica e percepção
+                    com foco em evolução real — do básico ao jazz e à composição original.
+                    Cada aula parte do que o aluno quer aprender.
+                </p>
+
+                <div class="ui-actions" data-reveal>
+                    <a class="ui-button ui-button--primary"
+                       asp-controller="Home"
+                       asp-action="Contact">
+                        Solicitar aulas
+                    </a>
+                    <a class="ui-button ui-button--ghost" href="#music-compositions">
+                        Ouvir composições
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Metodologia ── -->
+    <section class="music-methodology site-section" id="music-methodology" aria-labelledby="music-method-heading">
+        <div class="site-shell">
+            <div class="music-section-head" data-reveal>
+                <span class="ui-kicker">Abordagem</span>
+                <h2 class="ui-title" id="music-method-heading" style="font-size: var(--step-2);">
+                    Seis pilares que estruturam o aprendizado.
+                </h2>
+                <p class="ui-description">
+                    Não existe fórmula única — mas existe uma sequência que funciona quando os fundamentos estão claros.
+                </p>
+            </div>
+
+            <ul class="music-pillars" role="list">
+                <li class="music-pillar ui-card" data-reveal>
+                    <div class="music-pillar-num" aria-hidden="true">01</div>
+                    <h3 class="music-pillar-title">Técnica</h3>
+                    <p class="music-pillar-desc">Postura, articulação, controle de dinâmica e independência das mãos — base para tudo que vem depois.</p>
+                </li>
+                <li class="music-pillar ui-card" data-reveal>
+                    <div class="music-pillar-num" aria-hidden="true">02</div>
+                    <h3 class="music-pillar-title">Percepção</h3>
+                    <p class="music-pillar-desc">Ouvir o que se toca. Ritmo, afinação, fraseado e a capacidade de reproduzir o que se imagina.</p>
+                </li>
+                <li class="music-pillar ui-card" data-reveal>
+                    <div class="music-pillar-num" aria-hidden="true">03</div>
+                    <h3 class="music-pillar-title">Repertório</h3>
+                    <p class="music-pillar-desc">Peças que motivam e desafiam ao mesmo tempo — escolhidas junto com o aluno, não impostas.</p>
+                </li>
+                <li class="music-pillar ui-card" data-reveal>
+                    <div class="music-pillar-num" aria-hidden="true">04</div>
+                    <h3 class="music-pillar-title">Teoria</h3>
+                    <p class="music-pillar-desc">Entender o que se toca — escalas, acordes, progressões e leitura. Teoria aplicada ao instrumento.</p>
+                </li>
+                <li class="music-pillar ui-card" data-reveal>
+                    <div class="music-pillar-num" aria-hidden="true">05</div>
+                    <h3 class="music-pillar-title">Harmonia</h3>
+                    <p class="music-pillar-desc">Jazz, voicings, reharmonização e tensões que ampliam a paleta sonora — para quem quer ir além do básico.</p>
+                </li>
+                <li class="music-pillar ui-card" data-reveal>
+                    <div class="music-pillar-num" aria-hidden="true">06</div>
+                    <h3 class="music-pillar-title">Composição</h3>
+                    <p class="music-pillar-desc">Transformar ideias em música — estrutura, desenvolvimento temático e escrita para piano.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ── Composições ── -->
+    <section class="music-compositions site-section" id="music-compositions" aria-labelledby="music-comp-heading">
+        <div class="site-shell">
+            <div class="music-section-head" data-reveal>
+                <span class="ui-kicker">Composições</span>
+                <h2 class="ui-title" id="music-comp-heading" style="font-size: var(--step-2);">
+                    Peças originais.
+                </h2>
+                <p class="ui-description">
+                    Composições para piano criadas como exploração — de contraste harmônico, narrativa emocional e expressão pessoal.
+                </p>
+            </div>
+
+            <ul class="music-comp-list" role="list">
+                @foreach (var comp in Model)
+                {
+                    <li class="music-comp-card ui-card" data-reveal>
+                        <div class="music-comp-emblem" aria-hidden="true">♬</div>
+                        <div class="music-comp-body">
+                            <span class="music-comp-type">@comp.Type · @comp.Year</span>
+                            <h3 class="music-comp-name">@comp.Name</h3>
+                            <p class="music-comp-desc">@comp.Description</p>
+                            @if (comp.Tags.Any())
+                            {
+                                <ul class="music-comp-tags" aria-label="Tags de @comp.Name">
+                                    @foreach (var tag in comp.Tags)
+                                    {
+                                        <li class="music-comp-tag">@tag</li>
+                                    }
+                                </ul>
+                            }
+                        </div>
+                        @if (!string.IsNullOrEmpty(comp.BandLabUrl))
+                        {
+                            <div class="music-comp-actions">
+                                <a class="music-listen-link"
+                                   href="@comp.BandLabUrl"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    ♪ Ouvir no BandLab
+                                </a>
+                            </div>
+                        }
+                    </li>
+                }
+            </ul>
+        </div>
+    </section>
+
+    <!-- ── Aulas ── -->
+    <section class="music-lessons site-section" id="music-lessons" aria-labelledby="music-lessons-heading">
+        <div class="site-shell">
+            <div class="music-lessons-inner">
+                <div class="music-lessons-copy" data-reveal>
+                    <span class="ui-kicker">Aulas</span>
+                    <h2 class="music-lessons-title" id="music-lessons-heading">
+                        Aulas de piano <br>para o seu momento.
+                    </h2>
+                    <p class="music-lessons-desc">
+                        Seja para começar do zero, retomar depois de um tempo parado ou aprofundar em jazz e composição —
+                        o ponto de partida é onde você está agora.
+                    </p>
+                    <p class="music-lessons-desc">
+                        Sem preço fixo listado aqui — porque a modalidade, frequência e foco variam por aluno.
+                        Entre em contato para conversarmos.
+                    </p>
+                    <div class="ui-actions">
+                        <a class="ui-button ui-button--primary"
+                           asp-controller="Home"
+                           asp-action="Contact">
+                            Solicitar aulas
+                        </a>
+                    </div>
+                </div>
+
+                <ul class="music-lesson-areas" role="list" data-reveal>
+                    <li class="music-lesson-area ui-card">
+                        <div class="music-lesson-area-icon" aria-hidden="true">T</div>
+                        <div class="music-lesson-area-body">
+                            <h3 class="music-lesson-area-title">Técnica fundamental</h3>
+                            <p class="music-lesson-area-desc">Postura, articulação, escalas e exercícios de base para tocar com menos esforço e mais controle.</p>
+                        </div>
+                    </li>
+                    <li class="music-lesson-area ui-card">
+                        <div class="music-lesson-area-icon" aria-hidden="true">R</div>
+                        <div class="music-lesson-area-body">
+                            <h3 class="music-lesson-area-title">Repertório clássico e popular</h3>
+                            <p class="music-lesson-area-desc">Peças escolhidas pelo nível e interesse do aluno — do clássico ao popular brasileiro e internacional.</p>
+                        </div>
+                    </li>
+                    <li class="music-lesson-area ui-card">
+                        <div class="music-lesson-area-icon" aria-hidden="true">J</div>
+                        <div class="music-lesson-area-body">
+                            <h3 class="music-lesson-area-title">Jazz e improvisação</h3>
+                            <p class="music-lesson-area-desc">Linguagem jazzística, voicings, modos e construção de solos — para quem quer entender a harmonia além dos acordes básicos.</p>
+                        </div>
+                    </li>
+                    <li class="music-lesson-area ui-card">
+                        <div class="music-lesson-area-icon" aria-hidden="true">H</div>
+                        <div class="music-lesson-area-body">
+                            <h3 class="music-lesson-area-title">Teoria e harmonia</h3>
+                            <p class="music-lesson-area-desc">Leitura, escala, intervalos, progressões e análise harmônica — contextualizados no instrumento.</p>
+                        </div>
+                    </li>
+                    <li class="music-lesson-area ui-card">
+                        <div class="music-lesson-area-icon" aria-hidden="true">C</div>
+                        <div class="music-lesson-area-body">
+                            <h3 class="music-lesson-area-title">Composição</h3>
+                            <p class="music-lesson-area-desc">Do motivo ao desenvolvimento — como criar e expandir ideias musicais com intenção e estrutura.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Your Rhythm Studio (reservado) ── -->
+    <section class="music-studio-reserved site-section--compact" id="music-studio" aria-labelledby="music-studio-heading">
+        <div class="site-shell">
+            <div class="music-studio-placeholder" data-reveal>
+                <div class="music-studio-placeholder-icon" aria-hidden="true">♩</div>
+                <h2 class="music-studio-placeholder-title" id="music-studio-heading">Your Rhythm Studio</h2>
+                <p class="music-studio-placeholder-desc">
+                    Plataforma integrada para aulas, acompanhamento de progresso e repertório — em desenvolvimento.
+                    Esta seção será expandida quando o projeto estiver pronto para apresentação.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="music-cta site-section" aria-labelledby="music-cta-heading">
+        <div class="site-shell">
+            <div class="music-cta-inner" data-reveal>
+                <span class="ui-kicker">Próximo passo</span>
+                <h2 class="ui-title" id="music-cta-heading" style="font-size: var(--step-2);">
+                    Vamos começar <br>a tocar.
+                </h2>
+                <p class="ui-description" style="margin-inline: auto;">
+                    Para aulas, composições sob encomenda ou simplesmente para conversar sobre música.
+                </p>
+                <div class="ui-actions music-cta-actions">
+                    <a class="ui-button ui-button--primary"
+                       asp-controller="Home"
+                       asp-action="Contact">
+                        Entrar em contato
+                    </a>
+                    <a class="ui-button ui-button--ghost" href="#music-compositions">
+                        Ouvir composições
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

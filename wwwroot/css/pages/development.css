@@ -1,0 +1,528 @@
+/* ============================================================
+   development.css — Página de Desenvolvimento
+   Escopado sob .development-page
+   Não altera tokens globais nem componentes ui-*
+   ============================================================ */
+
+/* ── Hero ── */
+.development-page .dev-hero {
+    position: relative;
+    padding-block: clamp(5rem, 12vw, 9rem);
+    overflow: hidden;
+}
+
+.development-page .dev-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(156, 255, 46, 0.07) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.development-page .dev-hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: var(--space-6);
+    max-width: 720px;
+}
+
+.development-page .dev-hero-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+/* ── Capabilities ── */
+.development-page .dev-capabilities {
+    padding-block: clamp(4rem, 9vw, 7rem);
+}
+
+.development-page .dev-capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(0.85rem, 2vw, 1.5rem);
+    margin-top: var(--space-10);
+}
+
+.development-page .dev-capability-card {
+    padding: clamp(1.25rem, 2.5vw, 1.75rem);
+    display: grid;
+    gap: var(--space-3);
+    transition: transform var(--motion-base) var(--ease-out), border-color var(--motion-base) var(--ease-out);
+}
+
+.development-page .dev-capability-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(156, 255, 46, 0.28);
+}
+
+.development-page .dev-capability-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background: var(--color-accent-soft);
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    font-family: var(--font-mono);
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.development-page .dev-capability-title {
+    margin: 0;
+    color: var(--color-text-strong);
+    font-size: var(--step-0);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.development-page .dev-capability-benefit {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: var(--step--1);
+    line-height: 1.6;
+}
+
+/* ── Projects ── */
+.development-page .dev-projects {
+    padding-block: clamp(4rem, 9vw, 7rem);
+}
+
+.development-page .dev-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+    gap: clamp(0.85rem, 2vw, 1.5rem);
+    margin-top: var(--space-10);
+}
+
+.development-page .dev-project-card {
+    display: grid;
+    gap: var(--space-5);
+    padding: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+.development-page .dev-project-card--featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-8);
+    align-items: start;
+}
+
+.development-page .dev-project-emblem {
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+}
+
+.development-page .dev-project-emblem--svg {
+    background: rgba(255, 255, 255, 0.06);
+    padding: var(--space-2);
+}
+
+.development-page .dev-project-body {
+    display: grid;
+    gap: var(--space-3);
+}
+
+.development-page .dev-project-rank {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+}
+
+.development-page .dev-project-name {
+    margin: 0;
+    color: var(--color-text-strong);
+    font-size: var(--step-1);
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.development-page .dev-project-summary {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: var(--step--1);
+    line-height: 1.6;
+}
+
+.development-page .dev-project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.development-page .dev-project-links {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-top: var(--space-2);
+}
+
+.development-page .dev-project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-muted);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color var(--motion-fast) var(--ease-out), border-color var(--motion-fast) var(--ease-out);
+}
+
+.development-page .dev-project-link:hover {
+    color: var(--color-accent);
+    border-color: rgba(156, 255, 46, 0.42);
+}
+
+.development-page .dev-project-link--primary {
+    color: var(--color-accent);
+    border-color: rgba(156, 255, 46, 0.32);
+}
+
+/* Coming soon card */
+.development-page .dev-project-card--pending {
+    opacity: 0.65;
+    border-style: dashed;
+}
+
+.development-page .dev-project-pending-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--radius-pill);
+    background: rgba(250, 204, 21, 0.1);
+    border: 1px solid rgba(250, 204, 21, 0.24);
+    color: var(--color-warning);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* ── Automation Flow ── */
+.development-page .dev-automation {
+    padding-block: clamp(4rem, 9vw, 7rem);
+}
+
+.development-page .dev-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: var(--space-12);
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(145deg, rgba(5, 16, 24, 0.9), rgba(5, 13, 19, 0.72));
+}
+
+.development-page .dev-flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-5) var(--space-6);
+    text-align: center;
+    flex: 1;
+    min-width: 110px;
+}
+
+.development-page .dev-flow-icon {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--color-accent-soft);
+    border: 1px solid rgba(156, 255, 46, 0.24);
+    font-size: 1.15rem;
+    font-family: var(--font-mono);
+    font-weight: 800;
+    color: var(--color-accent);
+}
+
+.development-page .dev-flow-label {
+    color: var(--color-text-strong);
+    font-size: var(--step--1);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.development-page .dev-flow-desc {
+    color: var(--color-muted);
+    font-size: 0.76rem;
+    line-height: 1.5;
+}
+
+.development-page .dev-flow-arrow {
+    color: rgba(156, 255, 46, 0.4);
+    font-size: 1.4rem;
+    font-weight: 400;
+    flex-shrink: 0;
+    padding: 0 var(--space-1);
+    user-select: none;
+}
+
+.development-page .dev-flow-context {
+    margin-top: var(--space-6);
+    padding: var(--space-5) var(--space-8);
+    border: 1px solid rgba(40, 216, 238, 0.16);
+    border-radius: var(--radius-md);
+    background: var(--color-cyan-soft);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.development-page .dev-flow-context-label {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.development-page .dev-flow-context-text {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: var(--step--1);
+    line-height: 1.5;
+}
+
+/* ── Infrastructure ── */
+.development-page .dev-infra {
+    padding-block: clamp(4rem, 9vw, 7rem);
+}
+
+.development-page .dev-pipeline {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: var(--space-10);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.development-page .dev-pipeline-step {
+    flex: 1;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-6) var(--space-4);
+    text-align: center;
+    background: linear-gradient(180deg, rgba(5, 16, 24, 0.85), rgba(5, 13, 19, 0.65));
+    border-right: 1px solid var(--color-border);
+    position: relative;
+}
+
+.development-page .dev-pipeline-step:last-child {
+    border-right: none;
+}
+
+.development-page .dev-pipeline-step::after {
+    content: "›";
+    position: absolute;
+    right: -0.7rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(40, 216, 238, 0.4);
+    font-size: 1.4rem;
+    z-index: 1;
+    line-height: 1;
+}
+
+.development-page .dev-pipeline-step:last-child::after {
+    display: none;
+}
+
+.development-page .dev-pipeline-icon {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--color-cyan);
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background: var(--color-cyan-soft);
+    border: 1px solid rgba(40, 216, 238, 0.18);
+}
+
+.development-page .dev-pipeline-label {
+    color: var(--color-text-strong);
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.development-page .dev-pipeline-sub {
+    color: var(--color-muted);
+    font-size: 0.7rem;
+    line-height: 1.4;
+}
+
+/* ── Security Layer ── */
+.development-page .dev-security-layer {
+    padding-block: clamp(4rem, 9vw, 7rem);
+}
+
+.development-page .dev-security-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(0.75rem, 1.5vw, 1.15rem);
+    margin-top: var(--space-10);
+}
+
+.development-page .dev-security-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-5) var(--space-5);
+}
+
+.development-page .dev-security-num {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: rgba(40, 216, 238, 0.5);
+    letter-spacing: 0.08em;
+}
+
+.development-page .dev-security-title {
+    margin: 0;
+    color: var(--color-text-strong);
+    font-size: var(--step-0);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.development-page .dev-security-desc {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: var(--step--1);
+    line-height: 1.6;
+}
+
+/* ── Final CTA ── */
+.development-page .dev-cta {
+    padding-block: clamp(5rem, 10vw, 8rem);
+    text-align: center;
+}
+
+.development-page .dev-cta-inner {
+    display: grid;
+    gap: var(--space-6);
+    max-width: 560px;
+    margin-inline: auto;
+}
+
+.development-page .dev-cta-actions {
+    justify-content: center;
+}
+
+/* ── Section headings ── */
+.development-page .dev-section-head {
+    display: grid;
+    gap: var(--space-4);
+    max-width: 680px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+    .development-page .dev-capabilities-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .development-page .dev-security-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .development-page .dev-project-card--featured {
+        grid-template-columns: 1fr;
+    }
+
+    .development-page .dev-project-emblem {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+@media (max-width: 700px) {
+    .development-page .dev-flow {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .development-page .dev-flow-arrow {
+        transform: rotate(90deg);
+        align-self: center;
+    }
+
+    .development-page .dev-pipeline {
+        flex-direction: column;
+    }
+
+    .development-page .dev-pipeline-step {
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+        flex-direction: row;
+        text-align: left;
+        gap: var(--space-4);
+    }
+
+    .development-page .dev-pipeline-step:last-child {
+        border-bottom: none;
+    }
+
+    .development-page .dev-pipeline-step::after {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .development-page .dev-capabilities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .development-page .dev-security-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+    .development-page .dev-capability-card {
+        transition: none;
+    }
+}

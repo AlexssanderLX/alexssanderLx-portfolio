@@ -1,0 +1,395 @@
+/* ============================================================
+   music.css — Página de Música
+   Escopado sob .music-page
+   Não altera tokens globais nem componentes ui-*
+   ============================================================ */
+
+/* ── Hero ── */
+.music-page .music-hero {
+    position: relative;
+    padding-block: clamp(5rem, 12vw, 9rem);
+    overflow: hidden;
+}
+
+.music-page .music-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(250, 204, 21, 0.05) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.music-page .music-hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: var(--space-6);
+    max-width: 680px;
+}
+
+.music-page .music-hero-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+/* ── Music kicker variant ── */
+.music-page .music-kicker::before {
+    background: var(--color-warning);
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.6);
+}
+
+/* ── Methodology ── */
+.music-page .music-methodology {
+    padding-block: clamp(4rem, 9vw, 7rem);
+}
+
+.music-page .music-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(0.85rem, 2vw, 1.5rem);
+    margin-top: var(--space-10);
+}
+
+.music-page .music-pillar {
+    display: grid;
+    gap: var(--space-4);
+    padding: clamp(1.25rem, 2.5vw, 1.75rem);
+    transition: transform var(--motion-base) var(--ease-out), border-color var(--motion-base) var(--ease-out);
+}
+
+.music-page .music-pillar:hover {
+    transform: translateY(-2px);
+    border-color: rgba(250, 204, 21, 0.22);
+}
+
+.music-page .music-pillar-num {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: rgba(250, 204, 21, 0.2);
+    line-height: 1;
+}
+
+.music-page .music-pillar-title {
+    margin: 0;
+    color: var(--color-text-strong);
+    font-size: var(--step-0);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.music-page .music-pillar-desc {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: var(--step--1);
+    line-height: 1.7;
+}
+
+/* ── Compositions ── */
+.music-page .music-compositions {
+    padding-block: clamp(4rem, 9vw, 7rem);
+}
+
+.music-page .music-comp-list {
+    display: grid;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    margin-top: var(--space-10);
+}
+
+.music-page .music-comp-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: var(--space-6);
+    padding: clamp(1.25rem, 2.5vw, 1.75rem);
+    transition: transform var(--motion-base) var(--ease-out), border-color var(--motion-base) var(--ease-out);
+}
+
+.music-page .music-comp-card:hover {
+    transform: translateY(-1px);
+    border-color: rgba(250, 204, 21, 0.18);
+}
+
+.music-page .music-comp-emblem {
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    background: rgba(250, 204, 21, 0.08);
+    border: 1px solid rgba(250, 204, 21, 0.18);
+    font-size: 1.5rem;
+    color: var(--color-warning);
+    flex-shrink: 0;
+}
+
+.music-page .music-comp-body {
+    display: grid;
+    gap: var(--space-2);
+}
+
+.music-page .music-comp-type {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(250, 204, 21, 0.7);
+}
+
+.music-page .music-comp-name {
+    margin: 0;
+    color: var(--color-text-strong);
+    font-size: var(--step-1);
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.music-page .music-comp-desc {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: var(--step--1);
+    line-height: 1.6;
+    max-width: var(--readable);
+}
+
+.music-page .music-comp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.music-page .music-comp-tag {
+    padding: 0.22rem 0.55rem;
+    border-radius: var(--radius-pill);
+    background: rgba(250, 204, 21, 0.07);
+    border: 1px solid rgba(250, 204, 21, 0.15);
+    color: rgba(250, 204, 21, 0.65);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+}
+
+.music-page .music-comp-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-end;
+    flex-shrink: 0;
+}
+
+.music-page .music-listen-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0.6rem 1.1rem;
+    border: 1px solid rgba(250, 204, 21, 0.28);
+    border-radius: var(--radius-sm);
+    color: var(--color-warning);
+    background: rgba(250, 204, 21, 0.06);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background var(--motion-fast) var(--ease-out), border-color var(--motion-fast) var(--ease-out);
+}
+
+.music-page .music-listen-link:hover {
+    background: rgba(250, 204, 21, 0.12);
+    border-color: rgba(250, 204, 21, 0.5);
+}
+
+/* ── Lessons ── */
+.music-page .music-lessons {
+    padding-block: clamp(4rem, 9vw, 7rem);
+}
+
+.music-page .music-lessons-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+    margin-top: var(--space-10);
+}
+
+.music-page .music-lessons-copy {
+    display: grid;
+    gap: var(--space-5);
+}
+
+.music-page .music-lessons-title {
+    margin: 0;
+    color: var(--color-text-strong);
+    font-size: var(--step-2);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+.music-page .music-lessons-desc {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: var(--step-0);
+    line-height: 1.75;
+}
+
+.music-page .music-lesson-areas {
+    display: grid;
+    gap: var(--space-3);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.music-page .music-lesson-area {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+}
+
+.music-page .music-lesson-area-icon {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background: rgba(250, 204, 21, 0.07);
+    border: 1px solid rgba(250, 204, 21, 0.14);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: rgba(250, 204, 21, 0.7);
+    flex-shrink: 0;
+}
+
+.music-page .music-lesson-area-body {
+    display: grid;
+    gap: var(--space-1);
+}
+
+.music-page .music-lesson-area-title {
+    margin: 0;
+    color: var(--color-text-strong);
+    font-size: var(--step--1);
+    font-weight: 800;
+}
+
+.music-page .music-lesson-area-desc {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: var(--step--1);
+    line-height: 1.55;
+}
+
+/* ── Your Rhythm Studio (reserved) ── */
+.music-page .music-studio-reserved {
+    padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.music-page .music-studio-placeholder {
+    padding: clamp(2rem, 4vw, 3rem);
+    border: 1px dashed rgba(250, 204, 21, 0.18);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    display: grid;
+    gap: var(--space-4);
+    background: rgba(250, 204, 21, 0.02);
+}
+
+.music-page .music-studio-placeholder-icon {
+    font-size: 2.5rem;
+    color: rgba(250, 204, 21, 0.25);
+    line-height: 1;
+}
+
+.music-page .music-studio-placeholder-title {
+    margin: 0;
+    color: rgba(250, 204, 21, 0.55);
+    font-size: var(--step-1);
+    font-weight: 800;
+}
+
+.music-page .music-studio-placeholder-desc {
+    margin: 0 auto;
+    color: var(--color-muted);
+    font-size: var(--step--1);
+    line-height: 1.6;
+    max-width: 42ch;
+    opacity: 0.75;
+}
+
+/* ── CTA ── */
+.music-page .music-cta {
+    padding-block: clamp(5rem, 10vw, 8rem);
+    text-align: center;
+}
+
+.music-page .music-cta-inner {
+    display: grid;
+    gap: var(--space-6);
+    max-width: 520px;
+    margin-inline: auto;
+}
+
+.music-page .music-cta-actions {
+    justify-content: center;
+}
+
+/* ── Section headings ── */
+.music-page .music-section-head {
+    display: grid;
+    gap: var(--space-4);
+    max-width: 640px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+    .music-page .music-pillars {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .music-page .music-lessons-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .music-page .music-comp-card {
+        grid-template-columns: auto 1fr;
+    }
+
+    .music-page .music-comp-actions {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .music-page .music-pillars {
+        grid-template-columns: 1fr;
+    }
+
+    .music-page .music-comp-card {
+        grid-template-columns: 1fr;
+    }
+
+    .music-page .music-comp-emblem {
+        display: none;
+    }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+    .music-page .music-pillar,
+    .music-page .music-comp-card {
+        transition: none;
+    }
+}
