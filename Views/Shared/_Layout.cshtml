@@ -52,7 +52,6 @@
                     <ul class="nav-list header-nav">
                         <li><a class="nav-link" asp-controller="Home" asp-action="Index">Início</a></li>
                         <li><a class="nav-link" asp-controller="Home" asp-action="About">Perfil</a></li>
-                        <li><a class="nav-link" asp-controller="Home" asp-action="Projects">Projetos atuais</a></li>
                         <li><a class="nav-link" asp-controller="Home" asp-action="Contact">Contato</a></li>
                         <li><a class="nav-link cta" asp-controller="Home" asp-action="Contact">Iniciar projeto</a></li>
                     </ul>
@@ -72,9 +71,11 @@
     <footer class="footer-fixed">
         <div class="footer-map" aria-label="Footer navigation">
             <span>&#169; 2026 Alexssander LX</span>
-            <a asp-controller="Home" asp-action="Projects">Projetos</a>
-            <a asp-controller="Home" asp-action="Projects" asp-fragment="pentest">Segurança</a>
-            <a asp-controller="Home" asp-action="Projects" asp-fragment="music">Música</a>
+            <a asp-controller="Home" asp-action="Development">Desenvolvimento</a>
+            <a asp-controller="Home" asp-action="Security">Segurança</a>
+            <a asp-controller="Home" asp-action="Music">Música</a>
+            <a asp-controller="Home" asp-action="Projects">Arquivo</a>
+            <a asp-controller="Home" asp-action="Contact">Contato</a>
             <a asp-controller="Home" asp-action="Rights">Direitos</a>
         </div>
     </footer>
