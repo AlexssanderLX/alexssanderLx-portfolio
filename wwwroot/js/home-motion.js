@@ -240,10 +240,24 @@
             const rect = activePanel.getBoundingClientRect();
             const x = (pointerX - rect.left) / rect.width;
             const y = (pointerY - rect.top) / rect.height;
-            const strength = activePanel.dataset.depthStrength === "hero" ? 1.85 : 1;
+            const strengthMap = {
+                hero: 1.85,
+                craft: 1.18,
+                infra: 1.28,
+                "infra-copy": 1.12,
+                final: 1.35
+            };
+            const moveMap = {
+                hero: 13,
+                craft: 9,
+                infra: 10,
+                "infra-copy": 8,
+                final: 11
+            };
+            const strength = strengthMap[activePanel.dataset.depthStrength] || 1;
             const tiltX = (0.5 - y) * 6 * strength;
             const tiltY = (x - 0.5) * 7 * strength;
-            const move = activePanel.dataset.depthStrength === "hero" ? 13 : 8;
+            const move = moveMap[activePanel.dataset.depthStrength] || 8;
 
             activePanel.style.setProperty("--pointer-x", `${(x * 100).toFixed(2)}%`);
             activePanel.style.setProperty("--pointer-y", `${(y * 100).toFixed(2)}%`);

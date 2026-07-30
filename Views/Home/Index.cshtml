@@ -128,7 +128,7 @@
                     <strong class="path-card__command">&gt; open /development</strong>
                 </a>
 
-                <a class="path-card path-card--infra ui-card" href="#infrastructure" data-reveal data-motion-origin="left" data-motion-delay="100" data-depth-panel>
+                <article class="path-card path-card--infra ui-card" data-reveal data-motion-origin="left" data-motion-delay="100" data-depth-panel>
                     <span class="path-card__index">02</span>
                     <span class="ui-badge">Operations</span>
                     <h3>Infrastructure and automation</h3>
@@ -138,8 +138,8 @@
                         <span>VPS</span>
                         <span>HTTPS</span>
                     </div>
-                    <strong class="path-card__command">&gt; inspect /infra</strong>
-                </a>
+                    <strong class="path-card__command">&gt; preview /infra below</strong>
+                </article>
 
                 <a class="path-card path-card--security ui-card" asp-controller="Home" asp-action="Security" data-reveal data-motion-origin="right" data-motion-delay="180" data-depth-panel>
                     <span class="path-card__index">03</span>
@@ -185,7 +185,7 @@
             </div>
 
             <div class="product-preview-stack" aria-label="Technical capabilities" data-motion-sequence="projects">
-                <article class="product-preview product-preview--zero" data-reveal="right" data-motion-origin="scale" data-motion-delay="0" data-depth-panel>
+                <article class="product-preview product-preview--zero" data-reveal="right" data-motion-origin="scale" data-motion-delay="0" data-depth-panel data-depth-strength="craft">
                     <div>
                         <span class="ui-badge">Interface</span>
                         <h3>Responsive systems</h3>
@@ -194,7 +194,7 @@
                     <span class="product-preview__emblem" aria-hidden="true">&lt;/&gt;</span>
                 </article>
 
-                <article class="product-preview" data-reveal="right" data-motion-origin="right" data-motion-delay="130" data-depth-panel>
+                <article class="product-preview product-preview--quality" data-reveal="right" data-motion-origin="right" data-motion-delay="130" data-depth-panel data-depth-strength="craft">
                     <div>
                         <span class="ui-badge">Quality</span>
                         <h3>Performance and accessibility</h3>
@@ -203,7 +203,7 @@
                     <span class="product-preview__emblem" aria-hidden="true">AA</span>
                 </article>
 
-                <article class="product-preview" data-reveal="right" data-motion-origin="bottom-right" data-motion-delay="230" data-depth-panel>
+                <article class="product-preview product-preview--motion" data-reveal="right" data-motion-origin="bottom-right" data-motion-delay="230" data-depth-panel data-depth-strength="craft">
                     <div>
                         <span class="ui-badge">Narrative</span>
                         <h3>Purposeful motion</h3>
@@ -217,7 +217,7 @@
 
     <section class="home-chapter home-infra site-section" id="infrastructure" aria-labelledby="infra-title" data-home-chapter="infra">
         <div class="site-shell home-chapter__grid home-chapter__grid--reverse">
-            <div class="infra-map ui-panel" data-reveal="left" data-motion-origin="scale" data-motion-sequence="pipeline" aria-label="Infrastructure flow diagram">
+            <div class="infra-map ui-panel" data-reveal="left" data-motion-origin="bottom-left" data-motion-sequence="pipeline" data-depth-panel data-depth-strength="infra" aria-label="Infrastructure flow diagram">
                 <div class="infra-node" data-pipeline-step>Code</div>
                 <div class="infra-line" aria-hidden="true"></div>
                 <div class="infra-node" data-pipeline-step>Build</div>
@@ -233,7 +233,7 @@
                 </div>
             </div>
 
-            <div class="ui-section-heading" data-reveal data-motion-origin="right">
+            <div class="ui-section-heading home-infra-copy ui-panel" data-reveal data-motion-origin="right" data-depth-panel data-depth-strength="infra-copy">
                 <p class="ui-kicker">Operational layer</p>
                 <h2 class="ui-title" id="infra-title">Strong interfaces need strong delivery paths.</h2>
                 <p class="ui-description">
@@ -249,7 +249,7 @@
 
     <section class="home-final-cta site-section--compact" aria-labelledby="final-title" data-home-chapter="final">
         <div class="site-shell">
-            <div class="home-final-cta__panel ui-panel" data-reveal data-motion-origin="scale" data-depth-panel>
+            <div class="home-final-cta__panel ui-panel" data-reveal data-motion-origin="scale" data-depth-panel data-depth-strength="final">
                 <div>
                     <p class="ui-kicker">Next step</p>
                     <h2 class="ui-title" id="final-title">A practical builder for product, automation and security problems.</h2>
