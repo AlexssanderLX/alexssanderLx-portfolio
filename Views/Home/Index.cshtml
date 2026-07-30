@@ -8,19 +8,28 @@
 }
 
 <section class="home-cinematic" id="home">
+    <div class="home-intro" data-home-intro aria-hidden="true">
+        <div class="home-intro__grid" aria-hidden="true"></div>
+        <div class="home-intro__mark">
+            <span class="home-intro__kicker">root@@portfolio:~# init</span>
+            <strong>Alexssander <span>LX</span></strong>
+            <i></i>
+        </div>
+    </div>
+
     <section class="home-hero" aria-labelledby="home-title">
-        <div class="home-hero__copy" data-reveal>
-            <p class="ui-kicker">Alexssander LX</p>
-            <h1 class="ui-title ui-title--hero" id="home-title">
+        <div class="home-hero__copy" data-reveal data-motion-origin="left">
+            <p class="ui-kicker" data-hero-step data-motion-delay="120">Alexssander LX</p>
+            <h1 class="ui-title ui-title--hero" id="home-title" data-hero-step data-motion-delay="240">
                 Construo produtos digitais completos,
                 <span class="ui-gradient-text">da ideia ao deploy seguro.</span>
             </h1>
-            <p class="ui-description">
+            <p class="ui-description" data-hero-step data-motion-delay="360">
                 Desenvolvimento web, SaaS, backend, automações e segurança aplicada para transformar processos reais
                 em sistemas claros, úteis e preparados para evoluir.
             </p>
 
-            <div class="ui-actions" aria-label="Ações principais">
+            <div class="ui-actions" aria-label="Ações principais" data-hero-step data-motion-delay="500">
                 <a class="ui-button ui-button--primary" asp-controller="Home" asp-action="Contact">
                     Conversar sobre projeto
                     <span aria-hidden="true">-&gt;</span>
@@ -31,7 +40,7 @@
             </div>
         </div>
 
-        <aside class="home-identity ui-panel" data-reveal="right" aria-label="Resumo visual de Alexssander LX">
+        <aside class="home-identity ui-panel" data-reveal="right" data-motion-origin="right" data-depth-panel aria-label="Resumo visual de Alexssander LX">
             <div class="home-identity__halo" aria-hidden="true"></div>
             <figure class="home-portrait">
                 <picture>
@@ -47,7 +56,7 @@
                 </picture>
             </figure>
 
-            <div class="home-terminal">
+            <div class="home-terminal" data-hero-step data-motion-delay="680">
                 <span>root@@portfolio:~# build --profile</span>
                 <strong>software | automação | segurança aplicada</strong>
                 <p>2 anos resolvendo problemas reais com C#, ASP.NET Core, Python, Linux e prática ofensiva.</p>
@@ -55,9 +64,9 @@
         </aside>
     </section>
 
-    <nav class="home-paths site-section--compact" aria-label="Caminhos profissionais">
+    <nav class="home-paths site-section--compact" aria-label="Caminhos profissionais" data-home-chapter="paths">
         <div class="site-shell">
-            <div class="ui-section-heading" data-reveal>
+            <div class="ui-section-heading" data-reveal data-motion-origin="scale">
                 <p class="ui-kicker">Escolha o caminho</p>
                 <h2 class="ui-title">A homepage agora funciona como mapa, não como gaveta cheia.</h2>
                 <p class="ui-description">
@@ -65,26 +74,26 @@
                 </p>
             </div>
 
-            <div class="home-path-grid">
-                <a class="path-card ui-card" asp-controller="Home" asp-action="Development" data-reveal>
+            <div class="home-path-grid" data-motion-sequence="paths">
+                <a class="path-card ui-card" asp-controller="Home" asp-action="Development" data-reveal data-motion-origin="bottom-left" data-motion-delay="0" data-depth-panel>
                     <span class="ui-badge">Produtos</span>
                     <h3>Desenvolvimento e SaaS</h3>
                     <p>Aplicações web, backend, integrações e produtos reais como ZeroPaper, LedgerFlow e StoreFlow.</p>
                 </a>
 
-                <a class="path-card ui-card" href="#infraestrutura" data-reveal>
+                <a class="path-card ui-card" href="#infraestrutura" data-reveal data-motion-origin="left" data-motion-delay="100" data-depth-panel>
                     <span class="ui-badge">Operação</span>
                     <h3>Infraestrutura e automações</h3>
                     <p>Fluxos que conectam código, deploy, VPS, proxy, certificados e processos repetitivos.</p>
                 </a>
 
-                <a class="path-card ui-card" asp-controller="Home" asp-action="Security" data-reveal>
+                <a class="path-card ui-card" asp-controller="Home" asp-action="Security" data-reveal data-motion-origin="right" data-motion-delay="180" data-depth-panel>
                     <span class="ui-badge">Segurança</span>
                     <h3>DevSecOps e pentest</h3>
                     <p>Validação, autenticação, revisão, hardening e aprendizado por CTF aplicado ao desenvolvimento.</p>
                 </a>
 
-                <a class="path-card ui-card" asp-controller="Home" asp-action="Music" data-reveal>
+                <a class="path-card ui-card" asp-controller="Home" asp-action="Music" data-reveal data-motion-origin="bottom-right" data-motion-delay="260" data-depth-panel>
                     <span class="ui-badge">Música</span>
                     <h3>Piano, composição e aulas</h3>
                     <p>Um caminho criativo próprio, preparado para evoluir em experiência musical sem áudio automático.</p>
@@ -93,9 +102,9 @@
         </div>
     </nav>
 
-    <section class="home-chapter site-section" aria-labelledby="build-title">
+    <section class="home-chapter site-section" aria-labelledby="build-title" data-home-chapter="projects">
         <div class="site-shell home-chapter__grid">
-            <div class="ui-section-heading home-sticky-copy" data-reveal>
+            <div class="ui-section-heading home-sticky-copy" data-reveal data-motion-origin="left">
                 <p class="ui-kicker">O que é construído</p>
                 <h2 class="ui-title" id="build-title">Produtos que precisam funcionar fora do portfólio.</h2>
                 <p class="ui-description">
@@ -107,8 +116,8 @@
                 </a>
             </div>
 
-            <div class="product-preview-stack" aria-label="Projetos em destaque">
-                <article class="product-preview product-preview--zero" data-reveal="right">
+            <div class="product-preview-stack" aria-label="Projetos em destaque" data-motion-sequence="projects">
+                <article class="product-preview product-preview--zero" data-reveal="right" data-motion-origin="scale" data-motion-delay="0" data-depth-panel>
                     <div>
                         <span class="ui-badge">Produto real</span>
                         <h3>ZeroPaper</h3>
@@ -123,7 +132,7 @@
                          decoding="async">
                 </article>
 
-                <article class="product-preview" data-reveal="right">
+                <article class="product-preview" data-reveal="right" data-motion-origin="right" data-motion-delay="130" data-depth-panel>
                     <div>
                         <span class="ui-badge">Automação</span>
                         <h3>LedgerFlow</h3>
@@ -138,7 +147,7 @@
                          decoding="async">
                 </article>
 
-                <article class="product-preview" data-reveal="right">
+                <article class="product-preview" data-reveal="right" data-motion-origin="bottom-right" data-motion-delay="230" data-depth-panel>
                     <div>
                         <span class="ui-badge">Operações</span>
                         <h3>StoreFlow</h3>
@@ -156,25 +165,25 @@
         </div>
     </section>
 
-    <section class="home-chapter home-infra site-section" id="infraestrutura" aria-labelledby="infra-title">
+    <section class="home-chapter home-infra site-section" id="infraestrutura" aria-labelledby="infra-title" data-home-chapter="infra">
         <div class="site-shell home-chapter__grid home-chapter__grid--reverse">
-            <div class="infra-map ui-panel" data-reveal="left" aria-label="Fluxo visual de infraestrutura">
-                <div class="infra-node">Código</div>
+            <div class="infra-map ui-panel" data-reveal="left" data-motion-origin="scale" data-motion-sequence="pipeline" aria-label="Fluxo visual de infraestrutura">
+                <div class="infra-node" data-pipeline-step>Código</div>
                 <div class="infra-line" aria-hidden="true"></div>
-                <div class="infra-node">Build</div>
+                <div class="infra-node" data-pipeline-step>Build</div>
                 <div class="infra-line" aria-hidden="true"></div>
-                <div class="infra-node">Deploy</div>
+                <div class="infra-node" data-pipeline-step>Deploy</div>
                 <div class="infra-line" aria-hidden="true"></div>
-                <div class="infra-node infra-node--accent">VPS segura</div>
+                <div class="infra-node infra-node--accent" data-pipeline-step>VPS segura</div>
                 <div class="infra-grid" aria-hidden="true">
-                    <span>Nginx</span>
-                    <span>Kestrel</span>
-                    <span>HTTPS</span>
-                    <span>Backup</span>
+                    <span data-pipeline-step>Nginx</span>
+                    <span data-pipeline-step>Kestrel</span>
+                    <span data-pipeline-step>HTTPS</span>
+                    <span data-pipeline-step>Backup</span>
                 </div>
             </div>
 
-            <div class="ui-section-heading" data-reveal>
+            <div class="ui-section-heading" data-reveal data-motion-origin="right">
                 <p class="ui-kicker">Infraestrutura por trás</p>
                 <h2 class="ui-title" id="infra-title">Interface bonita não sustenta produto sozinha.</h2>
                 <p class="ui-description">
@@ -188,9 +197,9 @@
         </div>
     </section>
 
-    <section class="home-chapter site-section" aria-labelledby="security-title">
+    <section class="home-chapter site-section" aria-labelledby="security-title" data-home-chapter="focus">
         <div class="site-shell home-dual">
-            <article class="home-focus-card ui-card" data-reveal>
+            <article class="home-focus-card ui-card" data-reveal data-motion-origin="bottom-left" data-motion-delay="0" data-depth-panel>
                 <span class="ui-badge">Segurança aplicada</span>
                 <h2 class="ui-title" id="security-title">Pensar como atacante para construir com mais cuidado.</h2>
                 <p>
@@ -202,7 +211,7 @@
                 </a>
             </article>
 
-            <article class="home-focus-card ui-card home-focus-card--music" data-reveal>
+            <article class="home-focus-card ui-card home-focus-card--music" data-reveal data-motion-origin="bottom-right" data-motion-delay="160" data-depth-panel>
                 <span class="ui-badge">Música e ensino</span>
                 <h2 class="ui-title">Disciplina criativa também é produto.</h2>
                 <p>
@@ -216,9 +225,9 @@
         </div>
     </section>
 
-    <section class="home-final-cta site-section--compact" aria-labelledby="final-title">
+    <section class="home-final-cta site-section--compact" aria-labelledby="final-title" data-home-chapter="final">
         <div class="site-shell">
-            <div class="home-final-cta__panel ui-panel" data-reveal>
+            <div class="home-final-cta__panel ui-panel" data-reveal data-motion-origin="scale" data-depth-panel>
                 <div>
                     <p class="ui-kicker">Próximo passo</p>
                     <h2 class="ui-title" id="final-title">Vamos transformar uma ideia, rotina ou problema em sistema?</h2>
