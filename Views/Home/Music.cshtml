@@ -14,12 +14,18 @@
 @section Styles {
     <link rel="stylesheet" href="~/css/pages/music.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/pages/music-piano.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/pages/experience.css" asp-append-version="true" />
 }
 
-<div class="music-page">
+<div class="music-page experience-page experience-page--music" data-experience-page>
 
     <!-- ── Hero ── -->
     <section class="music-hero" aria-labelledby="music-h1">
+        <div class="experience-orbitals" aria-hidden="true">
+            <span class="experience-signal-card signal-card--one">mission.xp += 50<strong>student progress</strong></span>
+            <span class="experience-signal-card signal-card--two">piano.play(C4)<strong>virtual instrument</strong></span>
+            <span class="experience-signal-card signal-card--three">lesson.plan()<strong>teachers / schools</strong></span>
+        </div>
         <div class="site-shell">
             <div class="music-hero-inner">
                 <div class="music-hero-meta" data-reveal>
@@ -61,7 +67,7 @@
                 </h2>
                 <p class="music-piano-intro-desc">
                     Virtual keyboard with real audio synthesis — click, tap or use your keyboard.
-                    This is the same engine embedded in <a href="#music-studio" style="color:var(--color-cyan);text-decoration:none;">Your Rhythm Studio</a>.
+                    This interaction mirrors the playful learning layer used by <a class="experience-text-link" href="#music-studio">YourRhythm Studio</a>.
                 </p>
             </div>
 
@@ -80,7 +86,7 @@
                 <div class="pv-tut-card">
                     <div class="pv-tut-icon" aria-hidden="true">🎵</div>
                     <h3>Track + piano</h3>
-                    <p>Enable the background track and improvise along — originally created for Your Rhythm Studio.</p>
+                    <p>Enable the background track and improvise along with a lightweight musical practice layer.</p>
                 </div>
             </div>
 
@@ -186,7 +192,7 @@
             <!-- Background track -->
             <div class="music-track-bar" data-reveal aria-label="Background track">
                 <div class="music-track-info">
-                    <span class="music-track-name">Beat_1 — Your Rhythm Studio</span>
+                    <span class="music-track-name">Beat_1 - YourRhythm Studio</span>
                     <p class="music-track-meta">Original beat created for the platform. Click to enable and play along.</p>
                 </div>
                 <button id="musicTrackBtn"
@@ -206,7 +212,7 @@
         <div class="site-shell">
             <div class="music-section-head" data-reveal>
                 <span class="ui-kicker">Approach</span>
-                <h2 class="ui-title" id="music-method-heading" style="font-size: var(--step-2);">
+                <h2 class="ui-title experience-title-sm" id="music-method-heading">
                     Six pillars that structure learning.
                 </h2>
                 <p class="ui-description">
@@ -278,7 +284,7 @@
         <div class="site-shell">
             <div class="music-section-head" data-reveal>
                 <span class="ui-kicker">Compositions</span>
-                <h2 class="ui-title" id="music-comp-heading" style="font-size: var(--step-2);">
+                <h2 class="ui-title experience-title-sm" id="music-comp-heading">
                     Original pieces.
                 </h2>
                 <p class="ui-description">
@@ -389,49 +395,61 @@
         </div>
     </section>
 
-    <!-- ── Your Rhythm Studio ── -->
+    <!-- YourRhythm Studio -->
     <section class="music-studio site-section" id="music-studio" aria-labelledby="music-studio-heading">
         <div class="site-shell">
             <div class="music-studio-inner" data-reveal>
 
                 <div class="music-studio-header">
+                    <img src="~/img/ProjectsIMGs/YourRhythmStudio-Logo.png"
+                         asp-append-version="true"
+                         alt="YourRhythm Studio logo"
+                         class="music-studio-logo"
+                         width="88"
+                         height="88"
+                         loading="lazy"
+                         decoding="async" />
                     <span class="music-studio-live-badge" aria-label="Live in production">
                         <span class="music-studio-live-dot" aria-hidden="true"></span>
                         live
                     </span>
-                    <h2 class="music-studio-name" id="music-studio-heading">Your Rhythm Studio</h2>
+                    <h2 class="music-studio-name" id="music-studio-heading">YourRhythm Studio</h2>
                     <p class="music-studio-tagline">
                         A music learning platform with structured repertoire, progressive missions
                         and an embedded virtual piano — designed and maintained by me.
+                    </p>
+                    <p class="music-studio-tagline music-studio-tagline--refined">
+                        Platform for music teachers and schools to organize students, lessons,
+                        repertoire and weekly missions with visible XP-based progress.
                     </p>
                     <a class="ui-button ui-button--ghost music-studio-link"
                        href="https://yourrhythmstudio.com.br"
                        target="_blank"
                        rel="noopener noreferrer">
-                        Visit the platform →
+                        Visit the platform
                     </a>
                 </div>
 
                 <ul class="music-studio-features" role="list">
                     <li class="music-studio-feature">
                         <div class="music-studio-feature-icon" aria-hidden="true">🎯</div>
-                        <h3 class="music-studio-feature-title">Progressive missions</h3>
-                        <p class="music-studio-feature-desc">A mission system that guides students from beginner to advanced with clear goals at each step.</p>
+                        <h3 class="music-studio-feature-title">Student missions</h3>
+                        <p class="music-studio-feature-desc">Weekly goals make practice visible between lessons instead of only during class time.</p>
                     </li>
                     <li class="music-studio-feature">
                         <div class="music-studio-feature-icon" aria-hidden="true">🎹</div>
-                        <h3 class="music-studio-feature-title">Embedded virtual piano</h3>
-                        <p class="music-studio-feature-desc">The same keyboard you see above, integrated into exercises and repertoire inside the platform.</p>
+                        <h3 class="music-studio-feature-title">Virtual piano layer</h3>
+                        <p class="music-studio-feature-desc">An interactive keyboard supports exercises, discovery and low-friction musical practice.</p>
                     </li>
                     <li class="music-studio-feature">
                         <div class="music-studio-feature-icon" aria-hidden="true">📚</div>
-                        <h3 class="music-studio-feature-title">Curated repertoire</h3>
-                        <p class="music-studio-feature-desc">Pieces organized by level and style, with sheet music and historical context for each work.</p>
+                        <h3 class="music-studio-feature-title">Lessons and repertoire</h3>
+                        <p class="music-studio-feature-desc">Teachers can structure repertoire, class direction and practice material in one learning space.</p>
                     </li>
                     <li class="music-studio-feature">
                         <div class="music-studio-feature-icon" aria-hidden="true">📈</div>
-                        <h3 class="music-studio-feature-title">Progress tracking</h3>
-                        <p class="music-studio-feature-desc">Visualization of study history, completed goals and next steps in the learning journey.</p>
+                        <h3 class="music-studio-feature-title">Visible progress</h3>
+                        <p class="music-studio-feature-desc">XP, streaks and feedback keep students aware of consistency and next steps.</p>
                     </li>
                 </ul>
 
@@ -444,10 +462,10 @@
         <div class="site-shell">
             <div class="music-cta-inner" data-reveal>
                 <span class="ui-kicker">Next step</span>
-                <h2 class="ui-title" id="music-cta-heading" style="font-size: var(--step-2);">
+                <h2 class="ui-title experience-title-sm" id="music-cta-heading">
                     Let's start <br>playing.
                 </h2>
-                <p class="ui-description" style="margin-inline: auto;">
+                <p class="ui-description experience-centered-copy">
                     For lessons, commissioned compositions or simply to talk about music.
                 </p>
                 <div class="ui-actions music-cta-actions">
@@ -467,5 +485,6 @@
 </div>
 
 @section Scripts {
+    <script src="~/js/experience-motion.js" asp-append-version="true"></script>
     <script src="~/js/music-piano.js" asp-append-version="true"></script>
 }

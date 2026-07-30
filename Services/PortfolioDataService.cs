@@ -10,12 +10,12 @@ namespace ClientBlog.Services
             {
                 Name = "ZeroPaper",
                 Slug = "zeropaper",
-                Rank = "Produto principal",
-                Summary = "SaaS para restaurantes · Pedidos QR · Fluxo de cozinha · Operações",
-                Description = "Sistema operacional para restaurantes que conecta cardápio, mesas, pedidos por QR code, fluxo de cozinha, impressão e rotinas internas em uma única plataforma. Combina pensamento de produto, estrutura de backend, workflow multi-usuário e demandas operacionais reais.",
-                ImagePath = "~/img/ProjectsIMGs/ZeroPaper-thumb.png",
-                ImageAlt = "ZeroPaper preview",
-                Tags = new() { "SaaS para restaurantes", "QR Code", "Fluxo de cozinha", "ASP.NET Core", "Operações" },
+                Rank = "Main product",
+                Summary = "Modular platform for small businesses - link sales, QR Code, WhatsApp, orders and cash flow",
+                Description = "ZeroPaper is a modular operations platform for small businesses. It helps teams sell through links, QR Code and WhatsApp, organize orders, customers, payments and daily cash flow in one clear panel.",
+                ImagePath = "~/img/ProjectsIMGs/zeropaper-logo-512.png",
+                ImageAlt = "ZeroPaper logo",
+                Tags = new() { "Modular platform", "QR Code", "WhatsApp", "Orders", "Cash flow", "ASP.NET Core" },
                 GitHubUrl = "https://github.com/AlexssanderLX/ZeroPaper",
                 ProjectUrl = "https://zeropaperflow.com.br",
                 IsFeatured = true,
@@ -27,12 +27,12 @@ namespace ClientBlog.Services
             {
                 Name = "LedgerFlow",
                 Slug = "ledgerflow",
-                Rank = "Workflow de negócio",
-                Summary = "Workflow contábil · Documentos · Rotinas fiscais",
-                Description = "Plataforma para organizar registros de clientes, módulos de documentos, rascunhos de DAS e DEFIS, e visibilidade operacional de um escritório contábil em uma estrutura mais limpa. Demonstra modelagem de processos, organização de informações e consistência em rotinas administrativas.",
+                Rank = "Business workflow",
+                Summary = "Accounting workflow - documents, fiscal routines and operational visibility",
+                Description = "LedgerFlow organizes client records, document modules, DAS and DEFIS drafts, and operational visibility for an accounting office. It turns administrative routines into a cleaner and more traceable workflow.",
                 ImagePath = "~/img/ProjectsIMGs/LedgerFlow-logo.png",
                 ImageAlt = "LedgerFlow logo",
-                Tags = new() { "Workflow contábil", "Documentos", "Rotinas fiscais", "ASP.NET Core" },
+                Tags = new() { "Accounting workflow", "Documents", "Fiscal routines", "ASP.NET Core" },
                 GitHubUrl = "https://github.com/AlexssanderLX/LedgerFlow",
                 IsFeatured = false,
                 ContentConfirmed = true,
@@ -43,12 +43,12 @@ namespace ClientBlog.Services
             {
                 Name = "StoreFlow",
                 Slug = "storeflow",
-                Rank = "Sistema operacional interno",
-                Summary = "Operações internas · Registros de faltas · Fluxo de loja",
-                Description = "Aplicação interna para registrar faltas de produtos, organizar rotinas operacionais diárias e reduzir desordem em processos repetitivos de loja. Transforma uma dor operacional em um fluxo mais limpo, centralizado e rastreável.",
+                Rank = "Internal operations",
+                Summary = "Store routines - missing-item records, stock signals and daily workflow",
+                Description = "StoreFlow records missing products, organizes internal routines and makes repetitive store processes easier to track. It focuses on practical operational control rather than customer-facing features.",
                 ImagePath = "~/img/ProjectsIMGs/StoreFlow-logo.svg",
                 ImageAlt = "StoreFlow logo",
-                Tags = new() { "Operações internas", "Registros de falta", "Fluxo de loja", "ASP.NET Core" },
+                Tags = new() { "Internal operations", "Missing records", "Store workflow", "ASP.NET Core" },
                 GitHubUrl = "https://github.com/AlexssanderLX/StoreFlow",
                 IsFeatured = false,
                 ContentConfirmed = true,
@@ -57,30 +57,30 @@ namespace ClientBlog.Services
             },
             new ProjectItem
             {
-                Name = "Job Radar",
-                Slug = "job-radar",
-                Rank = "Em desenvolvimento",
-                Summary = "Monitoramento de vagas · Organização · Automação",
-                Description = "",
-                ImagePath = null,
-                ImageAlt = null,
-                Tags = new() { "Automação", "Vagas", "Em desenvolvimento" },
-                GitHubUrl = null,
+                Name = "YourRhythm Studio",
+                Slug = "your-rhythm-studio",
+                Rank = "Music education product",
+                Summary = "Platform for music teachers and schools - students, lessons, repertoire, missions and XP",
+                Description = "YourRhythm Studio helps teachers and music schools organize students, lessons, repertoire and weekly missions. The product keeps progress visible through XP, streaks, feedback and a virtual piano experience.",
+                ImagePath = "~/img/ProjectsIMGs/YourRhythmStudio-Logo.png",
+                ImageAlt = "YourRhythm Studio logo",
+                Tags = new() { "Music education", "Students", "Lessons", "Missions", "XP" },
+                ProjectUrl = "https://yourrhythmstudio.com.br",
                 IsFeatured = false,
-                ContentConfirmed = false,
-                Status = "coming-soon",
+                ContentConfirmed = true,
+                Status = "active",
                 Order = 4
             },
             new ProjectItem
             {
-                Name = "Your Rhythm Studio",
-                Slug = "your-rhythm-studio",
-                Rank = "Em desenvolvimento",
-                Summary = "Plataforma para aulas de piano · Progresso · Repertório",
+                Name = "Job Radar",
+                Slug = "job-radar",
+                Rank = "In development",
+                Summary = "Job monitoring - organization and automation",
                 Description = "",
                 ImagePath = null,
                 ImageAlt = null,
-                Tags = new() { "Música", "Educação", "Em desenvolvimento" },
+                Tags = new() { "Automation", "Jobs", "In development" },
                 GitHubUrl = null,
                 IsFeatured = false,
                 ContentConfirmed = false,
@@ -102,11 +102,28 @@ namespace ClientBlog.Services
                 DifficultyClass = "medium",
                 Scenario = "Web application with multiple input points susceptible to data injection.",
                 Vector = "Mapped application behavior, identified vulnerable parameters and chained injection techniques to compromise the session.",
-                Learning = "Deep understanding of how injection works beyond the basics: different contexts, insufficient filters and bypasses.",
+                Learning = "Injection is contextual: filters, parameters and trust boundaries must be reviewed together before release.",
                 Mitigation = "Parameterized queries, context-aware sanitization, strict input validation and a properly configured WAF.",
                 Tags = new() { "Injection", "Web", "Auth bypass" },
                 IsFeatured = true,
                 Order = 1
+            },
+            new CtfCase
+            {
+                Name = "Athena",
+                Platform = "TryHackMe",
+                Url = "https://tryhackme.com/room/4th3n4",
+                ImagePath = "~/img/ProjectsIMGs/AthenaTHM.png",
+                ImageAlt = "Athena TryHackMe room",
+                Difficulty = "Medium",
+                DifficultyClass = "medium",
+                Scenario = "Themed lab that rewards disciplined enumeration before selecting the exploitation path.",
+                Vector = "Service discovery, web analysis and Linux privilege escalation practice in a controlled environment.",
+                Learning = "A clean methodology beats guessing: map the surface, validate assumptions and document the chain.",
+                Mitigation = "Least privilege, exposed-service review, credential hygiene and consistent patch management.",
+                Tags = new() { "Enumeration", "Linux", "PrivEsc" },
+                IsFeatured = false,
+                Order = 2
             },
             new CtfCase
             {
@@ -123,7 +140,7 @@ namespace ClientBlog.Services
                 Mitigation = "State verification at each step, token expiration, rate limiting and authentication event logging.",
                 Tags = new() { "Auth bypass", "RCE", "Web" },
                 IsFeatured = false,
-                Order = 2
+                Order = 3
             },
             new CtfCase
             {
@@ -136,11 +153,11 @@ namespace ClientBlog.Services
                 DifficultyClass = "medium",
                 Scenario = "Web challenge with multiple attack surfaces requiring structured enumeration.",
                 Vector = "Systematic enumeration of directories, parameters and endpoints before selecting the correct exploitation vector.",
-                Learning = "Methodical recon avoids wasted time. Application behavior patterns reveal the real attack surface before any exploit.",
+                Learning = "Application behavior patterns reveal the real attack surface before any exploit.",
                 Mitigation = "Remove unnecessary files, handle errors without leaking internals and enforce consistent access control.",
                 Tags = new() { "Enumeration", "Web", "Exploitation" },
                 IsFeatured = false,
-                Order = 3
+                Order = 4
             },
             new CtfCase
             {
@@ -157,7 +174,7 @@ namespace ClientBlog.Services
                 Mitigation = "Remove debug information, apply least privilege and review web server configuration.",
                 Tags = new() { "Linux", "PrivEsc", "Web" },
                 IsFeatured = false,
-                Order = 4
+                Order = 5
             },
             new CtfCase
             {
@@ -170,15 +187,15 @@ namespace ClientBlog.Services
                 DifficultyClass = "medium",
                 Scenario = "Lab with a cryptographic challenge that escalates to remote code execution.",
                 Vector = "Analyzed cryptographic tokens, recovered keys and connected the technical interpretation to the RCE vector.",
-                Learning = "Poorly implemented cryptography is a false sense of security. Weak keys, outdated algorithms and mixed contexts create real attack paths.",
+                Learning = "Poorly implemented cryptography is a false sense of security.",
                 Mitigation = "Modern algorithms, secure key management, context separation and server-side validation.",
                 Tags = new() { "Cryptography", "RCE", "Analysis" },
                 IsFeatured = false,
-                Order = 5
+                Order = 6
             },
             new CtfCase
             {
-                Name = "Webmin Exploitation — Source",
+                Name = "Webmin Exploitation - Source",
                 Platform = "TryHackMe",
                 Url = "https://tryhackme.com/room/source",
                 ImagePath = "~/img/ProjectsIMGs/Source.png",
@@ -187,11 +204,11 @@ namespace ClientBlog.Services
                 DifficultyClass = "easy",
                 Scenario = "Server running a vulnerable version of Webmin exposed to the network.",
                 Vector = "Version identification, CVE mapping and controlled exploitation of Webmin in a lab environment.",
-                Learning = "Outdated software with an exposed admin panel is a direct target. Version + CVE = immediate vector.",
+                Learning = "Outdated software with an exposed admin panel is a direct target.",
                 Mitigation = "Continuous maintenance, security updates, admin panel access restriction and periodic scanning.",
                 Tags = new() { "CVE", "Enumeration", "RCE" },
                 IsFeatured = false,
-                Order = 6
+                Order = 7
             },
             new CtfCase
             {
@@ -204,11 +221,11 @@ namespace ClientBlog.Services
                 DifficultyClass = "easy",
                 Scenario = "Lab based on a recent CVE focused on RCE and bypassing system restrictions.",
                 Vector = "Exploited a recent vulnerability, bypassed system restrictions and escalated privileges in a controlled environment.",
-                Learning = "Recent CVEs have short exploitation windows. Understanding the root cause of a vulnerability matters more than the exploit itself.",
+                Learning = "Recent CVEs have short exploitation windows. Understanding the root cause matters more than the exploit itself.",
                 Mitigation = "CVE monitoring, structured patch management and OS hardening.",
                 Tags = new() { "Recent CVE", "PrivEsc", "RCE" },
                 IsFeatured = false,
-                Order = 7
+                Order = 8
             }
         };
 
@@ -217,10 +234,10 @@ namespace ClientBlog.Services
             new Composition
             {
                 Name = "Sunshine Etude in G minor",
-                Type = "Estudo para piano",
+                Type = "Piano etude",
                 Year = "2025",
-                Description = "Composição original construída em torno de contraste harmônico, tensão rítmica e desenvolvimento emocional em forma de narrativa.",
-                Tags = new() { "Piano", "Composição original", "2025", "Arco emocional" },
+                Description = "Original piano study built around harmonic contrast, rhythmic tension and emotional development.",
+                Tags = new() { "Piano", "Original composition", "2025", "Emotional arc" },
                 BandLabUrl = "https://www.bandlab.com/track/b798db6d-4ecc-ef11-88cd-6045bd345b20?revId=b698db6d-4ecc-ef11-88cd-6045bd345b20",
                 IsFeatured = true,
                 Order = 1
@@ -228,10 +245,10 @@ namespace ClientBlog.Services
             new Composition
             {
                 Name = "Maybe It Is",
-                Type = "Registro de expressão",
+                Type = "Expressive record",
                 Year = "2025",
-                Description = "Peça criada como forma de expressão pessoal, usando o piano como linguagem para transformar sentimento e observação em música.",
-                Tags = new() { "Piano", "Expressão emocional", "2025", "Interpretação" },
+                Description = "A piano piece shaped as personal expression, turning feeling and observation into musical language.",
+                Tags = new() { "Piano", "Emotional expression", "2025", "Interpretation" },
                 BandLabUrl = "https://www.bandlab.com/track/f1a0f7b2-57ee-f011-8d4d-002248444940?revId=f0a0f7b2-57ee-f011-8d4d-002248444940",
                 IsFeatured = false,
                 Order = 2

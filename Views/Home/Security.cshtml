@@ -6,12 +6,18 @@
 
 @section Styles {
     <link rel="stylesheet" href="~/css/pages/security.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/pages/experience.css" asp-append-version="true" />
 }
 
-<div class="security-page">
+<div class="security-page experience-page experience-page--security" data-experience-page>
 
     <!-- ── Hero ── -->
     <section class="sec-hero" aria-labelledby="sec-h1">
+        <div class="experience-orbitals" aria-hidden="true">
+            <span class="experience-signal-card signal-card--one">nmap -sV<strong>surface mapping</strong></span>
+            <span class="experience-signal-card signal-card--two">burp.replay()<strong>auth review</strong></span>
+            <span class="experience-signal-card signal-card--three">hardening.check<strong>Linux / VPS</strong></span>
+        </div>
         <div class="site-shell">
             <div class="sec-hero-inner">
 
@@ -48,7 +54,7 @@
 
                 <div class="sec-hero-stats" data-reveal aria-label="Security stats">
                     <div class="sec-stat">
-                        <span class="sec-stat-value">7</span>
+                        <span class="sec-stat-value">8</span>
                         <span class="sec-stat-label">CTFs completed</span>
                     </div>
                     <div class="sec-stat-divider" aria-hidden="true"></div>
@@ -73,7 +79,7 @@
         <div class="site-shell">
             <div class="sec-section-head" data-reveal>
                 <span class="ui-kicker">Coverage</span>
-                <h2 class="ui-title" id="sec-areas-heading" style="font-size: var(--step-2);">
+                <h2 class="ui-title experience-title-sm" id="sec-areas-heading">
                     Threat surface coverage.
                 </h2>
                 <p class="ui-description">
@@ -158,7 +164,7 @@
         <div class="site-shell">
             <div class="sec-section-head" data-reveal>
                 <span class="ui-kicker">Vectors</span>
-                <h2 class="ui-title" id="sec-vulns-heading" style="font-size: var(--step-2);">
+                <h2 class="ui-title experience-title-sm" id="sec-vulns-heading">
                     Attack vectors, explained.
                 </h2>
                 <p class="ui-description">
@@ -281,7 +287,7 @@
         <div class="site-shell">
             <div class="sec-section-head" data-reveal>
                 <span class="ui-kicker">Methodology</span>
-                <h2 class="ui-title" id="sec-method-heading" style="font-size: var(--step-2);">
+                <h2 class="ui-title experience-title-sm" id="sec-method-heading">
                     From recon to remediation.
                 </h2>
                 <p class="ui-description">
@@ -364,7 +370,7 @@
         <div class="site-shell">
             <div class="sec-section-head" data-reveal>
                 <span class="ui-kicker">Lab notes</span>
-                <h2 class="ui-title" id="sec-ctf-heading" style="font-size: var(--step-2);">
+                <h2 class="ui-title experience-title-sm" id="sec-ctf-heading">
                     Labs that teach.
                 </h2>
                 <p class="ui-description">
@@ -386,7 +392,7 @@
                         <span class="sec-tc-dot sec-tc-dot--yellow"></span>
                         <span class="sec-tc-dot sec-tc-dot--green"></span>
                         <span class="sec-tc-file">@(featured.Name.ToLower().Replace(" ", "-").Replace("—", "-").Trim('-'))-featured.log</span>
-                        <span class="sec-ctf-difficulty sec-ctf-difficulty--@featured.DifficultyClass" style="margin-left:auto;">@featured.Difficulty</span>
+                        <span class="sec-ctf-difficulty sec-ctf-difficulty--@featured.DifficultyClass sec-ctf-difficulty--push">@featured.Difficulty</span>
                     </div>
                     <div class="sec-ctf-featured-body">
                         <div class="sec-ctf-featured-header">
@@ -497,10 +503,10 @@
                     <span class="sec-tp-cmd">./start_engagement.sh</span>
                 </div>
                 <span class="ui-kicker">Next step</span>
-                <h2 class="ui-title" id="sec-cta-heading" style="font-size: var(--step-2);">
+                <h2 class="ui-title experience-title-sm" id="sec-cta-heading">
                     Security applied <br>to your project.
                 </h2>
-                <p class="ui-description" style="margin-inline: auto;">
+                <p class="ui-description experience-centered-copy">
                     Code review focused on security, attack surface analysis or DevSecOps practice integration.
                 </p>
                 <div class="ui-actions sec-cta-actions">
@@ -522,5 +528,6 @@
 </div>
 
 @section Scripts {
+    <script src="~/js/experience-motion.js" asp-append-version="true"></script>
     <script src="~/js/security.js" asp-append-version="true"></script>
 }

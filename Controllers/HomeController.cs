@@ -23,8 +23,8 @@ namespace ClientBlog.Controllers
         [OutputCache(Duration = 600)]
         public IActionResult Development()
         {
-            ViewData["Title"] = "Desenvolvimento";
-            ViewData["Description"] = "Plataformas web, SaaS, automações e infraestrutura aplicada. Do frontend ao servidor — desenvolvimento completo com segurança integrada.";
+            ViewData["Title"] = "Development";
+            ViewData["Description"] = "Web products, SaaS platforms, automation and applied infrastructure. From interface to server, development with security built in.";
             var projects = PortfolioDataService.GetDevelopmentProjects();
             return View(projects);
         }
@@ -42,7 +42,7 @@ namespace ClientBlog.Controllers
         public IActionResult Music()
         {
             ViewData["Title"] = "Music";
-            ViewData["Description"] = "Piano, composition, jazz and lessons. Technique, ear training and creativity — from classical repertoire to original composition.";
+            ViewData["Description"] = "Piano, composition, jazz and lessons. Technique, ear training and creativity, from classical repertoire to original composition.";
             var compositions = PortfolioDataService.GetCompositions();
             return View(compositions);
         }

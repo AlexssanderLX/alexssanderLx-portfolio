@@ -1,442 +1,230 @@
 @model IReadOnlyList<ClientBlog.Models.ProjectItem>
 @{
-    ViewData["Title"] = ViewData["Title"] ?? "Desenvolvimento";
-    ViewData["Description"] = ViewData["Description"] ?? "Plataformas web, SaaS, automações e infraestrutura aplicada. Do frontend ao servidor — desenvolvimento completo com segurança integrada.";
+    ViewData["Title"] = ViewData["Title"] ?? "Development";
+    ViewData["Description"] = ViewData["Description"] ?? "Web products, SaaS platforms, automation and applied infrastructure. From interface to server, development with security built in.";
+    var activeProjects = Model.Where(project => project.Status != "coming-soon").OrderBy(project => project.Order).ToList();
+    var pendingProjects = Model.Where(project => project.Status == "coming-soon").OrderBy(project => project.Order).ToList();
 }
 
 @section Styles {
     <link rel="stylesheet" href="~/css/pages/development.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/pages/experience.css" asp-append-version="true" />
 }
 
-<div class="development-page">
-
-    <!-- ── Hero ── -->
-    <section class="dev-hero" aria-labelledby="dev-h1">
+<div class="development-page experience-page experience-page--dev" data-experience-page>
+    <section class="dev-hero experience-hero" aria-labelledby="dev-h1">
+        <div class="experience-orbitals" aria-hidden="true">
+            <span class="experience-signal-card signal-card--one">api.flow()<strong>C# / Python</strong></span>
+            <span class="experience-signal-card signal-card--two">build --release<strong>ASP.NET Core</strong></span>
+            <span class="experience-signal-card signal-card--three">deploy:vps<strong>Nginx / HTTPS</strong></span>
+        </div>
         <div class="site-shell">
-            <div class="dev-hero-inner">
-                <div class="dev-hero-meta" data-reveal>
-                    <span class="ui-kicker">Desenvolvimento · Produtos · Automações</span>
+            <div class="dev-hero-inner experience-hero-grid">
+                <div class="experience-copy-panel" data-reveal data-motion-origin="left">
+                    <span class="ui-kicker">Product Engineering / Automation / Infrastructure</span>
+                    <h1 class="ui-title" id="dev-h1">
+                        Systems that move from <span class="ui-gradient-text">idea to production.</span>
+                    </h1>
+                    <p class="ui-description">
+                        Backend-focused engineering for real products: modular platforms, APIs, automation scripts, Linux deployments and secure workflows that remain clear after the first release.
+                    </p>
+                    <div class="ui-actions">
+                        <a class="ui-button ui-button--primary" href="#dev-projects">View product work</a>
+                        <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="Contact">Discuss a build</a>
+                    </div>
                 </div>
 
-                <h1 class="ui-title" id="dev-h1" data-reveal>
-                    Da experiência visual <br>
-                    <span class="ui-gradient-text">à infraestrutura segura.</span>
-                </h1>
-
-                <p class="ui-description" data-reveal>
-                    Desenvolvo plataformas web, automações e integrações que transformam processos manuais
-                    em fluxos previsíveis — do frontend ao banco de dados, do CI/CD ao servidor.
-                    Não apenas telas: sistemas completos que funcionam em produção.
-                </p>
-
-                <div class="ui-actions" data-reveal>
-                    <a class="ui-button ui-button--primary"
-                       asp-controller="Home"
-                       asp-action="Contact">
-                        Iniciar projeto
-                    </a>
-                    <a class="ui-button ui-button--ghost" href="#dev-projects">
-                        Ver projetos
-                    </a>
-                </div>
+                <aside class="experience-score-card ui-card" data-reveal data-motion-origin="right" data-depth-panel aria-label="Development score">
+                    <div class="experience-score-top">
+                        <span class="experience-score-icon" aria-hidden="true">&lt;/&gt;</span>
+                        <span class="experience-score-status">BUILD READY</span>
+                    </div>
+                    <h2>Product engineering</h2>
+                    <p>2+ years building web systems, automation and secure delivery paths.</p>
+                    <div class="experience-xp">
+                        <span>XP 1280 / 1500</span>
+                        <span>Level 21</span>
+                    </div>
+                    <div class="experience-xp-bar experience-xp-bar--85" aria-hidden="true"><span></span></div>
+                    <ul class="experience-metric-grid" role="list">
+                        <li><strong>12</strong><span>Projects</span></li>
+                        <li><strong>34</strong><span>Studies</span></li>
+                        <li><strong>28</strong><span>Day streak</span></li>
+                        <li><strong>8</strong><span>Badges</span></li>
+                    </ul>
+                </aside>
             </div>
         </div>
     </section>
 
-    <!-- ── Capacidades ── -->
-    <section class="dev-capabilities site-section" id="dev-capabilities" aria-labelledby="dev-cap-heading">
+    <section class="dev-capabilities site-section experience-section" id="dev-capabilities" aria-labelledby="dev-cap-heading">
         <div class="site-shell">
-            <div class="dev-section-head" data-reveal>
-                <span class="ui-kicker">Capacidades</span>
-                <h2 class="ui-title" id="dev-cap-heading" style="font-size: var(--step-2);">
-                    Cada camada tem um propósito.
-                </h2>
+            <div class="dev-section-head experience-section-head" data-reveal>
+                <span class="ui-kicker">Core Craft</span>
+                <h2 class="ui-title experience-title-sm" id="dev-cap-heading">What the stack is used for.</h2>
                 <p class="ui-description">
-                    Não apresento logos de tecnologia. Apresento o que cada capacidade resolve na prática.
+                    The focus is not listing tools. It is showing what those tools make possible in a real product lifecycle.
                 </p>
             </div>
 
-            <ul class="dev-capabilities-grid" role="list">
-                <li class="dev-capability-card ui-card" data-reveal>
-                    <div class="dev-capability-icon" aria-hidden="true">UI</div>
-                    <h3 class="dev-capability-title">Aplicações Web</h3>
-                    <p class="dev-capability-benefit">Interfaces funcionais conectadas a lógica real — não apenas layouts estáticos.</p>
-                </li>
-                <li class="dev-capability-card ui-card" data-reveal>
-                    <div class="dev-capability-icon" aria-hidden="true">SaaS</div>
-                    <h3 class="dev-capability-title">Plataformas SaaS</h3>
-                    <p class="dev-capability-benefit">Produtos com múltiplos usuários, operações em paralelo e fluxos específicos de negócio.</p>
-                </li>
-                <li class="dev-capability-card ui-card" data-reveal>
+            <ul class="dev-capabilities-grid experience-card-grid" role="list">
+                <li class="dev-capability-card ui-card" data-reveal data-depth-panel>
                     <div class="dev-capability-icon" aria-hidden="true">API</div>
-                    <h3 class="dev-capability-title">APIs e Backend</h3>
-                    <p class="dev-capability-benefit">Camadas de dados estruturadas, contratos claros e serviços que não surpreendem em produção.</p>
+                    <h3 class="dev-capability-title">Backends and APIs</h3>
+                    <p class="dev-capability-benefit">C#, ASP.NET Core, Web API, MVC and EF Core for business rules, authentication, data flow and maintainable modules.</p>
                 </li>
-                <li class="dev-capability-card ui-card" data-reveal>
-                    <div class="dev-capability-icon" aria-hidden="true">⚙</div>
-                    <h3 class="dev-capability-title">Automações</h3>
-                    <p class="dev-capability-benefit">Fluxos repetitivos transformados em processos previsíveis — menos erro humano, mais consistência.</p>
+                <li class="dev-capability-card ui-card" data-reveal data-depth-panel>
+                    <div class="dev-capability-icon" aria-hidden="true">PY</div>
+                    <h3 class="dev-capability-title">Automation scripts</h3>
+                    <p class="dev-capability-benefit">Python and shell workflows to reduce repetitive work, transform data and connect services with pragmatic automation.</p>
                 </li>
-                <li class="dev-capability-card ui-card" data-reveal>
-                    <div class="dev-capability-icon" aria-hidden="true">INT</div>
-                    <h3 class="dev-capability-title">Integrações</h3>
-                    <p class="dev-capability-benefit">Sistemas independentes comunicando-se com consistência — webhooks, APIs externas, filas.</p>
+                <li class="dev-capability-card ui-card" data-reveal data-depth-panel>
+                    <div class="dev-capability-icon" aria-hidden="true">OPS</div>
+                    <h3 class="dev-capability-title">Delivery and infrastructure</h3>
+                    <p class="dev-capability-benefit">Linux, Ubuntu Server, VPS, Nginx, Kestrel, Certbot, HTTPS and Cloudflare for controlled production releases.</p>
                 </li>
-                <li class="dev-capability-card ui-card" data-reveal>
-                    <div class="dev-capability-icon" aria-hidden="true">DB</div>
-                    <h3 class="dev-capability-title">Bancos de Dados</h3>
-                    <p class="dev-capability-benefit">Estrutura de dados que cresce com o produto sem perder integridade ou desempenho.</p>
-                </li>
-                <li class="dev-capability-card ui-card" data-reveal>
-                    <div class="dev-capability-icon" aria-hidden="true">SVR</div>
-                    <h3 class="dev-capability-title">Infraestrutura</h3>
-                    <p class="dev-capability-benefit">Deploy, servidor Linux e Nginx configurados para funcionar — não para impressionar em slides.</p>
-                </li>
-                <li class="dev-capability-card ui-card" data-reveal>
-                    <div class="dev-capability-icon" aria-hidden="true">CI</div>
-                    <h3 class="dev-capability-title">CI/CD</h3>
-                    <p class="dev-capability-benefit">Entrega contínua com menos risco: testes, build automatizado e deploy controlado.</p>
-                </li>
-                <li class="dev-capability-card ui-card" data-reveal>
+                <li class="dev-capability-card ui-card" data-reveal data-depth-panel>
                     <div class="dev-capability-icon" aria-hidden="true">SEC</div>
-                    <h3 class="dev-capability-title">DevSecOps</h3>
-                    <p class="dev-capability-benefit">Segurança integrada desde o desenvolvimento — não como auditoria final, mas como prática contínua.</p>
+                    <h3 class="dev-capability-title">Secure product thinking</h3>
+                    <p class="dev-capability-benefit">Burp Suite, Nmap, ffuf, dirsearch and CTF practice applied to validation, auth, hardening and safer releases.</p>
                 </li>
             </ul>
         </div>
     </section>
 
-    <!-- ── Projetos ── -->
-    <section class="dev-projects site-section" id="dev-projects" aria-labelledby="dev-proj-heading">
+    <section class="dev-projects site-section experience-section" id="dev-projects" aria-labelledby="dev-proj-heading">
         <div class="site-shell">
-            <div class="dev-section-head" data-reveal>
-                <span class="ui-kicker">Projetos</span>
-                <h2 class="ui-title" id="dev-proj-heading" style="font-size: var(--step-2);">
-                    Sistemas construídos para operar.
-                </h2>
+            <div class="dev-section-head experience-section-head" data-reveal>
+                <span class="ui-kicker">Product Modules</span>
+                <h2 class="ui-title experience-title-sm" id="dev-proj-heading">Projects with operational weight.</h2>
                 <p class="ui-description">
-                    Produtos reais, com problemas reais — não portfólio de exercícios de curso.
+                    These projects focus on workflows that need to keep working outside the portfolio: ordering, records, fiscal routines, students and process visibility.
                 </p>
             </div>
 
-            <div class="dev-projects-grid">
-                @foreach (var project in Model)
+            <div class="dev-projects-grid experience-project-grid">
+                @foreach (var project in activeProjects)
                 {
-                    if (project.Status == "coming-soon")
-                    {
-                        <article class="dev-project-card dev-project-card--pending ui-card" data-reveal aria-label="@project.Name — em desenvolvimento">
-                            <div>
-                                <span class="dev-project-pending-badge">Em desenvolvimento</span>
-                            </div>
-                            <div class="dev-project-body">
-                                <h3 class="dev-project-name">@project.Name</h3>
-                                <p class="dev-project-summary">@project.Summary</p>
-                            </div>
+                    <article class="dev-project-card ui-card @(project.IsFeatured ? "dev-project-card--featured" : "")" data-reveal data-depth-panel aria-label="@project.Name">
+                        @if (!string.IsNullOrEmpty(project.ImagePath))
+                        {
+                            <img src="@project.ImagePath"
+                                 asp-append-version="true"
+                                 alt="@project.ImageAlt"
+                                 class="dev-project-emblem"
+                                 width="88"
+                                 height="88"
+                                 loading="lazy"
+                                 decoding="async" />
+                        }
+                        else
+                        {
+                            <div class="dev-project-emblem dev-project-emblem--fallback" aria-hidden="true">@project.Name.Substring(0, 2).ToUpperInvariant()</div>
+                        }
+                        <div class="dev-project-body">
+                            <span class="dev-project-rank">@project.Rank</span>
+                            <h3 class="dev-project-name">@project.Name</h3>
+                            <p class="dev-project-summary">@project.Description</p>
                             @if (project.Tags.Any())
                             {
-                                <ul class="dev-project-tags" aria-label="Tags de @project.Name">
-                                    @foreach (var tag in project.Tags)
+                                <ul class="dev-project-tags" aria-label="Tags for @project.Name">
+                                    @foreach (var tag in project.Tags.Take(5))
                                     {
                                         <li><span class="ui-badge">@tag</span></li>
                                     }
                                 </ul>
                             }
-                        </article>
-                    }
-                    else if (project.IsFeatured)
-                    {
-                        <article class="dev-project-card dev-project-card--featured ui-card" data-reveal aria-label="@project.Name — projeto em destaque">
-                            @if (!string.IsNullOrEmpty(project.ImagePath))
-                            {
-                                <img src="@project.ImagePath"
-                                     asp-append-version="true"
-                                     alt="@project.ImageAlt"
-                                     class="dev-project-emblem"
-                                     width="88"
-                                     height="88"
-                                     loading="lazy"
-                                     decoding="async" />
-                            }
-                            <div class="dev-project-body">
-                                <span class="dev-project-rank">@project.Rank</span>
-                                <h3 class="dev-project-name">@project.Name</h3>
-                                <p class="dev-project-summary">@project.Description</p>
-                                @if (project.Tags.Any())
+                            <details class="experience-details">
+                                <summary>Project details</summary>
+                                <p>@project.Summary</p>
+                            </details>
+                            <div class="dev-project-links">
+                                @if (!string.IsNullOrEmpty(project.ProjectUrl))
                                 {
-                                    <ul class="dev-project-tags" aria-label="Tags de @project.Name">
-                                        @foreach (var tag in project.Tags)
-                                        {
-                                            <li><span class="ui-badge">@tag</span></li>
-                                        }
-                                    </ul>
+                                    <a class="dev-project-link dev-project-link--primary" href="@project.ProjectUrl" target="_blank" rel="noopener noreferrer">Live product</a>
                                 }
-                                <div class="dev-project-links">
-                                    @if (!string.IsNullOrEmpty(project.GitHubUrl))
-                                    {
-                                        <a class="dev-project-link dev-project-link--primary"
-                                           href="@project.GitHubUrl"
-                                           target="_blank"
-                                           rel="noopener noreferrer">
-                                            GitHub
-                                        </a>
-                                    }
-                                    @if (!string.IsNullOrEmpty(project.ProjectUrl))
-                                    {
-                                        <a class="dev-project-link"
-                                           href="@project.ProjectUrl"
-                                           target="_blank"
-                                           rel="noopener noreferrer">
-                                            Site do projeto
-                                        </a>
-                                    }
-                                </div>
-                            </div>
-                        </article>
-                    }
-                    else
-                    {
-                        <article class="dev-project-card ui-card" data-reveal aria-label="@project.Name">
-                            @if (!string.IsNullOrEmpty(project.ImagePath))
-                            {
-                                <img src="@project.ImagePath"
-                                     asp-append-version="true"
-                                     alt="@project.ImageAlt"
-                                     class="dev-project-emblem dev-project-emblem--svg"
-                                     width="64"
-                                     height="64"
-                                     loading="lazy"
-                                     decoding="async" />
-                            }
-                            <div class="dev-project-body">
-                                <span class="dev-project-rank">@project.Rank</span>
-                                <h3 class="dev-project-name">@project.Name</h3>
-                                <p class="dev-project-summary">@project.Description</p>
-                                @if (project.Tags.Any())
+                                @if (!string.IsNullOrEmpty(project.GitHubUrl))
                                 {
-                                    <ul class="dev-project-tags" aria-label="Tags de @project.Name">
-                                        @foreach (var tag in project.Tags.Take(4))
-                                        {
-                                            <li><span class="ui-badge">@tag</span></li>
-                                        }
-                                    </ul>
+                                    <a class="dev-project-link" href="@project.GitHubUrl" target="_blank" rel="noopener noreferrer">GitHub</a>
                                 }
-                                <div class="dev-project-links">
-                                    @if (!string.IsNullOrEmpty(project.GitHubUrl))
-                                    {
-                                        <a class="dev-project-link dev-project-link--primary"
-                                           href="@project.GitHubUrl"
-                                           target="_blank"
-                                           rel="noopener noreferrer">
-                                            GitHub
-                                        </a>
-                                    }
-                                </div>
                             </div>
-                        </article>
-                    }
+                        </div>
+                    </article>
                 }
             </div>
+
+            @if (pendingProjects.Any())
+            {
+                <div class="experience-pending-row" data-reveal>
+                    @foreach (var project in pendingProjects)
+                    {
+                        <article class="dev-project-card dev-project-card--pending ui-card" data-depth-panel>
+                            <span class="dev-project-pending-badge">In development</span>
+                            <h3 class="dev-project-name">@project.Name</h3>
+                            <p class="dev-project-summary">@project.Summary</p>
+                        </article>
+                    }
+                </div>
+            }
         </div>
     </section>
 
-    <!-- ── Automação ── -->
-    <section class="dev-automation site-section" id="dev-automation" aria-labelledby="dev-auto-heading">
+    <section class="dev-infra site-section experience-section" id="dev-infra" aria-labelledby="dev-infra-heading">
         <div class="site-shell">
-            <div class="dev-section-head" data-reveal>
-                <span class="ui-kicker">Automação</span>
-                <h2 class="ui-title" id="dev-auto-heading" style="font-size: var(--step-2);">
-                    Do dado bruto ao resultado organizado.
-                </h2>
-                <p class="ui-description">
-                    Automações que eliminam etapas manuais e criam fluxos previsíveis — aplicadas a processos reais de negócio.
-                </p>
-            </div>
-
-            <div data-reveal>
-                <div class="dev-flow" role="list" aria-label="Fluxo de automação">
-                    <div class="dev-flow-step" role="listitem">
-                        <div class="dev-flow-icon" aria-hidden="true">IN</div>
-                        <span class="dev-flow-label">Entrada</span>
-                        <span class="dev-flow-desc">Dados brutos ou eventos externos</span>
-                    </div>
-                    <div class="dev-flow-arrow" aria-hidden="true">›</div>
-                    <div class="dev-flow-step" role="listitem">
-                        <div class="dev-flow-icon" aria-hidden="true">⚙</div>
-                        <span class="dev-flow-label">Processamento</span>
-                        <span class="dev-flow-desc">Lógica de negócio aplicada</span>
-                    </div>
-                    <div class="dev-flow-arrow" aria-hidden="true">›</div>
-                    <div class="dev-flow-step" role="listitem">
-                        <div class="dev-flow-icon" aria-hidden="true">☑</div>
-                        <span class="dev-flow-label">Regras</span>
-                        <span class="dev-flow-desc">Validações e decisões automáticas</span>
-                    </div>
-                    <div class="dev-flow-arrow" aria-hidden="true">›</div>
-                    <div class="dev-flow-step" role="listitem">
-                        <div class="dev-flow-icon" aria-hidden="true">≡</div>
-                        <span class="dev-flow-label">Organização</span>
-                        <span class="dev-flow-desc">Estrutura e categorização</span>
-                    </div>
-                    <div class="dev-flow-arrow" aria-hidden="true">›</div>
-                    <div class="dev-flow-step" role="listitem">
-                        <div class="dev-flow-icon" aria-hidden="true">OUT</div>
-                        <span class="dev-flow-label">Saída</span>
-                        <span class="dev-flow-desc">Resultado rastreável e confiável</span>
-                    </div>
-                </div>
-
-                <div class="dev-flow-context">
-                    <span class="dev-flow-context-label">Exemplo real</span>
-                    <p class="dev-flow-context-text">
-                        No LedgerFlow: documentos contábeis entram como registros → regras fiscais são aplicadas automaticamente
-                        → rotinas de DAS e DEFIS são organizadas → escritório opera sem depender de controle manual por planilha.
+            <div class="experience-split">
+                <div class="dev-section-head experience-section-head" data-reveal data-motion-origin="left">
+                    <span class="ui-kicker">Operational Layer</span>
+                    <h2 class="ui-title experience-title-sm" id="dev-infra-heading">Strong interfaces need strong delivery paths.</h2>
+                    <p class="ui-description">
+                        Source control, build flow, Linux hosting, reverse proxy, certificates, backup habits and automation that reduces repetitive work.
                     </p>
+                    <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="Contact">Discuss automation</a>
+                </div>
+
+                <div class="dev-pipeline experience-circuit ui-card" data-reveal data-motion-origin="right" data-depth-panel role="list" aria-label="Delivery pipeline">
+                    <div class="dev-pipeline-step" role="listitem"><span class="dev-pipeline-label">Code</span></div>
+                    <div class="dev-pipeline-step" role="listitem"><span class="dev-pipeline-label">Build</span></div>
+                    <div class="dev-pipeline-step" role="listitem"><span class="dev-pipeline-label">Deploy</span></div>
+                    <div class="dev-pipeline-step" role="listitem"><span class="dev-pipeline-label">Secure VPS</span></div>
+                    <div class="dev-pipeline-step" role="listitem"><span class="dev-pipeline-label">Nginx</span></div>
+                    <div class="dev-pipeline-step" role="listitem"><span class="dev-pipeline-label">Kestrel</span></div>
+                    <div class="dev-pipeline-step" role="listitem"><span class="dev-pipeline-label">HTTPS</span></div>
+                    <div class="dev-pipeline-step" role="listitem"><span class="dev-pipeline-label">Backup</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── Infraestrutura ── -->
-    <section class="dev-infra site-section" id="dev-infra" aria-labelledby="dev-infra-heading">
+    <section class="dev-security-layer site-section experience-section" id="dev-security" aria-labelledby="dev-sec-heading">
         <div class="site-shell">
-            <div class="dev-section-head" data-reveal>
-                <span class="ui-kicker">Infraestrutura</span>
-                <h2 class="ui-title" id="dev-infra-heading" style="font-size: var(--step-2);">
-                    Código que chega ao servidor.
-                </h2>
-                <p class="ui-description">
-                    Não apenas desenvolvimento local. Decisões práticas de deploy, servidor e manutenção — sem depender de abstração de cloud.
-                </p>
+            <div class="dev-section-head experience-section-head" data-reveal>
+                <span class="ui-kicker">Secure Build Loop</span>
+                <h2 class="ui-title experience-title-sm" id="dev-sec-heading">Security is part of the build, not a final checklist.</h2>
             </div>
-
-            <div class="dev-pipeline" data-reveal role="list" aria-label="Pipeline de infraestrutura">
-                <div class="dev-pipeline-step" role="listitem">
-                    <div class="dev-pipeline-icon" aria-hidden="true">&lt;/&gt;</div>
-                    <span class="dev-pipeline-label">Código</span>
-                    <span class="dev-pipeline-sub">ASP.NET Core · C#</span>
-                </div>
-                <div class="dev-pipeline-step" role="listitem">
-                    <div class="dev-pipeline-icon" aria-hidden="true">GH</div>
-                    <span class="dev-pipeline-label">GitHub Actions</span>
-                    <span class="dev-pipeline-sub">Build · Testes</span>
-                </div>
-                <div class="dev-pipeline-step" role="listitem">
-                    <div class="dev-pipeline-icon" aria-hidden="true">📦</div>
-                    <span class="dev-pipeline-label">Build</span>
-                    <span class="dev-pipeline-sub">Artefato publicado</span>
-                </div>
-                <div class="dev-pipeline-step" role="listitem">
-                    <div class="dev-pipeline-icon" aria-hidden="true">🐧</div>
-                    <span class="dev-pipeline-label">Linux VPS</span>
-                    <span class="dev-pipeline-sub">Servidor próprio</span>
-                </div>
-                <div class="dev-pipeline-step" role="listitem">
-                    <div class="dev-pipeline-icon" aria-hidden="true">NGX</div>
-                    <span class="dev-pipeline-label">Nginx</span>
-                    <span class="dev-pipeline-sub">Proxy · SSL</span>
-                </div>
-                <div class="dev-pipeline-step" role="listitem">
-                    <div class="dev-pipeline-icon" aria-hidden="true">APP</div>
-                    <span class="dev-pipeline-label">Aplicação</span>
-                    <span class="dev-pipeline-sub">Kestrel · Systemd</span>
-                </div>
-                <div class="dev-pipeline-step" role="listitem">
-                    <div class="dev-pipeline-icon" aria-hidden="true">DB</div>
-                    <span class="dev-pipeline-label">Banco</span>
-                    <span class="dev-pipeline-sub">SQL Server · Postgres</span>
-                </div>
-                <div class="dev-pipeline-step" role="listitem">
-                    <div class="dev-pipeline-icon" aria-hidden="true">BKP</div>
-                    <span class="dev-pipeline-label">Backup</span>
-                    <span class="dev-pipeline-sub">Rotina automatizada</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── Segurança no desenvolvimento ── -->
-    <section class="dev-security-layer site-section" id="dev-security" aria-labelledby="dev-sec-heading">
-        <div class="site-shell">
-            <div class="dev-section-head" data-reveal>
-                <span class="ui-kicker">Segurança aplicada</span>
-                <h2 class="ui-title" id="dev-sec-heading" style="font-size: var(--step-2);">
-                    Segurança integrada ao ciclo.
-                </h2>
-                <p class="ui-description">
-                    Não como auditoria no final. Como prática em cada etapa do desenvolvimento.
-                </p>
-            </div>
-
-            <ul class="dev-security-grid" role="list" data-reveal>
-                <li class="dev-security-item ui-card">
-                    <span class="dev-security-num" aria-hidden="true">01</span>
-                    <h3 class="dev-security-title">Validação</h3>
-                    <p class="dev-security-desc">Entradas sanitizadas na fronteira do sistema — antes de processar.</p>
-                </li>
-                <li class="dev-security-item ui-card">
-                    <span class="dev-security-num" aria-hidden="true">02</span>
-                    <h3 class="dev-security-title">Autenticação</h3>
-                    <p class="dev-security-desc">Identidade verificada com fluxo correto — sem atalhos na sessão.</p>
-                </li>
-                <li class="dev-security-item ui-card">
-                    <span class="dev-security-num" aria-hidden="true">03</span>
-                    <h3 class="dev-security-title">Autorização</h3>
-                    <p class="dev-security-desc">Controle de acesso por papel e contexto — não só por login.</p>
-                </li>
-                <li class="dev-security-item ui-card">
-                    <span class="dev-security-num" aria-hidden="true">04</span>
-                    <h3 class="dev-security-title">Proteção de dados</h3>
-                    <p class="dev-security-desc">Dados sensíveis criptografados em repouso e em trânsito.</p>
-                </li>
-                <li class="dev-security-item ui-card">
-                    <span class="dev-security-num" aria-hidden="true">05</span>
-                    <h3 class="dev-security-title">Headers HTTP</h3>
-                    <p class="dev-security-desc">CSP, HSTS e headers de segurança configurados desde o deploy.</p>
-                </li>
-                <li class="dev-security-item ui-card">
-                    <span class="dev-security-num" aria-hidden="true">06</span>
-                    <h3 class="dev-security-title">Dependências</h3>
-                    <p class="dev-security-desc">Pacotes monitorados e atualizados — CVEs não passam despercebidas.</p>
-                </li>
-                <li class="dev-security-item ui-card">
-                    <span class="dev-security-num" aria-hidden="true">07</span>
-                    <h3 class="dev-security-title">Deploy seguro</h3>
-                    <p class="dev-security-desc">Secrets no ambiente, não no código. Pipeline sem credenciais expostas.</p>
-                </li>
-                <li class="dev-security-item ui-card">
-                    <span class="dev-security-num" aria-hidden="true">08</span>
-                    <h3 class="dev-security-title">Revisão contínua</h3>
-                    <p class="dev-security-desc">Code review com olhar de segurança — não apenas legibilidade.</p>
-                </li>
+            <ul class="dev-security-grid experience-card-grid" role="list">
+                <li class="dev-security-item ui-card" data-reveal data-depth-panel><span class="dev-security-num">01</span><h3 class="dev-security-title">Validate input</h3><p class="dev-security-desc">Reduce injection, malformed data and unsafe assumptions at the boundary.</p></li>
+                <li class="dev-security-item ui-card" data-reveal data-depth-panel><span class="dev-security-num">02</span><h3 class="dev-security-title">Control identity</h3><p class="dev-security-desc">Authentication and authorization reviewed as a full user journey.</p></li>
+                <li class="dev-security-item ui-card" data-reveal data-depth-panel><span class="dev-security-num">03</span><h3 class="dev-security-title">Harden delivery</h3><p class="dev-security-desc">Secrets stay out of code, HTTPS is enforced and server exposure is minimized.</p></li>
+                <li class="dev-security-item ui-card" data-reveal data-depth-panel><span class="dev-security-num">04</span><h3 class="dev-security-title">Review continuously</h3><p class="dev-security-desc">CTF practice and threat modeling shape better product decisions before release.</p></li>
             </ul>
         </div>
     </section>
 
-    <!-- ── CTA ── -->
-    <section class="dev-cta site-section" aria-labelledby="dev-cta-heading">
+    <section class="dev-cta site-section experience-section" aria-labelledby="dev-cta-heading">
         <div class="site-shell">
-            <div class="dev-cta-inner" data-reveal>
-                <span class="ui-kicker">Próximo passo</span>
-                <h2 class="ui-title" id="dev-cta-heading" style="font-size: var(--step-2);">
-                    Vamos construir <br>algo que funcione.
-                </h2>
-                <p class="ui-description" style="margin-inline: auto;">
-                    Desde a conversa inicial sobre arquitetura até o deploy em produção.
-                </p>
+            <div class="dev-cta-inner experience-final-card" data-reveal data-depth-panel>
+                <span class="ui-kicker">Next Step</span>
+                <h2 class="ui-title experience-title-sm" id="dev-cta-heading">A practical builder for product, automation and security problems.</h2>
+                <p class="ui-description">For product ideas, workflow automation, technical review or secure deployment, this portfolio is a starting point for a focused conversation.</p>
                 <div class="ui-actions dev-cta-actions">
-                    <a class="ui-button ui-button--primary"
-                       asp-controller="Home"
-                       asp-action="Contact">
-                        Iniciar projeto
-                    </a>
-                    <a class="ui-button ui-button--ghost"
-                       asp-controller="Home"
-                       asp-action="Contact">
-                        Conversar sobre arquitetura
-                    </a>
+                    <a class="ui-button ui-button--primary" asp-controller="Home" asp-action="Contact">Get in touch</a>
+                    <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="About">View profile</a>
                 </div>
             </div>
         </div>
     </section>
-
 </div>
+
+@section Scripts {
+    <script src="~/js/experience-motion.js" asp-append-version="true"></script>
+}
