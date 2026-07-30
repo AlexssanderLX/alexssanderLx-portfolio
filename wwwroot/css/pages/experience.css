@@ -50,6 +50,8 @@
     grid-template-columns: minmax(0, 1fr) minmax(280px, 430px);
     gap: clamp(2rem, 6vw, 5rem);
     align-items: center;
+    width: 100%;
+    max-width: none;
 }
 
 .experience-copy-panel {
@@ -58,6 +60,8 @@
 
 .experience-title-sm {
     font-size: var(--step-2);
+    overflow-wrap: normal;
+    word-break: normal;
 }
 
 .experience-centered-copy {
@@ -355,15 +359,24 @@
 
 .experience-final-card {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 2rem;
-    align-items: center;
+    grid-template-columns: 1fr;
+    justify-items: start;
+    gap: 1.15rem;
     padding: clamp(1.5rem, 5vw, 3rem);
     border: 1px solid rgba(144, 255, 33, .38);
     border-radius: 2rem;
     background:
         radial-gradient(circle at 80% 20%, rgba(144, 255, 33, .18), transparent 24rem),
         rgba(4, 15, 18, .82);
+}
+
+.experience-final-card .ui-title,
+.experience-final-card .ui-description {
+    max-width: 760px;
+}
+
+.experience-final-card .ui-actions {
+    justify-content: flex-start;
 }
 
 .experience-page .is-revealed[data-reveal] {
@@ -383,7 +396,7 @@
     to { background-position: 0 420px, 0 420px; }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1120px) {
     .experience-hero-grid,
     .experience-split,
     .experience-final-card {
@@ -399,7 +412,7 @@
     }
 
     .experience-signal-card {
-        opacity: .45;
+        display: none;
     }
 }
 

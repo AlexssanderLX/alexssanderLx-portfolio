@@ -50,6 +50,8 @@
     padding: clamp(1.25rem, 2.5vw, 1.75rem);
     display: grid;
     gap: var(--space-3);
+    align-content: start;
+    min-height: 15rem;
     transition: transform var(--motion-base) var(--ease-out), border-color var(--motion-base) var(--ease-out);
 }
 
@@ -59,8 +61,10 @@
 }
 
 .development-page .dev-capability-icon {
-    width: 2.4rem;
+    min-width: 2.4rem;
+    width: fit-content;
     height: 2.4rem;
+    padding-inline: 0.7rem;
     display: flex;
     align-items: center;
     justify-content: center;

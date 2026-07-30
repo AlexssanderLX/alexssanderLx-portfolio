@@ -19,17 +19,133 @@ html[data-motion-mode="none"] [data-reveal] {
     transform: translate3d(0, 0, 0);
 }
 
+.app-boot {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483000;
+    display: grid;
+    place-items: center;
+    padding: 1.25rem;
+    background:
+        radial-gradient(circle at 50% 35%, rgba(163, 255, 55, 0.13), transparent 22rem),
+        linear-gradient(180deg, rgba(2, 5, 6, 0.98), rgba(2, 8, 12, 0.98));
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 260ms ease, visibility 260ms ease;
+}
+
+html[data-boot-state="booting"] .app-boot {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.app-boot__panel {
+    width: min(100%, 22rem);
+    display: grid;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    border: 1px solid rgba(163, 255, 55, 0.32);
+    border-radius: 1.35rem;
+    background: rgba(2, 10, 12, 0.86);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.48), 0 0 30px rgba(163, 255, 55, 0.12);
+}
+
+.app-boot__kicker {
+    color: var(--color-accent, #a3ff37);
+    font-family: var(--font-mono, monospace);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.app-boot strong {
+    color: var(--color-text-strong, #fff);
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
+    line-height: 1.05;
+}
+
+.app-boot i {
+    display: block;
+    width: 100%;
+    height: 0.35rem;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.app-boot i::before {
+    content: "";
+    display: block;
+    width: 42%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--color-accent, #a3ff37), var(--color-cyan, #22d3ee));
+    animation: appBootBar 780ms ease-in-out infinite alternate;
+}
+
+html[data-boot-state="ready"] .app-boot {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 .binary-rain {
     opacity: 0.48;
 }
 
+html[data-effects-budget="light"] .binary-rain,
 html[data-motion-mode="reduced"] .binary-rain {
     opacity: 0.22;
 }
 
+html[data-effects-budget="minimal"] .binary-rain,
 html[data-motion-mode="none"] .binary-rain,
 html[data-motion-mode="none"] body::after {
     display: none;
+}
+
+html[data-effects-budget="minimal"] body::after,
+html[data-effects-budget="minimal"] .home-signal-field,
+html[data-effects-budget="minimal"] .experience-orbitals,
+html[data-effects-budget="minimal"] .home-cinematic::after,
+html[data-effects-budget="minimal"] .experience-page::after {
+    display: none !important;
+}
+
+html[data-effects-budget="light"] .home-signal-field,
+html[data-effects-budget="light"] .experience-orbitals {
+    display: none !important;
+}
+
+html[data-effects-budget="minimal"] .ui-card,
+html[data-effects-budget="minimal"] .ui-panel,
+html[data-effects-budget="minimal"] .header-tech,
+html[data-effects-budget="minimal"] .mobile-menu,
+html[data-effects-budget="minimal"] .home-identity,
+html[data-effects-budget="minimal"] .experience-score-card,
+html[data-effects-budget="minimal"] .experience-final-card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+html[data-effects-budget="minimal"] *,
+html[data-effects-budget="minimal"] *::before,
+html[data-effects-budget="minimal"] *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 120ms !important;
+    scroll-behavior: auto !important;
+}
+
+@keyframes appBootBar {
+    from {
+        transform: translateX(-20%);
+    }
+    to {
+        transform: translateX(160%);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -39,5 +155,10 @@ html[data-motion-mode="none"] body::after {
         opacity: 1;
         transform: none;
         transition: none;
+    }
+
+    .app-boot i::before {
+        animation: none;
+        width: 100%;
     }
 }

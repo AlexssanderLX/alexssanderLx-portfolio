@@ -1183,14 +1183,8 @@ html[data-home-motion-ready="true"] .home-identity[data-reveal] {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .home-signal-field,
     .home-signal-card {
-        opacity: 0.48;
-    }
-
-    .home-signal-card--code,
-    .home-signal-card--ux,
-    .home-signal-card--ai,
-    .home-signal-card--chord {
         display: none;
     }
 

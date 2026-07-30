@@ -5,7 +5,8 @@
         }
 
         const motionMode = document.documentElement.dataset.motionMode || "full";
-        if (motionMode === "none") {
+        const effectsBudget = document.documentElement.dataset.effectsBudget || "full";
+        if (motionMode === "none" || effectsBudget === "minimal") {
             return;
         }
 
@@ -13,7 +14,7 @@
         layer.className = "binary-rain";
         layer.setAttribute("aria-hidden", "true");
 
-        const bitCount = motionMode === "full" ? 72 : 18;
+        const bitCount = effectsBudget === "full" && motionMode === "full" ? 72 : 12;
 
         for (let index = 0; index < bitCount; index += 1) {
             const bit = document.createElement("span");

@@ -11,6 +11,7 @@
     <link rel="icon" type="image/svg+xml" href="~/img/alx-mark.svg" asp-append-version="true" />
     <link rel="shortcut icon" type="image/svg+xml" href="~/img/alx-mark.svg" asp-append-version="true" />
     <link rel="apple-touch-icon" sizes="180x180" href="~/img/apple-touch-icon.png" asp-append-version="true" />
+    <script src="~/js/capabilities.js" asp-append-version="true"></script>
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -23,6 +24,14 @@
     @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
+    <div class="app-boot" data-app-boot aria-hidden="true">
+        <div class="app-boot__panel">
+            <span class="app-boot__kicker">root@portfolio:~# calibrating</span>
+            <strong>Loading experience</strong>
+            <i aria-hidden="true"></i>
+        </div>
+    </div>
+
     <header class="header-fixed header-tech">
         <nav class="site-nav" aria-label="Primary navigation">
             <div class="container header-inner">
@@ -87,7 +96,6 @@
         </div>
     </footer>
 
-    <script src="~/js/capabilities.js" asp-append-version="true"></script>
     <script src="~/js/navigation.js" asp-append-version="true"></script>
     <script src="~/js/reveal.js" asp-append-version="true"></script>
     <script src="~/js/ambient.js" asp-append-version="true"></script>

@@ -4,11 +4,15 @@
         return;
     }
 
+    const root = document.documentElement;
+    const motionMode = root.dataset.motionMode || "full";
+    const effectsBudget = root.dataset.effectsBudget || "full";
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-        document.documentElement.dataset.motion === "off";
+        motionMode !== "full" ||
+        effectsBudget !== "full";
 
     const revealTargets = page.querySelectorAll("[data-reveal], .experience-section");
-    if ("IntersectionObserver" in window) {
+    if (!reduceMotion && "IntersectionObserver" in window) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
