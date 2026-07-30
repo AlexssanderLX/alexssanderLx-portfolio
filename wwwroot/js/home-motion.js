@@ -240,13 +240,15 @@
             const rect = activePanel.getBoundingClientRect();
             const x = (pointerX - rect.left) / rect.width;
             const y = (pointerY - rect.top) / rect.height;
-            const tiltX = (0.5 - y) * 6;
-            const tiltY = (x - 0.5) * 7;
+            const strength = activePanel.dataset.depthStrength === "hero" ? 1.85 : 1;
+            const tiltX = (0.5 - y) * 6 * strength;
+            const tiltY = (x - 0.5) * 7 * strength;
+            const move = activePanel.dataset.depthStrength === "hero" ? 13 : 8;
 
             activePanel.style.setProperty("--pointer-x", `${(x * 100).toFixed(2)}%`);
             activePanel.style.setProperty("--pointer-y", `${(y * 100).toFixed(2)}%`);
-            activePanel.style.setProperty("--motion-x", `${((x - 0.5) * 8).toFixed(2)}px`);
-            activePanel.style.setProperty("--motion-y", `${((y - 0.5) * 8).toFixed(2)}px`);
+            activePanel.style.setProperty("--motion-x", `${((x - 0.5) * move).toFixed(2)}px`);
+            activePanel.style.setProperty("--motion-y", `${((y - 0.5) * move).toFixed(2)}px`);
             activePanel.style.transform = `perspective(900px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translate3d(var(--motion-x, 0), var(--motion-y, 0), 0)`;
             ticking = false;
         };
