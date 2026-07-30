@@ -18,6 +18,25 @@
     </div>
 
     <section class="home-hero" aria-labelledby="home-title">
+        <div class="home-signal-field" aria-hidden="true">
+            <div class="home-signal-card home-signal-card--code" data-floating-card>
+                <span>api.flow()</span>
+                <strong>C# / Python</strong>
+            </div>
+            <div class="home-signal-card home-signal-card--security" data-floating-card>
+                <span>scan.surface</span>
+                <strong>security mindset</strong>
+            </div>
+            <div class="home-signal-card home-signal-card--music" data-floating-card>
+                <span>tempo: steady</span>
+                <strong>piano / composition</strong>
+            </div>
+            <div class="home-signal-card home-signal-card--ux" data-floating-card>
+                <span>motion.ready</span>
+                <strong>front-end craft</strong>
+            </div>
+        </div>
+
         <div class="home-hero__copy" data-reveal data-motion-origin="left">
             <p class="ui-kicker" data-hero-step data-motion-delay="120">Alexssander LX</p>
             <h1 class="ui-title ui-title--hero" id="home-title" data-hero-step data-motion-delay="240">
@@ -34,8 +53,8 @@
                     Conversar sobre projeto
                     <span aria-hidden="true">-&gt;</span>
                 </a>
-                <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="Projects">
-                    Conhecer trabalhos
+                <a class="ui-button ui-button--ghost" href="#areas">
+                    Explorar &aacute;reas
                 </a>
             </div>
         </div>
@@ -64,7 +83,7 @@
         </aside>
     </section>
 
-    <nav class="home-paths site-section--compact" aria-label="Caminhos profissionais" data-home-chapter="paths">
+    <nav class="home-paths site-section--compact" id="areas" aria-label="Caminhos profissionais" data-home-chapter="paths">
         <div class="site-shell">
             <div class="ui-section-heading" data-reveal data-motion-origin="scale">
                 <p class="ui-kicker">Escolha o caminho</p>
@@ -105,61 +124,43 @@
     <section class="home-chapter site-section" aria-labelledby="build-title" data-home-chapter="projects">
         <div class="site-shell home-chapter__grid">
             <div class="ui-section-heading home-sticky-copy" data-reveal data-motion-origin="left">
-                <p class="ui-kicker">O que é construído</p>
-                <h2 class="ui-title" id="build-title">Produtos que precisam funcionar fora do portfólio.</h2>
+                <p class="ui-kicker">Amostra técnica</p>
+                <h2 class="ui-title" id="build-title">Front-end como experiência, não apenas tela bonita.</h2>
                 <p class="ui-description">
-                    O foco principal é engenharia prática: telas, regras, APIs, banco, autenticação, infraestrutura e segurança
-                    trabalhando juntos para resolver um problema real.
+                    Esta home mostra direção visual, responsividade, acessibilidade, performance e narrativa.
+                    Os projetos completos vivem nas páginas específicas.
                 </p>
                 <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="Development">
-                    Ver projetos de desenvolvimento
+                    Abrir página de desenvolvimento
                 </a>
             </div>
 
-            <div class="product-preview-stack" aria-label="Projetos em destaque" data-motion-sequence="projects">
+            <div class="product-preview-stack" aria-label="Capacidades em destaque" data-motion-sequence="projects">
                 <article class="product-preview product-preview--zero" data-reveal="right" data-motion-origin="scale" data-motion-delay="0" data-depth-panel>
                     <div>
-                        <span class="ui-badge">Produto real</span>
-                        <h3>ZeroPaper</h3>
-                        <p>SaaS para restaurantes com pedidos por QR Code, fluxo de cozinha, impressão e rotinas operacionais.</p>
+                        <span class="ui-badge">Interface</span>
+                        <h3>Design responsivo</h3>
+                        <p>Layouts que se adaptam ao dispositivo, mantêm hierarquia clara e preservam leitura sem depender de efeito pesado.</p>
                     </div>
-                    <img src="~/img/ProjectsIMGs/ZeroPaper-thumb.png"
-                         asp-append-version="true"
-                         alt="Prévia do ZeroPaper"
-                         width="108"
-                         height="108"
-                         loading="lazy"
-                         decoding="async">
+                    <span class="product-preview__emblem" aria-hidden="true">&lt;/&gt;</span>
                 </article>
 
                 <article class="product-preview" data-reveal="right" data-motion-origin="right" data-motion-delay="130" data-depth-panel>
                     <div>
-                        <span class="ui-badge">Automação</span>
-                        <h3>LedgerFlow</h3>
-                        <p>Organização de documentos, rotinas fiscais e visibilidade operacional para escritório contábil.</p>
+                        <span class="ui-badge">Qualidade</span>
+                        <h3>Performance e acessibilidade</h3>
+                        <p>Motion com fallback, reduced motion, conteúdo visível sem JavaScript e animações focadas em transform e opacity.</p>
                     </div>
-                    <img src="~/img/ProjectsIMGs/LedgerFlow-logo.png"
-                         asp-append-version="true"
-                         alt="Logo do LedgerFlow"
-                         width="108"
-                         height="108"
-                         loading="lazy"
-                         decoding="async">
+                    <span class="product-preview__emblem" aria-hidden="true">AA</span>
                 </article>
 
                 <article class="product-preview" data-reveal="right" data-motion-origin="bottom-right" data-motion-delay="230" data-depth-panel>
                     <div>
-                        <span class="ui-badge">Operações</span>
-                        <h3>StoreFlow</h3>
-                        <p>Fluxo interno para faltas, rotina de loja e acompanhamento de processos do dia a dia.</p>
+                        <span class="ui-badge">Narrativa</span>
+                        <h3>Movimento com propósito</h3>
+                        <p>Cards, linhas e pequenos sinais visuais guiam o visitante pelas áreas sem transformar a página em painel confuso.</p>
                     </div>
-                    <img src="~/img/ProjectsIMGs/StoreFlow-logo.svg"
-                         asp-append-version="true"
-                         alt="Logo do StoreFlow"
-                         width="108"
-                         height="108"
-                         loading="lazy"
-                         decoding="async">
+                    <span class="product-preview__emblem" aria-hidden="true">FX</span>
                 </article>
             </div>
         </div>
@@ -198,30 +199,109 @@
     </section>
 
     <section class="home-chapter site-section" aria-labelledby="security-title" data-home-chapter="focus">
-        <div class="site-shell home-dual">
-            <article class="home-focus-card ui-card" data-reveal data-motion-origin="bottom-left" data-motion-delay="0" data-depth-panel>
-                <span class="ui-badge">Segurança aplicada</span>
-                <h2 class="ui-title" id="security-title">Pensar como atacante para construir com mais cuidado.</h2>
-                <p>
-                    CTFs e estudos de pentest entram como prática para melhorar validação, autenticação, autorização,
-                    configuração, revisão e proteção de dados em sistemas reais.
+        <div class="site-shell">
+            <div class="home-area-header" data-reveal data-motion-origin="scale">
+                <p class="ui-kicker">Três áreas, uma mesma disciplina</p>
+                <h2 class="ui-title" id="security-title">Código, segurança e música aparecem como camadas do mesmo perfil.</h2>
+                <p class="ui-description">
+                    A home apresenta a visão geral. Cada trilha abre uma página própria, com detalhes, estudos e projetos sem poluir esta primeira experiência.
                 </p>
-                <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="Security">
-                    Ver trilha de segurança
-                </a>
-            </article>
+            </div>
 
-            <article class="home-focus-card ui-card home-focus-card--music" data-reveal data-motion-origin="bottom-right" data-motion-delay="160" data-depth-panel>
-                <span class="ui-badge">Música e ensino</span>
-                <h2 class="ui-title">Disciplina criativa também é produto.</h2>
-                <p>
-                    Piano, composição e aulas continuam como uma área própria. Esta base já reserva o caminho visual para uma futura
-                    experiência musical sem autoplay e sem carregar áudio na home.
-                </p>
-                <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="Music">
-                    Conhecer composições
-                </a>
-            </article>
+            <div class="home-area-board" aria-label="Trilhas principais do portfolio">
+                <article class="home-focus-card home-focus-card--dev ui-card" data-reveal data-motion-origin="bottom-left" data-motion-delay="0" data-depth-panel>
+                    <div class="home-focus-card__hud" aria-hidden="true">
+                        <span>01</span>
+                        <i></i>
+                    </div>
+                    <div class="home-focus-card__topline" aria-hidden="true">
+                        <span>route:/dev</span>
+                        <span>build-ready</span>
+                    </div>
+                    <div class="home-area-orb home-area-orb--dev" aria-hidden="true">
+                        <span>&lt;/&gt;</span>
+                    </div>
+                    <span class="ui-badge">Desenvolvimento</span>
+                    <h3>Construir sistemas claros e úteis.</h3>
+                    <p>C#, ASP.NET Core, Python, automações, APIs, banco de dados e deploy com pensamento de produto.</p>
+                    <div class="home-skill-line" aria-label="Progresso visual de desenvolvimento">
+                        <span class="home-skill-line__fill home-skill-line__fill--dev"></span>
+                    </div>
+                    <ul class="home-focus-metrics" aria-label="Resumo de desenvolvimento">
+                        <li><strong>2+</strong><span>anos</span></li>
+                        <li><strong>APIs</strong><span>backend</span></li>
+                        <li><strong>AI</strong><span>automação</span></li>
+                    </ul>
+                    <div class="home-focus-command" aria-hidden="true">
+                        <span>&gt;</span> ship clean systems --with automation
+                    </div>
+                    <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="Development">
+                        Abrir desenvolvimento
+                    </a>
+                </article>
+
+                <article class="home-focus-card home-focus-card--security ui-card" data-reveal data-motion-origin="scale" data-motion-delay="120" data-depth-panel>
+                    <div class="home-focus-card__hud" aria-hidden="true">
+                        <span>02</span>
+                        <i></i>
+                    </div>
+                    <div class="home-focus-card__topline" aria-hidden="true">
+                        <span>route:/security</span>
+                        <span>attack-surface</span>
+                    </div>
+                    <div class="home-area-orb home-area-orb--security" aria-hidden="true">
+                        <span>+</span>
+                    </div>
+                    <span class="ui-badge">Segurança aplicada</span>
+                    <h3>Pensar como atacante para construir melhor.</h3>
+                    <p>CTFs, enumeração, análise de falhas, validação, autenticação e hardening entrando no ciclo de desenvolvimento.</p>
+                    <ul class="home-focus-metrics" aria-label="Resumo de segurança">
+                        <li><strong>CTF</strong><span>labs</span></li>
+                        <li><strong>OWASP</strong><span>web</span></li>
+                        <li><strong>Linux</strong><span>infra</span></li>
+                    </ul>
+                    <div class="home-skill-line" aria-label="Progresso visual de seguranca">
+                        <span class="home-skill-line__fill home-skill-line__fill--security"></span>
+                    </div>
+                    <div class="home-focus-command" aria-hidden="true">
+                        <span>&gt;</span> enumerate weak-points --before release
+                    </div>
+                    <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="Security">
+                        Abrir segurança
+                    </a>
+                </article>
+
+                <article class="home-focus-card home-focus-card--music ui-card" data-reveal data-motion-origin="bottom-right" data-motion-delay="220" data-depth-panel>
+                    <div class="home-focus-card__hud" aria-hidden="true">
+                        <span>03</span>
+                        <i></i>
+                    </div>
+                    <div class="home-focus-card__topline" aria-hidden="true">
+                        <span>route:/music</span>
+                        <span>creative-discipline</span>
+                    </div>
+                    <div class="home-area-orb home-area-orb--music" aria-hidden="true">
+                        <span>&#9834;</span>
+                    </div>
+                    <span class="ui-badge">Música e ensino</span>
+                    <h3>Disciplina criativa também molda produto.</h3>
+                    <p>Piano, composição, estudo estruturado e percepção musical como prática de constância, ritmo e expressão.</p>
+                    <ul class="home-focus-metrics" aria-label="Resumo de música">
+                        <li><strong>Piano</strong><span>base</span></li>
+                        <li><strong>Jazz</strong><span>harmonia</span></li>
+                        <li><strong>2025</strong><span>obras</span></li>
+                    </ul>
+                    <div class="home-skill-line" aria-label="Progresso visual de musica">
+                        <span class="home-skill-line__fill home-skill-line__fill--music"></span>
+                    </div>
+                    <div class="home-focus-command" aria-hidden="true">
+                        <span>&gt;</span> practice rhythm --compose with intent
+                    </div>
+                    <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="Music">
+                        Abrir música
+                    </a>
+                </article>
+            </div>
         </div>
     </section>
 

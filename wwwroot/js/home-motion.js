@@ -68,22 +68,22 @@
             mark.animate([
                 { opacity: 0, transform: "translate3d(0, 18px, 0) scale(0.96)" },
                 { opacity: 1, transform: "translate3d(0, 0, 0) scale(1)" }
-            ], { duration: 420, easing: "cubic-bezier(0.22, 1, 0.36, 1)", fill: "forwards" }).finished
+            ], { duration: 620, easing: "cubic-bezier(0.22, 1, 0.36, 1)", fill: "forwards" }).finished
         ];
 
         if (bar) {
             introTimeline.push(bar.animate([
                 { transform: "scaleX(0)" },
                 { transform: "scaleX(1)" }
-            ], { duration: 980, delay: 160, easing: "cubic-bezier(0.22, 1, 0.36, 1)", fill: "forwards" }).finished);
+            ], { duration: 1350, delay: 220, easing: "cubic-bezier(0.22, 1, 0.36, 1)", fill: "forwards" }).finished);
         }
 
         return Promise.allSettled(introTimeline)
-            .then(() => new Promise(resolve => window.setTimeout(resolve, 100)))
+            .then(() => new Promise(resolve => window.setTimeout(resolve, 180)))
             .then(() => intro.animate([
                 { opacity: 1, clipPath: "inset(0 0 0 0)" },
                 { opacity: 0.98, clipPath: "inset(0 0 100% 0)" }
-            ], { duration: 520, easing: "cubic-bezier(0.65, 0, 0.35, 1)", fill: "forwards" }).finished)
+            ], { duration: 620, easing: "cubic-bezier(0.65, 0, 0.35, 1)", fill: "forwards" }).finished)
             .catch(() => undefined)
             .finally(() => {
                 root.removeAttribute("data-home-intro-active");
