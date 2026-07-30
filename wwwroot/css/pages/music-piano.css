@@ -1,0 +1,596 @@
+/* ============================================================
+   music-piano.css — Piano Virtual embutido na página Music
+   Adaptado de YourRhythm Studio. Escopado sob .music-page.
+   Usa tokens do design system AlexssanderLX.
+   ============================================================ */
+
+/* Mapeamento de variáveis YourRhythm → AlexssanderLX */
+.music-page {
+    --pv-muted:  var(--color-muted);
+    --pv-ink:    var(--color-text-strong);
+    --pv-border: var(--color-border);
+    --pv-accent: var(--color-cyan);
+    --pv-accent-soft: var(--color-cyan-soft);
+    --pv-faint:  rgba(226, 236, 240, 0.32);
+    --pv-surface: var(--color-surface);
+}
+
+/* ── Seção wrapper ── */
+.music-page .music-piano-section {
+    padding-block: clamp(3rem, 7vw, 6rem);
+}
+
+.music-page .music-piano-intro {
+    text-align: center;
+    display: grid;
+    gap: var(--space-4);
+    max-width: 560px;
+    margin-inline: auto;
+    margin-bottom: var(--space-10);
+}
+
+.music-page .music-piano-intro-title {
+    margin: 0;
+    color: var(--color-text-strong);
+    font-size: var(--step-2);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+}
+
+.music-page .music-piano-intro-desc {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: var(--step-0);
+    line-height: 1.65;
+}
+
+/* ── Tutorial cards ── */
+.music-page .pv-tut-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(0.75rem, 1.5vw, 1.15rem);
+    margin-bottom: var(--space-8);
+}
+
+.music-page .pv-tut-card {
+    background: var(--pv-surface);
+    border: 1px solid var(--pv-border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.15rem;
+    transition: border-color var(--motion-base) var(--ease-out);
+}
+
+.music-page .pv-tut-card:hover {
+    border-color: rgba(250, 204, 21, 0.2);
+}
+
+.music-page .pv-tut-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.6rem;
+    line-height: 1;
+}
+
+.music-page .pv-tut-card h3 {
+    font-size: var(--step--1);
+    font-weight: 800;
+    color: var(--pv-ink);
+    margin: 0 0 0.4rem;
+}
+
+.music-page .pv-tut-card p {
+    font-size: 0.82rem;
+    color: var(--pv-muted);
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* ── Controles ── */
+.music-page .pv-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.15rem;
+}
+
+.music-page .pv-controls label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--pv-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+}
+
+.music-page .pv-vol-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.music-page .pv-vol-icon {
+    color: var(--pv-muted);
+    flex-shrink: 0;
+}
+
+.music-page input[type="range"]#pvVolume {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100px;
+    height: 4px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.08);
+    outline: none;
+    cursor: pointer;
+}
+
+.music-page input[type="range"]#pvVolume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--pv-accent);
+    box-shadow: 0 0 8px rgba(40, 216, 238, 0.5);
+    cursor: pointer;
+}
+
+.music-page input[type="range"]#pvVolume::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: none;
+    background: var(--pv-accent);
+    box-shadow: 0 0 8px rgba(40, 216, 238, 0.5);
+    cursor: pointer;
+}
+
+.music-page .pv-labels-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.music-page .pv-labels-wrap span {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--pv-muted);
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Toggle */
+.music-page .pv-checkbox {
+    position: relative;
+    width: 36px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.music-page .pv-checkbox input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.music-page .pv-checkbox-track {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--pv-border);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background var(--motion-fast), border-color var(--motion-fast);
+}
+
+.music-page .pv-checkbox-track::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--pv-muted);
+    transition: left var(--motion-fast), background var(--motion-fast);
+}
+
+.music-page .pv-checkbox input:checked ~ .pv-checkbox-track {
+    background: rgba(40, 216, 238, 0.15);
+    border-color: var(--pv-accent);
+}
+
+.music-page .pv-checkbox input:checked ~ .pv-checkbox-track::after {
+    left: 19px;
+    background: var(--pv-accent);
+}
+
+.music-page .pv-checkbox input:focus-visible ~ .pv-checkbox-track {
+    outline: 2px solid var(--pv-accent);
+    outline-offset: 2px;
+}
+
+/* ── Teclado ── */
+.music-page .pv-piano-outer {
+    background: linear-gradient(180deg, rgba(10, 14, 28, 0.95), rgba(6, 7, 13, 0.98));
+    border: 1px solid var(--pv-border);
+    border-radius: var(--radius-lg);
+    padding: 1.4rem 1.15rem 1.15rem;
+    box-shadow: 0 32px 80px -32px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.music-page .pv-octave-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.85rem;
+}
+
+.music-page .pv-octave-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--pv-faint);
+    font-family: var(--font-mono);
+}
+
+.music-page .pv-piano-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(40, 216, 238, 0.2) transparent;
+    padding-bottom: 4px;
+}
+
+.music-page .pv-piano-scroll::-webkit-scrollbar {
+    height: 4px;
+}
+
+.music-page .pv-piano-scroll::-webkit-scrollbar-thumb {
+    background: rgba(40, 216, 238, 0.2);
+    border-radius: 2px;
+}
+
+.music-page .pv-piano {
+    display: flex;
+    height: 185px;
+    min-width: 560px;
+    user-select: none;
+    touch-action: none;
+    position: relative;
+}
+
+/* Teclas brancas */
+.music-page .pv-wkey {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    background: linear-gradient(180deg, #e4eeff 0%, #c0d2ec 100%);
+    border-right: 1px solid rgba(8, 12, 22, 0.28);
+    border-bottom: 4px solid rgba(0, 0, 0, 0.18);
+    border-radius: 0 0 7px 7px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 9px;
+    transition: background var(--motion-fast), box-shadow var(--motion-fast);
+}
+
+.music-page .pv-wkey:last-child {
+    border-right: none;
+}
+
+.music-page .pv-wkey:focus-visible {
+    outline: 2px solid var(--pv-accent);
+    outline-offset: -2px;
+    z-index: 2;
+}
+
+.music-page .pv-wkey.pressed {
+    background: linear-gradient(180deg, #b0d9fa 0%, #7ab4f0 100%);
+    box-shadow: inset 0 4px 10px rgba(40, 216, 238, 0.3);
+    border-bottom-color: rgba(40, 216, 238, 0.35);
+}
+
+/* Label tecla branca */
+.music-page .pv-wlabel {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 700;
+    color: #3c466b;
+    letter-spacing: 0.02em;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0;
+    transition: opacity var(--motion-fast);
+    line-height: 1.3;
+    text-align: center;
+}
+
+.music-page .pv-wkey[data-note^="C"] .pv-wlabel {
+    opacity: 1;
+    color: #2a3a8a;
+}
+
+.music-page .pv-piano.show-labels .pv-wlabel {
+    opacity: 1;
+}
+
+/* Teclas pretas */
+.music-page .pv-bkey {
+    position: absolute;
+    top: 0;
+    right: -32%;
+    width: 64%;
+    height: 60%;
+    z-index: 5;
+    background: linear-gradient(180deg, #1e2a40 0%, #050810 88%);
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.65), inset 0 -2px 4px rgba(255, 255, 255, 0.06);
+    cursor: pointer;
+    transition: background var(--motion-fast), box-shadow var(--motion-fast);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 6px;
+}
+
+.music-page .pv-bkey:focus-visible {
+    outline: 2px solid var(--pv-accent);
+    outline-offset: -2px;
+}
+
+.music-page .pv-bkey.pressed {
+    background: linear-gradient(180deg, #1e3a60 0%, #0a1830 90%);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.6), 0 0 18px rgba(40, 216, 238, 0.4);
+}
+
+.music-page .pv-blabel {
+    font-size: 8px;
+    font-weight: 700;
+    color: rgba(40, 216, 238, 0.5);
+    pointer-events: none;
+    user-select: none;
+    opacity: 0;
+    transition: opacity var(--motion-fast);
+}
+
+.music-page .pv-piano.show-labels .pv-blabel {
+    opacity: 1;
+}
+
+/* Marcador de oitava */
+.music-page .pv-wkey[data-note^="C"] {
+    border-left: 2px solid rgba(40, 216, 238, 0.15);
+}
+
+.music-page .pv-wkey:first-child {
+    border-left: none;
+}
+
+/* Hint */
+.music-page .pv-hint {
+    margin-top: 0.85rem;
+    font-size: 0.78rem;
+    color: var(--pv-faint);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    transition: opacity var(--motion-base);
+}
+
+.music-page .pv-hint.pv-hint-hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Atalhos */
+.music-page .pv-shortcuts {
+    margin-top: 1.15rem;
+    border: 1px solid var(--pv-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.music-page .pv-shortcuts summary {
+    padding: 0.85rem 1.15rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--pv-muted);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color var(--motion-fast);
+    user-select: none;
+}
+
+.music-page .pv-shortcuts summary::after {
+    content: "▾";
+    margin-left: auto;
+    font-size: 11px;
+    transition: transform var(--motion-fast);
+}
+
+.music-page .pv-shortcuts[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.music-page .pv-shortcuts summary:hover {
+    color: var(--pv-ink);
+}
+
+.music-page .pv-shortcuts summary:focus-visible {
+    outline: 2px solid var(--pv-accent);
+    outline-offset: 2px;
+}
+
+.music-page .pv-shortcut-body {
+    padding: 1rem 1.15rem 1.25rem;
+    border-top: 1px solid var(--pv-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.music-page .pv-shortcut-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.music-page .pv-sc-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.74rem;
+    color: var(--pv-muted);
+}
+
+.music-page .pv-sc-key {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--pv-border);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--pv-accent);
+}
+
+.music-page .pv-sc-note {
+    color: var(--pv-faint);
+    font-size: 10px;
+}
+
+/* ── Trilha sonora ── */
+.music-page .music-track-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+    margin-top: var(--space-6);
+    padding: var(--space-4) var(--space-6);
+    border: 1px solid rgba(250, 204, 21, 0.16);
+    border-radius: var(--radius-md);
+    background: rgba(250, 204, 21, 0.04);
+}
+
+.music-page .music-track-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    flex: 1;
+}
+
+.music-page .music-track-name {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(250, 204, 21, 0.7);
+}
+
+.music-page .music-track-meta {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: var(--step--1);
+}
+
+.music-page #musicTrackBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 0.6rem 1.15rem;
+    min-height: 42px;
+    border: 1px solid rgba(250, 204, 21, 0.3);
+    border-radius: var(--radius-sm);
+    background: rgba(250, 204, 21, 0.07);
+    color: var(--color-warning);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: background var(--motion-fast) var(--ease-out), border-color var(--motion-fast) var(--ease-out);
+}
+
+.music-page #musicTrackBtn:hover {
+    background: rgba(250, 204, 21, 0.14);
+    border-color: rgba(250, 204, 21, 0.5);
+}
+
+.music-page #musicTrackBtn.track-active {
+    background: rgba(250, 204, 21, 0.14);
+    border-color: rgba(250, 204, 21, 0.55);
+    color: var(--color-warning);
+}
+
+.music-page #musicTrackBtn:focus-visible {
+    outline: 2px solid rgba(250, 204, 21, 0.6);
+    outline-offset: 2px;
+}
+
+.music-page .track-icon {
+    font-size: 1rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 760px) {
+    .music-page .pv-tut-grid {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+
+    .music-page .pv-tut-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0.75rem 0.85rem;
+        align-items: start;
+    }
+
+    .music-page .pv-tut-icon {
+        font-size: 1.35rem;
+        grid-row: span 2;
+        margin-bottom: 0;
+        padding-top: 2px;
+    }
+
+    .music-page .pv-piano {
+        height: 158px;
+    }
+}
+
+@media (max-width: 480px) {
+    .music-page .pv-piano {
+        height: 136px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .music-page .pv-wkey,
+    .music-page .pv-bkey,
+    .music-page .pv-wlabel,
+    .music-page .pv-blabel,
+    .music-page .pv-checkbox-track,
+    .music-page .pv-checkbox-track::after {
+        transition: none;
+    }
+}

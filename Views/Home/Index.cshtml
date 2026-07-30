@@ -1,6 +1,6 @@
 @{
-    ViewData["Title"] = "Início";
-    ViewData["Description"] = "Alexssander LX cria produtos digitais, aplicações web, SaaS, automações, backend, infraestrutura segura e experiências que conectam tecnologia, segurança e música.";
+    ViewData["Title"] = "Home";
+    ViewData["Description"] = "Alexssander LX portfolio: full-stack web products, SaaS, automation, secure infrastructure, applied security, Python workflows and music discipline.";
 }
 
 @section Styles {
@@ -8,37 +8,86 @@
 }
 
 <section class="home-cinematic" id="home">
+    <div class="home-intro" data-home-intro aria-hidden="true">
+        <div class="home-intro__grid" aria-hidden="true"></div>
+        <div class="home-intro__mark">
+            <span class="home-intro__kicker">root@@portfolio:~# init</span>
+            <strong>Alexssander <span>LX</span></strong>
+            <i></i>
+        </div>
+    </div>
+
     <section class="home-hero" aria-labelledby="home-title">
-        <div class="home-hero__copy" data-reveal>
-            <p class="ui-kicker">Alexssander LX</p>
-            <h1 class="ui-title ui-title--hero" id="home-title">
-                Construo produtos digitais completos,
-                <span class="ui-gradient-text">da ideia ao deploy seguro.</span>
+        <div class="home-signal-field" aria-hidden="true">
+            <div class="home-signal-card home-signal-card--code" data-floating-card>
+                <span>api.flow()</span>
+                <strong>C# / Python</strong>
+            </div>
+            <div class="home-signal-card home-signal-card--security" data-floating-card>
+                <span>scan.surface</span>
+                <strong>security mindset</strong>
+            </div>
+            <div class="home-signal-card home-signal-card--music" data-floating-card>
+                <span>tempo: steady</span>
+                <strong>piano / composition</strong>
+            </div>
+            <div class="home-signal-card home-signal-card--ux" data-floating-card>
+                <span>motion.ready</span>
+                <strong>front-end craft</strong>
+            </div>
+            <div class="home-signal-card home-signal-card--ai" data-floating-card>
+                <span>agent.plan()</span>
+                <strong>AI automation</strong>
+            </div>
+            <div class="home-signal-card home-signal-card--infra" data-floating-card>
+                <span>deploy.safe</span>
+                <strong>Nginx / Linux</strong>
+            </div>
+            <div class="home-signal-card home-signal-card--cipher" data-floating-card>
+                <span>ctf.vector</span>
+                <strong>auth / web / recon</strong>
+            </div>
+            <div class="home-signal-card home-signal-card--chord" data-floating-card>
+                <span>chord: Gm9</span>
+                <strong>piano discipline</strong>
+            </div>
+        </div>
+
+        <div class="home-hero__copy" data-reveal data-motion-origin="left">
+            <p class="ui-kicker" data-hero-step data-motion-delay="120">Alexssander LX</p>
+            <h1 class="ui-title ui-title--hero" id="home-title" data-hero-step data-motion-delay="240">
+                Building useful systems,
+                <span class="ui-gradient-text">from concept to secure delivery.</span>
             </h1>
-            <p class="ui-description">
-                Desenvolvimento web, SaaS, backend, automações e segurança aplicada para transformar processos reais
-                em sistemas claros, úteis e preparados para evoluir.
+            <p class="ui-description" data-hero-step data-motion-delay="360">
+                A full-stack portfolio shaped by real products, Python automation, applied security and the discipline of music.
+                The goal is clarity: interfaces that feel sharp, systems that can be maintained, and ideas that become usable tools.
             </p>
 
-            <div class="ui-actions" aria-label="Ações principais">
+            <div class="ui-actions" aria-label="Primary actions" data-hero-step data-motion-delay="500">
                 <a class="ui-button ui-button--primary" asp-controller="Home" asp-action="Contact">
-                    Conversar sobre projeto
+                    Start a conversation
                     <span aria-hidden="true">-&gt;</span>
                 </a>
-                <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="Projects">
-                    Conhecer trabalhos
+                <a class="ui-button ui-button--ghost" href="#modules">
+                    Explore modules
                 </a>
             </div>
         </div>
 
-        <aside class="home-identity ui-panel" data-reveal="right" aria-label="Resumo visual de Alexssander LX">
+        <aside class="home-identity ui-panel" data-reveal="right" data-motion-origin="right" data-depth-panel data-depth-strength="hero" aria-label="Visual profile card for Alexssander LX">
             <div class="home-identity__halo" aria-hidden="true"></div>
+            <div class="home-electric-field" aria-hidden="true">
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
             <figure class="home-portrait">
                 <picture>
                     <source media="(max-width: 700px)" srcset="@Url.Content("~/img/profile-mobile.jpg")">
                     <img src="~/img/Foto de Perfil.jpeg"
                          asp-append-version="true"
-                         alt="Retrato de Alexssander Ferreira de Almeida"
+                         alt="Portrait of Alexssander Ferreira de Almeida"
                          width="1066"
                          height="1600"
                          loading="eager"
@@ -47,188 +96,170 @@
                 </picture>
             </figure>
 
-            <div class="home-terminal">
-                <span>root@@portfolio:~# build --profile</span>
-                <strong>software | automação | segurança aplicada</strong>
-                <p>2 anos resolvendo problemas reais com C#, ASP.NET Core, Python, Linux e prática ofensiva.</p>
+            <div class="home-terminal" data-hero-step data-motion-delay="680">
+                <span>root@@portfolio:~# whoami</span>
+                <strong>developer | hacker | pianist</strong>
+                <p>2+ years solving practical problems with C#, ASP.NET Core, Python, Linux and offensive security practice.</p>
             </div>
         </aside>
     </section>
 
-    <nav class="home-paths site-section--compact" aria-label="Caminhos profissionais">
+    <nav class="home-paths site-section--compact" id="modules" aria-label="Portfolio modules" data-home-chapter="paths">
         <div class="site-shell">
-            <div class="ui-section-heading" data-reveal>
-                <p class="ui-kicker">Escolha o caminho</p>
-                <h2 class="ui-title">A homepage agora funciona como mapa, não como gaveta cheia.</h2>
+            <div class="ui-section-heading" data-reveal data-motion-origin="scale">
+                <p class="ui-kicker">Choose a module</p>
+                <h2 class="ui-title">One portfolio, four clear entry points.</h2>
                 <p class="ui-description">
-                    Cada área apresenta só o suficiente para orientar o visitante e abrir espaço para páginas internas mais profundas.
+                    Each module opens a different side of the same profile: product engineering, infrastructure, security practice and music discipline.
                 </p>
             </div>
 
-            <div class="home-path-grid">
-                <a class="path-card ui-card" asp-controller="Home" asp-action="Development" data-reveal>
-                    <span class="ui-badge">Produtos</span>
-                    <h3>Desenvolvimento e SaaS</h3>
-                    <p>Aplicações web, backend, integrações e produtos reais como ZeroPaper, LedgerFlow e StoreFlow.</p>
+            <div class="home-path-grid" data-motion-sequence="paths">
+                <a class="path-card path-card--dev ui-card" asp-controller="Home" asp-action="Development" data-reveal data-motion-origin="bottom-left" data-motion-delay="0" data-depth-panel>
+                    <span class="path-card__index">01</span>
+                    <span class="ui-badge">Product engineering</span>
+                    <h3>Development and SaaS</h3>
+                    <p>Real web products, APIs, integrations and backend structure behind ZeroPaper, LedgerFlow and StoreFlow.</p>
+                    <div class="path-card__meta" aria-hidden="true">
+                        <span>C#</span>
+                        <span>Python</span>
+                        <span>APIs</span>
+                    </div>
+                    <strong class="path-card__command">&gt; open /development</strong>
                 </a>
 
-                <a class="path-card ui-card" href="#infraestrutura" data-reveal>
-                    <span class="ui-badge">Operação</span>
-                    <h3>Infraestrutura e automações</h3>
-                    <p>Fluxos que conectam código, deploy, VPS, proxy, certificados e processos repetitivos.</p>
+                <article class="path-card path-card--infra ui-card" data-reveal data-motion-origin="left" data-motion-delay="100" data-depth-panel>
+                    <span class="path-card__index">02</span>
+                    <span class="ui-badge">Operations</span>
+                    <h3>Infrastructure and automation</h3>
+                    <p>Deployment flow, VPS operations, Nginx, certificates, backups and repeatable workflows that keep systems useful.</p>
+                    <div class="path-card__meta" aria-hidden="true">
+                        <span>Linux</span>
+                        <span>VPS</span>
+                        <span>HTTPS</span>
+                    </div>
+                    <strong class="path-card__command">&gt; preview /infra below</strong>
+                </article>
+
+                <a class="path-card path-card--security ui-card" asp-controller="Home" asp-action="Security" data-reveal data-motion-origin="right" data-motion-delay="180" data-depth-panel>
+                    <span class="path-card__index">03</span>
+                    <span class="ui-badge">Applied security</span>
+                    <h3>DevSecOps and pentest</h3>
+                    <p>CTF practice, web security, authentication review, hardening and attacker-minded validation before release.</p>
+                    <div class="path-card__meta" aria-hidden="true">
+                        <span>CTF</span>
+                        <span>OWASP</span>
+                        <span>Recon</span>
+                    </div>
+                    <strong class="path-card__command">&gt; open /security</strong>
                 </a>
 
-                <a class="path-card ui-card" asp-controller="Home" asp-action="Security" data-reveal>
-                    <span class="ui-badge">Segurança</span>
-                    <h3>DevSecOps e pentest</h3>
-                    <p>Validação, autenticação, revisão, hardening e aprendizado por CTF aplicado ao desenvolvimento.</p>
-                </a>
-
-                <a class="path-card ui-card" asp-controller="Home" asp-action="Music" data-reveal>
-                    <span class="ui-badge">Música</span>
-                    <h3>Piano, composição e aulas</h3>
-                    <p>Um caminho criativo próprio, preparado para evoluir em experiência musical sem áudio automático.</p>
+                <a class="path-card path-card--music ui-card" asp-controller="Home" asp-action="Music" data-reveal data-motion-origin="bottom-right" data-motion-delay="260" data-depth-panel>
+                    <span class="path-card__index">04</span>
+                    <span class="ui-badge">Music discipline</span>
+                    <h3>Piano and composition</h3>
+                    <p>A creative module for piano studies, original composition and the discipline that also shapes product work.</p>
+                    <div class="path-card__meta" aria-hidden="true">
+                        <span>Piano</span>
+                        <span>Jazz</span>
+                        <span>Score</span>
+                    </div>
+                    <strong class="path-card__command">&gt; open /music</strong>
                 </a>
             </div>
         </div>
     </nav>
 
-    <section class="home-chapter site-section" aria-labelledby="build-title">
+    <section class="home-chapter site-section" aria-labelledby="build-title" data-home-chapter="craft">
         <div class="site-shell home-chapter__grid">
-            <div class="ui-section-heading home-sticky-copy" data-reveal>
-                <p class="ui-kicker">O que é construído</p>
-                <h2 class="ui-title" id="build-title">Produtos que precisam funcionar fora do portfólio.</h2>
+            <div class="ui-section-heading home-sticky-copy" data-reveal data-motion-origin="left">
+                <p class="ui-kicker">Technical craft</p>
+                <h2 class="ui-title" id="build-title">Front-end as a product signal, not decoration.</h2>
                 <p class="ui-description">
-                    O foco principal é engenharia prática: telas, regras, APIs, banco, autenticação, infraestrutura e segurança
-                    trabalhando juntos para resolver um problema real.
+                    This page demonstrates responsive composition, accessible interaction states, lightweight motion and a clear technical narrative.
+                    The internal modules hold the deeper project details.
                 </p>
                 <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="Development">
-                    Ver projetos de desenvolvimento
+                    View engineering work
                 </a>
             </div>
 
-            <div class="product-preview-stack" aria-label="Projetos em destaque">
-                <article class="product-preview product-preview--zero" data-reveal="right">
+            <div class="product-preview-stack" aria-label="Technical capabilities" data-motion-sequence="projects">
+                <article class="product-preview product-preview--zero" data-reveal="right" data-motion-origin="scale" data-motion-delay="0" data-depth-panel data-depth-strength="craft">
                     <div>
-                        <span class="ui-badge">Produto real</span>
-                        <h3>ZeroPaper</h3>
-                        <p>SaaS para restaurantes com pedidos por QR Code, fluxo de cozinha, impressão e rotinas operacionais.</p>
+                        <span class="ui-badge">Interface</span>
+                        <h3>Responsive systems</h3>
+                        <p>Layouts adapt across screens while preserving hierarchy, contrast and reading flow without relying on heavy effects.</p>
                     </div>
-                    <img src="~/img/ProjectsIMGs/ZeroPaper-thumb.png"
-                         asp-append-version="true"
-                         alt="Prévia do ZeroPaper"
-                         width="108"
-                         height="108"
-                         loading="lazy"
-                         decoding="async">
+                    <span class="product-preview__emblem" aria-hidden="true">&lt;/&gt;</span>
                 </article>
 
-                <article class="product-preview" data-reveal="right">
+                <article class="product-preview product-preview--quality" data-reveal="right" data-motion-origin="right" data-motion-delay="130" data-depth-panel data-depth-strength="craft">
                     <div>
-                        <span class="ui-badge">Automação</span>
-                        <h3>LedgerFlow</h3>
-                        <p>Organização de documentos, rotinas fiscais e visibilidade operacional para escritório contábil.</p>
+                        <span class="ui-badge">Quality</span>
+                        <h3>Performance and accessibility</h3>
+                        <p>Motion has fallbacks, reduced-motion support, visible content without JavaScript and GPU-friendly transitions.</p>
                     </div>
-                    <img src="~/img/ProjectsIMGs/LedgerFlow-logo.png"
-                         asp-append-version="true"
-                         alt="Logo do LedgerFlow"
-                         width="108"
-                         height="108"
-                         loading="lazy"
-                         decoding="async">
+                    <span class="product-preview__emblem" aria-hidden="true">AA</span>
                 </article>
 
-                <article class="product-preview" data-reveal="right">
+                <article class="product-preview product-preview--motion" data-reveal="right" data-motion-origin="bottom-right" data-motion-delay="230" data-depth-panel data-depth-strength="craft">
                     <div>
-                        <span class="ui-badge">Operações</span>
-                        <h3>StoreFlow</h3>
-                        <p>Fluxo interno para faltas, rotina de loja e acompanhamento de processos do dia a dia.</p>
+                        <span class="ui-badge">Narrative</span>
+                        <h3>Purposeful motion</h3>
+                        <p>Signals, cards and terminal cues guide visitors through the profile without turning the homepage into a noisy dashboard.</p>
                     </div>
-                    <img src="~/img/ProjectsIMGs/StoreFlow-logo.svg"
-                         asp-append-version="true"
-                         alt="Logo do StoreFlow"
-                         width="108"
-                         height="108"
-                         loading="lazy"
-                         decoding="async">
+                    <span class="product-preview__emblem" aria-hidden="true">FX</span>
                 </article>
             </div>
         </div>
     </section>
 
-    <section class="home-chapter home-infra site-section" id="infraestrutura" aria-labelledby="infra-title">
+    <section class="home-chapter home-infra site-section" id="infrastructure" aria-labelledby="infra-title" data-home-chapter="infra">
         <div class="site-shell home-chapter__grid home-chapter__grid--reverse">
-            <div class="infra-map ui-panel" data-reveal="left" aria-label="Fluxo visual de infraestrutura">
-                <div class="infra-node">Código</div>
+            <div class="infra-map ui-panel" data-reveal="left" data-motion-origin="bottom-left" data-motion-sequence="pipeline" data-depth-panel data-depth-strength="infra" aria-label="Infrastructure flow diagram">
+                <div class="infra-node" data-pipeline-step>Code</div>
                 <div class="infra-line" aria-hidden="true"></div>
-                <div class="infra-node">Build</div>
+                <div class="infra-node" data-pipeline-step>Build</div>
                 <div class="infra-line" aria-hidden="true"></div>
-                <div class="infra-node">Deploy</div>
+                <div class="infra-node" data-pipeline-step>Deploy</div>
                 <div class="infra-line" aria-hidden="true"></div>
-                <div class="infra-node infra-node--accent">VPS segura</div>
+                <div class="infra-node infra-node--accent" data-pipeline-step>Secure VPS</div>
                 <div class="infra-grid" aria-hidden="true">
-                    <span>Nginx</span>
-                    <span>Kestrel</span>
-                    <span>HTTPS</span>
-                    <span>Backup</span>
+                    <span data-pipeline-step>Nginx</span>
+                    <span data-pipeline-step>Kestrel</span>
+                    <span data-pipeline-step>HTTPS</span>
+                    <span data-pipeline-step>Backup</span>
                 </div>
             </div>
 
-            <div class="ui-section-heading" data-reveal>
-                <p class="ui-kicker">Infraestrutura por trás</p>
-                <h2 class="ui-title" id="infra-title">Interface bonita não sustenta produto sozinha.</h2>
+            <div class="ui-section-heading home-infra-copy ui-panel" data-reveal data-motion-origin="right" data-depth-panel data-depth-strength="infra-copy">
+                <p class="ui-kicker">Operational layer</p>
+                <h2 class="ui-title" id="infra-title">Strong interfaces need strong delivery paths.</h2>
                 <p class="ui-description">
-                    A base futura deve mostrar também servidor, proxy, certificados, pipeline, deploy, automações e rotina de operação
-                    sem transformar a homepage em painel técnico.
+                    The portfolio highlights the full path behind useful software: source control, build flow, Linux hosting, reverse proxy,
+                    certificates, monitoring habits and automation that reduces repetitive work.
                 </p>
                 <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="Contact">
-                    Planejar uma automação
+                    Discuss an automation
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="home-chapter site-section" aria-labelledby="security-title">
-        <div class="site-shell home-dual">
-            <article class="home-focus-card ui-card" data-reveal>
-                <span class="ui-badge">Segurança aplicada</span>
-                <h2 class="ui-title" id="security-title">Pensar como atacante para construir com mais cuidado.</h2>
-                <p>
-                    CTFs e estudos de pentest entram como prática para melhorar validação, autenticação, autorização,
-                    configuração, revisão e proteção de dados em sistemas reais.
-                </p>
-                <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="Security">
-                    Ver trilha de segurança
-                </a>
-            </article>
-
-            <article class="home-focus-card ui-card home-focus-card--music" data-reveal>
-                <span class="ui-badge">Música e ensino</span>
-                <h2 class="ui-title">Disciplina criativa também é produto.</h2>
-                <p>
-                    Piano, composição e aulas continuam como uma área própria. Esta base já reserva o caminho visual para uma futura
-                    experiência musical sem autoplay e sem carregar áudio na home.
-                </p>
-                <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="Music">
-                    Conhecer composições
-                </a>
-            </article>
-        </div>
-    </section>
-
-    <section class="home-final-cta site-section--compact" aria-labelledby="final-title">
+    <section class="home-final-cta site-section--compact" aria-labelledby="final-title" data-home-chapter="final">
         <div class="site-shell">
-            <div class="home-final-cta__panel ui-panel" data-reveal>
+            <div class="home-final-cta__panel ui-panel" data-reveal data-motion-origin="scale" data-depth-panel data-depth-strength="final">
                 <div>
-                    <p class="ui-kicker">Próximo passo</p>
-                    <h2 class="ui-title" id="final-title">Vamos transformar uma ideia, rotina ou problema em sistema?</h2>
+                    <p class="ui-kicker">Next step</p>
+                    <h2 class="ui-title" id="final-title">A practical builder for product, automation and security problems.</h2>
                     <p class="ui-description">
-                        Traga o contexto. Eu ajudo a estruturar o caminho entre produto, automação, infraestrutura e segurança.
+                        For product ideas, workflow automation, technical review or secure deployment, this portfolio is a starting point for a focused conversation.
                     </p>
                 </div>
                 <div class="ui-actions">
-                    <a class="ui-button ui-button--primary" asp-controller="Home" asp-action="Contact">Entrar em contato</a>
-                    <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="About">Ver perfil</a>
+                    <a class="ui-button ui-button--primary" asp-controller="Home" asp-action="Contact">Get in touch</a>
+                    <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="About">View profile</a>
                 </div>
             </div>
         </div>

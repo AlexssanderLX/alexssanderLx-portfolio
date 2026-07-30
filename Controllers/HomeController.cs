@@ -23,8 +23,8 @@ namespace ClientBlog.Controllers
         [OutputCache(Duration = 600)]
         public IActionResult Development()
         {
-            ViewData["Title"] = "Desenvolvimento";
-            ViewData["Description"] = "Plataformas web, SaaS, automações e infraestrutura aplicada. Do frontend ao servidor — desenvolvimento completo com segurança integrada.";
+            ViewData["Title"] = "Development";
+            ViewData["Description"] = "Web products, SaaS platforms, automation and applied infrastructure. From interface to server, development with security built in.";
             var projects = PortfolioDataService.GetDevelopmentProjects();
             return View(projects);
         }
@@ -32,8 +32,8 @@ namespace ClientBlog.Controllers
         [OutputCache(Duration = 600)]
         public IActionResult Security()
         {
-            ViewData["Title"] = "Segurança";
-            ViewData["Description"] = "Segurança de aplicações, pentest, CTFs e DevSecOps. Análise, exploração controlada e mitigação de vulnerabilidades reais.";
+            ViewData["Title"] = "Security";
+            ViewData["Description"] = "Application security, pentest, CTFs and DevSecOps. Analysis, controlled exploitation and mitigation of real vulnerabilities.";
             var cases = PortfolioDataService.GetSecurityCases();
             return View(cases);
         }
@@ -41,8 +41,8 @@ namespace ClientBlog.Controllers
         [OutputCache(Duration = 600)]
         public IActionResult Music()
         {
-            ViewData["Title"] = "Música";
-            ViewData["Description"] = "Piano, composição, jazz e aulas. Técnica, percepção e criatividade — do repertório clássico à composição original.";
+            ViewData["Title"] = "Music";
+            ViewData["Description"] = "Piano, composition, jazz and lessons. Technique, ear training and creativity, from classical repertoire to original composition.";
             var compositions = PortfolioDataService.GetCompositions();
             return View(compositions);
         }
