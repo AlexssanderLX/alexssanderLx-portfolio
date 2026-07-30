@@ -1,7 +1,7 @@
 @model IReadOnlyList<ClientBlog.Models.CtfCase>
 @{
-    ViewData["Title"] = ViewData["Title"] ?? "Segurança";
-    ViewData["Description"] = ViewData["Description"] ?? "Segurança de aplicações, pentest, CTFs e DevSecOps. Análise, exploração controlada e mitigação de vulnerabilidades reais.";
+    ViewData["Title"] = ViewData["Title"] ?? "Security";
+    ViewData["Description"] = ViewData["Description"] ?? "Application security, pentest, CTFs and DevSecOps. Analysis, controlled exploitation and mitigation of real vulnerabilities.";
 }
 
 @section Styles {
@@ -14,217 +14,260 @@
     <section class="sec-hero" aria-labelledby="sec-h1">
         <div class="site-shell">
             <div class="sec-hero-inner">
+
+                <div class="sec-terminal-prompt" aria-hidden="true" data-reveal>
+                    <span class="sec-tp-path">sec@alexssanderlx:~$</span>
+                    <span class="sec-tp-cmd" id="secTerminalPrompt" data-text="whoami --verbose"></span><span class="sec-tp-cursor">█</span>
+                </div>
+
                 <div class="sec-hero-meta" data-reveal>
-                    <span class="ui-kicker">Segurança · Pentest · DevSecOps</span>
+                    <span class="ui-kicker sec-kicker">Security · Pentest · DevSecOps</span>
                 </div>
 
                 <h1 class="ui-title" id="sec-h1" data-reveal>
-                    Segurança não é apenas <br>
-                    <span class="ui-gradient-text">encontrar falhas.</span>
+                    Security is not just <br>
+                    <span class="ui-gradient-text--cyan">finding bugs.</span>
                 </h1>
 
                 <p class="ui-description" data-reveal>
-                    É entender impacto, documentar o vetor e corrigir a causa real.
-                    Análise de aplicações, APIs e infraestrutura com foco em identificar vetores reais
-                    e propor mitigações que funcionam além do relatório.
+                    It's understanding impact, documenting the vector and fixing the root cause —
+                    not just the symptom. Application, API and infrastructure analysis focused
+                    on real attack paths and mitigations that hold up beyond the report.
                 </p>
 
                 <div class="ui-actions" data-reveal>
                     <a class="ui-button ui-button--primary"
                        asp-controller="Home"
                        asp-action="Contact">
-                        Conversar sobre segurança
+                        Talk security
                     </a>
                     <a class="ui-button ui-button--ghost" href="#sec-ctf">
-                        Ver estudos de caso
+                        View lab notes
                     </a>
                 </div>
+
+                <div class="sec-hero-stats" data-reveal aria-label="Security stats">
+                    <div class="sec-stat">
+                        <span class="sec-stat-value">7</span>
+                        <span class="sec-stat-label">CTFs completed</span>
+                    </div>
+                    <div class="sec-stat-divider" aria-hidden="true"></div>
+                    <div class="sec-stat">
+                        <span class="sec-stat-value">OWASP</span>
+                        <span class="sec-stat-label">Top 10 coverage</span>
+                    </div>
+                    <div class="sec-stat-divider" aria-hidden="true"></div>
+                    <div class="sec-stat">
+                        <span class="sec-stat-value">DevSecOps</span>
+                        <span class="sec-stat-label">Integrated approach</span>
+                    </div>
+                </div>
+
             </div>
         </div>
+        <div class="sec-hero-scan" aria-hidden="true"></div>
     </section>
 
-    <!-- ── Áreas de conhecimento ── -->
+    <!-- ── Threat Surface ── -->
     <section class="sec-areas site-section" id="sec-areas" aria-labelledby="sec-areas-heading">
         <div class="site-shell">
             <div class="sec-section-head" data-reveal>
-                <span class="ui-kicker">Conhecimento</span>
+                <span class="ui-kicker">Coverage</span>
                 <h2 class="ui-title" id="sec-areas-heading" style="font-size: var(--step-2);">
-                    Superfícies que importam.
+                    Threat surface coverage.
                 </h2>
                 <p class="ui-description">
-                    Cada área representa um conjunto de técnicas, ferramentas e padrões de ataque e defesa entendidos na prática.
+                    Each domain represents a set of attack and defense techniques understood through hands-on practice — not just theory.
                 </p>
             </div>
 
-            <ul class="sec-areas-grid" role="list">
-                <li class="sec-area-card ui-card" data-reveal>
-                    <div class="sec-area-icon" aria-hidden="true">WEB</div>
-                    <h3 class="sec-area-title">Aplicações Web</h3>
-                    <p class="sec-area-desc">Injeção, XSS, CSRF, IDOR, auth bypass e exploração de lógica de negócio — conforme OWASP Top 10.</p>
-                    <ul class="sec-area-tags" aria-label="Técnicas de web">
+            <ul class="sec-areas-grid" role="list" data-stagger-group>
+                <li class="sec-area-card ui-card" data-glow>
+                    <div class="sec-area-badge" aria-hidden="true">WEB</div>
+                    <h3 class="sec-area-title">Web Applications</h3>
+                    <p class="sec-area-desc">Injection, XSS, CSRF, IDOR, auth bypass and business logic exploitation — aligned with OWASP Top 10.</p>
+                    <ul class="sec-area-tags" aria-label="Web techniques">
                         <li class="sec-area-tag">OWASP</li>
-                        <li class="sec-area-tag">Injeção</li>
+                        <li class="sec-area-tag">Injection</li>
                         <li class="sec-area-tag">XSS</li>
                         <li class="sec-area-tag">IDOR</li>
                     </ul>
+                    <div class="sec-glow-layer" aria-hidden="true"></div>
                 </li>
-                <li class="sec-area-card ui-card" data-reveal>
-                    <div class="sec-area-icon" aria-hidden="true">API</div>
-                    <h3 class="sec-area-title">APIs e Endpoints</h3>
-                    <p class="sec-area-desc">Enumeração de endpoints, tokens expostos, rate limiting ausente e controles de autorização insuficientes.</p>
-                    <ul class="sec-area-tags" aria-label="Técnicas de API">
+                <li class="sec-area-card ui-card" data-glow>
+                    <div class="sec-area-badge" aria-hidden="true">API</div>
+                    <h3 class="sec-area-title">APIs &amp; Endpoints</h3>
+                    <p class="sec-area-desc">Endpoint enumeration, exposed tokens, absent rate limiting and insufficient authorization controls.</p>
+                    <ul class="sec-area-tags" aria-label="API techniques">
                         <li class="sec-area-tag">REST</li>
                         <li class="sec-area-tag">JWT</li>
                         <li class="sec-area-tag">Auth</li>
                     </ul>
+                    <div class="sec-glow-layer" aria-hidden="true"></div>
                 </li>
-                <li class="sec-area-card ui-card" data-reveal>
-                    <div class="sec-area-icon" aria-hidden="true">AUTH</div>
-                    <h3 class="sec-area-title">Autenticação e Autorização</h3>
-                    <p class="sec-area-desc">Fluxos de login, sessões, tokens, controle de acesso por papel e análise de estado em cada etapa.</p>
-                    <ul class="sec-area-tags" aria-label="Técnicas de auth">
+                <li class="sec-area-card ui-card" data-glow>
+                    <div class="sec-area-badge" aria-hidden="true">AUTH</div>
+                    <h3 class="sec-area-title">Authentication &amp; Authorization</h3>
+                    <p class="sec-area-desc">Login flows, sessions, tokens, role-based access control and state analysis at every step.</p>
+                    <ul class="sec-area-tags" aria-label="Auth techniques">
                         <li class="sec-area-tag">Session</li>
                         <li class="sec-area-tag">RBAC</li>
                         <li class="sec-area-tag">MFA</li>
                     </ul>
+                    <div class="sec-glow-layer" aria-hidden="true"></div>
                 </li>
-                <li class="sec-area-card ui-card" data-reveal>
-                    <div class="sec-area-icon" aria-hidden="true">NET</div>
-                    <h3 class="sec-area-title">Redes e VPN</h3>
-                    <p class="sec-area-desc">Varredura de rede, enumeração de serviços, configuração de VPN e análise de tráfego.</p>
-                    <ul class="sec-area-tags" aria-label="Técnicas de rede">
+                <li class="sec-area-card ui-card" data-glow>
+                    <div class="sec-area-badge" aria-hidden="true">NET</div>
+                    <h3 class="sec-area-title">Networks &amp; VPN</h3>
+                    <p class="sec-area-desc">Network scanning, service enumeration, VPN configuration and traffic analysis.</p>
+                    <ul class="sec-area-tags" aria-label="Network techniques">
                         <li class="sec-area-tag">Nmap</li>
                         <li class="sec-area-tag">VPN</li>
                         <li class="sec-area-tag">Enum</li>
                     </ul>
+                    <div class="sec-glow-layer" aria-hidden="true"></div>
                 </li>
-                <li class="sec-area-card ui-card" data-reveal>
-                    <div class="sec-area-icon" aria-hidden="true">LNX</div>
-                    <h3 class="sec-area-title">Linux e Servidores</h3>
-                    <p class="sec-area-desc">Privilege escalation, configuração de servidor, hardening e análise de permissões no sistema de arquivos.</p>
-                    <ul class="sec-area-tags" aria-label="Técnicas Linux">
+                <li class="sec-area-card ui-card" data-glow>
+                    <div class="sec-area-badge" aria-hidden="true">LNX</div>
+                    <h3 class="sec-area-title">Linux &amp; Servers</h3>
+                    <p class="sec-area-desc">Privilege escalation, server configuration, hardening and filesystem permission analysis.</p>
+                    <ul class="sec-area-tags" aria-label="Linux techniques">
                         <li class="sec-area-tag">PrivEsc</li>
                         <li class="sec-area-tag">Hardening</li>
                         <li class="sec-area-tag">sudo</li>
                     </ul>
+                    <div class="sec-glow-layer" aria-hidden="true"></div>
                 </li>
-                <li class="sec-area-card ui-card" data-reveal>
-                    <div class="sec-area-icon" aria-hidden="true">CVE</div>
-                    <h3 class="sec-area-title">CVEs e Softwares</h3>
-                    <p class="sec-area-desc">Identificação de versões vulneráveis, mapeamento de CVEs conhecidas e exploração controlada em laboratório.</p>
-                    <ul class="sec-area-tags" aria-label="Técnicas CVE">
+                <li class="sec-area-card ui-card" data-glow>
+                    <div class="sec-area-badge" aria-hidden="true">CVE</div>
+                    <h3 class="sec-area-title">CVEs &amp; Software</h3>
+                    <p class="sec-area-desc">Vulnerable version identification, known CVE mapping and controlled exploitation in lab environments.</p>
+                    <ul class="sec-area-tags" aria-label="CVE techniques">
                         <li class="sec-area-tag">CVE</li>
-                        <li class="sec-area-tag">Versão</li>
+                        <li class="sec-area-tag">Version</li>
                         <li class="sec-area-tag">RCE</li>
                     </ul>
+                    <div class="sec-glow-layer" aria-hidden="true"></div>
                 </li>
             </ul>
         </div>
     </section>
 
-    <!-- ── Vulnerabilidades explicadas ── -->
+    <!-- ── Attack Vectors ── -->
     <section class="sec-vulns site-section" id="sec-vulns" aria-labelledby="sec-vulns-heading">
         <div class="site-shell">
             <div class="sec-section-head" data-reveal>
-                <span class="ui-kicker">Conceitos</span>
+                <span class="ui-kicker">Vectors</span>
                 <h2 class="ui-title" id="sec-vulns-heading" style="font-size: var(--step-2);">
-                    Entender antes de explorar.
+                    Attack vectors, explained.
                 </h2>
                 <p class="ui-description">
-                    Vulnerabilidades comuns explicadas de forma direta — com impacto real e mitigação aplicável.
+                    Common vulnerabilities broken down — with real impact and applicable mitigation.
                 </p>
             </div>
 
             <div class="sec-vuln-list">
 
-                <article class="sec-vuln-panel ui-panel" data-reveal>
-                    <div class="sec-vuln-header">
-                        <span class="sec-vuln-tag">Injeção</span>
-                        <h3 class="sec-vuln-name">SQL Injection</h3>
+                <article class="sec-vuln-panel" data-reveal>
+                    <div class="sec-term-chrome" aria-hidden="true">
+                        <span class="sec-tc-dot sec-tc-dot--red"></span>
+                        <span class="sec-tc-dot sec-tc-dot--yellow"></span>
+                        <span class="sec-tc-dot sec-tc-dot--green"></span>
+                        <span class="sec-tc-file">sql-injection.log</span>
+                        <span class="sec-vuln-tag">Injection</span>
                     </div>
                     <div class="sec-vuln-body">
                         <div class="sec-vuln-col">
-                            <h4 class="sec-vuln-col-title">O que é</h4>
+                            <h4 class="sec-vuln-col-title">WHAT</h4>
                             <p class="sec-vuln-col-text">
-                                Dados controlados pelo usuário são interpretados como comandos SQL pelo banco de dados.
-                                Acontece quando a aplicação monta queries concatenando entradas sem sanitização.
+                                User-controlled input is interpreted as SQL commands by the database.
+                                Happens when the application assembles queries by concatenating raw input without sanitization.
                             </p>
                         </div>
                         <div class="sec-vuln-col">
-                            <h4 class="sec-vuln-col-title">Impacto</h4>
+                            <h4 class="sec-vuln-col-title">IMPACT</h4>
                             <p class="sec-vuln-col-text">
-                                Exposição de toda a base de dados, bypass de autenticação, modificação ou exclusão de registros
-                                e em alguns casos execução de comandos no servidor.
+                                Full database exposure, authentication bypass, record modification or deletion
+                                and in some cases command execution on the server.
                             </p>
                         </div>
-                        <div class="sec-vuln-mitigation">
-                            <span class="sec-vuln-mitigation-label">Mitigação</span>
-                            <p class="sec-vuln-mitigation-text">
-                                Queries parametrizadas (prepared statements) em todos os pontos de entrada. ORMs com validação ativa.
-                                Princípio do menor privilégio no usuário do banco. Validação de tipo e tamanho no input.
-                            </p>
+                        <div class="sec-vuln-fix">
+                            <span class="sec-vuln-fix-label">FIX</span>
+                            <ul class="sec-vuln-fix-list">
+                                <li>Parameterized queries (prepared statements) at every input point</li>
+                                <li>ORMs with active validation — never raw string concat</li>
+                                <li>Principle of least privilege on the database user</li>
+                                <li>Type and length validation at the boundary</li>
+                            </ul>
                         </div>
                     </div>
                 </article>
 
-                <article class="sec-vuln-panel ui-panel" data-reveal>
-                    <div class="sec-vuln-header">
+                <article class="sec-vuln-panel" data-reveal>
+                    <div class="sec-term-chrome" aria-hidden="true">
+                        <span class="sec-tc-dot sec-tc-dot--red"></span>
+                        <span class="sec-tc-dot sec-tc-dot--yellow"></span>
+                        <span class="sec-tc-dot sec-tc-dot--green"></span>
+                        <span class="sec-tc-file">broken-auth.log</span>
                         <span class="sec-vuln-tag">Auth</span>
-                        <h3 class="sec-vuln-name">Broken Authentication</h3>
                     </div>
                     <div class="sec-vuln-body">
                         <div class="sec-vuln-col">
-                            <h4 class="sec-vuln-col-title">O que é</h4>
+                            <h4 class="sec-vuln-col-title">WHAT</h4>
                             <p class="sec-vuln-col-text">
-                                Falhas no mecanismo de autenticação que permitem assumir identidade de outro usuário sem conhecer sua senha —
-                                seja por tokens previsíveis, sessões que não expiram ou fluxos de recuperação frágeis.
+                                Flaws in the authentication mechanism that allow taking over another user's identity
+                                without knowing their password — predictable tokens, non-expiring sessions or fragile recovery flows.
                             </p>
                         </div>
                         <div class="sec-vuln-col">
-                            <h4 class="sec-vuln-col-title">Impacto</h4>
+                            <h4 class="sec-vuln-col-title">IMPACT</h4>
                             <p class="sec-vuln-col-text">
-                                Acesso não autorizado a contas de usuários comuns ou administradores,
-                                comprometimento de dados pessoais e controle total da aplicação pelo atacante.
+                                Unauthorized access to regular or admin accounts, personal data compromise
+                                and full application control by the attacker.
                             </p>
                         </div>
-                        <div class="sec-vuln-mitigation">
-                            <span class="sec-vuln-mitigation-label">Mitigação</span>
-                            <p class="sec-vuln-mitigation-text">
-                                Tokens de sessão com entropia suficiente e rotação após login. Expiração obrigatória.
-                                Limitação de tentativas. Verificação de estado em cada etapa de fluxos multi-passo.
-                                Não confiar em dados do cliente para controle de acesso.
-                            </p>
+                        <div class="sec-vuln-fix">
+                            <span class="sec-vuln-fix-label">FIX</span>
+                            <ul class="sec-vuln-fix-list">
+                                <li>Session tokens with sufficient entropy, rotated after login</li>
+                                <li>Mandatory expiration and secure cookie flags</li>
+                                <li>Rate limiting on login and recovery endpoints</li>
+                                <li>State verification at every step of multi-stage flows</li>
+                            </ul>
                         </div>
                     </div>
                 </article>
 
-                <article class="sec-vuln-panel ui-panel" data-reveal>
-                    <div class="sec-vuln-header">
-                        <span class="sec-vuln-tag">Controle de acesso</span>
-                        <h3 class="sec-vuln-name">IDOR — Insecure Direct Object Reference</h3>
+                <article class="sec-vuln-panel" data-reveal>
+                    <div class="sec-term-chrome" aria-hidden="true">
+                        <span class="sec-tc-dot sec-tc-dot--red"></span>
+                        <span class="sec-tc-dot sec-tc-dot--yellow"></span>
+                        <span class="sec-tc-dot sec-tc-dot--green"></span>
+                        <span class="sec-tc-file">idor-access-control.log</span>
+                        <span class="sec-vuln-tag">Access Control</span>
                     </div>
                     <div class="sec-vuln-body">
                         <div class="sec-vuln-col">
-                            <h4 class="sec-vuln-col-title">O que é</h4>
+                            <h4 class="sec-vuln-col-title">WHAT</h4>
                             <p class="sec-vuln-col-text">
-                                A aplicação expõe referências diretas a objetos internos (IDs numéricos, nomes de arquivo)
-                                sem verificar se o usuário autenticado tem permissão para acessar aquele recurso específico.
+                                The application exposes direct references to internal objects (numeric IDs, filenames)
+                                without verifying whether the authenticated user has permission to access that specific resource.
                             </p>
                         </div>
                         <div class="sec-vuln-col">
-                            <h4 class="sec-vuln-col-title">Impacto</h4>
+                            <h4 class="sec-vuln-col-title">IMPACT</h4>
                             <p class="sec-vuln-col-text">
-                                Um usuário autenticado acessa dados de outros usuários simplesmente alterando um número na URL ou no body da requisição.
-                                Impacto em conformidade, privacidade e integridade dos dados.
+                                An authenticated user accesses another user's data simply by changing a number in the URL or request body.
+                                Compliance, privacy and data integrity at risk.
                             </p>
                         </div>
-                        <div class="sec-vuln-mitigation">
-                            <span class="sec-vuln-mitigation-label">Mitigação</span>
-                            <p class="sec-vuln-mitigation-text">
-                                Verificação de autorização no backend para cada acesso a recurso — não apenas no frontend.
-                                IDs internos não devem ser expostos diretamente; use identificadores opacos quando possível.
-                                Logging de tentativas de acesso a recursos de outros usuários.
-                            </p>
+                        <div class="sec-vuln-fix">
+                            <span class="sec-vuln-fix-label">FIX</span>
+                            <ul class="sec-vuln-fix-list">
+                                <li>Backend authorization check on every resource access — never only in the frontend</li>
+                                <li>Avoid exposing internal IDs; use opaque identifiers when possible</li>
+                                <li>Log access attempts to other users' resources</li>
+                            </ul>
                         </div>
                     </div>
                 </article>
@@ -233,184 +276,215 @@
         </div>
     </section>
 
-    <!-- ── Metodologia ── -->
+    <!-- ── Attack Chain ── -->
     <section class="sec-methodology site-section" id="sec-methodology" aria-labelledby="sec-method-heading">
         <div class="site-shell">
             <div class="sec-section-head" data-reveal>
-                <span class="ui-kicker">Metodologia</span>
+                <span class="ui-kicker">Methodology</span>
                 <h2 class="ui-title" id="sec-method-heading" style="font-size: var(--step-2);">
-                    Do reconhecimento à mitigação.
+                    From recon to remediation.
                 </h2>
                 <p class="ui-description">
-                    Pentest não é clicar em "scan". É um processo metodológico com objetivo claro e documentação responsável.
+                    Pentest is not clicking "scan". It's a methodical process with a clear objective and responsible documentation.
                 </p>
             </div>
 
-            <div class="sec-method-flow" data-reveal role="list" aria-label="Etapas de metodologia de segurança">
-                <div class="sec-method-step" role="listitem">
-                    <span class="sec-method-num">01</span>
-                    <div class="sec-method-icon" aria-hidden="true">🔍</div>
-                    <span class="sec-method-label">Reconhecimento</span>
-                    <span class="sec-method-desc">Mapear superfície sem atacar</span>
-                </div>
-                <div class="sec-method-step" role="listitem">
-                    <span class="sec-method-num">02</span>
-                    <div class="sec-method-icon" aria-hidden="true">🧩</div>
-                    <span class="sec-method-label">Análise</span>
-                    <span class="sec-method-desc">Entender comportamento e vetores</span>
-                </div>
-                <div class="sec-method-step" role="listitem">
-                    <span class="sec-method-num">03</span>
-                    <div class="sec-method-icon" aria-hidden="true">⚡</div>
-                    <span class="sec-method-label">Exploração</span>
-                    <span class="sec-method-desc">Testar vetores em ambiente controlado</span>
-                </div>
-                <div class="sec-method-step" role="listitem">
-                    <span class="sec-method-num">04</span>
-                    <div class="sec-method-icon" aria-hidden="true">📝</div>
-                    <span class="sec-method-label">Documentação</span>
-                    <span class="sec-method-desc">Registrar impacto e evidências</span>
-                </div>
-                <div class="sec-method-step" role="listitem">
-                    <span class="sec-method-num">05</span>
-                    <div class="sec-method-icon" aria-hidden="true">🛡</div>
-                    <span class="sec-method-label">Mitigação</span>
-                    <span class="sec-method-desc">Propor correção da causa raiz</span>
-                </div>
-            </div>
+            <ol class="sec-chain" data-reveal aria-label="Security methodology steps">
+                <li class="sec-chain-step" data-chain-step="1">
+                    <div class="sec-chain-node" aria-hidden="true">
+                        <span class="sec-chain-num">01</span>
+                    </div>
+                    <div class="sec-chain-connector" aria-hidden="true"></div>
+                    <div class="sec-chain-body">
+                        <span class="sec-chain-label">Reconnaissance</span>
+                        <span class="sec-chain-desc">Map the surface without touching it</span>
+                        <ul class="sec-chain-tools" aria-label="Tools">
+                            <li>Nmap</li><li>WHOIS</li><li>crt.sh</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="sec-chain-step" data-chain-step="2">
+                    <div class="sec-chain-node" aria-hidden="true">
+                        <span class="sec-chain-num">02</span>
+                    </div>
+                    <div class="sec-chain-connector" aria-hidden="true"></div>
+                    <div class="sec-chain-body">
+                        <span class="sec-chain-label">Analysis</span>
+                        <span class="sec-chain-desc">Understand behavior and vectors</span>
+                        <ul class="sec-chain-tools" aria-label="Tools">
+                            <li>Burp Suite</li><li>FFUF</li><li>Gobuster</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="sec-chain-step" data-chain-step="3">
+                    <div class="sec-chain-node" aria-hidden="true">
+                        <span class="sec-chain-num">03</span>
+                    </div>
+                    <div class="sec-chain-connector" aria-hidden="true"></div>
+                    <div class="sec-chain-body">
+                        <span class="sec-chain-label">Exploitation</span>
+                        <span class="sec-chain-desc">Test vectors in controlled scope</span>
+                        <ul class="sec-chain-tools" aria-label="Tools">
+                            <li>curl</li><li>sqlmap</li><li>Metasploit</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="sec-chain-step" data-chain-step="4">
+                    <div class="sec-chain-node" aria-hidden="true">
+                        <span class="sec-chain-num">04</span>
+                    </div>
+                    <div class="sec-chain-connector" aria-hidden="true"></div>
+                    <div class="sec-chain-body">
+                        <span class="sec-chain-label">Documentation</span>
+                        <span class="sec-chain-desc">Record impact and evidence responsibly</span>
+                        <ul class="sec-chain-tools" aria-label="Tools">
+                            <li>Markdown</li><li>Screenshots</li><li>PoC</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="sec-chain-step" data-chain-step="5">
+                    <div class="sec-chain-node" aria-hidden="true">
+                        <span class="sec-chain-num">05</span>
+                    </div>
+                    <div class="sec-chain-body">
+                        <span class="sec-chain-label">Remediation</span>
+                        <span class="sec-chain-desc">Fix the root cause, not the symptom</span>
+                        <ul class="sec-chain-tools" aria-label="Output">
+                            <li>Report</li><li>Patch</li><li>Verify</li>
+                        </ul>
+                    </div>
+                </li>
+            </ol>
 
-            <div class="sec-tools-note" data-reveal>
-                <span class="sec-tools-label">Ferramentas</span>
-                <ul class="sec-tools-list" aria-label="Ferramentas utilizadas">
-                    <li class="sec-tools-item">Nmap</li>
-                    <li class="sec-tools-item">Gobuster</li>
-                    <li class="sec-tools-item">FFUF</li>
-                    <li class="sec-tools-item">Burp Suite</li>
-                    <li class="sec-tools-item">Linux</li>
-                    <li class="sec-tools-item">curl</li>
-                    <li class="sec-tools-item">TryHackMe</li>
-                </ul>
-            </div>
         </div>
     </section>
 
-    <!-- ── CTF Cases ── -->
+    <!-- ── Lab Notes (CTF) ── -->
     <section class="sec-ctf site-section" id="sec-ctf" aria-labelledby="sec-ctf-heading">
         <div class="site-shell">
             <div class="sec-section-head" data-reveal>
-                <span class="ui-kicker">Estudos de caso</span>
+                <span class="ui-kicker">Lab notes</span>
                 <h2 class="ui-title" id="sec-ctf-heading" style="font-size: var(--step-2);">
-                    Laboratórios que ensinam.
+                    Labs that teach.
                 </h2>
                 <p class="ui-description">
-                    CTFs completados como estudo prático — cada um com cenário, vetor identificado e aprendizado documentado.
-                    Nenhuma flag publicada.
+                    Completed CTFs as structured practice — each with a scenario, identified vector and documented learning.
+                    No flags published.
                 </p>
             </div>
 
             @{
                 var featured = Model.FirstOrDefault(c => c.IsFeatured);
-                var others = Model.Where(c => !c.IsFeatured).ToList();
+                var others   = Model.Where(c => !c.IsFeatured).ToList();
             }
 
             @if (featured != null)
             {
-                <article class="sec-ctf-featured ui-card" data-reveal aria-label="@featured.Name — caso em destaque">
-                    @if (!string.IsNullOrEmpty(featured.ImagePath))
-                    {
-                        <img src="@featured.ImagePath"
-                             asp-append-version="true"
-                             alt="@featured.ImageAlt"
-                             class="sec-ctf-featured-image"
-                             width="96"
-                             height="96"
-                             loading="lazy"
-                             decoding="async" />
-                    }
-                    <div>
-                        <div style="display:flex; align-items:center; gap:var(--space-3); flex-wrap:wrap; margin-bottom:var(--space-4);">
-                            <span class="ui-badge">Destaque</span>
-                            <span class="sec-ctf-difficulty sec-ctf-difficulty--@featured.DifficultyClass">@featured.Difficulty</span>
+                <article class="sec-ctf-featured" data-reveal aria-label="@featured.Name — featured case">
+                    <div class="sec-term-chrome sec-term-chrome--featured" aria-hidden="true">
+                        <span class="sec-tc-dot sec-tc-dot--red"></span>
+                        <span class="sec-tc-dot sec-tc-dot--yellow"></span>
+                        <span class="sec-tc-dot sec-tc-dot--green"></span>
+                        <span class="sec-tc-file">@(featured.Name.ToLower().Replace(" ", "-").Replace("—", "-").Trim('-'))-featured.log</span>
+                        <span class="sec-ctf-difficulty sec-ctf-difficulty--@featured.DifficultyClass" style="margin-left:auto;">@featured.Difficulty</span>
+                    </div>
+                    <div class="sec-ctf-featured-body">
+                        <div class="sec-ctf-featured-header">
+                            @if (!string.IsNullOrEmpty(featured.ImagePath))
+                            {
+                                <img src="@featured.ImagePath"
+                                     asp-append-version="true"
+                                     alt="@featured.ImageAlt"
+                                     class="sec-ctf-featured-img"
+                                     width="72" height="72"
+                                     loading="lazy" decoding="async" />
+                            }
+                            <div>
+                                <p class="sec-ctf-platform">@featured.Platform</p>
+                                <h3 class="sec-ctf-featured-name">@featured.Name</h3>
+                            </div>
                         </div>
-                        <h3 class="sec-ctf-featured-name">@featured.Name</h3>
-                        <p style="color:var(--color-muted); font-size:var(--step--1); margin:var(--space-1) 0 var(--space-4);">@featured.Platform</p>
-                        <div class="sec-ctf-body">
+                        <div class="sec-ctf-rows">
                             <div class="sec-ctf-row">
-                                <span class="sec-ctf-row-label">Cenário</span>
+                                <span class="sec-ctf-row-label">SCENARIO</span>
                                 <p class="sec-ctf-row-text">@featured.Scenario</p>
                             </div>
                             <div class="sec-ctf-row">
-                                <span class="sec-ctf-row-label">Vetor</span>
+                                <span class="sec-ctf-row-label">VECTOR</span>
                                 <p class="sec-ctf-row-text">@featured.Vector</p>
                             </div>
                             <div class="sec-ctf-row">
-                                <span class="sec-ctf-row-label">Aprendizado</span>
+                                <span class="sec-ctf-row-label">LEARNING</span>
                                 <p class="sec-ctf-row-text">@featured.Learning</p>
                             </div>
                         </div>
-                        @if (featured.Tags.Any())
-                        {
-                            <ul class="sec-ctf-tags" aria-label="Tags de @featured.Name" style="margin-top:var(--space-4);">
-                                @foreach (var tag in featured.Tags)
-                                {
-                                    <li><span class="ui-badge">@tag</span></li>
-                                }
-                            </ul>
-                        }
-                        <a class="sec-ctf-link" href="@featured.Url" target="_blank" rel="noopener noreferrer">
-                            Ver no @featured.Platform →
-                        </a>
+                        <div class="sec-ctf-featured-footer">
+                            @if (featured.Tags.Any())
+                            {
+                                <ul class="sec-area-tags" aria-label="Tags for @featured.Name">
+                                    @foreach (var tag in featured.Tags)
+                                    {
+                                        <li class="sec-area-tag">@tag</li>
+                                    }
+                                </ul>
+                            }
+                            <a class="sec-ctf-link" href="@featured.Url" target="_blank" rel="noopener noreferrer">
+                                View on @featured.Platform →
+                            </a>
+                        </div>
                     </div>
                 </article>
             }
 
-            <div class="sec-ctf-grid">
+            <ul class="sec-ctf-grid" role="list" data-stagger-group>
                 @foreach (var ctf in others)
                 {
-                    <article class="sec-ctf-card ui-card" data-reveal aria-label="@ctf.Name">
-                        <div class="sec-ctf-header">
-                            @if (!string.IsNullOrEmpty(ctf.ImagePath))
-                            {
-                                <img src="@ctf.ImagePath"
-                                     asp-append-version="true"
-                                     alt="@ctf.ImageAlt"
-                                     class="sec-ctf-image"
-                                     width="72"
-                                     height="72"
-                                     loading="lazy"
-                                     decoding="async" />
-                            }
-                            <div>
-                                <h3 class="sec-ctf-name">@ctf.Name</h3>
-                                <p style="color:var(--color-muted); font-size:0.76rem; margin:var(--space-1) 0 0;">@ctf.Platform</p>
+                    <li class="sec-ctf-card" data-glow aria-label="@ctf.Name">
+                        <div class="sec-ctf-card-top">
+                            <div class="sec-ctf-card-header">
+                                @if (!string.IsNullOrEmpty(ctf.ImagePath))
+                                {
+                                    <img src="@ctf.ImagePath"
+                                         asp-append-version="true"
+                                         alt="@ctf.ImageAlt"
+                                         class="sec-ctf-img"
+                                         width="36" height="36"
+                                         loading="lazy" decoding="async" />
+                                }
+                                <span class="sec-ctf-name">@ctf.Name</span>
+                                <span class="sec-ctf-difficulty sec-ctf-difficulty--@ctf.DifficultyClass">@ctf.Difficulty</span>
                             </div>
-                            <span class="sec-ctf-difficulty sec-ctf-difficulty--@ctf.DifficultyClass" style="margin-left:auto; flex-shrink:0;">@ctf.Difficulty</span>
+                            <p class="sec-ctf-platform-sm">@ctf.Platform</p>
                         </div>
-                        <div class="sec-ctf-body">
+                        <div class="sec-ctf-rows">
                             <div class="sec-ctf-row">
-                                <span class="sec-ctf-row-label">Cenário</span>
+                                <span class="sec-ctf-row-label">SCENARIO</span>
                                 <p class="sec-ctf-row-text">@ctf.Scenario</p>
                             </div>
                             <div class="sec-ctf-row">
-                                <span class="sec-ctf-row-label">Aprendizado</span>
+                                <span class="sec-ctf-row-label">LEARNING</span>
                                 <p class="sec-ctf-row-text">@ctf.Learning</p>
                             </div>
                         </div>
-                        @if (ctf.Tags.Any())
-                        {
-                            <ul class="sec-ctf-tags" aria-label="Tags de @ctf.Name">
-                                @foreach (var tag in ctf.Tags)
-                                {
-                                    <li><span class="ui-badge">@tag</span></li>
-                                }
-                            </ul>
-                        }
-                        <a class="sec-ctf-link" href="@ctf.Url" target="_blank" rel="noopener noreferrer">
-                            Ver no @ctf.Platform →
-                        </a>
-                    </article>
+                        <div class="sec-ctf-card-foot">
+                            @if (ctf.Tags.Any())
+                            {
+                                <ul class="sec-area-tags" aria-label="Tags for @ctf.Name">
+                                    @foreach (var tag in ctf.Tags)
+                                    {
+                                        <li class="sec-area-tag">@tag</li>
+                                    }
+                                </ul>
+                            }
+                            <a class="sec-ctf-link" href="@ctf.Url" target="_blank" rel="noopener noreferrer">
+                                View lab →
+                            </a>
+                        </div>
+                        <div class="sec-glow-layer" aria-hidden="true"></div>
+                    </li>
                 }
-            </div>
+            </ul>
+
         </div>
     </section>
 
@@ -418,23 +492,27 @@
     <section class="sec-cta site-section" aria-labelledby="sec-cta-heading">
         <div class="site-shell">
             <div class="sec-cta-inner" data-reveal>
-                <span class="ui-kicker">Próximo passo</span>
+                <div class="sec-terminal-prompt sec-terminal-prompt--cta" aria-hidden="true">
+                    <span class="sec-tp-path">sec@alexssanderlx:~$</span>
+                    <span class="sec-tp-cmd">./start_engagement.sh</span>
+                </div>
+                <span class="ui-kicker">Next step</span>
                 <h2 class="ui-title" id="sec-cta-heading" style="font-size: var(--step-2);">
-                    Segurança aplicada <br>ao seu projeto.
+                    Security applied <br>to your project.
                 </h2>
                 <p class="ui-description" style="margin-inline: auto;">
-                    Revisão de código com foco em segurança, análise de superfície de ataque ou integração de práticas de DevSecOps.
+                    Code review focused on security, attack surface analysis or DevSecOps practice integration.
                 </p>
                 <div class="ui-actions sec-cta-actions">
                     <a class="ui-button ui-button--primary"
                        asp-controller="Home"
                        asp-action="Contact">
-                        Iniciar conversa
+                        Start a conversation
                     </a>
                     <a class="ui-button ui-button--ghost"
                        asp-controller="Home"
                        asp-action="Contact">
-                        Solicitar revisão técnica
+                        Request a technical review
                     </a>
                 </div>
             </div>
@@ -442,3 +520,7 @@
     </section>
 
 </div>
+
+@section Scripts {
+    <script src="~/js/security.js" asp-append-version="true"></script>
+}
