@@ -2,6 +2,15 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+input,
+textarea,
+[contenteditable] {
+    user-select: text;
+    -webkit-user-select: text;
 }
 
 html {
@@ -29,6 +38,11 @@ a {
 img,
 svg {
     max-width: 100%;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
 }
 
 ::selection {

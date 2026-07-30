@@ -1,7 +1,7 @@
 @model IReadOnlyList<ClientBlog.Models.Composition>
 @{
-    ViewData["Title"] = ViewData["Title"] ?? "Música";
-    ViewData["Description"] = ViewData["Description"] ?? "Piano, composição, jazz e aulas. Técnica, percepção e criatividade — do repertório clássico à composição original.";
+    ViewData["Title"] = ViewData["Title"] ?? "Music";
+    ViewData["Description"] = ViewData["Description"] ?? "Piano, composition, jazz and lessons. Technique, ear training and creativity — from classical repertoire to original composition.";
 
     var octaves = new[] { 3, 4, 5 };
     var whites  = new[] { "C", "D", "E", "F", "G", "A", "B" };
@@ -23,45 +23,45 @@
         <div class="site-shell">
             <div class="music-hero-inner">
                 <div class="music-hero-meta" data-reveal>
-                    <span class="ui-kicker music-kicker">Piano · Composição · Ensino</span>
+                    <span class="ui-kicker music-kicker">Piano · Composition · Teaching</span>
                 </div>
 
                 <h1 class="ui-title" id="music-h1" data-reveal>
-                    Música como linguagem, <br>
-                    <span class="ui-gradient-text">técnica como ferramenta.</span>
+                    Music as language, <br>
+                    <span class="ui-gradient-text">technique as a tool.</span>
                 </h1>
 
                 <p class="ui-description" data-reveal>
-                    Pianista, compositor e professor. Desenvolvo repertório, técnica e percepção
-                    com foco em evolução real — do básico ao jazz e à composição original.
-                    Cada aula parte do que o aluno quer aprender.
+                    Pianist, composer and teacher. I develop repertoire, technique and ear training
+                    with a focus on real progress — from the basics to jazz and original composition.
+                    Every lesson starts from where the student is.
                 </p>
 
                 <div class="ui-actions" data-reveal>
                     <a class="ui-button ui-button--primary"
                        asp-controller="Home"
                        asp-action="Contact">
-                        Solicitar aulas
+                        Book a lesson
                     </a>
                     <a class="ui-button ui-button--ghost" href="#music-compositions">
-                        Ouvir composições
+                        Listen to compositions
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── Piano Virtual ── -->
+    <!-- ── Virtual Piano ── -->
     <section class="music-piano-section site-section" id="music-piano" aria-labelledby="music-piano-heading">
         <div class="site-shell">
 
             <div class="music-piano-intro" data-reveal>
                 <h2 class="music-piano-intro-title" id="music-piano-heading">
-                    Experimente o piano.
+                    Try the piano.
                 </h2>
                 <p class="music-piano-intro-desc">
-                    Teclado virtual com síntese de áudio real — clique, toque ou use o teclado.
-                    Esta é a mesma engine embutida no <a href="#music-studio" style="color:var(--color-cyan);text-decoration:none;">Your Rhythm Studio</a>.
+                    Virtual keyboard with real audio synthesis — click, tap or use your keyboard.
+                    This is the same engine embedded in <a href="#music-studio" style="color:var(--color-cyan);text-decoration:none;">Your Rhythm Studio</a>.
                 </p>
             </div>
 
@@ -69,22 +69,22 @@
             <div class="pv-tut-grid" data-reveal>
                 <div class="pv-tut-card">
                     <div class="pv-tut-icon" aria-hidden="true">🖱️</div>
-                    <h3>Clique ou toque</h3>
-                    <p>Clique nas teclas brancas e pretas para tocar. Funciona com mouse, touchscreen e stylus.</p>
+                    <h3>Click or tap</h3>
+                    <p>Click on the white and black keys to play. Works with mouse, touchscreen and stylus.</p>
                 </div>
                 <div class="pv-tut-card">
                     <div class="pv-tut-icon" aria-hidden="true">⌨️</div>
-                    <h3>Teclado físico</h3>
-                    <p>Use o teclado do computador para tocar — mapeado para oitava central. Veja os atalhos abaixo.</p>
+                    <h3>Physical keyboard</h3>
+                    <p>Use your computer keyboard to play — mapped to the middle octave. See shortcuts below.</p>
                 </div>
                 <div class="pv-tut-card">
                     <div class="pv-tut-icon" aria-hidden="true">🎵</div>
-                    <h3>Trilha + piano</h3>
-                    <p>Ative a trilha sonora ao lado e improvise junto — criada originalmente para o Your Rhythm Studio.</p>
+                    <h3>Track + piano</h3>
+                    <p>Enable the background track and improvise along — originally created for Your Rhythm Studio.</p>
                 </div>
             </div>
 
-            <!-- Controles -->
+            <!-- Controls -->
             <div class="pv-controls" data-reveal>
                 <div class="pv-vol-wrap">
                     <svg class="pv-vol-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -93,14 +93,14 @@
                         <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
                     </svg>
                     <label for="pvVolume" class="sr-only">Volume</label>
-                    <input type="range" id="pvVolume" min="0" max="1" step="0.05" value="0.65" aria-label="Volume do piano" />
+                    <input type="range" id="pvVolume" min="0" max="1" step="0.05" value="0.65" aria-label="Piano volume" />
                 </div>
                 <div class="pv-labels-wrap">
-                    <label class="pv-checkbox" aria-label="Mostrar notas">
+                    <label class="pv-checkbox" aria-label="Show note labels">
                         <input type="checkbox" id="pvLabels" />
                         <span class="pv-checkbox-track" aria-hidden="true"></span>
                     </label>
-                    <span>Mostrar notas</span>
+                    <span>Show notes</span>
                 </div>
             </div>
 
@@ -108,11 +108,11 @@
             <div class="pv-piano-outer" data-reveal>
                 <div class="pv-octave-header" aria-hidden="true">
                     <span class="pv-octave-label">← C3</span>
-                    <span class="pv-octave-label">C4 (central) →</span>
+                    <span class="pv-octave-label">C4 (middle) →</span>
                     <span class="pv-octave-label">C5 →</span>
                 </div>
                 <div class="pv-piano-scroll">
-                    <div id="pvPiano" class="pv-piano" role="group" aria-label="Piano virtual — use clique ou teclado">
+                    <div id="pvPiano" class="pv-piano" role="group" aria-label="Virtual piano — use click or keyboard">
                         @foreach (var oct in octaves)
                         {
                             foreach (var note in whites)
@@ -147,13 +147,13 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
                     </svg>
-                    Clique ou pressione uma tecla para começar
+                    Click or press a key to start
                 </p>
             </div>
 
-            <!-- Atalhos de teclado -->
+            <!-- Keyboard shortcuts -->
             <details class="pv-shortcuts" data-reveal>
-                <summary>Atalhos de teclado</summary>
+                <summary>Keyboard shortcuts</summary>
                 <div class="pv-shortcut-body">
                     <div class="pv-shortcut-row">
                         <span class="pv-sc-item"><kbd class="pv-sc-key">A</kbd> C4</span>
@@ -183,34 +183,34 @@
                 </div>
             </details>
 
-            <!-- Trilha sonora -->
-            <div class="music-track-bar" data-reveal aria-label="Trilha sonora">
+            <!-- Background track -->
+            <div class="music-track-bar" data-reveal aria-label="Background track">
                 <div class="music-track-info">
                     <span class="music-track-name">Beat_1 — Your Rhythm Studio</span>
-                    <p class="music-track-meta">Beat original criado para a plataforma. Clique para ativar e tocar junto.</p>
+                    <p class="music-track-meta">Original beat created for the platform. Click to enable and play along.</p>
                 </div>
                 <button id="musicTrackBtn"
                         type="button"
                         aria-pressed="false"
-                        aria-label="Ativar trilha sonora">
+                        aria-label="Enable background track">
                     <span class="track-icon" aria-hidden="true">♪</span>
-                    <span class="track-label">Ativar trilha</span>
+                    <span class="track-label">Enable track</span>
                 </button>
             </div>
 
         </div>
     </section>
 
-    <!-- ── Metodologia ── -->
+    <!-- ── Methodology ── -->
     <section class="music-methodology site-section" id="music-methodology" aria-labelledby="music-method-heading">
         <div class="site-shell">
             <div class="music-section-head" data-reveal>
-                <span class="ui-kicker">Abordagem</span>
+                <span class="ui-kicker">Approach</span>
                 <h2 class="ui-title" id="music-method-heading" style="font-size: var(--step-2);">
-                    Seis pilares que estruturam o aprendizado.
+                    Six pillars that structure learning.
                 </h2>
                 <p class="ui-description">
-                    Não existe fórmula única — mas existe uma sequência que funciona quando os fundamentos estão claros.
+                    There is no single formula — but there is a sequence that works when the fundamentals are clear.
                 </p>
             </div>
 
@@ -220,8 +220,8 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
                     </div>
                     <div class="music-pillar-num" aria-hidden="true">01</div>
-                    <h3 class="music-pillar-title">Técnica</h3>
-                    <p class="music-pillar-desc">Postura, articulação, controle de dinâmica e independência das mãos — base para tudo que vem depois.</p>
+                    <h3 class="music-pillar-title">Technique</h3>
+                    <p class="music-pillar-desc">Posture, articulation, dynamic control and hand independence — the foundation for everything that follows.</p>
                     <div class="music-pillar-glow" aria-hidden="true"></div>
                 </li>
                 <li class="music-pillar ui-card" data-reveal data-pillar="2">
@@ -229,8 +229,8 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                     </div>
                     <div class="music-pillar-num" aria-hidden="true">02</div>
-                    <h3 class="music-pillar-title">Percepção</h3>
-                    <p class="music-pillar-desc">Ouvir o que se toca. Ritmo, afinação, fraseado e a capacidade de reproduzir o que se imagina.</p>
+                    <h3 class="music-pillar-title">Ear training</h3>
+                    <p class="music-pillar-desc">Hearing what you play. Rhythm, pitch, phrasing and the ability to reproduce what you imagine.</p>
                     <div class="music-pillar-glow" aria-hidden="true"></div>
                 </li>
                 <li class="music-pillar ui-card" data-reveal data-pillar="3">
@@ -238,8 +238,8 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
                     </div>
                     <div class="music-pillar-num" aria-hidden="true">03</div>
-                    <h3 class="music-pillar-title">Repertório</h3>
-                    <p class="music-pillar-desc">Peças que motivam e desafiam ao mesmo tempo — escolhidas junto com o aluno, não impostas.</p>
+                    <h3 class="music-pillar-title">Repertoire</h3>
+                    <p class="music-pillar-desc">Pieces that motivate and challenge at the same time — chosen together with the student, not imposed.</p>
                     <div class="music-pillar-glow" aria-hidden="true"></div>
                 </li>
                 <li class="music-pillar ui-card" data-reveal data-pillar="4">
@@ -247,8 +247,8 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                     </div>
                     <div class="music-pillar-num" aria-hidden="true">04</div>
-                    <h3 class="music-pillar-title">Teoria</h3>
-                    <p class="music-pillar-desc">Entender o que se toca — escalas, acordes, progressões e leitura. Teoria aplicada ao instrumento.</p>
+                    <h3 class="music-pillar-title">Theory</h3>
+                    <p class="music-pillar-desc">Understanding what you play — scales, chords, progressions and sight-reading. Theory applied to the instrument.</p>
                     <div class="music-pillar-glow" aria-hidden="true"></div>
                 </li>
                 <li class="music-pillar ui-card" data-reveal data-pillar="5">
@@ -256,8 +256,8 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                     </div>
                     <div class="music-pillar-num" aria-hidden="true">05</div>
-                    <h3 class="music-pillar-title">Harmonia</h3>
-                    <p class="music-pillar-desc">Jazz, voicings, reharmonização e tensões que ampliam a paleta sonora — para quem quer ir além do básico.</p>
+                    <h3 class="music-pillar-title">Harmony</h3>
+                    <p class="music-pillar-desc">Jazz, voicings, reharmonization and tensions that expand the sonic palette — for those who want to go beyond the basics.</p>
                     <div class="music-pillar-glow" aria-hidden="true"></div>
                 </li>
                 <li class="music-pillar ui-card" data-reveal data-pillar="6">
@@ -265,24 +265,24 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
                     </div>
                     <div class="music-pillar-num" aria-hidden="true">06</div>
-                    <h3 class="music-pillar-title">Composição</h3>
-                    <p class="music-pillar-desc">Transformar ideias em música — estrutura, desenvolvimento temático e escrita para piano.</p>
+                    <h3 class="music-pillar-title">Composition</h3>
+                    <p class="music-pillar-desc">Turning ideas into music — structure, thematic development and writing for piano.</p>
                     <div class="music-pillar-glow" aria-hidden="true"></div>
                 </li>
             </ul>
         </div>
     </section>
 
-    <!-- ── Composições ── -->
+    <!-- ── Compositions ── -->
     <section class="music-compositions site-section" id="music-compositions" aria-labelledby="music-comp-heading">
         <div class="site-shell">
             <div class="music-section-head" data-reveal>
-                <span class="ui-kicker">Composições</span>
+                <span class="ui-kicker">Compositions</span>
                 <h2 class="ui-title" id="music-comp-heading" style="font-size: var(--step-2);">
-                    Peças originais.
+                    Original pieces.
                 </h2>
                 <p class="ui-description">
-                    Composições para piano criadas como exploração — de contraste harmônico, narrativa emocional e expressão pessoal.
+                    Piano compositions created as exploration — of harmonic contrast, emotional narrative and personal expression.
                 </p>
             </div>
 
@@ -297,7 +297,7 @@
                             <p class="music-comp-desc">@comp.Description</p>
                             @if (comp.Tags.Any())
                             {
-                                <ul class="music-comp-tags" aria-label="Tags de @comp.Name">
+                                <ul class="music-comp-tags" aria-label="Tags for @comp.Name">
                                     @foreach (var tag in comp.Tags)
                                     {
                                         <li class="music-comp-tag">@tag</li>
@@ -312,7 +312,7 @@
                                    href="@comp.BandLabUrl"
                                    target="_blank"
                                    rel="noopener noreferrer">
-                                    ♪ Ouvir no BandLab
+                                    ♪ Listen on BandLab
                                 </a>
                             </div>
                         }
@@ -322,28 +322,28 @@
         </div>
     </section>
 
-    <!-- ── Aulas ── -->
+    <!-- ── Lessons ── -->
     <section class="music-lessons site-section" id="music-lessons" aria-labelledby="music-lessons-heading">
         <div class="site-shell">
             <div class="music-lessons-inner">
                 <div class="music-lessons-copy" data-reveal>
-                    <span class="ui-kicker">Aulas</span>
+                    <span class="ui-kicker">Lessons</span>
                     <h2 class="music-lessons-title" id="music-lessons-heading">
-                        Aulas de piano <br>para o seu momento.
+                        Piano lessons <br>for where you are now.
                     </h2>
                     <p class="music-lessons-desc">
-                        Seja para começar do zero, retomar depois de um tempo parado ou aprofundar em jazz e composição —
-                        o ponto de partida é onde você está agora.
+                        Whether you're starting from scratch, picking it back up after a break, or going deeper into jazz and composition —
+                        the starting point is wherever you are today.
                     </p>
                     <p class="music-lessons-desc">
-                        Sem preço fixo listado aqui — porque a modalidade, frequência e foco variam por aluno.
-                        Entre em contato para conversarmos.
+                        No fixed pricing listed here — because the format, frequency and focus vary by student.
+                        Get in touch and we'll talk.
                     </p>
                     <div class="ui-actions">
                         <a class="ui-button ui-button--primary"
                            asp-controller="Home"
                            asp-action="Contact">
-                            Solicitar aulas
+                            Book a lesson
                         </a>
                     </div>
                 </div>
@@ -352,36 +352,36 @@
                     <li class="music-lesson-area ui-card">
                         <div class="music-lesson-area-icon" aria-hidden="true">T</div>
                         <div class="music-lesson-area-body">
-                            <h3 class="music-lesson-area-title">Técnica fundamental</h3>
-                            <p class="music-lesson-area-desc">Postura, articulação, escalas e exercícios de base para tocar com menos esforço e mais controle.</p>
+                            <h3 class="music-lesson-area-title">Fundamental technique</h3>
+                            <p class="music-lesson-area-desc">Posture, articulation, scales and foundational exercises to play with less effort and more control.</p>
                         </div>
                     </li>
                     <li class="music-lesson-area ui-card">
                         <div class="music-lesson-area-icon" aria-hidden="true">R</div>
                         <div class="music-lesson-area-body">
-                            <h3 class="music-lesson-area-title">Repertório clássico e popular</h3>
-                            <p class="music-lesson-area-desc">Peças escolhidas pelo nível e interesse do aluno — do clássico ao popular brasileiro e internacional.</p>
+                            <h3 class="music-lesson-area-title">Classical and popular repertoire</h3>
+                            <p class="music-lesson-area-desc">Pieces chosen by level and interest — from classical to Brazilian and international popular music.</p>
                         </div>
                     </li>
                     <li class="music-lesson-area ui-card">
                         <div class="music-lesson-area-icon" aria-hidden="true">J</div>
                         <div class="music-lesson-area-body">
-                            <h3 class="music-lesson-area-title">Jazz e improvisação</h3>
-                            <p class="music-lesson-area-desc">Linguagem jazzística, voicings, modos e construção de solos — para quem quer entender a harmonia além dos acordes básicos.</p>
+                            <h3 class="music-lesson-area-title">Jazz and improvisation</h3>
+                            <p class="music-lesson-area-desc">Jazz language, voicings, modes and solo construction — for those who want to understand harmony beyond basic chords.</p>
                         </div>
                     </li>
                     <li class="music-lesson-area ui-card">
                         <div class="music-lesson-area-icon" aria-hidden="true">H</div>
                         <div class="music-lesson-area-body">
-                            <h3 class="music-lesson-area-title">Teoria e harmonia</h3>
-                            <p class="music-lesson-area-desc">Leitura, escala, intervalos, progressões e análise harmônica — contextualizados no instrumento.</p>
+                            <h3 class="music-lesson-area-title">Theory and harmony</h3>
+                            <p class="music-lesson-area-desc">Sight-reading, scales, intervals, progressions and harmonic analysis — contextualized on the instrument.</p>
                         </div>
                     </li>
                     <li class="music-lesson-area ui-card">
                         <div class="music-lesson-area-icon" aria-hidden="true">C</div>
                         <div class="music-lesson-area-body">
-                            <h3 class="music-lesson-area-title">Composição</h3>
-                            <p class="music-lesson-area-desc">Do motivo ao desenvolvimento — como criar e expandir ideias musicais com intenção e estrutura.</p>
+                            <h3 class="music-lesson-area-title">Composition</h3>
+                            <p class="music-lesson-area-desc">From motif to development — how to create and expand musical ideas with intention and structure.</p>
                         </div>
                     </li>
                 </ul>
@@ -395,43 +395,43 @@
             <div class="music-studio-inner" data-reveal>
 
                 <div class="music-studio-header">
-                    <span class="music-studio-live-badge" aria-label="Em produção">
+                    <span class="music-studio-live-badge" aria-label="Live in production">
                         <span class="music-studio-live-dot" aria-hidden="true"></span>
-                        em produção
+                        live
                     </span>
                     <h2 class="music-studio-name" id="music-studio-heading">Your Rhythm Studio</h2>
                     <p class="music-studio-tagline">
-                        Plataforma de aprendizado musical com repertório estruturado, missões progressivas
-                        e o piano virtual embutido — desenvolvida e mantida por mim.
+                        A music learning platform with structured repertoire, progressive missions
+                        and an embedded virtual piano — designed and maintained by me.
                     </p>
                     <a class="ui-button ui-button--ghost music-studio-link"
                        href="https://yourrhythmstudio.com.br"
                        target="_blank"
                        rel="noopener noreferrer">
-                        Acessar a plataforma →
+                        Visit the platform →
                     </a>
                 </div>
 
                 <ul class="music-studio-features" role="list">
                     <li class="music-studio-feature">
                         <div class="music-studio-feature-icon" aria-hidden="true">🎯</div>
-                        <h3 class="music-studio-feature-title">Missões progressivas</h3>
-                        <p class="music-studio-feature-desc">Sistema de missões que guia o aluno do básico ao avançado com objetivos claros a cada etapa.</p>
+                        <h3 class="music-studio-feature-title">Progressive missions</h3>
+                        <p class="music-studio-feature-desc">A mission system that guides students from beginner to advanced with clear goals at each step.</p>
                     </li>
                     <li class="music-studio-feature">
                         <div class="music-studio-feature-icon" aria-hidden="true">🎹</div>
-                        <h3 class="music-studio-feature-title">Piano virtual integrado</h3>
-                        <p class="music-studio-feature-desc">O mesmo teclado que você vê acima, contextualizado dentro de exercícios e repertório da plataforma.</p>
+                        <h3 class="music-studio-feature-title">Embedded virtual piano</h3>
+                        <p class="music-studio-feature-desc">The same keyboard you see above, integrated into exercises and repertoire inside the platform.</p>
                     </li>
                     <li class="music-studio-feature">
                         <div class="music-studio-feature-icon" aria-hidden="true">📚</div>
-                        <h3 class="music-studio-feature-title">Repertório curado</h3>
-                        <p class="music-studio-feature-desc">Peças organizadas por nível e estilo, com partituras e contexto histórico para cada obra.</p>
+                        <h3 class="music-studio-feature-title">Curated repertoire</h3>
+                        <p class="music-studio-feature-desc">Pieces organized by level and style, with sheet music and historical context for each work.</p>
                     </li>
                     <li class="music-studio-feature">
                         <div class="music-studio-feature-icon" aria-hidden="true">📈</div>
-                        <h3 class="music-studio-feature-title">Progresso acompanhado</h3>
-                        <p class="music-studio-feature-desc">Visualização do histórico de estudo, metas concluídas e próximos passos de aprendizado.</p>
+                        <h3 class="music-studio-feature-title">Progress tracking</h3>
+                        <p class="music-studio-feature-desc">Visualization of study history, completed goals and next steps in the learning journey.</p>
                     </li>
                 </ul>
 
@@ -443,21 +443,21 @@
     <section class="music-cta site-section" aria-labelledby="music-cta-heading">
         <div class="site-shell">
             <div class="music-cta-inner" data-reveal>
-                <span class="ui-kicker">Próximo passo</span>
+                <span class="ui-kicker">Next step</span>
                 <h2 class="ui-title" id="music-cta-heading" style="font-size: var(--step-2);">
-                    Vamos começar <br>a tocar.
+                    Let's start <br>playing.
                 </h2>
                 <p class="ui-description" style="margin-inline: auto;">
-                    Para aulas, composições sob encomenda ou simplesmente para conversar sobre música.
+                    For lessons, commissioned compositions or simply to talk about music.
                 </p>
                 <div class="ui-actions music-cta-actions">
                     <a class="ui-button ui-button--primary"
                        asp-controller="Home"
                        asp-action="Contact">
-                        Entrar em contato
+                        Get in touch
                     </a>
                     <a class="ui-button ui-button--ghost" href="#music-compositions">
-                        Ouvir composições
+                        Listen to compositions
                     </a>
                 </div>
             </div>

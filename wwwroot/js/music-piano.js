@@ -234,13 +234,13 @@
             if (trackAudio.paused) {
                 trackAudio.play().catch(function () {});
                 trackBtn.setAttribute("aria-pressed", "true");
-                trackBtn.querySelector(".track-label").textContent = "Parar trilha";
+                trackBtn.querySelector(".track-label").textContent = "Stop track";
                 trackBtn.classList.add("track-active");
             } else {
                 trackAudio.pause();
                 trackAudio.currentTime = 0;
                 trackBtn.setAttribute("aria-pressed", "false");
-                trackBtn.querySelector(".track-label").textContent = "Ativar trilha";
+                trackBtn.querySelector(".track-label").textContent = "Enable track";
                 trackBtn.classList.remove("track-active");
             }
         });
@@ -249,7 +249,7 @@
     if (!window.AudioContext && !window.webkitAudioContext) {
         var hint = document.getElementById("pvHint");
         if (hint) {
-            hint.textContent = "Seu navegador não suporta Web Audio. O piano visual ainda funciona.";
+            hint.textContent = "Your browser does not support Web Audio. The visual piano still works.";
             hint.classList.remove("pv-hint-hide");
         }
     }

@@ -41,8 +41,8 @@ namespace ClientBlog.Controllers
         [OutputCache(Duration = 600)]
         public IActionResult Music()
         {
-            ViewData["Title"] = "Música";
-            ViewData["Description"] = "Piano, composição, jazz e aulas. Técnica, percepção e criatividade — do repertório clássico à composição original.";
+            ViewData["Title"] = "Music";
+            ViewData["Description"] = "Piano, composition, jazz and lessons. Technique, ear training and creativity — from classical repertoire to original composition.";
             var compositions = PortfolioDataService.GetCompositions();
             return View(compositions);
         }
