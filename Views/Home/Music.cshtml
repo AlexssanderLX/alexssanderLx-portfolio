@@ -2,10 +2,18 @@
 @{
     ViewData["Title"] = ViewData["Title"] ?? "Música";
     ViewData["Description"] = ViewData["Description"] ?? "Piano, composição, jazz e aulas. Técnica, percepção e criatividade — do repertório clássico à composição original.";
+
+    var octaves = new[] { 3, 4, 5 };
+    var whites  = new[] { "C", "D", "E", "F", "G", "A", "B" };
+    var hasBlack = new System.Collections.Generic.Dictionary<string, bool> {
+        ["C"] = true, ["D"] = true, ["E"] = false,
+        ["F"] = true, ["G"] = true, ["A"] = true, ["B"] = false
+    };
 }
 
 @section Styles {
     <link rel="stylesheet" href="~/css/pages/music.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/pages/music-piano.css" asp-append-version="true" />
 }
 
 <div class="music-page">
@@ -43,6 +51,156 @@
         </div>
     </section>
 
+    <!-- ── Piano Virtual ── -->
+    <section class="music-piano-section site-section" id="music-piano" aria-labelledby="music-piano-heading">
+        <div class="site-shell">
+
+            <div class="music-piano-intro" data-reveal>
+                <h2 class="music-piano-intro-title" id="music-piano-heading">
+                    Experimente o piano.
+                </h2>
+                <p class="music-piano-intro-desc">
+                    Teclado virtual com síntese de áudio real — clique, toque ou use o teclado.
+                    Esta é a mesma engine embutida no <a href="#music-studio" style="color:var(--color-cyan);text-decoration:none;">Your Rhythm Studio</a>.
+                </p>
+            </div>
+
+            <!-- Tutorial cards -->
+            <div class="pv-tut-grid" data-reveal>
+                <div class="pv-tut-card">
+                    <div class="pv-tut-icon" aria-hidden="true">🖱️</div>
+                    <h3>Clique ou toque</h3>
+                    <p>Clique nas teclas brancas e pretas para tocar. Funciona com mouse, touchscreen e stylus.</p>
+                </div>
+                <div class="pv-tut-card">
+                    <div class="pv-tut-icon" aria-hidden="true">⌨️</div>
+                    <h3>Teclado físico</h3>
+                    <p>Use o teclado do computador para tocar — mapeado para oitava central. Veja os atalhos abaixo.</p>
+                </div>
+                <div class="pv-tut-card">
+                    <div class="pv-tut-icon" aria-hidden="true">🎵</div>
+                    <h3>Trilha + piano</h3>
+                    <p>Ative a trilha sonora ao lado e improvise junto — criada originalmente para o Your Rhythm Studio.</p>
+                </div>
+            </div>
+
+            <!-- Controles -->
+            <div class="pv-controls" data-reveal>
+                <div class="pv-vol-wrap">
+                    <svg class="pv-vol-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                    </svg>
+                    <label for="pvVolume" class="sr-only">Volume</label>
+                    <input type="range" id="pvVolume" min="0" max="1" step="0.05" value="0.65" aria-label="Volume do piano" />
+                </div>
+                <div class="pv-labels-wrap">
+                    <label class="pv-checkbox" aria-label="Mostrar notas">
+                        <input type="checkbox" id="pvLabels" />
+                        <span class="pv-checkbox-track" aria-hidden="true"></span>
+                    </label>
+                    <span>Mostrar notas</span>
+                </div>
+            </div>
+
+            <!-- Piano -->
+            <div class="pv-piano-outer" data-reveal>
+                <div class="pv-octave-header" aria-hidden="true">
+                    <span class="pv-octave-label">← C3</span>
+                    <span class="pv-octave-label">C4 (central) →</span>
+                    <span class="pv-octave-label">C5 →</span>
+                </div>
+                <div class="pv-piano-scroll">
+                    <div id="pvPiano" class="pv-piano" role="group" aria-label="Piano virtual — use clique ou teclado">
+                        @foreach (var oct in octaves)
+                        {
+                            foreach (var note in whites)
+                            {
+                                var noteName = $"{note}{oct}";
+                                <div class="pv-key pv-wkey"
+                                     data-note="@noteName"
+                                     tabindex="0"
+                                     role="button"
+                                     aria-pressed="false"
+                                     aria-label="@noteName">
+                                    <span class="pv-wlabel" aria-hidden="true">@note<sub>@oct</sub></span>
+                                    @if (hasBlack[note])
+                                    {
+                                        var bNote = $"{note}#{oct}";
+                                        <div class="pv-key pv-bkey"
+                                             data-note="@bNote"
+                                             tabindex="0"
+                                             role="button"
+                                             aria-pressed="false"
+                                             aria-label="@bNote">
+                                            <span class="pv-blabel" aria-hidden="true">@note#</span>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+
+                <p class="pv-hint" id="pvHint" aria-live="polite">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+                    </svg>
+                    Clique ou pressione uma tecla para começar
+                </p>
+            </div>
+
+            <!-- Atalhos de teclado -->
+            <details class="pv-shortcuts" data-reveal>
+                <summary>Atalhos de teclado</summary>
+                <div class="pv-shortcut-body">
+                    <div class="pv-shortcut-row">
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">A</kbd> C4</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">W</kbd> C#4</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">S</kbd> D4</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">E</kbd> D#4</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">D</kbd> E4</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">F</kbd> F4</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">T</kbd> F#4</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">G</kbd> G4</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">Y</kbd> G#4</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">H</kbd> A4</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">U</kbd> A#4</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">J</kbd> B4</span>
+                    </div>
+                    <div class="pv-shortcut-row">
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">K</kbd> C5</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">O</kbd> C#5</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">L</kbd> D5</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">P</kbd> D#5</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">;</kbd> E5</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">Z</kbd> F5</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">X</kbd> G5</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">C</kbd> A5</span>
+                        <span class="pv-sc-item"><kbd class="pv-sc-key">V</kbd> B5</span>
+                    </div>
+                </div>
+            </details>
+
+            <!-- Trilha sonora -->
+            <div class="music-track-bar" data-reveal aria-label="Trilha sonora">
+                <div class="music-track-info">
+                    <span class="music-track-name">Beat_1 — Your Rhythm Studio</span>
+                    <p class="music-track-meta">Beat original criado para a plataforma. Clique para ativar e tocar junto.</p>
+                </div>
+                <button id="musicTrackBtn"
+                        type="button"
+                        aria-pressed="false"
+                        aria-label="Ativar trilha sonora">
+                    <span class="track-icon" aria-hidden="true">♪</span>
+                    <span class="track-label">Ativar trilha</span>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
     <!-- ── Metodologia ── -->
     <section class="music-methodology site-section" id="music-methodology" aria-labelledby="music-method-heading">
         <div class="site-shell">
@@ -57,35 +215,59 @@
             </div>
 
             <ul class="music-pillars" role="list">
-                <li class="music-pillar ui-card" data-reveal>
+                <li class="music-pillar ui-card" data-reveal data-pillar="1">
+                    <div class="music-pillar-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                    </div>
                     <div class="music-pillar-num" aria-hidden="true">01</div>
                     <h3 class="music-pillar-title">Técnica</h3>
                     <p class="music-pillar-desc">Postura, articulação, controle de dinâmica e independência das mãos — base para tudo que vem depois.</p>
+                    <div class="music-pillar-glow" aria-hidden="true"></div>
                 </li>
-                <li class="music-pillar ui-card" data-reveal>
+                <li class="music-pillar ui-card" data-reveal data-pillar="2">
+                    <div class="music-pillar-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
                     <div class="music-pillar-num" aria-hidden="true">02</div>
                     <h3 class="music-pillar-title">Percepção</h3>
                     <p class="music-pillar-desc">Ouvir o que se toca. Ritmo, afinação, fraseado e a capacidade de reproduzir o que se imagina.</p>
+                    <div class="music-pillar-glow" aria-hidden="true"></div>
                 </li>
-                <li class="music-pillar ui-card" data-reveal>
+                <li class="music-pillar ui-card" data-reveal data-pillar="3">
+                    <div class="music-pillar-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    </div>
                     <div class="music-pillar-num" aria-hidden="true">03</div>
                     <h3 class="music-pillar-title">Repertório</h3>
                     <p class="music-pillar-desc">Peças que motivam e desafiam ao mesmo tempo — escolhidas junto com o aluno, não impostas.</p>
+                    <div class="music-pillar-glow" aria-hidden="true"></div>
                 </li>
-                <li class="music-pillar ui-card" data-reveal>
+                <li class="music-pillar ui-card" data-reveal data-pillar="4">
+                    <div class="music-pillar-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
                     <div class="music-pillar-num" aria-hidden="true">04</div>
                     <h3 class="music-pillar-title">Teoria</h3>
                     <p class="music-pillar-desc">Entender o que se toca — escalas, acordes, progressões e leitura. Teoria aplicada ao instrumento.</p>
+                    <div class="music-pillar-glow" aria-hidden="true"></div>
                 </li>
-                <li class="music-pillar ui-card" data-reveal>
+                <li class="music-pillar ui-card" data-reveal data-pillar="5">
+                    <div class="music-pillar-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    </div>
                     <div class="music-pillar-num" aria-hidden="true">05</div>
                     <h3 class="music-pillar-title">Harmonia</h3>
                     <p class="music-pillar-desc">Jazz, voicings, reharmonização e tensões que ampliam a paleta sonora — para quem quer ir além do básico.</p>
+                    <div class="music-pillar-glow" aria-hidden="true"></div>
                 </li>
-                <li class="music-pillar ui-card" data-reveal>
+                <li class="music-pillar ui-card" data-reveal data-pillar="6">
+                    <div class="music-pillar-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+                    </div>
                     <div class="music-pillar-num" aria-hidden="true">06</div>
                     <h3 class="music-pillar-title">Composição</h3>
                     <p class="music-pillar-desc">Transformar ideias em música — estrutura, desenvolvimento temático e escrita para piano.</p>
+                    <div class="music-pillar-glow" aria-hidden="true"></div>
                 </li>
             </ul>
         </div>
@@ -207,16 +389,52 @@
         </div>
     </section>
 
-    <!-- ── Your Rhythm Studio (reservado) ── -->
-    <section class="music-studio-reserved site-section--compact" id="music-studio" aria-labelledby="music-studio-heading">
+    <!-- ── Your Rhythm Studio ── -->
+    <section class="music-studio site-section" id="music-studio" aria-labelledby="music-studio-heading">
         <div class="site-shell">
-            <div class="music-studio-placeholder" data-reveal>
-                <div class="music-studio-placeholder-icon" aria-hidden="true">♩</div>
-                <h2 class="music-studio-placeholder-title" id="music-studio-heading">Your Rhythm Studio</h2>
-                <p class="music-studio-placeholder-desc">
-                    Plataforma integrada para aulas, acompanhamento de progresso e repertório — em desenvolvimento.
-                    Esta seção será expandida quando o projeto estiver pronto para apresentação.
-                </p>
+            <div class="music-studio-inner" data-reveal>
+
+                <div class="music-studio-header">
+                    <span class="music-studio-live-badge" aria-label="Em produção">
+                        <span class="music-studio-live-dot" aria-hidden="true"></span>
+                        em produção
+                    </span>
+                    <h2 class="music-studio-name" id="music-studio-heading">Your Rhythm Studio</h2>
+                    <p class="music-studio-tagline">
+                        Plataforma de aprendizado musical com repertório estruturado, missões progressivas
+                        e o piano virtual embutido — desenvolvida e mantida por mim.
+                    </p>
+                    <a class="ui-button ui-button--ghost music-studio-link"
+                       href="https://yourrhythmstudio.com.br"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Acessar a plataforma →
+                    </a>
+                </div>
+
+                <ul class="music-studio-features" role="list">
+                    <li class="music-studio-feature">
+                        <div class="music-studio-feature-icon" aria-hidden="true">🎯</div>
+                        <h3 class="music-studio-feature-title">Missões progressivas</h3>
+                        <p class="music-studio-feature-desc">Sistema de missões que guia o aluno do básico ao avançado com objetivos claros a cada etapa.</p>
+                    </li>
+                    <li class="music-studio-feature">
+                        <div class="music-studio-feature-icon" aria-hidden="true">🎹</div>
+                        <h3 class="music-studio-feature-title">Piano virtual integrado</h3>
+                        <p class="music-studio-feature-desc">O mesmo teclado que você vê acima, contextualizado dentro de exercícios e repertório da plataforma.</p>
+                    </li>
+                    <li class="music-studio-feature">
+                        <div class="music-studio-feature-icon" aria-hidden="true">📚</div>
+                        <h3 class="music-studio-feature-title">Repertório curado</h3>
+                        <p class="music-studio-feature-desc">Peças organizadas por nível e estilo, com partituras e contexto histórico para cada obra.</p>
+                    </li>
+                    <li class="music-studio-feature">
+                        <div class="music-studio-feature-icon" aria-hidden="true">📈</div>
+                        <h3 class="music-studio-feature-title">Progresso acompanhado</h3>
+                        <p class="music-studio-feature-desc">Visualização do histórico de estudo, metas concluídas e próximos passos de aprendizado.</p>
+                    </li>
+                </ul>
+
             </div>
         </div>
     </section>
@@ -247,3 +465,7 @@
     </section>
 
 </div>
+
+@section Scripts {
+    <script src="~/js/music-piano.js" asp-append-version="true"></script>
+}
