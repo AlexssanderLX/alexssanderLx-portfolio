@@ -127,6 +127,23 @@ namespace ClientBlog.Services
             },
             new CtfCase
             {
+                Name = "WhyHackMe",
+                Platform = "TryHackMe",
+                Url = "https://tryhackme.com/room/whyhackme",
+                ImagePath = "~/img/ProjectsIMGs/WhyHackMe.webp",
+                ImageAlt = "WhyHackMe TryHackMe room",
+                Difficulty = "Medium",
+                DifficultyClass = "medium",
+                Scenario = "Web-focused room that mixes compromise, analysis and careful interpretation of application behavior.",
+                Vector = "Enumerated exposed services and web clues, validated assumptions and followed the chain toward controlled compromise.",
+                Learning = "Good exploitation depends on analysis first: understand the application, reduce noise and only then execute the path.",
+                Mitigation = "Harden exposed services, reduce information leakage, validate server-side behavior and keep authentication controls consistent.",
+                Tags = new() { "Web", "Analysis", "Enumeration" },
+                IsFeatured = false,
+                Order = 3
+            },
+            new CtfCase
+            {
                 Name = "Hammer",
                 Platform = "TryHackMe",
                 Url = "https://tryhackme.com/room/hammer",
@@ -140,7 +157,7 @@ namespace ClientBlog.Services
                 Mitigation = "State verification at each step, token expiration, rate limiting and authentication event logging.",
                 Tags = new() { "Auth bypass", "RCE", "Web" },
                 IsFeatured = false,
-                Order = 3
+                Order = 4
             },
             new CtfCase
             {
@@ -157,7 +174,7 @@ namespace ClientBlog.Services
                 Mitigation = "Remove unnecessary files, handle errors without leaking internals and enforce consistent access control.",
                 Tags = new() { "Enumeration", "Web", "Exploitation" },
                 IsFeatured = false,
-                Order = 4
+                Order = 5
             },
             new CtfCase
             {
@@ -174,7 +191,7 @@ namespace ClientBlog.Services
                 Mitigation = "Remove debug information, apply least privilege and review web server configuration.",
                 Tags = new() { "Linux", "PrivEsc", "Web" },
                 IsFeatured = false,
-                Order = 5
+                Order = 6
             },
             new CtfCase
             {
@@ -191,7 +208,7 @@ namespace ClientBlog.Services
                 Mitigation = "Modern algorithms, secure key management, context separation and server-side validation.",
                 Tags = new() { "Cryptography", "RCE", "Analysis" },
                 IsFeatured = false,
-                Order = 6
+                Order = 7
             },
             new CtfCase
             {
@@ -208,7 +225,7 @@ namespace ClientBlog.Services
                 Mitigation = "Continuous maintenance, security updates, admin panel access restriction and periodic scanning.",
                 Tags = new() { "CVE", "Enumeration", "RCE" },
                 IsFeatured = false,
-                Order = 7
+                Order = 8
             },
             new CtfCase
             {
@@ -225,7 +242,7 @@ namespace ClientBlog.Services
                 Mitigation = "CVE monitoring, structured patch management and OS hardening.",
                 Tags = new() { "Recent CVE", "PrivEsc", "RCE" },
                 IsFeatured = false,
-                Order = 8
+                Order = 9
             }
         };
 
