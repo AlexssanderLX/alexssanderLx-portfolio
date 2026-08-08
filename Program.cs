@@ -34,11 +34,16 @@ if (!app.Environment.IsDevelopment())
 app.Use(async (context, next) =>
 {
     var headers = context.Response.Headers;
-    headers["Content-Security-Policy"] = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data:; script-src 'self'; style-src 'self'; font-src 'self' data:; connect-src 'self'";
+    var isCtfReportPdf = context.Request.Path.StartsWithSegments("/reports/ctf") &&
+                         context.Request.Path.Value?.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase) == true;
+
+    headers["Content-Security-Policy"] = isCtfReportPdf
+        ? "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'"
+        : "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data:; script-src 'self'; style-src 'self'; font-src 'self' data:; connect-src 'self'";
     headers["Permissions-Policy"] = "camera=(), geolocation=(), microphone=(), payment=(), usb=()";
     headers["Referrer-Policy"] = "strict-origin-when-cross-origin";
     headers["X-Content-Type-Options"] = "nosniff";
-    headers["X-Frame-Options"] = "DENY";
+    headers["X-Frame-Options"] = isCtfReportPdf ? "SAMEORIGIN" : "DENY";
     headers["Cross-Origin-Opener-Policy"] = "same-origin";
 
     await next();
@@ -51,6 +56,14 @@ app.UseStaticFiles(new StaticFileOptions
     OnPrepareResponse = context =>
     {
         var hasVersionQuery = context.Context.Request.Query.ContainsKey("v");
+        var isCtfReportPdf = context.Context.Request.Path.StartsWithSegments("/reports/ctf") &&
+                             context.Context.Request.Path.Value?.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase) == true;
+
+        if (isCtfReportPdf)
+        {
+            context.Context.Response.Headers.ContentDisposition = "inline";
+        }
+
         context.Context.Response.Headers.CacheControl = hasVersionQuery
             ? "public,max-age=31536000,immutable"
             : "public,max-age=3600";

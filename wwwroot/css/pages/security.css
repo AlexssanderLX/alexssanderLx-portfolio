@@ -786,6 +786,112 @@
     opacity: 0.7;
 }
 
+.security-page .sec-ctf-link--report {
+    color: var(--color-accent);
+}
+
+/* ── CTF Report Viewer ── */
+.security-page .sec-report {
+    min-height: calc(100vh - 8rem);
+    padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.security-page .sec-report-back {
+    display: inline-flex;
+    width: fit-content;
+    margin-bottom: var(--space-5);
+    color: var(--color-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-decoration: none;
+    opacity: 0.82;
+    transition: opacity var(--motion-fast) var(--ease-out);
+}
+
+.security-page .sec-report-back:hover {
+    opacity: 1;
+}
+
+.security-page .sec-report-shell {
+    border: 1px solid rgba(40, 216, 238, 0.2);
+    border-radius: var(--radius-lg);
+    background:
+        radial-gradient(circle at 85% 0%, rgba(156, 255, 46, 0.08), transparent 30%),
+        rgba(4, 12, 20, 0.78);
+    box-shadow: 0 24px 80px -42px rgba(40, 216, 238, 0.35);
+    overflow: hidden;
+}
+
+.security-page .sec-report-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-6);
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.security-page .sec-report-title-block {
+    display: grid;
+    gap: var(--space-3);
+    max-width: 720px;
+}
+
+.security-page .sec-report-meta {
+    min-width: min(100%, 260px);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    border: 1px solid rgba(40, 216, 238, 0.16);
+    border-radius: var(--radius-md);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.security-page .sec-report-logo {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    background: rgba(0, 0, 0, 0.35);
+    flex-shrink: 0;
+}
+
+.security-page .sec-report-name {
+    display: block;
+    color: var(--color-text-strong);
+    margin-bottom: var(--space-2);
+}
+
+.security-page .sec-report-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding: clamp(1rem, 3vw, 1.5rem) clamp(1.25rem, 4vw, 2.5rem);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.security-page .sec-report-viewer {
+    height: min(78vh, 920px);
+    min-height: 560px;
+    padding: clamp(0.5rem, 2vw, 1rem);
+    background:
+        linear-gradient(rgba(40, 216, 238, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(40, 216, 238, 0.04) 1px, transparent 1px),
+        rgba(0, 0, 0, 0.24);
+    background-size: 48px 48px;
+}
+
+.security-page .sec-report-viewer iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(40, 216, 238, 0.18);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.96);
+}
+
 /* ── CTA ── */
 .security-page .sec-cta {
     padding-block: clamp(5rem, 10vw, 8rem);
@@ -866,6 +972,19 @@
 
     .security-page .sec-ctf-grid {
         grid-template-columns: 1fr;
+    }
+
+    .security-page .sec-report-header {
+        flex-direction: column;
+    }
+
+    .security-page .sec-report-meta {
+        width: 100%;
+    }
+
+    .security-page .sec-report-viewer {
+        height: 70vh;
+        min-height: 460px;
     }
 }
 

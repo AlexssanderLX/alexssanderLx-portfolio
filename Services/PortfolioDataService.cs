@@ -128,10 +128,12 @@ namespace ClientBlog.Services
             new CtfCase
             {
                 Name = "WhyHackMe",
+                Slug = "whyhackme",
                 Platform = "TryHackMe",
                 Url = "https://tryhackme.com/room/whyhackme",
                 ImagePath = "~/img/ProjectsIMGs/WhyHackMe.webp",
                 ImageAlt = "WhyHackMe TryHackMe room",
+                ReportPdfPath = "~/reports/ctf/whyhackme-report.pdf",
                 Difficulty = "Medium",
                 DifficultyClass = "medium",
                 Scenario = "Web-focused room that mixes compromise, analysis and careful interpretation of application behavior.",
@@ -275,6 +277,13 @@ namespace ClientBlog.Services
         public static IReadOnlyList<ProjectItem> GetDevelopmentProjects() => _devProjects.AsReadOnly();
 
         public static IReadOnlyList<CtfCase> GetSecurityCases() => _ctfCases.AsReadOnly();
+
+        public static CtfCase? GetSecurityCaseBySlug(string slug)
+        {
+            return _ctfCases.FirstOrDefault(ctf =>
+                !string.IsNullOrWhiteSpace(ctf.Slug) &&
+                string.Equals(ctf.Slug, slug, StringComparison.OrdinalIgnoreCase));
+        }
 
         public static IReadOnlyList<Composition> GetCompositions() => _compositions.AsReadOnly();
     }

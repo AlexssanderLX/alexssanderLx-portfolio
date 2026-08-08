@@ -1,0 +1,78 @@
+@model ClientBlog.Models.CtfCase
+@{
+    ViewData["Title"] = ViewData["Title"] ?? $"{Model.Name} Report";
+    ViewData["Description"] = ViewData["Description"] ?? $"{Model.Name} CTF report and practical pentest notes.";
+    var reportUrl = Url.Content(Model.ReportPdfPath);
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/security.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/pages/experience.css" asp-append-version="true" />
+}
+
+<div class="security-page experience-page experience-page--security" data-experience-page>
+    <section class="sec-report site-section" aria-labelledby="ctf-report-heading">
+        <div class="site-shell">
+            <a class="sec-report-back"
+               asp-controller="Home"
+               asp-action="Security"
+               asp-fragment="sec-ctf">
+                &lt; Back to security labs
+            </a>
+
+            <div class="sec-report-shell" data-reveal>
+                <header class="sec-report-header">
+                    <div class="sec-report-title-block">
+                        <span class="ui-kicker">CTF Report</span>
+                        <h1 class="ui-title experience-title-sm" id="ctf-report-heading">
+                            @Model.Name write-up.
+                        </h1>
+                        <p class="ui-description">
+                            Practical notes from the lab process, focused on methodology, evidence,
+                            learning and remediation thinking. No flags are published.
+                        </p>
+                    </div>
+
+                    <div class="sec-report-meta" aria-label="@Model.Name report metadata">
+                        @if (!string.IsNullOrWhiteSpace(Model.ImagePath))
+                        {
+                            <img src="@Model.ImagePath"
+                                 asp-append-version="true"
+                                 alt="@Model.ImageAlt"
+                                 class="sec-report-logo"
+                                 width="64"
+                                 height="64"
+                                 loading="eager"
+                                 decoding="async" />
+                        }
+                        <div>
+                            <span class="sec-ctf-platform">@Model.Platform</span>
+                            <strong class="sec-report-name">@Model.Name</strong>
+                            <span class="sec-ctf-difficulty sec-ctf-difficulty--@Model.DifficultyClass">@Model.Difficulty</span>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="sec-report-actions">
+                    <a class="ui-button ui-button--primary" href="@Model.Url" target="_blank" rel="noopener noreferrer">
+                        Open TryHackMe room
+                    </a>
+                    <a class="ui-button ui-button--ghost" href="@reportUrl" target="_blank" rel="noopener noreferrer">
+                        Open PDF in browser
+                    </a>
+                </div>
+
+                <div class="sec-report-viewer" aria-label="@Model.Name PDF report viewer">
+                    <iframe src="@reportUrl"
+                            title="@Model.Name CTF report PDF"
+                            loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section Scripts {
+    <script src="~/js/experience-motion.js" asp-append-version="true"></script>
+}

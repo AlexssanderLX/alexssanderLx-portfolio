@@ -39,6 +39,27 @@ namespace ClientBlog.Controllers
         }
 
         [OutputCache(Duration = 600)]
+        public IActionResult CtfReport(string slug)
+        {
+            if (string.IsNullOrWhiteSpace(slug))
+            {
+                return RedirectToAction(nameof(Security));
+            }
+
+            var ctfCase = PortfolioDataService.GetSecurityCaseBySlug(slug);
+
+            if (ctfCase == null || string.IsNullOrWhiteSpace(ctfCase.ReportPdfPath))
+            {
+                return NotFound();
+            }
+
+            ViewData["Title"] = $"{ctfCase.Name} Report";
+            ViewData["Description"] = $"{ctfCase.Name} CTF report and practical pentest notes by Alexssander LX.";
+
+            return View(ctfCase);
+        }
+
+        [OutputCache(Duration = 600)]
         public IActionResult Music()
         {
             ViewData["Title"] = "Music";

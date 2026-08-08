@@ -434,6 +434,15 @@
                                     }
                                 </ul>
                             }
+                            @if (!string.IsNullOrWhiteSpace(featured.ReportPdfPath))
+                            {
+                                <a class="sec-ctf-link sec-ctf-link--report"
+                                   asp-controller="Home"
+                                   asp-action="CtfReport"
+                                   asp-route-slug="@featured.Slug">
+                                    View report
+                                </a>
+                            }
                             <a class="sec-ctf-link" href="@featured.Url" target="_blank" rel="noopener noreferrer">
                                 View on @featured.Platform →
                             </a>
@@ -481,6 +490,15 @@
                                         <li class="sec-area-tag">@tag</li>
                                     }
                                 </ul>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(ctf.ReportPdfPath))
+                            {
+                                <a class="sec-ctf-link sec-ctf-link--report"
+                                   asp-controller="Home"
+                                   asp-action="CtfReport"
+                                   asp-route-slug="@ctf.Slug">
+                                    View report
+                                </a>
                             }
                             <a class="sec-ctf-link" href="@ctf.Url" target="_blank" rel="noopener noreferrer">
                                 View lab →
