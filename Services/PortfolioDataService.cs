@@ -146,6 +146,25 @@ namespace ClientBlog.Services
             },
             new CtfCase
             {
+                Name = "Silent Monitor",
+                Slug = "silent-monitor",
+                Platform = "TryHackMe",
+                Url = "https://tryhackme.com/room/silent-monitor",
+                ImagePath = "~/img/ProjectsIMGs/SilentMonitor.webp",
+                ImageAlt = "Silent Monitor TryHackMe room",
+                ReportPdfPath = "~/reports/ctf/silent-monitor-report.pdf",
+                Difficulty = "Medium",
+                DifficultyClass = "medium",
+                Scenario = "Monitoring-themed lab focused on quiet enumeration, evidence review and controlled compromise.",
+                Vector = "Followed observable signals, correlated exposed services and validated the exploitation path without relying on noisy assumptions.",
+                Learning = "Security analysis is strongest when evidence drives each step: observe, confirm and only then exploit within scope.",
+                Mitigation = "Reduce exposed telemetry, harden services, review access controls and monitor suspicious behavior with actionable logging.",
+                Tags = new() { "Monitoring", "Enumeration", "Analysis" },
+                IsFeatured = false,
+                Order = 4
+            },
+            new CtfCase
+            {
                 Name = "Hammer",
                 Platform = "TryHackMe",
                 Url = "https://tryhackme.com/room/hammer",
@@ -159,7 +178,7 @@ namespace ClientBlog.Services
                 Mitigation = "State verification at each step, token expiration, rate limiting and authentication event logging.",
                 Tags = new() { "Auth bypass", "RCE", "Web" },
                 IsFeatured = false,
-                Order = 4
+                Order = 5
             },
             new CtfCase
             {
@@ -176,7 +195,7 @@ namespace ClientBlog.Services
                 Mitigation = "Remove unnecessary files, handle errors without leaking internals and enforce consistent access control.",
                 Tags = new() { "Enumeration", "Web", "Exploitation" },
                 IsFeatured = false,
-                Order = 5
+                Order = 6
             },
             new CtfCase
             {
@@ -193,7 +212,7 @@ namespace ClientBlog.Services
                 Mitigation = "Remove debug information, apply least privilege and review web server configuration.",
                 Tags = new() { "Linux", "PrivEsc", "Web" },
                 IsFeatured = false,
-                Order = 6
+                Order = 7
             },
             new CtfCase
             {
@@ -210,7 +229,7 @@ namespace ClientBlog.Services
                 Mitigation = "Modern algorithms, secure key management, context separation and server-side validation.",
                 Tags = new() { "Cryptography", "RCE", "Analysis" },
                 IsFeatured = false,
-                Order = 7
+                Order = 8
             },
             new CtfCase
             {
@@ -227,7 +246,7 @@ namespace ClientBlog.Services
                 Mitigation = "Continuous maintenance, security updates, admin panel access restriction and periodic scanning.",
                 Tags = new() { "CVE", "Enumeration", "RCE" },
                 IsFeatured = false,
-                Order = 8
+                Order = 9
             },
             new CtfCase
             {
@@ -244,7 +263,7 @@ namespace ClientBlog.Services
                 Mitigation = "CVE monitoring, structured patch management and OS hardening.",
                 Tags = new() { "Recent CVE", "PrivEsc", "RCE" },
                 IsFeatured = false,
-                Order = 9
+                Order = 10
             }
         };
 
