@@ -581,6 +581,70 @@
     -webkit-backdrop-filter: blur(8px);
 }
 
+.security-page .sec-ctf-featured--hard {
+    position: relative;
+    border-color: rgba(255, 48, 96, 0.58);
+    background:
+        radial-gradient(circle at 16% 12%, rgba(255, 48, 96, 0.2), transparent 32%),
+        radial-gradient(circle at 86% 18%, rgba(156, 255, 46, 0.12), transparent 34%),
+        rgba(8, 7, 12, 0.88);
+    box-shadow:
+        0 0 0 1px rgba(255, 48, 96, 0.08) inset,
+        0 24px 70px rgba(255, 48, 96, 0.16),
+        0 0 44px rgba(156, 255, 46, 0.08);
+}
+
+.security-page .sec-ctf-featured--hard::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: 1;
+    pointer-events: none;
+    border-radius: inherit;
+    background:
+        linear-gradient(115deg, transparent 0 16%, rgba(255, 48, 96, 0.95) 16.25%, transparent 16.8% 38%, rgba(255, 111, 0, 0.52) 38.2%, transparent 38.8%),
+        linear-gradient(72deg, transparent 0 52%, rgba(255, 48, 96, 0.72) 52.25%, transparent 53% 72%, rgba(156, 255, 46, 0.28) 72.2%, transparent 72.8%),
+        radial-gradient(circle at 78% 20%, rgba(255, 48, 96, 0.2), transparent 30%);
+    mix-blend-mode: screen;
+    opacity: 0;
+    transform: translate3d(-18%, -3%, 0) skewX(-10deg);
+    animation: hardLightning 4.2s steps(1, end) infinite;
+}
+
+.security-page .sec-ctf-featured--hard::after {
+    content: "FIRST HARD";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2;
+    padding: 0.34rem 0.7rem;
+    border: 1px solid rgba(255, 48, 96, 0.6);
+    border-radius: var(--radius-pill);
+    background: rgba(52, 4, 14, 0.78);
+    color: #ff8aa6;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 16px rgba(255, 48, 96, 0.55);
+    animation: hardBadgePulse 2.8s ease-in-out infinite;
+}
+
+.security-page .sec-ctf-featured--hard .sec-term-chrome,
+.security-page .sec-ctf-featured--hard .sec-ctf-featured-body {
+    position: relative;
+    z-index: 2;
+}
+
+.security-page .sec-ctf-featured--hard .sec-ctf-featured-img {
+    background: rgba(23, 0, 8, 0.72);
+    box-shadow:
+        0 0 0 1px rgba(255, 48, 96, 0.48),
+        0 0 30px rgba(255, 48, 96, 0.42),
+        0 0 58px rgba(156, 255, 46, 0.12);
+    animation: hardLogoCharge 3.4s ease-in-out infinite;
+}
+
 .security-page .sec-term-chrome--featured {
     border-color: rgba(40, 216, 238, 0.18);
 }
@@ -755,6 +819,64 @@
     background: rgba(156, 255, 46, 0.08);
     border: 1px solid rgba(156, 255, 46, 0.2);
     color: var(--color-accent);
+}
+
+.security-page .sec-ctf-difficulty--hard {
+    background: rgba(255, 48, 96, 0.16);
+    border: 1px solid rgba(255, 48, 96, 0.42);
+    color: #ff8aa6;
+    box-shadow: 0 0 18px rgba(255, 48, 96, 0.18);
+}
+
+@keyframes hardLightning {
+    0%, 58%, 100% {
+        opacity: 0;
+        transform: translate3d(-18%, -3%, 0) skewX(-10deg);
+    }
+
+    59% {
+        opacity: 0.96;
+        transform: translate3d(-3%, 0, 0) skewX(-8deg);
+    }
+
+    60% {
+        opacity: 0.2;
+        transform: translate3d(5%, 1%, 0) skewX(-4deg);
+    }
+
+    61% {
+        opacity: 0.82;
+        transform: translate3d(10%, -1%, 0) skewX(-12deg);
+    }
+
+    63% {
+        opacity: 0;
+        transform: translate3d(22%, 2%, 0) skewX(-10deg);
+    }
+}
+
+@keyframes hardBadgePulse {
+    0%, 100% {
+        box-shadow: 0 0 12px rgba(255, 48, 96, 0.18);
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 28px rgba(255, 48, 96, 0.48), 0 0 44px rgba(255, 111, 0, 0.24);
+        transform: translate3d(0, -1px, 0);
+    }
+}
+
+@keyframes hardLogoCharge {
+    0%, 100% {
+        filter: saturate(1.05);
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    50% {
+        filter: saturate(1.35) drop-shadow(0 0 12px rgba(255, 48, 96, 0.45));
+        transform: translate3d(0, -1px, 0) scale(1.035);
+    }
 }
 
 .security-page .sec-ctf-card-foot {
@@ -1010,6 +1132,9 @@
     .security-page .sec-chain-node,
     .security-page .sec-chain-label,
     .security-page .sec-glow-layer,
+    .security-page .sec-ctf-featured--hard::before,
+    .security-page .sec-ctf-featured--hard::after,
+    .security-page .sec-ctf-featured--hard .sec-ctf-featured-img,
     [data-stagger-group] > * {
         animation: none;
         transition: none;

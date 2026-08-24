@@ -105,8 +105,8 @@ namespace ClientBlog.Services
                 Learning = "Injection is contextual: filters, parameters and trust boundaries must be reviewed together before release.",
                 Mitigation = "Parameterized queries, context-aware sanitization, strict input validation and a properly configured WAF.",
                 Tags = new() { "Injection", "Web", "Auth bypass" },
-                IsFeatured = true,
-                Order = 1
+                IsFeatured = false,
+                Order = 2
             },
             new CtfCase
             {
@@ -123,7 +123,7 @@ namespace ClientBlog.Services
                 Mitigation = "Least privilege, exposed-service review, credential hygiene and consistent patch management.",
                 Tags = new() { "Enumeration", "Linux", "PrivEsc" },
                 IsFeatured = false,
-                Order = 2
+                Order = 3
             },
             new CtfCase
             {
@@ -142,7 +142,7 @@ namespace ClientBlog.Services
                 Mitigation = "Harden exposed services, reduce information leakage, validate server-side behavior and keep authentication controls consistent.",
                 Tags = new() { "Web", "Analysis", "Enumeration" },
                 IsFeatured = false,
-                Order = 3
+                Order = 4
             },
             new CtfCase
             {
@@ -161,7 +161,7 @@ namespace ClientBlog.Services
                 Mitigation = "Reduce exposed telemetry, harden services, review access controls and monitor suspicious behavior with actionable logging.",
                 Tags = new() { "Monitoring", "Enumeration", "Analysis" },
                 IsFeatured = false,
-                Order = 4
+                Order = 5
             },
             new CtfCase
             {
@@ -169,18 +169,18 @@ namespace ClientBlog.Services
                 Slug = "ironhold",
                 Platform = "TryHackMe",
                 Url = "https://tryhackme.com/room/ironhold",
-                ImagePath = "~/img/ProjectsIMGs/IronHold.svg",
+                ImagePath = "~/img/ProjectsIMGs/IronHold.png",
                 ImageAlt = "IronHold TryHackMe room",
                 ReportPdfPath = "~/reports/ctf/ironhold-report.pdf",
-                Difficulty = "Medium",
-                DifficultyClass = "medium",
+                Difficulty = "Hard",
+                DifficultyClass = "hard",
                 Scenario = "Java/Spring Boot web application with exposed operational surfaces and administrative workflows.",
                 Vector = "Mapped exposed Actuator endpoints, validated mass assignment in the profile flow and analyzed insecure Java deserialization in a controlled lab chain.",
-                Learning = "Framework convenience becomes risk when diagnostics, mutable roles and unsafe import flows are exposed without strong boundaries.",
+                Learning = "First hard room completed: framework convenience becomes risk when diagnostics, mutable roles and unsafe import flows are exposed without strong boundaries.",
                 Mitigation = "Restrict Actuator exposure, bind only allowed profile fields, enforce server-side authorization and reject unsafe serialized input.",
-                Tags = new() { "Java", "Spring Boot", "Actuator", "Mass assignment", "Deserialization" },
-                IsFeatured = false,
-                Order = 5
+                Tags = new() { "First hard", "Java", "Spring Boot", "Actuator", "Mass assignment", "Deserialization" },
+                IsFeatured = true,
+                Order = 1
             },
             new CtfCase
             {
