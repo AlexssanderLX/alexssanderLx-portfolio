@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">IronHold TryHackMe room icon</title>
+  <desc id="desc">A neon prison shield with iron bars and an IH monogram.</desc>
+  <defs>
+    <linearGradient id="ironhold-edge" x1="16" y1="14" x2="112" y2="114" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#35d8ff"/>
+      <stop offset="0.55" stop-color="#8fff1f"/>
+      <stop offset="1" stop-color="#ffcc3d"/>
+    </linearGradient>
+    <radialGradient id="ironhold-glow" cx="50%" cy="45%" r="62%">
+      <stop stop-color="#203328"/>
+      <stop offset="1" stop-color="#050a0f"/>
+    </radialGradient>
+    <filter id="glow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="128" height="128" rx="30" fill="#050a0f"/>
+  <path d="M22 21h84c3.3 0 6 2.7 6 6v40c0 25.5-18.5 44.8-48 52.6C34.5 111.8 16 92.5 16 67V27c0-3.3 2.7-6 6-6Z" fill="url(#ironhold-glow)" stroke="url(#ironhold-edge)" stroke-width="4" filter="url(#glow)"/>
+  <path d="M35 36h58M35 92h58" stroke="#35d8ff" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+  <path d="M40 43v42M52 43v42M64 43v42M76 43v42M88 43v42" stroke="#d8fff4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M40 43v42M52 43v42M64 43v42M76 43v42M88 43v42" stroke="#8fff1f" stroke-width="2" stroke-linecap="round" opacity=".6"/>
+  <path d="M31 99c8.8-9 20-13.5 33.5-13.5S89.2 90 98 99" fill="none" stroke="#8fff1f" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+  <text x="64" y="72" text-anchor="middle" font-family="Cascadia Mono, Consolas, monospace" font-size="28" font-weight="800" fill="#ffffff" letter-spacing="-2">IH</text>
+  <circle cx="97" cy="33" r="4" fill="#8fff1f"/>
+</svg>

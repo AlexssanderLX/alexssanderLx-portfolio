@@ -165,6 +165,25 @@ namespace ClientBlog.Services
             },
             new CtfCase
             {
+                Name = "IronHold",
+                Slug = "ironhold",
+                Platform = "TryHackMe",
+                Url = "https://tryhackme.com/room/ironhold",
+                ImagePath = "~/img/ProjectsIMGs/IronHold.svg",
+                ImageAlt = "IronHold TryHackMe room",
+                ReportPdfPath = "~/reports/ctf/ironhold-report.pdf",
+                Difficulty = "Medium",
+                DifficultyClass = "medium",
+                Scenario = "Java/Spring Boot web application with exposed operational surfaces and administrative workflows.",
+                Vector = "Mapped exposed Actuator endpoints, validated mass assignment in the profile flow and analyzed insecure Java deserialization in a controlled lab chain.",
+                Learning = "Framework convenience becomes risk when diagnostics, mutable roles and unsafe import flows are exposed without strong boundaries.",
+                Mitigation = "Restrict Actuator exposure, bind only allowed profile fields, enforce server-side authorization and reject unsafe serialized input.",
+                Tags = new() { "Java", "Spring Boot", "Actuator", "Mass assignment", "Deserialization" },
+                IsFeatured = false,
+                Order = 5
+            },
+            new CtfCase
+            {
                 Name = "Hammer",
                 Platform = "TryHackMe",
                 Url = "https://tryhackme.com/room/hammer",
@@ -178,7 +197,7 @@ namespace ClientBlog.Services
                 Mitigation = "State verification at each step, token expiration, rate limiting and authentication event logging.",
                 Tags = new() { "Auth bypass", "RCE", "Web" },
                 IsFeatured = false,
-                Order = 5
+                Order = 6
             },
             new CtfCase
             {
@@ -195,7 +214,7 @@ namespace ClientBlog.Services
                 Mitigation = "Remove unnecessary files, handle errors without leaking internals and enforce consistent access control.",
                 Tags = new() { "Enumeration", "Web", "Exploitation" },
                 IsFeatured = false,
-                Order = 6
+                Order = 7
             },
             new CtfCase
             {
@@ -212,7 +231,7 @@ namespace ClientBlog.Services
                 Mitigation = "Remove debug information, apply least privilege and review web server configuration.",
                 Tags = new() { "Linux", "PrivEsc", "Web" },
                 IsFeatured = false,
-                Order = 7
+                Order = 8
             },
             new CtfCase
             {
@@ -229,7 +248,7 @@ namespace ClientBlog.Services
                 Mitigation = "Modern algorithms, secure key management, context separation and server-side validation.",
                 Tags = new() { "Cryptography", "RCE", "Analysis" },
                 IsFeatured = false,
-                Order = 8
+                Order = 9
             },
             new CtfCase
             {
@@ -246,7 +265,7 @@ namespace ClientBlog.Services
                 Mitigation = "Continuous maintenance, security updates, admin panel access restriction and periodic scanning.",
                 Tags = new() { "CVE", "Enumeration", "RCE" },
                 IsFeatured = false,
-                Order = 9
+                Order = 10
             },
             new CtfCase
             {
@@ -263,7 +282,7 @@ namespace ClientBlog.Services
                 Mitigation = "CVE monitoring, structured patch management and OS hardening.",
                 Tags = new() { "Recent CVE", "PrivEsc", "RCE" },
                 IsFeatured = false,
-                Order = 10
+                Order = 11
             }
         };
 
