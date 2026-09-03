@@ -142,9 +142,11 @@ html[data-home-intro-active="true"] {
 
 .home-signal-field {
     position: absolute;
-    inset: 4rem 0 1rem;
+    inset: 4rem 0 1rem auto;
+    width: min(46vw, 680px);
     z-index: 0;
     pointer-events: none;
+    overflow: hidden;
 }
 
 .home-signal-card {
@@ -176,7 +178,7 @@ html[data-home-intro-active="true"] {
 
 .home-signal-card--code {
     top: 4%;
-    left: 42%;
+    left: 8%;
 }
 
 .home-signal-card--security {
@@ -186,7 +188,7 @@ html[data-home-intro-active="true"] {
 }
 
 .home-signal-card--music {
-    left: 4%;
+    left: 2%;
     bottom: 12%;
     animation-delay: -4s;
 }
@@ -199,7 +201,7 @@ html[data-home-intro-active="true"] {
 
 .home-signal-card--ai {
     top: 41%;
-    left: 34%;
+    left: 18%;
     animation-delay: -1.4s;
 }
 
@@ -210,13 +212,13 @@ html[data-home-intro-active="true"] {
 }
 
 .home-signal-card--cipher {
-    left: 13%;
+    left: 6%;
     top: 25%;
     animation-delay: -5.2s;
 }
 
 .home-signal-card--chord {
-    right: 35%;
+    right: 28%;
     top: 7%;
     animation-delay: -7.4s;
 }
@@ -1164,6 +1166,13 @@ html[data-home-motion-ready="true"] .home-identity[data-reveal] {
     animation: none;
 }
 
+@media (max-width: 1280px) {
+    .home-signal-field,
+    .home-signal-card {
+        display: none;
+    }
+}
+
 @media (max-width: 1060px) {
     .home-hero,
     .home-chapter__grid,
@@ -1181,11 +1190,6 @@ html[data-home-motion-ready="true"] .home-identity[data-reveal] {
     .home-dual,
     .home-area-board {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .home-signal-field,
-    .home-signal-card {
-        display: none;
     }
 
     .home-sticky-copy {

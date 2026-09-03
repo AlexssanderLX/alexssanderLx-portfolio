@@ -1,38 +1,52 @@
 @{
     ViewData["Title"] = "Contact";
+    ViewData["Description"] = "Contact Alexssander LX for development, automation, applied security, music and collaboration opportunities.";
 }
 
-<section class="contact">
-    <header class="contact-hero">
-        <p class="kicker">CONTACT</p>
-        <h1 class="title">Let&apos;s talk about opportunities, projects, or collaboration.</h1>
+<section class="contact contact-lab" aria-labelledby="contact-heading">
+    <div class="contact-shader" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <header class="contact-hero" data-reveal>
+        <div class="contact-console">
+            <span class="contact-console__dot"></span>
+            <span>root@portfolio:~# open channels</span>
+        </div>
+
+        <p class="kicker">CONTACT NODE</p>
+        <h1 class="title" id="contact-heading">Clear channels for serious conversations.</h1>
         <p class="subtitle">
-            If you want to talk about backend work, Python automation, security, real products, or a junior role,
-            these are the fastest ways to reach me.
+            Development, automation, applied security, music, collaboration and career opportunities.
+            Each channel below has a defined signal so visitors can choose the right path quickly.
         </p>
 
-        <div class="chips">
+        <div class="chips" aria-label="Contact topics">
             <span class="chip">Sao Paulo</span>
-            <span class="chip">C# / .NET and Python</span>
-            <span class="chip">Automation and ML fundamentals</span>
-            <span class="chip">Projects and collaboration</span>
+            <span class="chip">C# / ASP.NET Core</span>
+            <span class="chip">Python automation</span>
+            <span class="chip">Security practice</span>
+            <span class="chip">Music and composition</span>
         </div>
     </header>
 
-    <div class="grid">
-        <article class="card card-hover">
+    <div class="contact-grid" data-stagger-group>
+        <article class="contact-card contact-card--primary" data-reveal data-depth-panel>
+            <div class="contact-card__scan" aria-hidden="true"></div>
             <div class="card-top">
-                <h3>Email</h3>
+                <span class="contact-icon" aria-hidden="true">@@</span>
                 <span class="hint">Primary</span>
             </div>
 
+            <h2>Email</h2>
             <p class="value">
                 <a class="link" href="mailto:alexssander.f.almeida2006@gmail.com">
                     alexssander.f.almeida2006@gmail.com
                 </a>
             </p>
-
-            <p class="desc">Best for proposals, recruiting, interviews, or more formal conversations.</p>
+            <p class="desc">Best channel for proposals, recruiting, interviews and formal technical conversations.</p>
 
             <div class="actions">
                 <a class="btn btn-primary" href="mailto:alexssander.f.almeida2006@gmail.com">Send email</a>
@@ -40,70 +54,99 @@
             </div>
         </article>
 
-        <article class="card card-hover">
+        <article class="contact-card contact-card--linkedin" data-reveal data-depth-panel>
+            <div class="contact-card__scan" aria-hidden="true"></div>
             <div class="card-top">
-                <h3>LinkedIn</h3>
+                <span class="contact-icon" aria-hidden="true">in</span>
                 <span class="hint">Professional</span>
             </div>
 
+            <h2>LinkedIn</h2>
             <p class="value">
                 <a class="link" href="https://linkedin.com/in/alexssander-ferreira-de-almeida-4a3841284" target="_blank" rel="noopener noreferrer">
                     linkedin.com/in/alexssander-ferreira-de-almeida-4a3841284
                 </a>
             </p>
-
-            <p class="desc">Professional profile, career context, and updates on my technical path.</p>
+            <p class="desc">Career context, professional updates and a direct view of the technical journey.</p>
 
             <div class="actions">
-                <a class="btn btn-primary" href="https://linkedin.com/in/alexssander-ferreira-de-almeida-4a3841284" target="_blank" rel="noopener noreferrer">
-                    Open LinkedIn
-                </a>
+                <a class="btn btn-primary" href="https://linkedin.com/in/alexssander-ferreira-de-almeida-4a3841284" target="_blank" rel="noopener noreferrer">Open LinkedIn</a>
                 <button class="btn copy-btn" type="button" data-copy-text="https://linkedin.com/in/alexssander-ferreira-de-almeida-4a3841284">Copy</button>
             </div>
         </article>
 
-        <article class="card card-hover">
+        <article class="contact-card contact-card--github" data-reveal data-depth-panel>
+            <div class="contact-card__scan" aria-hidden="true"></div>
             <div class="card-top">
-                <h3>GitHub</h3>
+                <span class="contact-icon" aria-hidden="true">git</span>
                 <span class="hint">Code</span>
             </div>
 
+            <h2>GitHub</h2>
             <p class="value">
                 <a class="link" href="https://github.com/AlexssanderLX" target="_blank" rel="noopener noreferrer">
                     github.com/AlexssanderLX
                 </a>
             </p>
-
-            <p class="desc">Repositories, commits, portfolio projects, and the practical evolution of my work.</p>
+            <p class="desc">Repositories, project evolution, public code and the practical trail behind the portfolio.</p>
 
             <div class="actions">
-                <a class="btn btn-primary" href="https://github.com/AlexssanderLX" target="_blank" rel="noopener noreferrer">
-                    Open GitHub
-                </a>
+                <a class="btn btn-primary" href="https://github.com/AlexssanderLX" target="_blank" rel="noopener noreferrer">Open GitHub</a>
                 <button class="btn copy-btn" type="button" data-copy-text="https://github.com/AlexssanderLX">Copy</button>
             </div>
         </article>
 
-        <article class="card card-hover">
+        <article class="contact-card contact-card--instagram" data-reveal data-depth-panel>
+            <div class="contact-card__scan" aria-hidden="true"></div>
             <div class="card-top">
-                <h3>Phone / WhatsApp</h3>
-                <span class="hint">Developer</span>
+                <span class="contact-icon" aria-hidden="true">ig</span>
+                <span class="hint">Social</span>
             </div>
 
+            <h2>Instagram</h2>
+            <p class="value">
+                <a class="link" href="https://www.instagram.com/lxssn_99/" target="_blank" rel="noopener noreferrer">
+                    instagram.com/lxssn_99
+                </a>
+            </p>
+            <p class="desc">A lighter channel for updates, creative process and informal connection.</p>
+
+            <div class="actions">
+                <a class="btn btn-primary" href="https://www.instagram.com/lxssn_99/" target="_blank" rel="noopener noreferrer">Open Instagram</a>
+                <button class="btn copy-btn" type="button" data-copy-text="https://www.instagram.com/lxssn_99/">Copy</button>
+            </div>
+        </article>
+
+        <article class="contact-card contact-card--phone" data-reveal data-depth-panel>
+            <div class="contact-card__scan" aria-hidden="true"></div>
+            <div class="card-top">
+                <span class="contact-icon" aria-hidden="true">wa</span>
+                <span class="hint">Direct</span>
+            </div>
+
+            <h2>Phone / WhatsApp</h2>
             <p class="value">
                 <a class="link" href="tel:+5511977936534">
                     +55 11 97793-6534
                 </a>
             </p>
-
-            <p class="desc">Direct contact for quick alignment, development opportunities, and project conversations.</p>
+            <p class="desc">Fast alignment for project conversations, opportunities and practical next steps.</p>
 
             <div class="actions">
-                <a class="btn btn-primary" href="https://wa.me/5511977936534" target="_blank" rel="noopener noreferrer">
-                    Open WhatsApp
-                </a>
+                <a class="btn btn-primary" href="https://wa.me/5511977936534" target="_blank" rel="noopener noreferrer">Open WhatsApp</a>
                 <button class="btn copy-btn" type="button" data-copy-text="+55 11 97793-6534">Copy</button>
             </div>
         </article>
+
+        <aside class="contact-terminal" data-reveal data-depth-panel aria-label="Response profile">
+            <span class="contact-terminal__label">signal.profile</span>
+            <code>
+                response = {<br />
+                &nbsp;&nbsp;focus: "clear scope",<br />
+                &nbsp;&nbsp;mode: "build / review / automate",<br />
+                &nbsp;&nbsp;timezone: "America/Sao_Paulo"<br />
+                }
+            </code>
+        </aside>
     </div>
 </section>

@@ -177,9 +177,11 @@
 
 .experience-orbitals {
     position: absolute;
-    inset: 0;
+    inset: 0 max(1rem, calc((100vw - 1180px) / 2)) 0 auto;
+    width: min(44vw, 620px);
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
+    overflow: hidden;
 }
 
 .experience-signal-card {
@@ -205,9 +207,9 @@
     font-size: .9rem;
 }
 
-.signal-card--one { left: 4%; top: 16%; }
-.signal-card--two { right: 8%; top: 20%; animation-delay: -3s; }
-.signal-card--three { right: 16%; bottom: 16%; animation-delay: -6s; }
+.signal-card--one { left: 4%; top: 10%; }
+.signal-card--two { right: 4%; top: 18%; animation-delay: -3s; }
+.signal-card--three { right: 14%; bottom: 10%; animation-delay: -6s; }
 
 .experience-score-card {
     display: grid;
@@ -394,6 +396,13 @@
 
 @keyframes binaryRain {
     to { background-position: 0 420px, 0 420px; }
+}
+
+@media (max-width: 1320px) {
+    .experience-orbitals,
+    .experience-signal-card {
+        display: none;
+    }
 }
 
 @media (max-width: 1120px) {
