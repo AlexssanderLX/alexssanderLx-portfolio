@@ -15,6 +15,8 @@ namespace ClientBlog.Services
                 Description = "ZeroPaper is a modular operations platform for small businesses. It helps teams sell through links, QR Code and WhatsApp, organize orders, customers, payments and daily cash flow in one clear panel.",
                 ImagePath = "~/img/ProjectsIMGs/zeropaper-logo-512.png",
                 ImageAlt = "ZeroPaper logo",
+                PreviewImagePath = "~/img/ProjectScreens/zeropaper-preview.png",
+                PreviewImageAlt = "ZeroPaper live homepage preview",
                 Tags = new() { "Modular platform", "QR Code", "WhatsApp", "Orders", "Cash flow", "ASP.NET Core" },
                 GitHubUrl = "https://github.com/AlexssanderLX/ZeroPaper",
                 ProjectUrl = "https://zeropaperflow.com.br",
@@ -37,7 +39,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 2
+                Order = 3
             },
             new ProjectItem
             {
@@ -53,7 +55,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 3
+                Order = 5
             },
             new ProjectItem
             {
@@ -64,6 +66,8 @@ namespace ClientBlog.Services
                 Description = "YourRhythm Studio helps teachers and music schools organize students, lessons, repertoire and weekly missions. The product keeps progress visible through XP, streaks, feedback and a virtual piano experience.",
                 ImagePath = "~/img/ProjectsIMGs/YourRhythmStudio-Logo.png",
                 ImageAlt = "YourRhythm Studio logo",
+                PreviewImagePath = "~/img/ProjectScreens/yourrhythm-preview.png",
+                PreviewImageAlt = "YourRhythm Studio live homepage preview",
                 Tags = new() { "Music education", "Students", "Lessons", "Missions", "XP" },
                 ProjectUrl = "https://yourrhythmstudio.com.br",
                 IsFeatured = false,
@@ -73,19 +77,73 @@ namespace ClientBlog.Services
             },
             new ProjectItem
             {
-                Name = "Job Radar",
-                Slug = "job-radar",
-                Rank = "In development",
-                Summary = "Job monitoring - organization and automation",
-                Description = "",
+                Name = "Lead Finder",
+                Slug = "lead-finder",
+                Rank = "Automation product",
+                Summary = "Lead discovery - search, qualification and outreach workflow signals",
+                Description = "Lead Finder automates prospect discovery and keeps qualification signals organized so outreach work starts from clearer data instead of scattered manual searches.",
                 ImagePath = null,
                 ImageAlt = null,
-                Tags = new() { "Automation", "Jobs", "In development" },
+                Tags = new() { "Automation", "Leads", "Data flow", "Python" },
                 GitHubUrl = null,
                 IsFeatured = false,
-                ContentConfirmed = false,
-                Status = "coming-soon",
-                Order = 5
+                ContentConfirmed = true,
+                Status = "active",
+                Order = 8
+            },
+            new ProjectItem
+            {
+                Name = "Nitida Diagnostic Design",
+                Slug = "nitida-diagnostic-design",
+                Rank = "Design system",
+                Summary = "Healthcare diagnostic landing page - precision, clarity and appointment flow",
+                Description = "NITIDA is a Vercel-hosted diagnostic brand experience for healthcare exams, built around clear scheduling, result access, traceability and a precise visual system.",
+                ImagePath = null,
+                ImageAlt = null,
+                PreviewImagePath = "~/img/ProjectScreens/nitida-preview.png",
+                PreviewImageAlt = "NITIDA homepage preview",
+                Tags = new() { "Vercel", "Healthcare", "Landing page", "Frontend" },
+                ProjectUrl = "https://nitida-diagnostico-design-h09mh6pw2-lxssn.vercel.app",
+                IsFeatured = false,
+                ContentConfirmed = true,
+                Status = "active",
+                Order = 2
+            },
+            new ProjectItem
+            {
+                Name = "AMBAR",
+                Slug = "ambar",
+                Rank = "Restaurant experience",
+                Summary = "Restaurant landing page - fire cuisine, menu discovery and reservation flow",
+                Description = "AMBAR is a Vercel-hosted restaurant experience for a fire-based kitchen, combining immersive visual direction, menu discovery and reservation calls to action.",
+                ImagePath = null,
+                ImageAlt = null,
+                PreviewImagePath = "~/img/ProjectScreens/ambar-preview.png",
+                PreviewImageAlt = "AMBAR homepage preview",
+                Tags = new() { "Vercel", "Restaurant", "Visual design", "Frontend" },
+                ProjectUrl = "https://mbar-dshrodqaz-lxssn.vercel.app",
+                IsFeatured = false,
+                ContentConfirmed = true,
+                Status = "active",
+                Order = 6
+            },
+            new ProjectItem
+            {
+                Name = "SOLAR Real Estate",
+                Slug = "solar-real-estate",
+                Rank = "Luxury real estate",
+                Summary = "Real estate landing page - curated listings, filters and consultation flow",
+                Description = "SOLAR is a Vercel-hosted real estate interface for high-end property curation, combining listing discovery, premium positioning and a direct visit-booking flow.",
+                ImagePath = null,
+                ImageAlt = null,
+                PreviewImagePath = "~/img/ProjectScreens/solar-preview.png",
+                PreviewImageAlt = "SOLAR real estate homepage preview",
+                Tags = new() { "Vercel", "Real estate", "Landing page", "Frontend" },
+                ProjectUrl = "https://solar-imobiliaria-kwkvcfoly-lxssn.vercel.app",
+                IsFeatured = false,
+                ContentConfirmed = true,
+                Status = "active",
+                Order = 7
             }
         };
 

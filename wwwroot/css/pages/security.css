@@ -1142,3 +1142,431 @@
         transform: none;
     }
 }
+
+/* Clean CTF lab */
+.security-page.security-lab-page {
+    min-height: 100svh;
+    overflow-x: hidden;
+}
+
+.security-page .sec-lab {
+    position: relative;
+    padding-block: clamp(7.5rem, 12vw, 11rem) clamp(5rem, 9vw, 8rem);
+    isolation: isolate;
+}
+
+.security-page .sec-lab::before,
+.security-page .sec-lab::after {
+    content: "";
+    position: absolute;
+    inset: auto;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.security-page .sec-lab::before {
+    width: min(58rem, 72vw);
+    height: min(58rem, 72vw);
+    right: -18rem;
+    top: 4rem;
+    border-radius: 999px;
+    background:
+        radial-gradient(circle at 38% 42%, rgba(151, 255, 50, .2), transparent 30%),
+        conic-gradient(from 140deg, rgba(36, 217, 232, .18), rgba(151, 255, 50, .18), rgba(255, 43, 80, .08), rgba(36, 217, 232, .18));
+    filter: blur(10px);
+    opacity: .72;
+}
+
+.security-page .sec-lab::after {
+    width: 100%;
+    height: 26rem;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent, rgba(0, 19, 17, .72));
+}
+
+.security-page .sec-lab-head {
+    max-width: 54rem;
+    margin-bottom: clamp(3rem, 7vw, 6rem);
+}
+
+.security-page .sec-lab-head .ui-description {
+    max-width: 42rem;
+}
+
+.security-page .sec-lab-orbit {
+    --orbit-lift: clamp(2rem, 6vw, 5rem);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.35rem, 3.5vw, 3rem);
+    align-items: start;
+}
+
+.security-page .sec-lab-card {
+    position: relative;
+    min-height: clamp(15rem, 20vw, 18rem);
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: clamp(1rem, 2.5vw, 1.6rem);
+    align-items: center;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border: 1px solid rgba(36, 217, 232, .28);
+    border-radius: clamp(1.4rem, 3vw, 2rem);
+    background:
+        linear-gradient(135deg, rgba(2, 16, 20, .92), rgba(7, 25, 18, .76)),
+        radial-gradient(circle at 18% 10%, rgba(36, 217, 232, .16), transparent 38%);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .34);
+    overflow: hidden;
+    transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+    will-change: auto;
+}
+
+.security-page .sec-lab-orbit > .sec-lab-card {
+    animation: none !important;
+}
+
+.security-page .sec-lab-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(120deg, transparent 0 35%, rgba(255, 255, 255, .09), transparent 62%),
+        radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(151, 255, 50, .17), transparent 30%);
+    opacity: .55;
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+.security-page .sec-lab-card--right {
+    margin-top: var(--orbit-lift);
+}
+
+.security-page .sec-lab-card:nth-of-type(3n) {
+}
+
+.security-page .sec-lab-card:nth-of-type(4n) {
+}
+
+.security-page .sec-lab-card:hover,
+.security-page .sec-lab-card:focus-within {
+    border-color: rgba(151, 255, 50, .72);
+    box-shadow: 0 34px 95px rgba(21, 255, 174, .16), 0 0 0 1px rgba(151, 255, 50, .12);
+    transform: translateY(-5px);
+}
+
+.security-page .sec-lab-node {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2.6rem;
+    height: 2.6rem;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, .56);
+    background: radial-gradient(circle at 40% 35%, #ffffff, #abb6c1 48%, #27313b 72%);
+    color: #071012;
+    font: 900 .82rem/1 var(--font-mono);
+    box-shadow: 0 0 0 .18rem rgba(2, 16, 20, .78), 0 0 22px rgba(255, 255, 255, .2);
+    z-index: 3;
+}
+
+.security-page .sec-lab-media {
+    width: clamp(5.4rem, 9vw, 7rem);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    border-radius: 1.35rem;
+    border: 1px solid rgba(36, 217, 232, .38);
+    background: rgba(0, 8, 12, .78);
+    box-shadow: inset 0 0 24px rgba(36, 217, 232, .1), 0 18px 42px rgba(0, 0, 0, .3);
+    overflow: hidden;
+    z-index: 2;
+}
+
+.security-page .sec-lab-media img {
+    width: 78%;
+    height: 78%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, .42));
+}
+
+.security-page .sec-lab-media span {
+    color: var(--color-accent);
+    font: 900 1.35rem/1 var(--font-mono);
+}
+
+.security-page .sec-lab-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: .8rem;
+    min-width: 0;
+}
+
+.security-page .sec-lab-topline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .65rem;
+    align-items: center;
+    color: var(--color-cyan);
+    font: 900 .72rem/1 var(--font-mono);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.security-page .sec-lab-difficulty {
+    color: var(--color-bg);
+    border-radius: 999px;
+    padding: .44rem .62rem;
+    background: var(--color-accent);
+}
+
+.security-page .sec-lab-difficulty--medium {
+    background: #24d9e8;
+}
+
+.security-page .sec-lab-difficulty--easy {
+    background: #6cf5aa;
+}
+
+.security-page .sec-lab-difficulty--hard {
+    color: #fff;
+    background: linear-gradient(135deg, #ff214f, #7f001b);
+    box-shadow: 0 0 24px rgba(255, 33, 79, .42);
+}
+
+.security-page .sec-lab-name {
+    margin: 0;
+    color: var(--color-text);
+    font: 900 clamp(1.45rem, 3.1vw, 2.55rem)/.96 var(--font-display);
+    letter-spacing: -.04em;
+}
+
+.security-page .sec-lab-copy {
+    margin: 0;
+    max-width: 40rem;
+    color: var(--color-muted);
+    font-size: clamp(.95rem, 1.25vw, 1.08rem);
+    line-height: 1.55;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.security-page .sec-lab-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin: .2rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.security-page .sec-lab-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .65rem;
+    margin-top: .25rem;
+}
+
+.security-page .sec-lab-link {
+    display: inline-flex;
+    min-height: 2.55rem;
+    align-items: center;
+    justify-content: center;
+    padding: .65rem 1rem;
+    border: 1px solid rgba(36, 217, 232, .32);
+    border-radius: .8rem;
+    color: var(--color-text);
+    background: rgba(0, 10, 14, .5);
+    font: 900 .86rem/1 var(--font-display);
+    text-decoration: none;
+    transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.security-page .sec-lab-link--primary {
+    color: var(--color-bg);
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.security-page .sec-lab-link:hover,
+.security-page .sec-lab-link:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(151, 255, 50, .75);
+}
+
+.security-page .sec-lab-card--featured {
+    grid-column: 1 / -1;
+    max-width: 58rem;
+    justify-self: center;
+}
+
+.security-page .sec-lab-card--hard {
+    border-color: rgba(255, 33, 79, .72);
+    background:
+        radial-gradient(circle at 68% 22%, rgba(255, 33, 79, .24), transparent 34%),
+        linear-gradient(135deg, rgba(19, 2, 10, .96), rgba(8, 18, 18, .9) 58%, rgba(41, 0, 13, .84));
+    box-shadow: 0 34px 110px rgba(255, 33, 79, .18), 0 0 0 1px rgba(255, 33, 79, .16);
+}
+
+.security-page .sec-lab-card--hard .sec-lab-media {
+    border-color: rgba(255, 33, 79, .6);
+    box-shadow: inset 0 0 28px rgba(255, 33, 79, .16), 0 0 38px rgba(255, 33, 79, .2);
+}
+
+.security-page .sec-lab-card--hard::after {
+    content: "";
+    position: absolute;
+    inset: -18%;
+    background:
+        linear-gradient(115deg, transparent 0 43%, rgba(255, 38, 70, .72) 44%, transparent 46% 58%, rgba(255, 38, 70, .5) 59%, transparent 61%),
+        linear-gradient(68deg, transparent 0 54%, rgba(255, 38, 70, .64) 55%, transparent 57%);
+    opacity: .1;
+    filter: blur(.4px);
+    transform: translateX(-16%) rotate(-8deg);
+    animation: secHardLightning 6.8s steps(2, end) infinite;
+    pointer-events: none;
+}
+
+.security-page .sec-lab-bolt {
+    position: absolute;
+    width: 7rem;
+    height: .22rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, #ff244d, #ff88a0, transparent);
+    box-shadow: 0 0 18px rgba(255, 33, 79, .52);
+    opacity: 0;
+    z-index: 4;
+    transform: rotate(-28deg);
+    animation: secBoltStrike 7.4s linear infinite;
+}
+
+.security-page .sec-lab-bolt--one {
+    top: 22%;
+    right: 9%;
+}
+
+.security-page .sec-lab-bolt--two {
+    top: 52%;
+    left: 7%;
+    animation-delay: -1.2s;
+}
+
+.security-page .sec-lab-bolt--three {
+    right: 22%;
+    bottom: 18%;
+    animation-delay: -2.15s;
+}
+
+@keyframes secLabFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes secLabFloatReverse {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes secHardLightning {
+    0%, 8%, 100% {
+        opacity: .04;
+        transform: translateX(-20%) rotate(-8deg);
+    }
+    10%, 13% {
+        opacity: .22;
+        transform: translateX(6%) rotate(-8deg);
+    }
+    15%, 18% {
+        opacity: .08;
+        transform: translateX(18%) rotate(-8deg);
+    }
+}
+
+@keyframes secBoltStrike {
+    0%, 84%, 100% {
+        opacity: 0;
+        transform: translateX(-18px) rotate(-28deg) scaleX(.62);
+    }
+    86%, 88% {
+        opacity: .42;
+        transform: translateX(10px) rotate(-28deg) scaleX(.92);
+    }
+}
+
+@media (max-width: 900px) {
+    .security-page .sec-lab {
+        padding-block: 6.5rem 4rem;
+    }
+
+    .security-page .sec-lab-orbit {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .security-page .sec-lab-card,
+    .security-page .sec-lab-card--featured,
+    .security-page .sec-lab-card--right {
+        max-width: none;
+        margin-top: 0;
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 620px) {
+    .security-page .sec-lab-head {
+        margin-bottom: 2rem;
+    }
+
+    .security-page .sec-lab-card {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        padding: 1rem;
+    }
+
+    .security-page .sec-lab-media {
+        width: 4.75rem;
+        border-radius: 1rem;
+    }
+
+    .security-page .sec-lab-node {
+        width: 2.15rem;
+        height: 2.15rem;
+        font-size: .72rem;
+    }
+
+    .security-page .sec-lab-copy {
+        -webkit-line-clamp: 3;
+    }
+}
+
+@media (max-width: 480px) {
+    .security-page .sec-lab-card {
+        animation: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .security-page .sec-lab-card,
+    .security-page .sec-lab-card--hard::after,
+    .security-page .sec-lab-bolt {
+        animation: none !important;
+    }
+}
+
+html.motion-lite .security-page .sec-lab-card,
+html.motion-lite .security-page .sec-lab-card--hard::after,
+html.motion-lite .security-page .sec-lab-bolt {
+    animation: none !important;
+}

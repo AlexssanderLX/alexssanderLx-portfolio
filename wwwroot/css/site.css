@@ -338,11 +338,12 @@ img {
     position: relative;
     z-index: 1;
     flex: 1;
-    padding: 28px 16px 44px;
+    width: 100%;
+    padding: 0 0 44px;
 }
 
 .inner-frame {
-    width: min(var(--container), 100%);
+    width: 100%;
     margin: 0 auto;
     padding: 0;
     background: transparent;

@@ -147,6 +147,7 @@ html[data-home-intro-active="true"] {
     z-index: 0;
     pointer-events: none;
     overflow: hidden;
+    display: none;
 }
 
 .home-signal-card {
@@ -225,7 +226,7 @@ html[data-home-intro-active="true"] {
 
 .home-hero__copy {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     display: grid;
     gap: 1.35rem;
     max-width: 780px;
@@ -1166,7 +1167,7 @@ html[data-home-motion-ready="true"] .home-identity[data-reveal] {
     animation: none;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1500px) {
     .home-signal-field,
     .home-signal-card {
         display: none;

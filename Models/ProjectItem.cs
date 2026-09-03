@@ -9,6 +9,8 @@ namespace ClientBlog.Models
         public string Description { get; set; } = "";
         public string? ImagePath { get; set; }
         public string? ImageAlt { get; set; }
+        public string? PreviewImagePath { get; set; }
+        public string? PreviewImageAlt { get; set; }
         public List<string> Tags { get; set; } = new();
         public string? GitHubUrl { get; set; }
         public string? ProjectUrl { get; set; }

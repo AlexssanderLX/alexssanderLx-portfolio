@@ -34,7 +34,9 @@
         return;
     }
 
-    const depthTargets = page.querySelectorAll("[data-depth-panel], .ui-card, .sec-vuln-panel, .sec-ctf-featured, .music-studio-inner");
+    const depthTargets = Array.from(page.querySelectorAll("[data-depth-panel], .ui-card, .sec-vuln-panel, .sec-ctf-featured, .music-studio-inner"))
+        .filter((card) => !card.matches("[data-depth-static], .sec-lab-card"));
+
     depthTargets.forEach((card) => {
         card.addEventListener("pointermove", (event) => {
             const rect = card.getBoundingClientRect();

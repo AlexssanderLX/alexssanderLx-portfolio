@@ -30,6 +30,17 @@
     background: rgba(2, 5, 6, 0.78);
 }
 
+.header-fixed.header-tech {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    width: 100%;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
 .header-inner {
     width: min(var(--container-main), calc(100% - clamp(1rem, 5vw, 3rem)));
     margin-inline: auto;

@@ -93,8 +93,19 @@
 }
 
 /* ── Projects ── */
+.development-page {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 .development-page .dev-projects {
     padding-block: clamp(4rem, 9vw, 7rem);
+    overflow: hidden;
+}
+
+.development-page [data-reveal] {
+    opacity: 1;
+    transform: none;
 }
 
 .development-page .dev-projects-grid {
@@ -199,6 +210,208 @@
 .development-page .dev-project-link--primary {
     color: var(--color-accent);
     border-color: rgba(156, 255, 46, 0.32);
+}
+
+.development-page .dev-route-head {
+    margin-bottom: clamp(1.75rem, 5vw, 3rem);
+}
+
+.development-page .dev-route-map {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-auto-rows: minmax(12rem, auto);
+    align-items: start;
+    gap: clamp(2.2rem, 5vw, 4.5rem) clamp(4rem, 9vw, 8rem);
+    min-height: 0;
+    padding: clamp(2rem, 4vw, 3rem) 0 clamp(1.25rem, 3vw, 2rem);
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+    perspective: 1100px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.development-page .dev-route-card {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: clamp(0.85rem, 2vw, 1.15rem);
+    align-items: center;
+    min-height: clamp(13.5rem, 18vw, 16.25rem);
+    padding: clamp(1.35rem, 2.6vw, 1.7rem) clamp(1rem, 2.4vw, 1.35rem) clamp(1rem, 2.4vw, 1.35rem);
+    border-color: rgba(40, 216, 238, 0.2);
+    background:
+        radial-gradient(circle at var(--mx, 70%) var(--my, 20%), rgba(156, 255, 46, 0.14), transparent 11rem),
+        linear-gradient(145deg, rgba(4, 15, 23, 0.9), rgba(3, 12, 14, 0.76));
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    animation: devRouteFloat 7s ease-in-out infinite;
+}
+
+.development-page .dev-route-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+        linear-gradient(130deg, rgba(40, 216, 238, 0.08), transparent 36%),
+        radial-gradient(circle at var(--mx, 70%) var(--my, 20%), rgba(156, 255, 46, 0.16), transparent 12rem);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.development-page .dev-route-card--with-preview {
+    border-color: rgba(156, 255, 46, 0.36);
+    background: rgba(3, 12, 14, 0.42);
+    box-shadow: 0 26px 86px rgba(0, 0, 0, 0.44), 0 0 54px rgba(40, 216, 238, 0.1);
+}
+
+.development-page .dev-route-preview {
+    position: absolute;
+    inset: 0 auto 0 0;
+    z-index: 0;
+    width: calc(100% + 32px);
+    max-width: none;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    opacity: 1;
+    filter: saturate(1.18) contrast(1.08) brightness(1);
+    transform: scale(1.02);
+    pointer-events: none;
+}
+
+.development-page .dev-route-preview-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+        linear-gradient(90deg, rgba(2, 8, 12, 0.34) 0%, rgba(2, 8, 12, 0.18) 42%, rgba(2, 8, 12, 0.04) 100%),
+        radial-gradient(circle at 82% 20%, rgba(255, 255, 255, 0.08), transparent 11rem),
+        linear-gradient(180deg, rgba(2, 8, 12, 0.04), rgba(2, 8, 12, 0.32));
+    pointer-events: none;
+}
+
+.development-page .dev-route-card--with-preview .dev-route-content,
+.development-page .dev-route-card--with-preview .dev-route-media {
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.72);
+}
+
+.development-page .dev-route-card--with-preview .dev-route-content {
+    max-width: min(23rem, 68%);
+    padding: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    background: linear-gradient(145deg, rgba(2, 8, 12, 0.86), rgba(2, 8, 12, 0.58));
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.38);
+}
+
+.development-page .dev-route-card:nth-of-type(2n) {
+    animation-delay: -2s;
+}
+
+.development-page .dev-route-card:nth-of-type(3n) {
+    animation-delay: -4s;
+}
+
+.development-page .dev-route-card--right {
+    margin-top: clamp(3rem, 8vw, 7rem);
+}
+
+.development-page .dev-route-card--pending {
+    border-style: dashed;
+    border-color: rgba(250, 204, 21, 0.34);
+    opacity: 0.82;
+}
+
+.development-page .dev-route-card--featured {
+    border-color: rgba(156, 255, 46, 0.44);
+    box-shadow: 0 26px 80px rgba(0, 0, 0, 0.36), 0 0 46px rgba(156, 255, 46, 0.11);
+}
+
+.development-page .dev-route-card--featured.dev-route-card--with-preview {
+    min-height: clamp(14.5rem, 21vw, 18rem);
+}
+
+.development-page .dev-route-node {
+    position: absolute;
+    top: 0.8rem;
+    left: clamp(1rem, 2vw, 1.35rem);
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 2.45rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 0.22rem solid rgba(255, 255, 255, 0.78);
+    background: radial-gradient(circle at 35% 30%, #f8fafc, #6b7280);
+    color: #080d12;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 950;
+    box-shadow: 0 0 0 0.25rem rgba(5, 13, 19, 0.9), 0 0 26px rgba(156, 255, 46, 0.34);
+}
+
+.development-page .dev-route-media {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: clamp(4.6rem, 8vw, 6rem);
+    aspect-ratio: 1;
+    border: 1px solid rgba(40, 216, 238, 0.24);
+    border-radius: 1.35rem;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 0 30px rgba(40, 216, 238, 0.08);
+}
+
+.development-page .dev-route-media img {
+    width: 76%;
+    height: 76%;
+    object-fit: contain;
+    border-radius: 1rem;
+}
+
+.development-page .dev-route-media span {
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 950;
+}
+
+.development-page .dev-route-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 0.65rem;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.development-page .dev-route-card .dev-project-summary {
+    display: -webkit-box;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.development-page .dev-route-card .dev-project-links {
+    margin-top: 0;
+}
+
+.development-page .dev-route-pending {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 /* Coming soon card */
@@ -438,6 +651,16 @@
     line-height: 1.6;
 }
 
+@keyframes devRouteFloat {
+    0%, 100% {
+        transform: translate3d(0, 0, 0) rotateX(0deg);
+    }
+
+    50% {
+        transform: translate3d(0, -8px, 0) rotateX(1.5deg);
+    }
+}
+
 /* ── Final CTA ── */
 .development-page .dev-cta {
     padding-block: clamp(5rem, 10vw, 8rem);
@@ -480,6 +703,18 @@
         width: 64px;
         height: 64px;
     }
+
+    .development-page .dev-route-map {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        gap: 1rem;
+    }
+
+    .development-page .dev-route-card,
+    .development-page .dev-route-card--right {
+        margin-top: 0;
+    }
+
 }
 
 @media (max-width: 700px) {
@@ -522,11 +757,51 @@
     .development-page .dev-security-grid {
         grid-template-columns: 1fr;
     }
+
+    .development-page .dev-route-map {
+        padding: 0;
+        border-radius: 1.25rem;
+    }
+
+    .development-page .dev-route-card {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        padding: 1.35rem 1rem 1rem;
+    }
+
+    .development-page .dev-route-card--with-preview .dev-route-content {
+        max-width: 100%;
+    }
+
+    .development-page .dev-project-tags {
+        gap: 0.45rem;
+        max-width: 100%;
+    }
+
+    .development-page .dev-project-tags .ui-badge {
+        max-width: 100%;
+        white-space: normal;
+    }
+
+    .development-page .dev-route-media {
+        width: 4.25rem;
+    }
+
+    .development-page .dev-route-node {
+        left: auto;
+        right: 1rem;
+    }
+
+    .development-page .dev-route-pending {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
-    .development-page .dev-capability-card {
+    .development-page .dev-capability-card,
+    .development-page .dev-route-card {
         transition: none;
+        animation: none;
     }
 }

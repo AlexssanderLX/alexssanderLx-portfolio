@@ -39,6 +39,7 @@ html[data-boot-state="booting"] .app-boot {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    animation: appBootFailsafe 1.9s ease forwards;
 }
 
 .app-boot__panel {
@@ -89,6 +90,7 @@ html[data-boot-state="ready"] .app-boot {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    animation: none;
 }
 
 .binary-rain {
@@ -145,6 +147,19 @@ html[data-effects-budget="minimal"] *::after {
     }
     to {
         transform: translateX(160%);
+    }
+}
+
+@keyframes appBootFailsafe {
+    0%, 72% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
     }
 }
 

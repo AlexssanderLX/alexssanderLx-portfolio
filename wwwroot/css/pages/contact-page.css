@@ -1,9 +1,9 @@
 .contact-lab {
     position: relative;
     isolation: isolate;
-    width: min(var(--container-wide), calc(100% - clamp(1rem, 5vw, 3rem)));
+    width: 100%;
     margin-inline: auto;
-    padding: clamp(2.5rem, 7vw, 6rem) 0 clamp(3rem, 8vw, 6rem);
+    padding: clamp(2.5rem, 7vw, 6rem) max(clamp(1rem, 5vw, 3rem), calc((100vw - var(--container-wide)) / 2)) clamp(3rem, 8vw, 6rem);
     overflow: clip;
 }
 
@@ -58,25 +58,26 @@
     position: relative;
     display: grid;
     gap: var(--space-4);
-    max-width: 920px;
-    margin-bottom: clamp(1.25rem, 4vw, 2.5rem);
-    padding: clamp(1.35rem, 4vw, 2.6rem);
-    border: 1px solid rgba(40, 216, 238, 0.22);
-    border-radius: clamp(1.35rem, 3vw, 2rem);
+    max-width: 860px;
+    margin-bottom: clamp(1.75rem, 5vw, 3rem);
+    padding: clamp(0.5rem, 2vw, 1.25rem) 0;
+    border: 0;
+    border-radius: 0;
     background:
-        linear-gradient(135deg, rgba(4, 14, 20, 0.88), rgba(5, 20, 16, 0.68)),
+        linear-gradient(135deg, rgba(4, 14, 20, 0.18), rgba(5, 20, 16, 0.1)),
         radial-gradient(circle at 80% 0%, rgba(156, 255, 46, 0.12), transparent 32rem);
-    box-shadow: 0 26px 80px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.06);
-    overflow: hidden;
+    box-shadow: none;
+    overflow: visible;
 }
 
 .contact-hero::after {
     content: "";
     position: absolute;
     inset: auto 0 0;
+    width: min(36rem, 100%);
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--color-cyan), var(--color-accent), transparent);
-    opacity: 0.72;
+    opacity: 0.42;
 }
 
 .contact-console {
@@ -113,13 +114,13 @@
 }
 
 .title {
-    max-width: 12ch;
+    max-width: 14ch;
     margin: 0;
     color: var(--color-text-strong);
     font-family: var(--font-display);
-    font-size: clamp(2.45rem, 7vw, 5.6rem);
+    font-size: clamp(2.35rem, 6vw, 4.85rem);
     font-weight: 950;
-    line-height: 0.9;
+    line-height: 0.94;
     letter-spacing: -0.07em;
 }
 
