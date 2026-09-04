@@ -1222,6 +1222,8 @@
 }
 
 .security-page .sec-lab-orbit > .sec-lab-card {
+    opacity: 1 !important;
+    transform: none;
     animation: none !important;
 }
 
