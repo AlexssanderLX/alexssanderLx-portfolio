@@ -220,6 +220,38 @@
         document.addEventListener("visibilitychange", request);
     };
 
+    const setupScrollFilm = () => {
+        const film = home.querySelector("[data-home-scroll-film]");
+
+        if (!film || isNoMotion || isReduced) {
+            return;
+        }
+
+        let ticking = false;
+
+        const update = () => {
+            const rect = film.getBoundingClientRect();
+            const travel = Math.max(rect.height - window.innerHeight, 1);
+            const progress = Math.min(Math.max((rect.top * -1) / travel, 0), 1);
+            film.style.setProperty("--film-progress", progress.toFixed(3));
+            ticking = false;
+        };
+
+        const request = () => {
+            if (ticking || document.hidden) {
+                return;
+            }
+
+            ticking = true;
+            window.requestAnimationFrame(update);
+        };
+
+        update();
+        window.addEventListener("scroll", request, { passive: true });
+        window.addEventListener("resize", request);
+        document.addEventListener("visibilitychange", request);
+    };
+
     const setupPointerDepth = () => {
         if (!hasFinePointer || isNoMotion || isReduced) {
             return;
@@ -304,6 +336,7 @@
         root.dataset.homeMotionReady = "true";
         setupDirectionalReveals();
         setupPipeline();
+        setupScrollFilm();
         setupScrollProgress();
         setupPointerDepth();
 
