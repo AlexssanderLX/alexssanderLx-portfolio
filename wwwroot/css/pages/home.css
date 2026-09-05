@@ -48,6 +48,7 @@
     opacity: 0.78;
 }
 
+/* Saved effect: mount .home-scroll-film in Index.cshtml to re-enable this scroll-scrub intro. */
 .home-scroll-film {
     --film-progress: 0;
     position: relative;
