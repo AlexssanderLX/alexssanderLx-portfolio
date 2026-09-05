@@ -1,179 +1,176 @@
 @{
-    ViewData["Title"] = "About";
+    ViewData["Title"] = "Profile";
+    ViewData["Description"] = "Technical profile of Alexssander LX: full-stack .NET, DevSecOps, application security, infrastructure and automation.";
 }
 
 <section class="about-page">
-    <header class="about-hero">
+    <section class="about-hero" aria-labelledby="about-title" data-reveal>
         <div class="about-copy">
-            <p class="kicker"><span aria-hidden="true"></span> About</p>
-            <h1>
-                I build with structure, think with clarity,
-                <strong>and improve through practice.</strong>
+            <p class="ui-kicker">technical profile</p>
+            <h1 id="about-title">
+                Full-stack .NET, security mindset,
+                <span>production delivery.</span>
             </h1>
-            <p class="subtitle">
-                I am a backend developer with 2 years of experience solving real problems through
-                C#, ASP.NET Core, Python automation, AI workflows, security practice and creative discipline from piano.
+            <p>
+                Computer Science student and full-stack developer building real SaaS, business systems and internal tools with C#, ASP.NET Core, React, SQL databases, Docker, Linux and applied security.
             </p>
 
-            <div class="about-tags" aria-label="Main skills">
-                <span>C# / ASP.NET Core</span>
-                <span>Python automation</span>
-                <span>Security Web</span>
-                <span>AI workflows</span>
-                <span>Linux VPS</span>
-                <span>Piano and composition</span>
+            <div class="about-hero-actions" aria-label="Profile links">
+                <a class="ui-button ui-button--primary" asp-controller="Home" asp-action="Development">View projects</a>
+                <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="Security">Security cases</a>
             </div>
         </div>
 
-        <aside class="about-terminal" aria-label="About terminal summary">
-            <div class="terminal-dots" aria-hidden="true">
+        <aside class="about-terminal-card" aria-label="Terminal summary">
+            <div class="about-terminal-bar" aria-hidden="true">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <pre><code>root@@alex-lx:~# whoami
-developer | hacker | pianist
-
-&gt; mission
-build clear systems
-automate repetitive work
-protect applications
-
-&gt; focus
-deliver real value
-with discipline and clarity</code></pre>
-            <img src="~/img/alx-mark.svg"
-                 asp-append-version="true"
-                 alt=""
-                 aria-hidden="true"
-                 width="128"
-                 height="128">
+            <pre><code>alex@portfolio:~$ profile --focus
+role: full-stack .NET developer
+core: ASP.NET Core | React | PostgreSQL
+ops: Docker | Linux | Nginx | CI/CD
+sec: OWASP | Burp | Nmap | hardening
+mode: build -> deploy -> validate</code></pre>
         </aside>
-    </header>
+    </section>
 
-    <section class="about-section" aria-labelledby="about-expect-title">
-        <div class="about-card-grid">
-            <article class="about-card">
-                <span class="about-icon">&lt;/&gt;</span>
-                <h2 id="about-expect-title">What I build</h2>
-                <p>Robust web applications, APIs, workflows, automation scripts and projects that solve real problems with clarity and performance.</p>
-                <small>Focus on backend and automation</small>
+    <section class="about-signal-grid" aria-label="Technical highlights" data-reveal>
+        <article class="about-signal-card about-signal-card--primary">
+            <span>01</span>
+            <strong>Real production work</strong>
+            <p>SaaS, ERP/CRM flows, local systems and operational tools used beyond portfolio demos.</p>
+        </article>
+        <article class="about-signal-card">
+            <span>02</span>
+            <strong>Backend as source of truth</strong>
+            <p>Business rules, auth, tenant isolation, validation and integrations stay controlled server-side.</p>
+        </article>
+        <article class="about-signal-card">
+            <span>03</span>
+            <strong>Security connects to code</strong>
+            <p>Offensive practice is translated into safer architecture, access control and remediation decisions.</p>
+        </article>
+    </section>
+
+    <section class="about-section" aria-labelledby="about-focus-title" data-reveal>
+        <div class="about-section-head">
+            <p class="ui-kicker">capability map</p>
+            <h2 id="about-focus-title">Where the work fits</h2>
+        </div>
+
+        <div class="about-focus-grid">
+            <article class="about-focus-card">
+                <div class="about-command">dotnet build</div>
+                <h3>Backend and APIs</h3>
+                <p>C#, .NET 8, ASP.NET Core, MVC/Razor, REST APIs, EF Core, RBAC and business-rule modeling.</p>
             </article>
 
-            <article class="about-card glow-card">
-                <span class="about-icon">SEC</span>
-                <h2>How I think</h2>
-                <p>I like to understand limits, failure points and attack surface. This mindset improves how I design, implement and protect each solution.</p>
-                <small>Security and quality from the start</small>
+            <article class="about-focus-card">
+                <div class="about-command">ui.compose</div>
+                <h3>Frontend systems</h3>
+                <p>React, Next.js, TypeScript, Vite, Razor, Tailwind CSS and responsive product interfaces.</p>
             </article>
 
-            <article class="about-card">
-                <span class="about-icon">AI</span>
-                <h2>What to expect</h2>
-                <p>Continuous growth, strong ownership, practical delivery and the ability to use AI and automation to move faster with control.</p>
-                <small>Discipline, focus and evolution</small>
+            <article class="about-focus-card">
+                <div class="about-command">data.sync</div>
+                <h3>Data and integrations</h3>
+                <p>PostgreSQL, MySQL/MariaDB, SQLite, MongoDB, migrations, REST APIs, webhooks and payments.</p>
+            </article>
+
+            <article class="about-focus-card">
+                <div class="about-command">ops.release</div>
+                <h3>DevOps and infrastructure</h3>
+                <p>Docker, GitHub Actions, SSH deploys, Linux VPS, Nginx, Kestrel, systemd, HTTPS and Cloudflare.</p>
+            </article>
+
+            <article class="about-focus-card">
+                <div class="about-command">sec.audit</div>
+                <h3>AppSec and pentest</h3>
+                <p>OWASP, IDOR/BAC, SQL Injection, SSTI, Burp Suite, Nmap, ffuf, Wireshark and CTF reports.</p>
+            </article>
+
+            <article class="about-focus-card">
+                <div class="about-command">worker.run</div>
+                <h3>Automation and AI</h3>
+                <p>Python, shell workflows, background services, AI integrations, data transformation and process automation.</p>
             </article>
         </div>
     </section>
 
-    <section class="about-section" aria-labelledby="core-areas-title">
-        <p class="kicker"><span aria-hidden="true"></span> Core areas</p>
-        <h2 class="section-title" id="core-areas-title">Where I create value</h2>
-
-        <div class="core-grid">
-            <article class="core-card">
-                <span>DEV</span>
-                <h3>Development</h3>
-                <ul>
-                    <li>Projects in C# and ASP.NET Core</li>
-                    <li>REST APIs and defined architecture</li>
-                    <li>Databases and module design</li>
-                    <li>Readable, testable and sustainable code</li>
-                </ul>
-                <strong>01</strong>
-            </article>
-
-            <article class="core-card green">
-                <span>PY</span>
-                <h3>Python and automation</h3>
-                <ul>
-                    <li>Scripts for repetitive tasks</li>
-                    <li>Data and ETL-style processing</li>
-                    <li>Workflow and integration automation</li>
-                    <li>Machine learning experimentation</li>
-                </ul>
-                <strong>02</strong>
-            </article>
-
-            <article class="core-card">
-                <span>SEC</span>
-                <h3>Security</h3>
-                <ul>
-                    <li>Authentication, sessions and validation</li>
-                    <li>Burp Suite and vulnerability analysis</li>
-                    <li>Enumeration and lab practice</li>
-                    <li>Security as a project standard</li>
-                </ul>
-                <strong>03</strong>
-            </article>
-        </div>
-    </section>
-
-    <section class="about-section" aria-labelledby="process-title">
-        <p class="kicker"><span aria-hidden="true"></span> How I work</p>
-        <h2 class="section-title" id="process-title">Simple process, consistent execution</h2>
-
-        <div class="process-line">
-            <article>
-                <span>1</span>
-                <h3>Understand</h3>
-                <p>I analyze the real problem, restrictions and objective before building.</p>
-            </article>
-            <article>
-                <span>2</span>
-                <h3>Structure</h3>
-                <p>I design the workflow, responsibilities and future maintenance path.</p>
-            </article>
-            <article>
-                <span>3</span>
-                <h3>Build</h3>
-                <p>I implement with clarity, tests, review and continuous improvement.</p>
-            </article>
-            <article>
-                <span>4</span>
-                <h3>Harden</h3>
-                <p>I validate, refactor and reduce risk to deliver reliable solutions.</p>
-            </article>
-        </div>
-    </section>
-
-    <section class="about-section faq-section" aria-labelledby="faq-title">
-        <p class="kicker"><span aria-hidden="true"></span> FAQ</p>
-        <h2 class="section-title" id="faq-title">Common questions</h2>
-
-        <div class="faq-list">
-            <details>
-                <summary>What kind of opportunity am I looking for?</summary>
-                <p>Junior, trainee, internship or collaboration opportunities where backend, automation, security thinking and practical learning matter.</p>
-            </details>
-            <details>
-                <summary>Why include security in a developer portfolio?</summary>
-                <p>Because it improves how I build. Thinking like an attacker helps me make better decisions about validation, boundaries, authentication and safer defaults.</p>
-            </details>
-            <details>
-                <summary>How do I show my work?</summary>
-                <p>Through real projects, public code, visible progress, technical practice and the ability to explain decisions clearly.</p>
-            </details>
-        </div>
-    </section>
-
-    <section class="about-cta">
-        <span class="about-icon">&gt;_</span>
+    <section class="about-console-section" aria-labelledby="about-stack-title" data-reveal>
         <div>
-            <h2>Let's build something useful together.</h2>
-            <p>I am open to challenges, collaborations and opportunities that generate real impact.</p>
+            <p class="ui-kicker">stack snapshot</p>
+            <h2 id="about-stack-title">Tools I use to ship</h2>
         </div>
-        <a class="btn btn-primary" asp-controller="Home" asp-action="Projects">View projects</a>
-        <a class="btn" asp-controller="Home" asp-action="Contact">Contact</a>
+
+        <div class="about-console-grid">
+            <article class="about-mini-terminal">
+                <span>$ backend</span>
+                <p>C# / ASP.NET Core / EF Core / Razor / REST</p>
+            </article>
+            <article class="about-mini-terminal">
+                <span>$ frontend</span>
+                <p>React / Next.js / TypeScript / Tailwind / Vite</p>
+            </article>
+            <article class="about-mini-terminal">
+                <span>$ database</span>
+                <p>PostgreSQL / MySQL / MariaDB / SQLite / MongoDB</p>
+            </article>
+            <article class="about-mini-terminal">
+                <span>$ delivery</span>
+                <p>Docker / GitHub Actions / Linux / Nginx / Cloudflare</p>
+            </article>
+            <article class="about-mini-terminal">
+                <span>$ security</span>
+                <p>OWASP / Burp Suite / Nmap / ffuf / Wireshark</p>
+            </article>
+            <article class="about-mini-terminal">
+                <span>$ quality</span>
+                <p>Clean Architecture / SOLID / TDD / Git Flow / PRs</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="about-flow" aria-labelledby="about-flow-title" data-reveal>
+        <div class="about-section-head">
+            <p class="ui-kicker">working loop</p>
+            <h2 id="about-flow-title">A direct delivery path</h2>
+        </div>
+
+        <ol class="about-flow-list">
+            <li>
+                <span>01</span>
+                <strong>Scope</strong>
+                <p>Understand the business workflow, risk and technical boundary.</p>
+            </li>
+            <li>
+                <span>02</span>
+                <strong>Architect</strong>
+                <p>Shape modules, data, auth, integrations and deployment path.</p>
+            </li>
+            <li>
+                <span>03</span>
+                <strong>Build</strong>
+                <p>Implement backend, UI, persistence, automation and tests.</p>
+            </li>
+            <li>
+                <span>04</span>
+                <strong>Harden</strong>
+                <p>Validate access control, secrets, logs, rollback and production behavior.</p>
+            </li>
+        </ol>
+    </section>
+
+    <section class="about-cta" data-reveal>
+        <div>
+            <p class="ui-kicker">next command</p>
+            <h2>Build, secure and ship useful systems.</h2>
+        </div>
+        <div class="about-hero-actions">
+            <a class="ui-button ui-button--primary" asp-controller="Home" asp-action="Contact">Start a conversation</a>
+            <a class="ui-button ui-button--ghost" asp-controller="Home" asp-action="Development">See work</a>
+        </div>
     </section>
 </section>
