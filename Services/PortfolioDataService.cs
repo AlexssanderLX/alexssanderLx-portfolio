@@ -89,6 +89,25 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
+                Order = 10
+            },
+            new ProjectItem
+            {
+                Name = "Axon Design",
+                Slug = "axon-design",
+                Rank = "AI operations landing",
+                Summary = "AI platform concept - automation, integrations and operational agents",
+                Description = "Axon is a Vercel-hosted product landing page for an AI operations platform. It presents automation, data connections and agent workflows through a cinematic interface.",
+                ImagePath = null,
+                ImageAlt = null,
+                PreviewImagePath = "~/img/ProjectScreens/axon-preview.png",
+                PreviewImageAlt = "Axon Design homepage preview",
+                Tags = new() { "Vercel", "AI platform", "Automation", "Frontend" },
+                GitHubUrl = "https://github.com/AlexssanderLX/Axon---Design",
+                ProjectUrl = "https://axon-design.vercel.app",
+                IsFeatured = false,
+                ContentConfirmed = true,
+                Status = "active",
                 Order = 8
             },
             new ProjectItem
@@ -143,7 +162,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 7
+                Order = 9
             }
         };
 
