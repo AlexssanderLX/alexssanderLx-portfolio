@@ -1,0 +1,24 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="YourRhythm Studio">
+  <defs>
+    <linearGradient id="yr-blue" x1="70" y1="28" x2="104" y2="96" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5BB4FF"/>
+      <stop offset="1" stop-color="#1E5BFF"/>
+    </linearGradient>
+    <linearGradient id="yr-bars" x1="20" y1="40" x2="40" y2="90" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5BB4FF"/>
+      <stop offset="1" stop-color="#1E5BFF" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="116" height="116" rx="28" fill="#080A12"/>
+  <rect x="2.5" y="2.5" width="115" height="115" rx="27.5" stroke="#1B2540" stroke-opacity="0.8"/>
+  <!-- sound bars -->
+  <g fill="url(#yr-bars)">
+    <rect x="16" y="58" width="4" height="14" rx="2"/>
+    <rect x="25" y="46" width="4" height="38" rx="2"/>
+    <rect x="34" y="36" width="4" height="58" rx="2"/>
+  </g>
+  <!-- Y (white) -->
+  <path d="M40 30 L52 30 L60 50 L68 30 L80 30 L66 60 L66 92 L54 92 L54 60 Z" fill="#FFFFFF"/>
+  <!-- R (blue) -->
+  <path d="M70 30 H92 a18 18 0 0 1 0 36 H82 l14 26 H84 L72 68 H82 V58 h10 a8 8 0 0 0 0 -16 H82 V92 H70 Z" fill="url(#yr-blue)"/>
+</svg>
