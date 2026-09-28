@@ -27,6 +27,40 @@ namespace ClientBlog.Services
             },
             new ProjectItem
             {
+                Name = "Cotiza",
+                Slug = "cotiza",
+                Rank = "In development",
+                Summary = "Multi-company management platform for finance, purchasing, exchange, fleet and documents",
+                Description = "Cotiza is a multi-company management platform currently in development. It brings financial operations, purchasing, exchange, fleet and documents into one clear workspace, helping teams consolidate information and make decisions with greater confidence.",
+                ImagePath = "~/img/ProjectFavicons/cotiza.png",
+                ImageAlt = "Cotiza icon",
+                PreviewImagePath = "~/img/ProjectScreens/cotiza-preview.png",
+                PreviewImageAlt = "Cotiza public landing page preview",
+                Tags = new() { "In development", "Multi-company", "ERP", "Finance" },
+                IsFeatured = false,
+                ContentConfirmed = true,
+                Status = "active",
+                Order = 2
+            },
+            new ProjectItem
+            {
+                Name = "M2K Matrix",
+                Slug = "m2k-matrix",
+                Rank = "In development",
+                Summary = "Multi-tenant SaaS foundation for dedicated software, shared services and automated workflows",
+                Description = "M2K Matrix is a SaaS foundation currently in development for operating multiple tailored software experiences on a shared multi-tenant core. The project focuses on reusable platform services, isolated customer contexts and workflow orchestration with n8n.",
+                ImagePath = "~/img/ProjectFavicons/m2k-matrix.png",
+                ImageAlt = "M2K Matrix icon",
+                PreviewImagePath = "~/img/ProjectScreens/m2k-matrix-preview.png",
+                PreviewImageAlt = "M2K Matrix CRM dashboard preview",
+                Tags = new() { "In development", "SaaS", "Multi-tenant", "n8n" },
+                IsFeatured = false,
+                ContentConfirmed = true,
+                Status = "active",
+                Order = 3
+            },
+            new ProjectItem
+            {
                 Name = "Vero Fintech",
                 Slug = "vero-fintech",
                 Rank = "Fintech experience",
@@ -42,7 +76,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 2
+                Order = 4
             },
             new ProjectItem
             {
@@ -61,7 +95,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 11
+                Order = 13
             },
             new ProjectItem
             {
@@ -80,7 +114,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 3
+                Order = 5
             },
             new ProjectItem
             {
@@ -99,7 +133,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 4
+                Order = 6
             },
             new ProjectItem
             {
@@ -118,7 +152,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 5
+                Order = 7
             },
             new ProjectItem
             {
@@ -134,7 +168,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 7
+                Order = 9
             },
             new ProjectItem
             {
@@ -150,7 +184,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 9
+                Order = 11
             },
             new ProjectItem
             {
@@ -168,7 +202,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 8
+                Order = 10
             },
             new ProjectItem
             {
@@ -184,7 +218,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 14
+                Order = 16
             },
             new ProjectItem
             {
@@ -203,7 +237,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 12
+                Order = 14
             },
             new ProjectItem
             {
@@ -221,7 +255,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 6
+                Order = 8
             },
             new ProjectItem
             {
@@ -239,7 +273,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 10
+                Order = 12
             },
             new ProjectItem
             {
@@ -257,7 +291,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 13
+                Order = 15
             }
         };
 
