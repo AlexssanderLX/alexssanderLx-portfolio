@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">M2K Matrix</title>
+  <defs>
+    <linearGradient id="matrix" x1="10" y1="8" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#59f0bd"/>
+      <stop offset="1" stop-color="#00b779"/>
+    </linearGradient>
+  </defs>
+  <rect x="5" y="5" width="54" height="54" rx="16" fill="#071612"/>
+  <rect x="5.75" y="5.75" width="52.5" height="52.5" rx="15.25" fill="none" stroke="#25d59b" stroke-opacity=".42" stroke-width="1.5"/>
+  <g fill="none" stroke="url(#matrix)" stroke-width="3.25">
+    <rect x="17" y="17" width="11" height="11" rx="2.75"/>
+    <rect x="36" y="17" width="11" height="11" rx="2.75"/>
+    <rect x="17" y="36" width="11" height="11" rx="2.75"/>
+    <rect x="36" y="36" width="11" height="11" rx="2.75"/>
+  </g>
+</svg>
