@@ -61,6 +61,24 @@ namespace ClientBlog.Services
             },
             new ProjectItem
             {
+                Name = "Stage Offers",
+                Slug = "stage-offers",
+                Rank = "Product design collaboration",
+                Summary = "Offer operations platform designed for a team — research, construction, funnels and collaboration",
+                Description = "Stage Offers is an offer operations platform I designed for a product team, not a personal product. The experience brings research, offer building, kanban, funnel mapping, AI assistance and team collaboration into one cohesive workspace.",
+                ImagePath = "~/img/ProjectFavicons/stage-offers.png",
+                ImageAlt = "Stage Offers icon",
+                PreviewImagePath = "~/img/ProjectScreens/stage-offers-preview.png",
+                PreviewImageAlt = "Stage Offers landing page preview",
+                Tags = new() { "Product design", "UX/UI", "SaaS" },
+                ProjectUrl = "https://stage-offers.vercel.app/",
+                IsFeatured = false,
+                ContentConfirmed = true,
+                Status = "active",
+                Order = 4
+            },
+            new ProjectItem
+            {
                 Name = "Vero Fintech",
                 Slug = "vero-fintech",
                 Rank = "Fintech experience",
