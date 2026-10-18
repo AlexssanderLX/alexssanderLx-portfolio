@@ -61,6 +61,55 @@ namespace ClientBlog.Services
             },
             new ProjectItem
             {
+                Name = "Cantata Timeline",
+                Slug = "cantata-timeline",
+                Rank = "In development",
+                Summary = "Live presentation timeline for coordinated cues, churches and performance teams",
+                Description = "Cantata Timeline keeps presentation cues, entrances and key moments synchronized in one shared timeline. The product is evolving with secure church workspaces, role-based access and a focused live dashboard.",
+                ImagePath = "~/img/ProjectFavicons/cantata-timeline.svg",
+                ImageAlt = "Cantata Timeline icon",
+                PreviewImagePath = "~/img/ProjectScreens/cantata-preview.jpg",
+                PreviewImageAlt = "Cantata Timeline public homepage preview",
+                Tags = new() { "In development", "Next.js", "Supabase", "Multi-tenant" },
+                ProjectUrl = "https://cantata-timeline.vercel.app/",
+                IsFeatured = false,
+                ContentConfirmed = true,
+                Status = "active",
+                Order = 4
+            },
+            new ProjectItem
+            {
+                Name = "Foundation",
+                Slug = "foundation",
+                Rank = "Developer platform",
+                Summary = "Reusable libraries for product infrastructure, integrations and shared application capabilities",
+                Description = "Foundation is a modular collection of reusable .NET, TypeScript, React and Python packages. It provides common product capabilities without forcing applications into a single framework or business domain.",
+                ImagePath = "~/img/ProjectFavicons/foundation.svg",
+                ImageAlt = "Foundation icon",
+                Tags = new() { ".NET", "TypeScript", "Python", "Reusable libraries" },
+                IsFeatured = false,
+                ContentConfirmed = true,
+                Status = "active",
+                Order = 5
+            },
+            new ProjectItem
+            {
+                Name = "Pentra",
+                Slug = "pentra",
+                Rank = "Security platform",
+                Summary = "Pentest orchestration for authorized scope, methodology, evidence and reporting",
+                Description = "Pentra is a modular pentest orchestration platform for authorized engagements. Its current checkpoint organizes projects, approved targets, methodology phases, tool selection, evidence foundations and reporting without executing scanners.",
+                ImagePath = "~/img/ProjectFavicons/pentra.svg",
+                ImageAlt = "Pentra icon",
+                Tags = new() { "ASP.NET Core", "Security", "SQLite", "Docker" },
+                GitHubUrl = "https://github.com/AlexssanderLX/Pentra",
+                IsFeatured = false,
+                ContentConfirmed = true,
+                Status = "active",
+                Order = 6
+            },
+            new ProjectItem
+            {
                 Name = "Stage Offers",
                 Slug = "stage-offers",
                 Rank = "Product design collaboration",
@@ -75,7 +124,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 4
+                Order = 7
             },
             new ProjectItem
             {
@@ -94,7 +143,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 4
+                Order = 7
             },
             new ProjectItem
             {
@@ -113,7 +162,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 13
+                Order = 16
             },
             new ProjectItem
             {
@@ -132,7 +181,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 5
+                Order = 8
             },
             new ProjectItem
             {
@@ -151,7 +200,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 6
+                Order = 9
             },
             new ProjectItem
             {
@@ -170,7 +219,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 7
+                Order = 10
             },
             new ProjectItem
             {
@@ -186,7 +235,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 9
+                Order = 12
             },
             new ProjectItem
             {
@@ -202,7 +251,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 11
+                Order = 14
             },
             new ProjectItem
             {
@@ -220,7 +269,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 10
+                Order = 13
             },
             new ProjectItem
             {
@@ -236,7 +285,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 16
+                Order = 19
             },
             new ProjectItem
             {
@@ -255,7 +304,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 14
+                Order = 17
             },
             new ProjectItem
             {
@@ -273,7 +322,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 8
+                Order = 11
             },
             new ProjectItem
             {
@@ -291,7 +340,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 12
+                Order = 15
             },
             new ProjectItem
             {
@@ -309,7 +358,7 @@ namespace ClientBlog.Services
                 IsFeatured = false,
                 ContentConfirmed = true,
                 Status = "active",
-                Order = 15
+                Order = 18
             }
         };
 

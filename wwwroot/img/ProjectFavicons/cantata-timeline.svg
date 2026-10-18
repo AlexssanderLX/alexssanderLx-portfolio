@@ -1,0 +1,16 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cantata Timeline">
+  <rect width="48" height="48" rx="11" fill="#0d1e15"/>
+  <g stroke="#faf8f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M24 44 C24 37 23 31 24 23"/>
+    <g transform="translate(24 22)">
+      <path d="M0 0 C6 -4 6 -13 0 -18 C-6 -13 -6 -4 0 0 Z"/>
+      <path d="M0 -3 L0 -15"/>
+    </g>
+    <g transform="translate(24 28) rotate(44)">
+      <path d="M0 0 C6 -4 6 -13 0 -18 C-6 -13 -6 -4 0 0 Z" transform="scale(0.82)"/>
+    </g>
+    <g transform="translate(24 31) rotate(-44)">
+      <path d="M0 0 C6 -4 6 -13 0 -18 C-6 -13 -6 -4 0 0 Z" transform="scale(0.82)"/>
+    </g>
+  </g>
+</svg>
