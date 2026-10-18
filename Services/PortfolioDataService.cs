@@ -317,6 +317,25 @@ namespace ClientBlog.Services
         {
             new CtfCase
             {
+                Name = "Support",
+                Slug = "support",
+                Platform = "TryHackMe",
+                Url = "https://tryhackme.com/room/support",
+                ImagePath = "~/img/ProjectsIMGs/Support.png",
+                ImageAlt = "Support TryHackMe room",
+                ReportPdfPath = "~/reports/ctf/support-report.pdf",
+                Difficulty = "Medium",
+                DifficultyClass = "medium",
+                Scenario = "Support operations web platform with exposed application internals, weak authorization boundaries and an administrative command execution path.",
+                Vector = "Chained source disclosure, exposed secrets, object-level authorization weaknesses and a predictable administrative credential into controlled command execution as the web service account.",
+                Learning = "High-impact compromise often comes from combining distinct failures: information disclosure, weak credential hygiene, broken authorization and unsafe command handling.",
+                Mitigation = "Use strict file allowlists, rotate and vault secrets, enforce server-side object authorization, distrust client-controlled role cookies and replace shell execution with fixed server-side operations.",
+                Tags = new() { "Web", "Source disclosure", "IDOR", "Command injection", "RCE" },
+                IsFeatured = false,
+                Order = 2
+            },
+            new CtfCase
+            {
                 Name = "Injectics",
                 Platform = "TryHackMe",
                 Url = "https://tryhackme.com/room/injectics",
@@ -330,7 +349,7 @@ namespace ClientBlog.Services
                 Mitigation = "Parameterized queries, context-aware sanitization, strict input validation and a properly configured WAF.",
                 Tags = new() { "Injection", "Web", "Auth bypass" },
                 IsFeatured = false,
-                Order = 2
+                Order = 3
             },
             new CtfCase
             {
@@ -347,7 +366,7 @@ namespace ClientBlog.Services
                 Mitigation = "Least privilege, exposed-service review, credential hygiene and consistent patch management.",
                 Tags = new() { "Enumeration", "Linux", "PrivEsc" },
                 IsFeatured = false,
-                Order = 3
+                Order = 4
             },
             new CtfCase
             {
@@ -366,7 +385,7 @@ namespace ClientBlog.Services
                 Mitigation = "Harden exposed services, reduce information leakage, validate server-side behavior and keep authentication controls consistent.",
                 Tags = new() { "Web", "Analysis", "Enumeration" },
                 IsFeatured = false,
-                Order = 4
+                Order = 5
             },
             new CtfCase
             {
@@ -385,7 +404,7 @@ namespace ClientBlog.Services
                 Mitigation = "Reduce exposed telemetry, harden services, review access controls and monitor suspicious behavior with actionable logging.",
                 Tags = new() { "Monitoring", "Enumeration", "Analysis" },
                 IsFeatured = false,
-                Order = 5
+                Order = 6
             },
             new CtfCase
             {
@@ -421,7 +440,7 @@ namespace ClientBlog.Services
                 Mitigation = "State verification at each step, token expiration, rate limiting and authentication event logging.",
                 Tags = new() { "Auth bypass", "RCE", "Web" },
                 IsFeatured = false,
-                Order = 6
+                Order = 7
             },
             new CtfCase
             {
@@ -438,7 +457,7 @@ namespace ClientBlog.Services
                 Mitigation = "Remove unnecessary files, handle errors without leaking internals and enforce consistent access control.",
                 Tags = new() { "Enumeration", "Web", "Exploitation" },
                 IsFeatured = false,
-                Order = 7
+                Order = 8
             },
             new CtfCase
             {
@@ -455,7 +474,7 @@ namespace ClientBlog.Services
                 Mitigation = "Remove debug information, apply least privilege and review web server configuration.",
                 Tags = new() { "Linux", "PrivEsc", "Web" },
                 IsFeatured = false,
-                Order = 8
+                Order = 9
             },
             new CtfCase
             {
@@ -472,7 +491,7 @@ namespace ClientBlog.Services
                 Mitigation = "Modern algorithms, secure key management, context separation and server-side validation.",
                 Tags = new() { "Cryptography", "RCE", "Analysis" },
                 IsFeatured = false,
-                Order = 9
+                Order = 10
             },
             new CtfCase
             {
@@ -489,7 +508,7 @@ namespace ClientBlog.Services
                 Mitigation = "Continuous maintenance, security updates, admin panel access restriction and periodic scanning.",
                 Tags = new() { "CVE", "Enumeration", "RCE" },
                 IsFeatured = false,
-                Order = 10
+                Order = 11
             },
             new CtfCase
             {
@@ -506,7 +525,7 @@ namespace ClientBlog.Services
                 Mitigation = "CVE monitoring, structured patch management and OS hardening.",
                 Tags = new() { "Recent CVE", "PrivEsc", "RCE" },
                 IsFeatured = false,
-                Order = 11
+                Order = 12
             }
         };
 
